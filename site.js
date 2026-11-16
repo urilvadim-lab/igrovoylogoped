@@ -4,7 +4,7 @@
   var cur=document.body.getAttribute("data-page")||"";
   var chev='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
   var svc=[["work","Индивидуальная работа","Консультации, сопровождение, группа","work/"],["toilet","Туалетный навык","Курс, руководство и сопровождение","toilet/"],["speech","Запуск речи","От первых звуков до фраз","speech/"],["behavior","Работа с поведением","Истерики, отказы, правила","behavior/"]];
-  var prod=[["course","Видеокурс «Какаем сидя»","5 видеолекций и материалы","products/course/"],["guide-toilet","Руководство по туалетному навыку","PDF для самостоятельной работы","products/guide-toilet/"],["guide-behavior","Руководство: истерики и протесты","Алгоритм на принципах ABA","products/guide-behavior/"]];
+  var prod=[["course","Видеокурс «Дефекация сидя»","5 видеолекций и материалы","products/course/"],["guide-toilet","Руководство по туалетному навыку","PDF для самостоятельной работы","products/guide-toilet/"],["guide-behavior","Руководство: истерики и протесты","Алгоритм на принципах ABA","products/guide-behavior/"]];
   var about=[["about","Обо мне","Образование и подход","about/"],["aba","Метод ABA","Как это работает","aba/"],["team","Команда специалистов","Роли и взаимодействие","team/"]];
   function menu(id,label,list,on){
     return '<div class="dd'+(on?' on':'')+'" id="'+id+'"><button type="button">'+label+' '+chev+'</button><div class="menu">'+
