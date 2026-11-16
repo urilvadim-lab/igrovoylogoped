@@ -62,4 +62,38 @@
     d.querySelectorAll(".chs-b").forEach(function(b){ b.addEventListener("click",function(){ try{ navigator.clipboard.writeText(topic); }catch(_){} }); });
     document.body.appendChild(d);
   });
+
+  /* ---------- лёгкие звуки интерфейса (WebAudio, без файлов) ---------- */
+  var sndOn=true; try{ sndOn=localStorage.getItem("snd")!=="0"; }catch(e){}
+  var AC=null, lastT=0;
+  function ctx(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==="suspended") AC.resume(); return AC; }
+  function tone(f0,f1,dur,vol,type,delay){
+    var a=ctx(); if(!a||!sndOn) return;
+    var t=a.currentTime+(delay||0), o=a.createOscillator(), g=a.createGain();
+    o.type=type||"sine"; o.frequency.setValueAtTime(f0,t); o.frequency.exponentialRampToValueAtTime(f1,t+dur);
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol,t+0.03); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+dur+0.02);
+  }
+  /* мягкий «колокольчик»: основной тон + тихие обертоны, плавное затухание */
+  function bell(f,vol,dur,delay){ [[1,1],[2.0,.28],[3.0,.1]].forEach(function(p){ tone(f*p[0],f*p[0],dur/(p[0]*.9),vol*p[1],"sine",delay); }); }
+  var SND={
+    card:function(){ bell(659.25,.03,.9); },                          /* карточки «Узнаёте свою ситуацию» */
+    cta:function(){ bell(523.25,.028,.9); bell(783.99,.026,1,.1); }   /* кнопки «Записаться» */
+  };
+  var armed=false;
+  function arm(){ if(armed) return; armed=true; ctx(); }
+  ["pointerdown","keydown","touchstart"].forEach(function(ev){ window.addEventListener(ev,arm,{once:true,passive:true}); });
+  var CARD=".case", CTA=".js-choose,.nav>a.btn";
+  document.addEventListener("pointerover",function(e){
+    if(!armed||e.pointerType==="touch") return;
+    var t=e.target.closest&&e.target.closest(CTA+","+CARD); if(!t||t.__s) return;
+    if(e.relatedTarget&&t.contains(e.relatedTarget)) return;
+    var n=Date.now(); if(n-lastT<400) return; lastT=n;
+    t.__s=true; setTimeout(function(){t.__s=false;},3500);
+    if(t.matches(CTA)) SND.cta(); else SND.card();
+  });
+  var sb=document.createElement("button"); sb.className="sndbtn"; sb.type="button"; sb.setAttribute("aria-label","Звуки сайта");
+  function icon(){ sb.innerHTML=sndOn?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>'; sb.title=sndOn?"Выключить звуки":"Включить звуки"; }
+  sb.onclick=function(e){ e.stopPropagation(); sndOn=!sndOn; try{localStorage.setItem("snd",sndOn?"1":"0");}catch(_){} icon(); if(sndOn){ arm(); SND.card(); } };
+  icon(); document.body.appendChild(sb);
 })();

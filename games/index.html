@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Запуск речи — игровые занятия для детей</title>
+<title>Игры и упражнения для запуска и развития речи</title>
 <meta name="description" content="Сюжетные картинки и игры для развития речи ребёнка: связный рассказ, предлоги, ответы на вопросы. Занятия для родителей и логопедов. Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -97,6 +97,31 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
   .stage{order:2;margin-top:10px}.stage img.nm{height:330px}.bubble{left:2%;top:0}
   .how{grid-template-columns:1fr}
 }
+.agehead{margin:30px 0 6px}.agehead h2{margin:0 0 6px}
+.agenav{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:14px 0 8px}
+.agenav a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-decoration:none;color:var(--ink);border-radius:28px;padding:20px 22px 22px;box-shadow:var(--shadow);overflow:hidden;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s;background:var(--card)}
+.agenav a:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(120,80,30,.24)}
+.agenav .ag1{background:linear-gradient(160deg,#fff3dc,#ffe0a8)}.agenav .ag2{background:linear-gradient(160deg,#e8f5ec,#c6e6d3)}.agenav .ag3{background:linear-gradient(160deg,#f1ebff,#d9ccf5)}
+.agpics{display:flex;align-items:flex-end;gap:6px;height:84px;margin-bottom:8px}
+.agpics img{height:100%;width:auto;max-width:96px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(80,50,10,.22));animation:agb 3.6s ease-in-out infinite}
+.agpics img:nth-child(2){height:78%;animation-delay:-1.2s}.agpics img:nth-child(3){height:86%;animation-delay:-2.4s}
+@keyframes agb{50%{transform:translateY(-6px) rotate(2deg)}}
+.agenav b{font-size:clamp(28px,3.4vw,38px);line-height:1.05}
+.agenav em{font-style:normal;font-weight:800;font-size:16px;color:var(--ink)}
+.agenav .agcount{color:var(--ink2);font-weight:700;font-size:14px}
+.agenav .agbtn{margin-top:12px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(240,166,43,.4);transition:transform .25s}
+.agenav .ag2 .agbtn{background:#5b9d83;box-shadow:0 8px 18px rgba(91,157,131,.4)}.agenav .ag3 .agbtn{background:#8d6bd6;box-shadow:0 8px 18px rgba(141,107,214,.4)}
+.agenav a:hover .agbtn{transform:translateY(3px)}
+@media (max-width:760px){.agenav{grid-template-columns:1fr}.agpics{height:70px}}
+/* листание страниц по 6 занятий */
+.pgnav{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 4px}
+.pgbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--accent);color:#fff;font:800 26px/1 "Nunito",system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 22px rgba(240,166,43,.4);transition:transform .25s cubic-bezier(.3,1.5,.5,1),opacity .2s;display:grid;place-items:center;padding:0 0 3px}
+.pgbtn:hover:not(:disabled){transform:scale(1.1)}
+.pgbtn:disabled{opacity:.3;cursor:default;box-shadow:none}
+.pgdots{display:flex;align-items:center;gap:8px}
+.pgdots i{display:block;width:11px;height:11px;border-radius:6px;background:var(--bg2);transition:width .3s,background .3s;cursor:pointer}
+.pgdots i.on{width:30px;background:var(--accent)}
+.pgcount{font-weight:800;color:var(--ink2);min-width:58px;text-align:center;font-size:15px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.bubble{opacity:1;transform:none}}
 .homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
 </head>
@@ -109,7 +134,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
       <h1>Запуск речи</h1>
       <p class="sub">Игровые занятия для детей и родителей</p>
       <p class="lead">Картинки, игры и подсказки, о чём спросить ребёнка. Выберите занятие и начните прямо сейчас, это бесплатно.</p>
-      <a class="cta" href="#lessons">Выбрать занятие ↓</a>
+      <a class="cta" href="#agesTitle">Выбрать игры ↓</a>
     </div>
     <div class="stage reveal" style="--d:.2s">
       <div class="bubble">Привет! Я Александра. Давайте будем играть и учиться красиво говорить!</div>
@@ -128,9 +153,63 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
     <div><b>3</b>Задавайте вопросы, которые видны справа, и хвалите за старание.</div>
   </div>
 
-  <h2 id="lessons">Логопедические занятия 3+</h2>
-  <p class="secsub">Картинки, игры и упражнения для детей от 3 лет: рассказ, предлоги, последовательность действий.</p>
-  <div class="cards">
+  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Нажмите на нужный блок, и страница сама спустится к нужным играм.</p></div>
+  <nav class="agenav reveal" id="ages" aria-label="Выбор по цели">
+    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt=""><img src="assets/sp_boat.png" alt=""><img src="assets/hr_phone.png" alt=""></div><b>Запуск речи</b><em>Если ребёнок пока не говорит или говорит мало</em><span class="agcount">5 игр</span><span class="agbtn">Смотреть игры ↓</span></a>
+    <a href="#develop" class="ag2"><div class="agpics"><img src="assets/narrator_book.png" alt=""><img src="assets/toy_ball.png" alt=""><img src="assets/sp_train.png" alt=""></div><b>Развитие речи</b><em>Если ребёнок уже говорит</em><span class="agcount">10 игр</span><span class="agbtn">Смотреть игры ↓</span></a>
+  </nav>
+    <h2 id="launch">Запуск речи</h2>
+  <p class="secsub">Для детей, которые пока не говорят или говорят мало: слушаем, узнаём, просим, повторяем.</p>
+  <div class="cards" data-pager>
+    <a class="lcard reveal" style="--d:.1s" href="lesson.html?l=4">
+      <div class="cover"><img src="img/sounds_cover.jpg" alt=""><span class="num">Игра</span></div>
+      <div class="body">
+        <h3>Кто как говорит: ферма</h3>
+        <p>10 животных фермы по одному: слушаем настоящий звук, повторяем, а потом играем в «Угадай, кто говорит». Для самых первых слов.</p>
+        <div class="tags"><span class="tag">10 животных</span><span class="tag">слушаем</span><span class="tag">угадываем</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2s" href="lesson.html?l=5">
+      <div class="cover"><img src="img/blow/bg_sea.jpg" alt=""><span class="num">Игра</span></div>
+      <div class="body">
+        <h3>Дуем и плывём</h3>
+        <p>Дуем на экран, и кораблик плывёт, гудим «у-у-у», и паровозик едет, надуваем шарик. Игра с микрофоном для дыхания и голоса.</p>
+        <div class="tags"><span class="tag">3 игры</span><span class="tag">дыхание</span><span class="tag">голос</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3s" href="lesson.html?l=7">
+      <div class="cover"><img src="img/cover_voice.jpg" alt=""><span class="num">Игра</span></div>
+      <div class="body">
+        <h3>Голосовой зверёк</h3>
+        <p>Любой звук малыша оживляет зверька: корову, кошку, собаку, утку, лошадь и других. Пять звёздочек за пять звуков, а в награду настоящий голос зверя.</p>
+        <div class="tags"><span class="tag">10 зверей</span><span class="tag">голос</span><span class="tag">микрофон</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.4s" href="lesson.html?l=10">
+      <div class="cover"><img src="img/cover_want.jpg" alt=""><span class="num">Игра</span></div>
+      <div class="body">
+        <h3>Хочу!</h3>
+        <p>Помогаем Тёме и Оле попросить: в облачке нарисовано, чего хочет герой, а ребёнок выбирает картинку и говорит маме «дай».</p>
+        <div class="tags"><span class="tag">2 героя</span><span class="tag">по 7 заданий</span><span class="tag">просьба</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.5s" href="lesson.html?l=11">
+      <div class="cover"><img src="img/cover_hear.jpg" alt=""><span class="num">Игра</span></div>
+      <div class="body">
+        <h3>Что звучит?</h3>
+        <p>Слушаем настоящие звуки: дрель, телефон, дождь, машина, поезд и другие. Ребёнок выбирает картинку, которая так звучит.</p>
+        <div class="tags"><span class="tag">2 игры</span><span class="tag">слуховое внимание</span><span class="tag">реальные звуки</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a><div class="soon reveal" style="--d:.3s"><div><span>🌱</span>Скоро: звери, птицы, транспорт, звуки дома</div></div>
+  </div>
+  <h2 id="develop">Развитие речи</h2>
+  <p class="secsub">Для детей, которые уже говорят: слоги и слова, предлоги, фразы, эмоции, рассказ по картинкам.</p>
+  <div class="cards" data-pager>
     <a class="lcard reveal" style="--d:.1s" href="lesson.html?l=1">
       <div class="cover"><img src="img/01_olya_morning.jpg" alt=""><span class="num">Занятие 1</span></div>
       <div class="body">
@@ -184,39 +263,45 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
         <div class="tags"><span class="tag">4 уровня</span><span class="tag">внимание</span><span class="tag">проговаривание</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
-    </a></div>
-
-  <h2>Запуск речи для малышей</h2>
-  <p class="secsub">Первые звуки и слова, примерно от 1,5 до 3 лет. Занятия вместе с родителем: слушаем, узнаём, повторяем.</p>
-  <div class="cards">
-    <a class="lcard reveal" style="--d:.1s" href="lesson.html?l=4">
-      <div class="cover"><img src="img/sounds_cover.jpg" alt=""><span class="num">Игра</span></div>
+    </a>
+    <a class="lcard reveal" style="--d:.1s" href="lesson.html?l=12">
+      <div class="cover"><img src="img/gram/g1_s6.jpg" alt=""><span class="num">Занятие 7</span></div>
       <div class="body">
-        <h3>Кто как говорит: ферма</h3>
-        <p>10 животных фермы по одному: слушаем настоящий звук, повторяем, а потом играем в «Угадай, кто говорит». Для самых первых слов.</p>
-        <div class="tags"><span class="tag">10 животных</span><span class="tag">слушаем</span><span class="tag">угадываем</span></div>
+        <h3>Один день в детском саду</h3>
+        <p>Восемь сцен с Олей: куда пошла, где сидит, чем рисует. Предлоги, падежи, ответы на вопросы и связный рассказ.</p>
+        <div class="tags"><span class="tag">8 сцен</span><span class="tag">предлоги</span><span class="tag">связный рассказ</span></div>
         <span class="go">Открыть игру ›</span>
       </div>
     </a>
-    <a class="lcard reveal" style="--d:.2s" href="lesson.html?l=5">
-      <div class="cover"><img src="img/blow/bg_sea.jpg" alt=""><span class="num">Игра</span></div>
+    <a class="lcard reveal" style="--d:.2s" href="lesson.html?l=13">
+      <div class="cover"><img src="img/gram/g2_bg.jpg" alt=""><span class="num">Занятие 8</span></div>
       <div class="body">
-        <h3>Дуем и плывём</h3>
-        <p>Дуем на экран, и кораблик плывёт, гудим «у-у-у», и паровозик едет, надуваем шарик. Игра с микрофоном для дыхания и голоса.</p>
-        <div class="tags"><span class="tag">3 игры</span><span class="tag">дыхание</span><span class="tag">голос</span></div>
+        <h3>Чья вещь? Кому отдадим?</h3>
+        <p>Перетаскиваем вещи Мише и Оле: кому отдали, чья это вещь, какая она. Род, число и падежи.</p>
+        <div class="tags"><span class="tag">4 уровня</span><span class="tag">род и число</span><span class="tag">падежи</span></div>
         <span class="go">Открыть игру ›</span>
       </div>
     </a>
-        <a class="lcard reveal" style="--d:.3s" href="lesson.html?l=7">
-      <div class="cover"><img src="img/cover_voice.jpg" alt=""><span class="num">Игры</span></div>
+    <a class="lcard reveal" style="--d:.3s" href="lesson.html?l=14">
+      <div class="cover"><img src="img/gram/g3_s1.jpg" alt=""><span class="num">Занятие 9</span></div>
       <div class="body">
-        <h3>Голос, просьба, слух</h3>
-        <p>Голосовой зверёк оживает от любого звука ребёнка, «Хочу!» учит просить, а «Что звучит?» развивает слуховое внимание.</p>
-        <div class="tags"><span class="tag">3 игры</span><span class="tag">голос</span><span class="tag">просьба</span><span class="tag">слух</span></div>
-        <span class="go">Открыть игры ›</span>
+        <h3>Кто что чувствует?</h3>
+        <p>Узнаём и называем эмоции, объясняем причины и ищем, что сказать в трудной ситуации.</p>
+        <div class="tags"><span class="tag">8 ситуаций</span><span class="tag">эмоции</span><span class="tag">причины</span></div>
+        <span class="go">Открыть игру ›</span>
       </div>
-    </a><div class="soon reveal" style="--d:.3s"><div><span>🌱</span>Скоро: звери, птицы, транспорт, звуки дома</div></div>
+    </a>
+    <a class="lcard reveal" style="--d:.4s" href="lesson.html?l=15">
+      <div class="cover"><img src="img/gram/g4_a1.jpg" alt=""><span class="num">Занятие 10</span></div>
+      <div class="body">
+        <h3>Что здесь не так?</h3>
+        <p>Находим нелепость на картинке, объясняем, почему так неудобно, и исправляем предложение.</p>
+        <div class="tags"><span class="tag">8 картинок</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
+        <span class="go">Открыть игру ›</span>
+      </div>
+    </a>
   </div>
+
   <h2>Об авторе</h2>
   <div class="about reveal">
     <img src="assets/alexandra.jpg" alt="Александра Карачинцева">
@@ -233,5 +318,37 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
   </div>
   <footer>© Александра Карачинцева · Запуск речи</footer>
 </main>
+<script>
+/* По 6 занятий на странице, стрелки влево-вправо, точки, свайп и клавиши */
+(function(){
+  var size=parseInt(new URLSearchParams(location.search).get("pp"),10)||6;
+  document.querySelectorAll("[data-pager]").forEach(function(box){
+    var items=Array.prototype.slice.call(box.children);
+    var soon=items.filter(function(e){return e.classList.contains("soon");});
+    var cards=items.filter(function(e){return !e.classList.contains("soon");});
+    var pages=[]; for(var i=0;i<cards.length;i+=size) pages.push(cards.slice(i,i+size));
+    if(pages.length<2) return;
+    var last=pages[pages.length-1]; if(last.length<size) soon.forEach(function(s){last.push(s);});
+    else if(soon.length) pages.push(soon);
+    var cur=0, nav=document.createElement("div"); nav.className="pgnav";
+    nav.innerHTML='<button class="pgbtn" type="button" aria-label="Назад">‹</button><div class="pgdots"></div><span class="pgcount"></span><button class="pgbtn" type="button" aria-label="Вперёд">›</button>';
+    box.parentNode.insertBefore(nav,box.nextSibling);
+    var prev=nav.children[0], next=nav.children[3], dots=nav.children[1], cnt=nav.children[2];
+    pages.forEach(function(_,i){var d=document.createElement("i"); d.onclick=function(){go(i);}; dots.appendChild(d);});
+    function go(n){
+      cur=Math.max(0,Math.min(pages.length-1,n));
+      items.forEach(function(e){e.style.display="none";});
+      pages[cur].forEach(function(e,k){e.style.display=""; e.style.setProperty("--d",(k*0.08)+"s");});
+      Array.prototype.forEach.call(dots.children,function(d,i){d.className=i===cur?"on":"";});
+      cnt.textContent=(cur+1)+" / "+pages.length; prev.disabled=cur===0; next.disabled=cur===pages.length-1;
+    }
+    prev.onclick=function(){go(cur-1);}; next.onclick=function(){go(cur+1);};
+    var x0=null; box.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;},{passive:true});
+    box.addEventListener("touchend",function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>60) go(cur+(dx<0?1:-1)); x0=null; },{passive:true});
+    box.setAttribute("tabindex","0"); box.addEventListener("keydown",function(e){ if(e.key==="ArrowRight") go(cur+1); if(e.key==="ArrowLeft") go(cur-1); });
+    go(0);
+  });
+})();
+</script>
 </body>
 </html>

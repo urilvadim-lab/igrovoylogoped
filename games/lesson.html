@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Запуск речи — картинки для диагностики</title>
-<meta name="description" content="Сюжетные картинки для диагностики речи и связного рассказа у детей 5–7 лет. Александра Карачинцева.">
+<meta name="description" content="Сюжетные картинки для диагностики речи и связного рассказа. Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -247,6 +247,8 @@ body.nofx .fxl,body.nofx .hov{display:none}
 .want{position:absolute;inset:0;container-type:size;display:grid;grid-template-columns:26% 1fr 26%;gap:1.5cqw;padding:2cqw;background:linear-gradient(160deg,#fff4dc,#ffe6bf)}
 .wn-tema{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;min-height:0}
 .wn-kid{height:72%;object-fit:contain;position:relative;z-index:1}
+.wn-kid.hop{animation:kidhop .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes kidhop{0%,100%{transform:translateY(0)}30%{transform:translateY(-6cqw) rotate(-3deg)}60%{transform:translateY(0) rotate(2deg)}80%{transform:translateY(-2cqw)}}
 .wn-think{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20cqw;height:17cqw;background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 1cqw 2cqw rgba(120,80,30,.18);animation:thinkf 3s ease-in-out infinite}
 .wn-think::after{content:"";position:absolute;bottom:-2cqw;left:34%;width:3.2cqw;height:3.2cqw;border-radius:50%;background:#fff;box-shadow:-1.6cqw 2.2cqw 0 -.8cqw #fff}
 .wn-think img{width:70%;height:70%;object-fit:contain}
@@ -378,6 +380,65 @@ body.nofx .fxl,body.nofx .hov{display:none}
   .stage{flex:none}
   .side{width:auto;max-height:none;padding-bottom:90px}
 }
+
+/* ===== Игры l=12–15 ===== */
+.gx{position:absolute;inset:0;overflow:hidden;background:var(--card)}
+.gx-bgblur{display:none}
+.gx-box{position:absolute;inset:0}
+.gx-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:gxkb 18s ease-in-out infinite alternate,gxfade .5s ease both}
+@keyframes gxkb{from{transform:scale(1)}to{transform:scale(1.035)}}
+@keyframes gxfade{from{opacity:0}to{opacity:1}}
+.gx-dyn{position:absolute;inset:0}
+.gx-drag{position:absolute;touch-action:none;cursor:grab;z-index:4;filter:drop-shadow(0 8px 8px rgba(80,50,10,.3));transition:left .45s cubic-bezier(.3,1.3,.5,1),top .45s cubic-bezier(.3,1.3,.5,1),width .4s;animation:gxwig 2.4s ease-in-out infinite}
+.gx-drag img{width:100%;display:block;pointer-events:none;-webkit-user-drag:none}
+.gx-drag.dragging{transition:none;cursor:grabbing;animation:none;transform:scale(1.08);z-index:7}
+.gx-drag.placed{animation:gxplaced .6s cubic-bezier(.3,1.6,.5,1);cursor:default;pointer-events:none}
+@keyframes gxwig{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-1.2%)}}
+@keyframes gxplaced{0%{transform:scale(1.25)}60%{transform:scale(.92)}100%{transform:scale(1)}}
+.gx-cue{position:absolute;border:4px dashed transparent;border-radius:22px;pointer-events:none;transition:border-color .3s,background .3s}
+.gx-cue.on{border-color:rgba(240,166,43,.95);background:rgba(240,166,43,.16);animation:gxcue 1.4s ease-in-out infinite}
+@keyframes gxcue{50%{background:rgba(240,166,43,.3)}}
+.gx-say{position:absolute;left:3%;right:3%;top:3%;z-index:7;background:rgba(255,250,241,.96);border-radius:16px;padding:8px 16px;font-weight:800;font-size:clamp(14px,2vw,22px);text-align:center;box-shadow:var(--shadow);animation:gxfade .4s ease both}
+.gx-hintbox{position:absolute;left:4%;right:4%;bottom:12%;z-index:8;background:rgba(91,157,131,.96);color:#fff;border-radius:16px;padding:9px 16px;font-weight:800;font-size:clamp(15px,2.1vw,24px);text-align:center;animation:gxbub .4s cubic-bezier(.3,1.6,.5,1) both}
+.gx-bubble{position:absolute;z-index:9;display:flex;align-items:center;gap:8px;background:#fffdf6;border-radius:18px;padding:6px 16px 6px 8px;font-weight:800;font-size:clamp(14px,2vw,24px);box-shadow:var(--shadow);transform:translate(-50%,-100%);white-space:nowrap;animation:gxbub .4s cubic-bezier(.3,1.6,.5,1) both}
+.gx-bubble img{width:clamp(30px,4vw,48px);height:clamp(30px,4vw,48px);object-fit:contain;border-radius:50%;background:#fff3d8}
+.gx-bubble::after{content:"";position:absolute;left:50%;bottom:-8px;width:16px;height:16px;background:#fffdf6;transform:translateX(-50%) rotate(45deg)}
+@keyframes gxbub{from{opacity:0;transform:translate(-50%,-80%) scale(.6)}to{opacity:1}}
+.gx-hintbox{transform:none}@keyframes gxbub2{from{opacity:0;transform:translateY(14px)}to{opacity:1}}
+.gx-praise{position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);z-index:10;background:rgba(255,250,241,.97);border-radius:22px;padding:10px 28px;font-weight:800;font-size:clamp(22px,4.4vw,48px);color:#4f8a6d;box-shadow:var(--shadow);pointer-events:none;animation:gxpr 1.5s ease forwards}
+@keyframes gxpr{0%{opacity:0;transform:translate(-50%,-30%) scale(.6)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}75%{opacity:1;transform:translate(-50%,-50%)}100%{opacity:0;transform:translate(-50%,-75%)}}
+.gx .ms{width:min(26px,3vw);z-index:9}
+.gx-choices{position:absolute;inset:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:2.4%;padding:11% 14% 2.6%;background:linear-gradient(160deg,#fff4dc,#ffe6bf)}
+.gx-ch{border:0;border-radius:22px;background:#fff;box-shadow:var(--shadow);overflow:hidden;min-height:0;min-width:0;padding:6px;cursor:pointer;animation:gxpop .55s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i,0)*.09s);transition:box-shadow .2s,transform .2s}
+.gx-ch:hover{transform:scale(1.02)}
+.gx-ch img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
+.gx-ch.pick{box-shadow:0 0 0 6px rgba(91,157,131,.55)}.gx-ch.good{box-shadow:0 0 0 7px #7ed957}.gx-ch.cuehit{box-shadow:0 0 0 7px rgba(240,166,43,.95)}
+@keyframes gxpop{from{opacity:0;transform:scale(.6) translateY(14px)}to{opacity:1;transform:none}}
+.gx-single{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(160deg,#fff4dc,#ffe6bf);cursor:pointer}
+.gx-single img{height:88%;width:auto;max-width:70%;object-fit:contain;animation:gxpop .6s cubic-bezier(.3,1.5,.5,1) both,gxfloat 5s ease-in-out .6s infinite}
+@keyframes gxfloat{50%{transform:translateY(-2.5%)}}
+.gx-thumbs{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-content:center;gap:3.2% 4.4%;padding:2% 3.4%;background:linear-gradient(160deg,#fff4dc,#ffe6bf)}
+.gx-sb{position:relative;margin:0;display:flex;flex-direction:column;gap:5px;animation:gxpop .5s both;animation-delay:calc(var(--i,0)*.07s)}
+.gx-sb .cap{font-weight:800;font-size:clamp(11px,1.6vw,19px);color:#9a6a1f;text-align:center;line-height:1.1}
+.gx-sb .ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.gx-sb .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.gx-sb .num{position:absolute;left:6px;top:6px;background:var(--accent);color:#fff;font-style:normal;font-weight:800;border-radius:50%;width:clamp(20px,2.4vw,30px);height:clamp(20px,2.4vw,30px);display:grid;place-items:center;font-size:clamp(11px,1.5vw,16px);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.gx-sb:not(:nth-child(4n))::after{content:"→";position:absolute;right:-2.4%;top:58%;transform:translate(50%,-50%);font-weight:800;font-size:clamp(16px,2.6vw,32px);color:var(--accent);line-height:1}
+.gx-fix{position:absolute;left:14px;bottom:14px;z-index:9}
+.q .smp{display:block;font-style:normal;font-weight:700;font-size:13px;color:#4f8a6d;margin-top:3px}
+.seg{display:inline-flex;align-self:center;height:38px;border-radius:999px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.seg button{border:0;background:none;font:inherit;font-size:14px;font-weight:800;color:var(--ink2);padding:0 14px;height:38px;line-height:38px;cursor:pointer;white-space:nowrap}
+.seg button.on{background:#5b9d83;color:#fff}
+body.gxdiag #good{display:none}
+body.gxl .side{width:clamp(300px,26vw,380px);flex:none;max-width:380px}
+body.gxl .work{justify-content:center}
+body.gxl .thumb{width:48px;height:36px}
+.dots.many .thumb{width:36px;height:27px}
+body.gxl .stage{min-width:0}
+@media (max-width:900px){body.gxl .side{flex:none}}
+.dots.many{flex-wrap:wrap;justify-content:center;max-width:94vw;gap:5px}
+.dots.many .thumb{width:36px;height:21px;border-width:2px;border-radius:6px}
+.dots.many .thumb.active{transform:translateY(-2px) scale(1.12)}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 </style>
 </head>
@@ -475,7 +536,7 @@ PICS_ALL.push({kind:"sounds", g:3, thumb:"assets/an_cow.png", alpha:true, title:
   animals:[{k:"cow",w:"Му-у!",n:"Корова"},{k:"horse",w:"И-го-го!",n:"Лошадь"},{k:"pig",w:"Хрю-хрю!",n:"Свинья"},{k:"sheep",w:"Бе-е!",n:"Овца"},{k:"goat",w:"Ме-е!",n:"Коза"},
            {k:"hen",w:"Ко-ко-ко!",n:"Курица"},{k:"rooster",w:"Ку-ка-ре-ку!",n:"Петух"},{k:"duck",w:"Кря-кря!",n:"Утка"},{k:"dog",w:"Ав-ав!",n:"Собака"},{k:"cat",w:"Мяу!",n:"Кошка"}]});
 
-/* ---- Занятие 3 (3+): «Туалетные дела» — последовательность действий для цельного рассказа, 3x3 как «Утро Оли». Шаги уточнит специалист ---- */
+/* ---- Занятие 3: «Туалетные дела» — последовательность действий для цельного рассказа, 3x3 как «Утро Оли». Шаги уточнит специалист ---- */
 PICS_ALL.push({g:2, file:"img/potty/sequence.jpg", cols:3, rows:3, title:"Туалетные дела Тёмы", level:"Последовательность действий",
   fx:[{t:"sparkle",x:23.7,y:7},{t:"sparkle",x:60,y:7},{t:"sparkle",x:85.4,y:36},{t:"bubbles",x:50,y:83},{t:"sparkle",x:60.7,y:74},{t:"sparkle",x:88.3,y:76.7},{t:"lamp",x:6,y:8}]});
 /* ---- Занятие «Дуем и плывём» (малыши, kind:"blow"): микрофон или кнопка; позиции спрайта from/to в % кадра ---- */
@@ -485,7 +546,7 @@ PICS_ALL.push({kind:"blow", g:4, mode:"rail", bg:"img/blow/bg_rail.jpg", sprite:
   how:"Попросите ребёнка гудеть, как паровоз: «у-у-у» или «ту-ту». Пока слышен голос, поезд едет к станции."});
 PICS_ALL.push({kind:"blow", g:4, mode:"sky", bg:"img/blow/bg_sky.jpg", sprite:"assets/sp_balloon.png", w:11, from:{x:50,y:76}, to:{x:50,y:32}, thumb:"assets/sp_balloon.png", alpha:true, title:"Воздушный шарик", level:"Дуем: сила выдоха",
   how:"Дуем на шарик, чтобы он поднимался всё выше. Дуйте сильно и ровно."});
-/* ---- Занятие 4 (3+): слоговая структура слов, kind:"syll" ---- */
+/* ---- Занятие 4: слоговая структура слов, kind:"syll" ---- */
 PICS_ALL.push({kind:"syll", g:5, title:"Слоговая структура: 1 слог", level:"Односложные слова", thumb:"assets/w_dom.png", alpha:true,
   words:[{k:"dom",s:["дом"]},{k:"kot",s:["кот"]},{k:"sok",s:["сок"]},{k:"mak",s:["мак"]},{k:"luk",s:["лук"]},{k:"myach",s:["мяч"]}]});
 PICS_ALL.push({kind:"syll", g:5, title:"Слоговая структура: 2 слога", level:"Двусложные слова", thumb:"assets/w_lisa.png", alpha:true,
@@ -495,13 +556,14 @@ PICS_ALL.push({kind:"syll", g:5, title:"Слоговая структура: 3 �
 PICS_ALL.push({kind:"syll", g:5, title:"Слоговая структура: стечения", level:"Стечения согласных", thumb:"assets/w_vertolet.png", alpha:true,
   words:[{k:"stol",s:["стол"]},{k:"slon",s:["слон"]},{k:"traktor",s:["трак","тор"]},{k:"vertolet",s:["вер","то","лёт"]},{k:"krokodil",s:["кро","ко","дил"]},{k:"tsvetok",s:["цве","ток"]}]});
 /* ---- Малыши: голос, просьба, слух (l=7) ---- */
-PICS_ALL.push({kind:"voice", g:6, thumb:"assets/an_cow.png", alpha:true, title:"Голосовой зверёк", level:"Говорим любой звук", animals:[{k:"cow",n:"Корова"},{k:"cat",n:"Кошка"},{k:"dog",n:"Собака"},{k:"duck",n:"Утка"}]});
-PICS_ALL.push({kind:"want", g:6, thumb:"assets/w_sok.png", alpha:true, title:"Хочу!", level:"Просим: «дай»",
-  items:{sok:{n:"сок",acc:"сок",img:"assets/w_sok.png"},myach:{n:"мяч",acc:"мяч",img:"assets/w_myach.png"},dynya:{n:"дыня",acc:"дыню",img:"assets/w_dynya.png"},malina:{n:"малина",acc:"малину",img:"assets/w_malina.png"},konfeta:{n:"конфета",acc:"конфету",img:"assets/w_konfeta.png"}},
-  rounds:[["sok","myach"],["dynya","konfeta"],["malina","sok"],["myach","dynya","malina"],["konfeta","sok","myach"]]});
-PICS_ALL.push({kind:"hear", g:6, thumb:"assets/hr_drill.png", alpha:true, title:"Что звучит?", level:"Слушаем и узнаём",
-  sounds:[{k:"drill",n:"Дрель"},{k:"vacuum",n:"Пылесос"},{k:"door",n:"Стук в дверь"},{k:"rain",n:"Дождь"},{k:"clock",n:"Будильник"},{k:"phone",n:"Телефон"}]});
-/* ---- 3+: звуки и слоги, логопед показывает (l=8) ---- */
+PICS_ALL.push({kind:"voice", g:6, thumb:"assets/an_cow.png", alpha:true, title:"Голосовой зверёк: корова", level:"Говорим любой звук", animals:[{k:"cow",n:"Корова"}]});
+PICS_ALL.push({kind:"want", g:9, thumb:"assets/toddler.png", alpha:true, title:"Хочу! Что хочет Тёма?", level:"Просим: «дай»",
+  who:{name:"Тёма",top:"Что хочет Тёма?",over:"Тёмой",other:"Тёма хочет другое. Посмотри на облачко!",give:"Держи, Тёма: ",kid:"assets/toddler.png",happy:"assets/toddler_happy.png"},
+  items:{sok:{n:"сок",acc:"сок",img:"assets/w_sok.png"},myach:{n:"мяч",acc:"мяч",img:"assets/w_myach.png"},dynya:{n:"дыня",acc:"дыню",img:"assets/w_dynya.png"},malina:{n:"малина",acc:"малину",img:"assets/w_malina.png"},konfeta:{n:"конфета",acc:"конфету",img:"assets/w_konfeta.png"},mashina:{n:"машина",acc:"машину",img:"assets/w_mashina.png"}},
+  rounds:[["sok","myach"],["dynya","konfeta"],["malina","sok"],["myach","dynya","malina"],["konfeta","sok","myach"],["mashina","sok"],["mashina","konfeta","malina"]]});
+PICS_ALL.push({kind:"hear", g:10, thumb:"assets/hr_drill.png", alpha:true, title:"Что звучит дома?", level:"Слушаем и узнаём",
+  sounds:[{k:"drill",n:"Дрель"},{k:"vacuum",n:"Пылесос"},{k:"door",n:"Стук в дверь"},{k:"clock",n:"Будильник"},{k:"phone",n:"Телефон"},{k:"bell",n:"Дверной звонок"},{k:"kettle",n:"Чайник"},{k:"micro",n:"Микроволновка"},{k:"washer",n:"Стиральная машина"}]});
+/* ---- звуки и слоги, логопед показывает (l=8) ---- */
 PICS_ALL.push({kind:"chain", g:7, mouth:true, thumb:"assets/mouth_a.jpg", title:"Гласные звуки", level:"А О У И Э Ы", items:["А","О","У","И","Э","Ы","А-О-У","И-Э-Ы"],
   how:"Логопед показывает положение губ и произносит звук протяжно. Ребёнок повторяет, глядя на рот логопеда или в зеркало."});
 PICS_ALL.push({kind:"chain", g:7, thumb:"assets/smile_calm.png", alpha:true, title:"Прямые слоги", level:"ПА-ПО-ПУ, ТА-ТО-ТУ…", items:["ПА-ПО-ПУ","ТА-ТО-ТУ","КА-КО-КУ","МА-МО-МУ","НА-НО-НУ","ЛА-ЛО-ЛУ"],
@@ -512,9 +574,159 @@ PICS_ALL.push({kind:"chain", g:7, thumb:"assets/smile_calm.png", alpha:true, tit
   how:"Различаем глухие и звонкие согласные. Ребёнок кладёт ладонь на горло: при звонком звуке горло «дрожит»."});
 PICS_ALL.push({kind:"chain", g:7, thumb:"assets/smile_calm.png", alpha:true, title:"Стечения и обратные слоги", level:"СТА, ТКА, АП-АТ-АК…", items:["СТА-СТО-СТУ","ТКА-ТКО-ТКУ","ПТА-КТА","АП-АТ-АК","ШКА-ШКО-ШКУ","ТРА-ДРА"],
   how:"Слоги со стечением согласных и обратные слоги (гласный + согласный). Начинаем медленно и ускоряемся, когда получается чётко."});
-/* ---- 3+: Найди пару (l=9): по каждому уровню слов ---- */
+/* ---- Найди пару (l=9): по каждому уровню слов ---- */
 PICS_ALL.filter(x=>x.kind==="syll").forEach(x=>PICS_ALL.push({kind:"memory", g:8, thumb:x.thumb, alpha:true, title:"Найди пару: "+x.level.toLowerCase(), level:x.level, words:x.words}));
-const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голос, просьба, слух"},{name:"Звуки и слоги"},{name:"Найди пару"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
+
+PICS_ALL.push({kind:"hear", g:10, thumb:"assets/hr_water.png", alpha:true, title:"Вода, погода и люди", level:"Слушаем и узнаём",
+  sounds:[{k:"water",n:"Вода из крана"},{k:"flush",n:"Слив воды"},{k:"rain",n:"Дождь"},{k:"thunder",n:"Гром"},{k:"clap",n:"Хлопки",img:"assets/clap_hands.png"},{k:"laugh",n:"Смех",img:"assets/smile_happy.png"}],
+  info:{skill:"Слуховое внимание: звуки воды, погоды и людей."}});
+/* ---- Малыши: ещё звери для «Голосового зверька» (l=7), «Хочу!» про Олю (l=10), «Что звучит?» на улице (l=11) ---- */
+[["cat","Кошка"],["dog","Собака"],["duck","Утка"],["horse","Лошадь"],["pig","Свинья"],["sheep","Овца"],["hen","Курица"],["goat","Коза"],["rooster","Петух"]].forEach(a=>PICS_ALL.push({kind:"voice", g:6, thumb:"assets/an_"+a[0]+".png", alpha:true, title:"Голосовой зверёк: "+a[1].toLowerCase(), level:"Говорим любой звук", animals:[{k:a[0],n:a[1]}],
+  info:{skill:"Голос: любой звук ребёнка оживляет зверька."}}));
+PICS_ALL.push({kind:"want", g:9, thumb:"assets/sprite_kid_olya.png", alpha:true, title:"Хочу! Что хочет Оля?", level:"Просим: «дай»",
+  who:{name:"Оля",top:"Что хочет Оля?",over:"Олей",other:"Оля хочет другое. Посмотри на облачко!",give:"Держи, Оля: ",kid:"assets/sprite_kid_olya.png",happy:"assets/sprite_kid_olya.png",hop:true},
+  items:{pyramid:{n:"пирамидка",acc:"пирамидку",img:"assets/toy_pyramid.png"},drum:{n:"барабан",acc:"барабан",img:"assets/toy_drum.png"},bubbles:{n:"пузыри",acc:"пузыри",img:"assets/toy_bubbles.png"},bell:{n:"колокольчик",acc:"колокольчик",img:"assets/toy_bell.png"},xylo:{n:"ксилофон",acc:"ксилофон",img:"assets/toy_xylophone.png"},horn:{n:"дудка",acc:"дудку",img:"assets/toy_horn.png"},malina:{n:"малина",acc:"малину",img:"assets/w_malina.png"},sok:{n:"сок",acc:"сок",img:"assets/w_sok.png"}},
+  rounds:[["pyramid","drum"],["bubbles","bell"],["xylo","horn"],["drum","bubbles","pyramid"],["bell","horn","xylo"],["malina","bubbles"],["sok","drum","bell"]],
+  info:{skill:"Просьба: выбираем, просим, получаем. Вариант с Олей: игрушки и угощение."}});
+PICS_ALL.push({kind:"hear", g:10, thumb:"assets/an_dog.png", alpha:true, title:"Что звучит на улице?", level:"Слушаем и узнаём",
+  sounds:[{k:"car",a:"car",n:"Машина",img:"assets/an_car.png"},{k:"train",a:"train",n:"Поезд",img:"assets/an_train.png"},{k:"dog",a:"dog",n:"Собака",img:"assets/an_dog.png"},{k:"cat",a:"cat",n:"Кошка",img:"assets/an_cat.png"},{k:"cow",a:"cow",n:"Корова",img:"assets/an_cow.png"},{k:"duck",a:"duck",n:"Утка",img:"assets/an_duck.png"}],
+  info:{skill:"Слуховое внимание: узнаём звуки улицы и животных."}});
+/* ---- Игры l=12–15: контент из ТЗ, сцены в img/gram, предметы assets/sprite_* ---- */
+(function(){
+const G = (n)=>"img/gram/"+n+".jpg", SP=(n)=>"assets/sprite_"+n+".png";
+const DATA = {
+ games:[
+  {id:1,title:"Один день в детском саду",cover:G("g1_s6"),goals:"Предлоги, падежные формы, ответы на вопросы, союзы, последовательность, связная речь.",
+   short:"Восемь сцен с Олей: предлоги «в», «на», падежи, ответы на вопросы и связный рассказ."},
+  {id:2,title:"Чья вещь? Кому отдадим?",cover:G("g2_bg"),goals:"Род и число, согласование «чей, чья, чьё, чьи», родительный и дательный падежи.",
+   short:"Предметы перетаскиваем Мише и Оле: кому, чья вещь, какая вещь."},
+  {id:3,title:"Кто что чувствует?",cover:G("g3_s1"),goals:"Словарь эмоций, понимание причин, связная речь, социальная коммуникация.",
+   short:"Эмоции: узнаём, называем, объясняем причины и ищем, что сказать."},
+  {id:4,title:"Что здесь не так?",cover:G("g4_a1"),goals:"Понимание бытовых ситуаций, объяснительная речь, причинные конструкции.",
+   short:"Находим необычное на картинке, объясняем и исправляем предложение."}
+ ]
+};
+/* ---- Игра 1: сцены с Олей ---- */
+DATA.g1=[
+ {id:"s1",img:G("g1_s1"),title:"Оля идёт в детский сад",goal:"Предлог «в» + В. п.",
+  qs:[{q:"Куда идёт Оля?",a:["Оля идёт в детский сад."],goal:"Предлог «в», винительный падеж"}]},
+ {id:"s2",img:G("g1_s2"),title:"Оля пришла в раздевалку",goal:"Предлоги «в», «на» (вопросы куда / где)",
+  qs:[{q:"Куда пришла Оля?",a:["В детский сад.","В раздевалку."],goal:"«в» + В. п."},{q:"Где она находится?",a:["В раздевалке."],goal:"«в» + П. п."}]},
+ {id:"s3",img:G("g1_s3"),title:"Оля снимает куртку",goal:"«в» + В. п. / П. п., «на» + В. п. / П. п.",
+  drag:{item:{img:SP("jacket"),x:4,y:58,w:26},target:{x:44,y:6,w:50,h:86},snap:{x:49,y:14}},
+  qs:[{q:"Куда Оля повесила куртку?",a:["В шкафчик, на крючок."],goal:"«в», «на» + В. п."},{q:"Где теперь висит куртка?",a:["В шкафчике, на крючке."],goal:"«в», «на» + П. п."}]},
+ {id:"s4",img:G("g1_s4"),title:"Оля заходит в группу",goal:"Предлоги и падежи: куда вошла, куда села, где сидит",
+  qs:[{q:"Куда вошла Оля?",a:["В группу."],goal:"«в» + В. п."},{q:"Куда она села?",a:["На стул."],goal:"«на» + В. п."},{q:"Где она сидит?",a:["На стуле."],goal:"«на» + П. п."}]},
+ {id:"s5",img:G("g1_s5"),title:"Оля убирает игрушки",goal:"«на» + В. п. / П. п.",
+  drag:{items:[{img:SP("bear"),x:30,y:74,w:13},{img:SP("blocks"),x:46,y:76,w:13},{img:SP("bus"),x:62,y:78,w:15},{img:SP("duck"),x:80,y:78,w:11}],target:{x:25,y:38,w:68,h:30}},
+  qs:[{q:"Куда Оля положила игрушки?",a:["На стол."],goal:"«на» + В. п."},{q:"Где лежат игрушки?",a:["На столе."],goal:"«на» + П. п."}]},
+ {id:"s6",img:G("g1_s6"),title:"Завтрак",goal:"Творительный и родительный падежи, вопросы что / из чего / чем",
+  qs:[{q:"Что Оля ест?",a:["Кашу."],goal:"В. п."},{q:"Из чего она ест?",a:["Из тарелки."],goal:"«из» + Р. п."},{q:"Чем она ест кашу?",a:["Ложкой."],goal:"Т. п."},{q:"Из чего она пьёт?",a:["Из чашки."],goal:"«из» + Р. п."}]},
+ {id:"s7",img:G("g1_s7"),title:"Рисование",goal:"Т. п., «на» + П. п., глагол в прошедшем времени",
+  qs:[{q:"Где сидит Оля?",a:["За столом."],goal:"«за» + Т. п."},{q:"Чем она рисует?",a:["Карандашом."],goal:"Т. п."},{q:"На чём она рисует?",a:["На бумаге.","На листе бумаги."],goal:"«на» + П. п."},{q:"Что она нарисовала?",a:["Цветок."],goal:"В. п., прошедшее время"}]},
+ {id:"s8",img:G("g1_s8"),title:"Прогулка",goal:"«на» + В. п. / П. п., «с» + Т. п.",
+  qs:[{q:"Куда вышла Оля?",a:["На площадку.","На детскую площадку."],goal:"«на» + В. п."},{q:"Где она гуляет?",a:["На площадке."],goal:"«на» + П. п."},{q:"С кем она гуляет?",a:["С воспитателем."],goal:"«с» + Т. п."}]},
+ {id:"retell",kind:"retell",title:"Составляем рассказ",goal:"Последовательность, союзы и, а, потому что, когда; слова сначала, потом, после этого",
+  qs:[{q:"Что Оля делала сначала?",a:["Сначала Оля пошла в детский сад."],goal:"«сначала»"},{q:"Что произошло потом?",a:["Потом она сняла куртку и повесила в шкафчик."],goal:"«потом», союз «и»"},{q:"Что она делала после завтрака?",a:["После завтрака она рисовала."],goal:"«после» + Р. п."},{q:"Что Оля делала перед прогулкой?",a:["Перед прогулкой она рисовала цветок."],goal:"«перед» + Т. п."},{q:"Расскажи всё по порядку. Используй: сначала, потом, после этого.",a:["Сначала Оля пришла в садик, потом сняла куртку. После этого она убрала игрушки, позавтракала, порисовала и пошла гулять."],goal:"Связный рассказ; проверить союзы и, а, потому что, когда"}]}
+];
+/* ---- Игра 2: предметы, Миша и Оля ---- */
+const ITEMS={ball:{n:"мяч",g:"m",s:"ball",c:true},dress:{n:"платье",g:"n",s:"dress",c:true},shorts:{n:"шорты",g:"p",s:"shorts",c:true},bag:{n:"сумка",g:"f",s:"bag",c:true},cap:{n:"кепка",g:"f",s:"cap"},comb:{n:"расчёска",g:"f",s:"comb"},skirt:{n:"юбка",g:"f",s:"skirt"},scrunchie:{n:"резинка для волос",g:"f",s:"scrunchie"},backpack:{n:"рюкзак",g:"m",s:"backpack"},car:{n:"машинка",g:"f",s:"car"},sandals:{n:"босоножки",g:"p",s:"sandals"},flipflops:{n:"шлёпанцы",g:"p",s:"flipflops"}};
+const COLORS={red:{f:"",ru:{m:"красный",f:"красная",n:"красное",p:"красные"}},blue:{f:"hue-rotate(205deg) saturate(1.05)",ru:{m:"синий",f:"синяя",n:"синее",p:"синие"}},green:{f:"hue-rotate(105deg)",ru:{m:"зелёный",f:"зелёная",n:"зелёное",p:"зелёные"}},yellow:{f:"hue-rotate(48deg) saturate(1.15) brightness(1.1)",ru:{m:"жёлтый",f:"жёлтая",n:"жёлтое",p:"жёлтые"}}};
+const WHO={misha:{dat:"Мише",gen:"Миши",pos:{m:"Мишин",f:"Мишина",n:"Мишино",p:"Мишины"},acc:"Мишину"},olya:{dat:"Оле",gen:"Оли",pos:{m:"Олин",f:"Олина",n:"Олино",p:"Олины"},acc:"Олину"}};
+const CH={m:"чей",f:"чья",n:"чьё",p:"чьи"};
+const ACC={ball:"мяч",dress:"платье",shorts:"шорты",bag:"сумку",cap:"кепку",comb:"расчёску",skirt:"юбку",scrunchie:"резинку",backpack:"рюкзак",car:"машинку",sandals:"босоножки",flipflops:"шлёпанцы"};
+function mk(kind,it,to,extra){return Object.assign({kind:"give",lv:kind,item:it,to},extra||{});}
+DATA.g2=[].concat(
+ [["ball","misha"],["dress","olya"],["cap","misha"],["comb","olya"],["car","misha"],["sandals","olya"]].map(function(p){var w=WHO[p[1]];
+   return mk(1,p[0],p[1],{title:"Кому отдадим?",say:"Отдай "+ACC[p[0]]+" "+w.dat+".",goal:"Дательный падеж одушевлённых существительных",
+     qs:[{q:"Кому отдали "+ACC[p[0]]+"?",a:[w.dat+".",p[1]==="misha"?"Мальчику.":"Девочке."],goal:"Д. п."}]});}),
+ [["bag","olya"],["backpack","misha"],["dress","olya"],["shorts","misha"],["comb","misha"],["ball","olya"],["sandals","olya"],["skirt","misha"]].map(function(p){var it=ITEMS[p[0]],w=WHO[p[1]];
+   return mk(2,p[0],p[1],{title:"Чья вещь?",say:"Положи рядом с "+(p[1]==="misha"?"Мишей":"Олей")+". Это вещь "+w.gen+".",goal:"Согласование «чей / чья / чьё / чьи» с родом и числом",
+     qs:[{q:CH[it.g][0].toUpperCase()+CH[it.g].slice(1)+" "+(it.g==="p"?"это ":"это ")+it.n+"?",a:[w.pos[it.g]+" "+it.n.split(" ")[0]+".",it.n[0].toUpperCase()+it.n.slice(1)+" "+w.gen+"."],goal:"Притяжательное прилагательное или Р. п."}]});}),
+ [["ball","red"],["bag","blue"],["dress","green"],["shorts","yellow"],["ball","blue"],["bag","red"],["dress","yellow"],["shorts","red"]].map(function(p){var it=ITEMS[p[0]],c=COLORS[p[1]].ru[it.g];
+   return mk(3,p[0],"any",{color:p[1],title:"Какой? Какая? Какое? Какие?",say:"Положи вещь на любую сторону.",goal:"Согласование прилагательного с существительным в роде и числе",
+     qs:[{q:({m:"Какой",f:"Какая",n:"Какое",p:"Какие"})[it.g]+" "+(it.g==="p"?"это ":"это ")+it.n+"?",a:[c[0].toUpperCase()+c.slice(1)+" "+it.n+"."],goal:"Согласование прилагательного"}]});}),
+ [
+  mk(4,"ball","misha",{from:"olya",title:"Что Оля дала Мише?",say:"Оля даёт мяч Мише.",goal:"В. п. и Д. п. в предложении",qs:[{q:"Что Оля дала Мише?",a:["Мяч.","Оля дала Мише мяч."],goal:"В. п."},{q:"Кому Оля дала мяч?",a:["Мише.","Оля дала мяч Мише."],goal:"Д. п."}]}),
+  mk(4,"car","olya",{from:"misha",title:"Кому Миша подарил машинку?",say:"Миша дарит машинку Оле.",goal:"Д. п., глагол «подарить»",qs:[{q:"Кому Миша подарил машинку?",a:["Оле.","Миша подарил машинку Оле."],goal:"Д. п."}]}),
+  mk(4,"bag","olya",{from:"misha",title:"Чью сумку взяла Оля?",say:"Оля берёт у Миши сумку.",goal:"Вопрос «чью?», притяжательное прилагательное в В. п.",qs:[{q:"Чью сумку взяла Оля?",a:["Мишину сумку.","Оля взяла Мишину сумку.","Сумку Миши."],goal:"«чью», В. п."}]}),
+  mk(4,"shorts","misha",{from:"olya",color:"red",title:"Какие шорты у Миши?",say:"Оля отдаёт красные шорты Мише.",goal:"Согласование прилагательного с существительным во мн. числе",qs:[{q:"Какие шорты у Миши?",a:["Красные.","У Миши красные шорты."],goal:"Согласование, мн. число"},{q:"Что Оля дала Мише?",a:["Красные шорты."],goal:"В. п. с прилагательным"}]})
+ ]);
+/* ---- Игра 3: эмоции ---- */
+const EM={joy:"радуется",sad:"грустит",angry:"сердится",fear:"боится",surprise:"удивляется",calm:"спокоен"};
+const P=(c,e)=>"assets/sprite_p_"+c+"_"+e+".png";
+DATA.g3=[].concat(
+ [["sad","Покажи, кто грустит."],["joy","Покажи, кто радуется."],["angry","Покажи, кто сердится."],["fear","Покажи, кто боится."],["surprise","Покажи, кто удивился."]].map(function(p,i){
+   var mixes=[["sad","joy","angry","surprise"],["joy","fear","sad","calm"],["angry","calm","surprise","joy"],["fear","sad","angry","surprise"],["surprise","joy","fear","calm"]][i];
+   var chars=["olya","misha","olya","misha"].map(function(c,k){return (i+k)%2?"misha":"olya";});
+   return {kind:"choose",lv:1,title:"Покажи эмоцию",say:p[1],target:p[0],opts:mixes.map(function(e,k){return {img:P(chars[k],e),e:e};}),goal:"Распознавание эмоций по лицу",
+     qs:[{q:p[1],a:["Ребёнок показывает нужное лицо."],goal:"Распознавание"}]};}),
+ [["olya","joy","Что чувствует девочка?","Радуется. Ей весело."],["misha","sad","Что чувствует мальчик?","Грустит. Расстроился."],["olya","angry","Что чувствует девочка?","Сердится."],["misha","fear","Что чувствует мальчик?","Боится. Испугался."],["olya","surprise","Что чувствует девочка?","Удивляется. Удивилась."],["misha","calm","Что чувствует мальчик?","Спокоен. Ему спокойно."]].map(function(p){
+   return {kind:"single",lv:2,title:"Называем эмоцию",img:P(p[0],p[1]),goal:"Называние эмоций",qs:[{q:p[2],a:p[3].split(". ").map(function(x){return x.replace(/\.$/,"")+".";}),goal:"Словарь эмоций; допускаются разные формулировки"}]};}),
+ [
+  {n:1,t:"Подарок",a1:"Оле подарили подарок.",a2:["Радуется.","Ей весело."],a3:["Потому что ей подарили подарок."],a4:["Сказать «спасибо».","Открыть подарок."]},
+  {n:2,t:"Мороженое",a1:"Миша уронил мороженое.",a2:["Расстроился.","Грустит."],a3:["Потому что мороженое упало."],a4:["Попросить купить другое.","Не плакать, взять салфетку."]},
+  {n:3,t:"Потерянная игрушка",a1:"Оля не может найти любимую игрушку.",a2:["Грустит.","Расстроилась."],a3:["Потому что она потеряла игрушку."],a4:["Поискать вместе с мамой.","Попросить помочь."]},
+  {n:4,t:"Отобрали игрушку",a1:"У Миши забрали машинку.",a2:["Сердится.","Обиделся."],a3:["Потому что у него забрали игрушку."],a4:["Сказать: «Отдай, это моя машинка».","Позвать воспитателя."]},
+  {n:5,t:"Большая собака",a1:"Оля увидела большую собаку.",a2:["Боится.","Испугалась."],a3:["Потому что собака большая."],a4:["Отойти и встать рядом со взрослым.","Не бежать."]},
+  {n:6,t:"Праздничный торт",a1:"Миша увидел торт.",a2:["Удивился.","Обрадовался."],a3:["Потому что он не ждал торт."],a4:["Поздравить именинника.","Сказать «спасибо»."]},
+  {n:7,t:"Играют вместе",a1:"Дети играют вместе.",a2:["Радуются.","Им весело."],a3:["Потому что они играют вместе."],a4:["Продолжать играть, делиться игрушками."]},
+  {n:8,t:"Не приняли в игру",a1:"Олю не приняли в игру.",a2:["Расстроилась.","Обиделась."],a3:["Потому что с ней не играют."],a4:["Попросить: «Возьмите меня в игру».","Найти другую игру.","Сказать взрослому."]}
+ ].map(function(s){return {kind:"scene",lv:3,id:"e"+s.n,img:G("g3_s"+s.n),title:s.t,goal:"Причины эмоций, связная речь. Допустимы разные обоснованные ответы",
+   qs:[{q:"Что произошло?",a:[s.a1],goal:"Описание ситуации"},{q:"Что чувствует герой?",a:s.a2,goal:"Словарь эмоций"},{q:"Почему так?",a:s.a3,goal:"Причинная конструкция «потому что»"},{q:"Что можно сделать?",a:s.a4,goal:"Поиск решения"}]};}),
+ [
+  {img:G("g3_s4"),q:"Что можно сказать, если тебе обидно?",a:["Мне обидно. Не забирай.","Отдай, пожалуйста."]},
+  {img:G("g3_s3"),q:"Как попросить помощи?",a:["Помоги мне, пожалуйста.","Можно мне помочь?"]},
+  {img:G("g3_s8"),q:"Как сказать, что не хочешь играть?",a:["Я не хочу играть.","Я сейчас не буду играть."]},
+  {img:G("g3_s7"),q:"Как попросить объяснить правила?",a:["Объясни, пожалуйста, правила.","Как в это играть?"]}
+ ].map(function(s,i){return {kind:"prompt",lv:4,id:"c"+i,img:s.img,title:"Что сказать?",goal:"Социально-коммуникативные высказывания (вежливые просьбы, отказ, помощь)",
+   qs:[{q:s.q,a:s.a,goal:"Допустимы разные варианты"}]};})
+);
+/* ---- Игра 4: что не так ---- */
+DATA.g4=[
+ {n:1,u:"Девочка чистит зубы ложкой.",w:"Зубы нельзя чистить ложкой, нужна зубная щётка.",f:"Девочка чистит зубы ложкой, а нужно зубной щёткой."},
+ {n:2,u:"Мальчик ест суп расчёской.",w:"Расчёской нельзя есть суп, она нужна для волос.",f:"Мальчик ест суп расчёской, а нужно ложкой."},
+ {n:3,u:"На яблоне растут ботинки.",w:"Ботинки не растут на деревьях, на яблоне растут яблоки.",f:"Ботинки обычно не растут на деревьях."},
+ {n:4,u:"Девочка надевает сапоги на руки.",w:"Сапоги надевают на ноги, а не на руки.",f:"Девочка надевает сапоги на руки, а нужно на ноги."},
+ {n:5,u:"Девочка рисует вилкой.",w:"Вилкой неудобно рисовать, для этого нужен карандаш.",f:"Девочка рисует вилкой, а нужно карандашом."},
+ {n:6,u:"Кошка сидит в тарелке с супом.",w:"В тарелке суп, кошке в ней не место.",f:"Кошка сидит в тарелке, а нужно на стуле."},
+ {n:7,u:"Мальчик надел шапку на ногу.",w:"Шапку надевают на голову, на ноге она неудобна.",f:"Мальчик надел шапку на ногу, а нужно на голову."},
+ {n:8,u:"Снеговик стоит на зелёной траве в тёплый солнечный день.",w:"Снеговики делают зимой из снега, в тепле он растает.",f:"Снеговик стоит на траве в тёплый день, а нужно зимой на снегу."}
+].map(function(s){return {kind:"wrong",id:"w"+s.n,img:G("g4_a"+s.n),img2:G("g4_b"+s.n),title:"Сцена "+s.n,goal:"Понимание бытовых ситуаций, объяснительная речь, причинные конструкции",
+  qs:[{lv:1,q:s.n===8?"Что здесь необычного? Что тебя удивляет?":"Что здесь необычного?",a:[s.u],goal:"Нахождение несоответствия"},
+      {lv:2,q:s.n===8?"Что здесь происходит не так, как обычно?":"Что делает "+(s.n===3?"яблоня":"герой")+" не так?",a:[s.u],goal:"Называние несоответствия"},
+      {lv:3,q:s.n===8?"Почему это необычно?":"Почему так неудобно?",a:[s.w],goal:"Причинная связь"},
+      {lv:4,q:"Исправь предложение.",a:[s.f],goal:"Грамматически верное предложение с «а нужно…»"}]};});
+const LV={1:["Уровень 1","Кому отдадим?"],2:["Уровень 2","Чья вещь?"],3:["Уровень 3","Какой?"],4:["Уровень 4","Предложения"]};
+const LVN={1:{1:"Распознавание",2:"Называние",3:"Причина",4:"Коммуникация"},2:{}};
+
+const FIX={s1:[{t:"sun",x:86,y:9}],a8:[{t:"sun",x:88,y:14}]};
+const FX3={1:[{t:"sparkle",x:46,y:30},{t:"sparkle",x:70,y:26}],6:[{t:"lamp",x:72,y:24}],7:[{t:"sparkle",x:50,y:30}]};
+const add=o=>{o.kind="gx"; PICS_ALL.push(o);};
+/* игра 1 */
+DATA.g1.forEach((s,i)=>{ const r=s.kind==="retell";
+  add({g:11,t:r?"retell":"scene",img:s.img||G("g1_s8"),thumb:s.img||G("g1_s8"),title:s.title,level:r?"Связный рассказ":"Предлоги и падежи",pos:r?"Рассказ по порядку":("Сцена "+(i+1)+" из 8"),
+    drag:s.drag,qs:s.qs,fx:i===0?FIX.s1:undefined,
+    say:s.drag?"Предметы можно перетащить пальцем или мышкой. Попросите ребёнка положить предмет на место, потом задайте вопросы.":(r?"Покажите все сцены и попросите рассказать по порядку: сначала, потом, после этого.":"Дайте ребёнку рассмотреть картинку, потом задавайте вопросы по одному."),
+    info:{skill:s.goal}}); });
+/* игра 2 */
+const NAME2={ball:"мяч",dress:"платье",shorts:"шорты",bag:"сумка",cap:"кепка",comb:"расчёска",skirt:"юбка",scrunchie:"резинка",backpack:"рюкзак",car:"машинка",sandals:"босоножки",flipflops:"шлёпанцы"};
+DATA.g2.forEach((s,i)=>{ const it=ITEMS[s.item], N=DATA.g2.filter(x=>x.lv===s.lv), k=N.indexOf(s)+1;
+  const my={m:"Мой",f:"Моя",n:"Моё",p:"Мои"}[it.g];
+  let react="Спасибо!"; if(s.lv===2) react=my+" "+NAME2[s.item]+"!"; if(s.lv===4) react="Спасибо, держи!";
+  add({g:12,t:"give",item:s.item,to:s.to,from:s.from,color:s.color,say:s.say,title:s.title,level:LV[s.lv][0]+": "+LV[s.lv][1],pos:"Задание "+k+" из "+N.length,
+    thumb:SP(it.s),qs:s.qs,react:react,info:{skill:s.goal}}); });
+/* игра 3 */
+const L3={1:"Распознаём эмоции",2:"Называем эмоции",3:"Причины и решения",4:"Что можно сказать"};
+DATA.g3.forEach((s,i)=>{ const N=DATA.g3.filter(x=>x.lv===s.lv), k=N.indexOf(s)+1, base={g:13,level:"Уровень "+s.lv+": "+L3[s.lv],pos:"Задание "+k+" из "+N.length,qs:s.qs,info:{skill:s.goal}};
+  if(s.kind==="choose") add(Object.assign(base,{t:"choose",say:s.say,target:s.target,opts:s.opts,title:s.title,thumb:s.opts[0].img}));
+  else if(s.kind==="single") add(Object.assign(base,{t:"single",img:s.img,title:s.title,thumb:s.img}));
+  else { const num=parseInt((s.id||"").replace(/\D/g,""),10); add(Object.assign(base,{t:"scene",img:s.img,title:s.title,thumb:s.img,fx:s.kind==="scene"?FX3[num]:undefined,pos:s.kind==="scene"?("Ситуация "+k+" из "+N.length):base.pos})); } });
+/* игра 4 */
+DATA.g4.forEach((s,i)=>{ add({g:14,t:"wrong",img:s.img,img2:s.img2,thumb:s.img,title:s.title,level:"Найти, объяснить, исправить",pos:"Сцена "+(i+1)+" из 8",qs:s.qs,fx:i===7?FIX.a8:undefined,
+    say:"Найдите, что на картинке не так. Кнопка «Показать правильно» показывает, как должно быть.",info:{skill:s.goal}}); });
+})();
+const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
 
 /* skill — что отрабатываем; q — вопросы ко всей картинке; panels — вопросы к каждому эпизоду */
 const INFO_ALL=[
@@ -553,7 +765,7 @@ const INFO_ALL=[
  { skill:"Слоговая структура: двусложные слова (лиса, рука, нога). Называем слоги по порядку, собираем слово." },
  { skill:"Слоговая структура: трёхсложные слова (машина, малина, конфета)." },
  { skill:"Слоговая структура: слова со стечением согласных (стол, слон, трактор, вертолёт)." },
- { skill:"Голос: любой звук ребёнка запускает реакцию, это первая причинно-следственная связь «я сказал, и что-то произошло»." },
+ { skill:"Голос: любой звук ребёнка оживляет зверька." },
  { skill:"Просьба: выбираем, просим, получаем. Функциональная коммуникация: «дай», «хочу»." },
  { skill:"Слуховое внимание: узнаём бытовые звуки (дрель, пылесос, дождь, телефон)." },
  { skill:"Гласные звуки А О У И Э Ы: артикуляция, положение губ." },
@@ -569,10 +781,10 @@ const INFO_ALL=[
 INFO_ALL[14].panels=INFO_ALL[14].panels.map(a=>["Что мы видим на картинке?",...a]); /* индекс 14 = «Туалетные дела» */
 /* какое занятие открыто: lesson.html?l=1 (рассказ по картинкам) или ?l=2 («Где мячик?») */
 const LESSON=Math.max(0,Math.min(GROUPS.length-1,(parseInt(new URLSearchParams(location.search).get("l"))||1)-1));
-const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голос, просьба, слух","Занятие 5: звуки и слоги","Занятие 6: найди пару"];
-const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос, просьбу и слуховое внимание: говорим, просим, узнаём звуки","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам"];
+const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голосовой зверёк","Занятие 5: звуки и слоги","Занятие 6: найди пару","Запуск речи для малышей: хочу!","Запуск речи для малышей: что звучит?","Речь и грамматика: один день в детском саду","Речь и грамматика: чья вещь? кому отдадим?","Речь и грамматика: кто что чувствует?","Речь и грамматика: что здесь не так?"];
+const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос: говорим любой звук, и зверёк оживает","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам","просьбу: помогаем попросить «дай»","слуховое внимание: узнаём бытовые звуки","предлоги, падежи и связный рассказ: один день Оли в детском саду","род, число и падежи: чья это вещь и кому её отдадим","эмоции и их причины: называем, объясняем и ищем, что сказать","понимание бытовых ситуаций: находим, что не так, объясняем и исправляем"];
 const keepIdx=PICS_ALL.map((p,i)=>i).filter(i=>grp(PICS_ALL[i])===LESSON);
-const PICS=keepIdx.map(i=>PICS_ALL[i]), INFO=keepIdx.map(i=>INFO_ALL[i]);
+const PICS=keepIdx.map(i=>PICS_ALL[i]), INFO=keepIdx.map(i=>PICS_ALL[i].info||INFO_ALL[i]);
 document.title=LTITLE[LESSON]+" — Запуск речи";
 
 /* ============ Звук (синтез) ============ */
@@ -642,6 +854,126 @@ function burst(host=frame){
   host.appendChild(L); setTimeout(()=>L.remove(),1900);
 }
 
+
+/* ============ Игры l=12–15: сцены, перетаскивание, выбор портрета, режимы ============ */
+let gxMode="learn"; try{ gxMode=localStorage.getItem("gxmode")==="diag"?"diag":"learn"; }catch(e){}
+const GX={}; const gxLearn=()=>gxMode==="learn";
+const GXFACE={misha:"assets/sprite_p_misha_joy.png",olya:"assets/sprite_p_olya_joy.png",alex:"assets/narrator_thumbs.png"};
+function makeGX(s,p){
+  const idx=PICS.indexOf(p), bg=p.t==="give"?"img/gram/g2_bg.jpg":(p.img||"");
+  if(p.t==="choose"||p.t==="single"||p.t==="retell") s.innerHTML=`<div class="gx"></div>`;
+  else s.innerHTML=`<div class="gx"><img class="gx-bgblur" src="${bg}" alt="" draggable="false"><div class="gx-box"><img class="gx-img" src="${bg}" alt="${p.title}" draggable="false"><div class="fxl"></div><div class="gx-dyn"></div></div></div>`;
+  GX[idx]={p,root:s.querySelector(".gx"),box:s.querySelector(".gx-box"),dyn:s.querySelector(".gx-dyn"),hint:0,placed:0,total:0,cues:[]};
+  if(p.fx&&s.querySelector(".fxl")) buildFx(s.querySelector(".fxl"),p.fx);
+}
+function gxStars(host,x,y,n=12){ for(let i=0;i<n;i++){ const e=document.createElement("i"); e.className="ms"; const a=Math.random()*Math.PI*2, r=50+Math.random()*100;
+  e.style.cssText=`left:${x}%;top:${y}%;--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r-30}px;--c:${["#ffd23f","#ff9a3c","#7ed957","#5aa9ff","#ff8fab"][i%5]}`; host.appendChild(e); setTimeout(()=>e.remove(),1400); } }
+function gxSay(host,text,x,y,face){ host.querySelectorAll(".gx-bubble").forEach(e=>e.remove()); const b=document.createElement("div"); b.className="gx-bubble"; b.style.left=x+"%"; b.style.top=y+"%";
+  b.innerHTML=(face?`<img src="${face}" alt="">`:"")+`<span>${text}</span>`; host.appendChild(b); setTimeout(()=>b.remove(),2900); }
+function gxPraise(host){ const p=document.createElement("div"); p.className="gx-praise"; p.textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)]; host.appendChild(p); setTimeout(()=>p.remove(),1600); }
+function gxReward(st,x,y,text,face){ if(!gxLearn()) return; chime(); const host=st.box||st.root; gxStars(host,x,y,12); gxPraise(host); if(text) gxSay(host,text,x,Math.max(22,y-12),face); }
+function gxCheer(){ const st=GX[cur]; if(!st||!gxLearn()) return; chime(); const host=st.box||st.root; gxStars(host,50,45,14); gxPraise(host); gxSay(host,["Молодец!","Отлично!","Всё верно!","Так держать!"][Math.floor(Math.random()*4)],50,24,GXFACE.alex); }
+function gxDrag(st,el,start,hit,done){
+  const box=st.box; let dx=0,dy=0;
+  el.addEventListener("pointerdown",e=>{ if(el.classList.contains("placed")) return; e.preventDefault(); e.stopPropagation(); el.setPointerCapture(e.pointerId); const er=el.getBoundingClientRect(); dx=e.clientX-er.left; dy=e.clientY-er.top; el.classList.add("dragging"); if(gxLearn()) tone(500,700,.08,.05,"triangle"); });
+  el.addEventListener("pointermove",e=>{ if(!el.classList.contains("dragging")) return; const r=box.getBoundingClientRect(); el.style.left=((e.clientX-dx-r.left)/r.width*100)+"%"; el.style.top=((e.clientY-dy-r.top)/r.height*100)+"%"; });
+  const up=()=>{ if(!el.classList.contains("dragging")) return; el.classList.remove("dragging"); const r=box.getBoundingClientRect(), er=el.getBoundingClientRect();
+    const cx=(er.left+er.width/2-r.left)/r.width*100, cy=(er.top+er.height/2-r.top)/r.height*100; const ok=hit(cx,cy);
+    if(ok) done(ok); else { el.style.left=start.x+"%"; el.style.top=start.y+"%"; if(gxLearn()) tone(420,300,.1,.04,"sine"); } };
+  el.addEventListener("pointerup",up); el.addEventListener("pointercancel",up);
+}
+function gxRender(){
+  const st=GX[cur]; if(!st) return; const p=st.p, learn=gxLearn(); st.hint=0; st.placed=0; st.solved=false; st.cues=[]; st.fix=false;
+  st.root.querySelectorAll(".gx-hintbox,.gx-say,.gx-bubble,.gx-fix").forEach(e=>e.remove());
+  if(p.t==="choose"){
+    st.root.innerHTML=`<div class="gx-choices"></div>`; const box=st.root.firstChild;
+    p.opts.forEach((o,i)=>{ const b=document.createElement("button"); b.className="gx-ch"; b.style.setProperty("--i",i); b.innerHTML=`<img src="${o.img}" alt="" draggable="false">`; b.onclick=()=>gxPick(b,o); box.appendChild(b); });
+    if(learn&&p.say){ const sy=document.createElement("div"); sy.className="gx-say"; sy.textContent=p.say; st.root.appendChild(sy); }
+    return;
+  }
+  if(p.t==="single"){ st.root.innerHTML=`<div class="gx-single"><img src="${p.img}" alt="" draggable="false"></div>`; st.root.firstChild.onclick=()=>{ if(!gxLearn()) return; gxCheer(); }; return; }
+  if(p.t==="retell"){ const sc=PICS.filter(x=>x.t==="scene"&&x.img); const CAP=["Сначала","Потом","Потом","Потом","После этого","Потом","Потом","В конце"]; st.root.innerHTML=`<div class="gx-thumbs">${sc.map((x,i)=>`<figure class="gx-sb" style="--i:${i}"><figcaption class="cap">${CAP[i]||"Потом"}</figcaption><div class="ph"><img src="${x.img}" alt="Сцена ${i+1}" draggable="false"><i class="num">${i+1}</i></div></figure>`).join("")}</div>`; return; }
+  const dyn=st.dyn; dyn.innerHTML=""; const sI=st.root.querySelector(".gx-img"), sB=st.root.querySelector(".gx-bgblur"); if(sI){ sI.src=p.t==="give"?"img/gram/g2_bg.jpg":p.img; sB.src=sI.src; }
+  if(p.t==="scene"&&p.drag){
+    const d=p.drag, items=d.items||[d.item], t=d.target; st.total=items.length;
+    const cue=document.createElement("div"); cue.className="gx-cue"; cue.style.cssText=`left:${t.x}%;top:${t.y}%;width:${t.w}%;height:${t.h}%`; dyn.appendChild(cue); st.cues=[cue];
+    items.forEach((it,k)=>{ const el=document.createElement("div"); el.className="gx-drag"; el.style.cssText=`left:${it.x}%;top:${it.y}%;width:${it.w}%;animation-delay:${-k*.5}s`; el.innerHTML=`<img src="${it.img}" alt="">`; dyn.appendChild(el);
+      gxDrag(st,el,it,(cx,cy)=>cx>=t.x&&cx<=t.x+t.w&&cy>=t.y&&cy<=t.y+t.h,()=>{
+        let sn=d.snap||{x:t.x+t.w*.2,y:t.y+t.h*.2}; if(items.length>1) sn={x:t.x+(k%2)*t.w*.45+t.w*.05,y:t.y+Math.floor(k/2)*t.h*.5+t.h*.05};
+        el.style.left=sn.x+"%"; el.style.top=sn.y+"%"; el.classList.add("placed"); st.placed++;
+        const last=st.placed>=st.total;
+        gxReward(st,sn.x+it.w/2,sn.y+8, last?(items.length>1?"Игрушки убраны. Молодец!":"Куртка на крючке!"):"Отлично!",GXFACE.olya);
+        if(last&&gxLearn()) setTimeout(()=>burst(frame),500);
+      }); });
+  }
+  if(p.t==="give"){
+    const from=p.from, cx0=from==="misha"?16:(from==="olya"?62:40), start={x:cx0,y:from?44:70};
+    const zones={misha:{x:0,y:0,w:50,h:100},olya:{x:50,y:0,w:50,h:100}}, tz=p.to==="any"?{x:0,y:0,w:100,h:100}:zones[p.to];
+    const cue=document.createElement("div"); cue.className="gx-cue"; cue.style.cssText=`left:${tz.x}%;top:${tz.y}%;width:${tz.w}%;height:${tz.h}%`; dyn.appendChild(cue); st.cues=[cue];
+    const el=document.createElement("div"); el.className="gx-drag"; el.style.cssText=`left:${start.x}%;top:${start.y}%;width:20%`;
+    const fl=p.color?COLORS_GX[p.color]:""; el.innerHTML=`<img src="assets/sprite_${ITEM_FILE[p.item]}.png" alt="" ${fl?`style="filter:${fl}"`:""}>`; dyn.appendChild(el);
+    gxDrag(st,el,start,(cx)=>{ if(p.to==="any") return cx<50?"misha":"olya"; return (p.to==="misha"?cx<50:cx>=50)?p.to:null; },side=>{
+      const sx=side==="misha"?20:62; el.style.width="14%"; el.style.left=sx+"%"; el.style.top="44%"; el.classList.add("placed"); st.placed=1;
+      gxReward(st,sx+7,40,p.react,GXFACE[side]); });
+    if(learn&&p.say){ const sy=document.createElement("div"); sy.className="gx-say"; sy.textContent=p.say; st.root.appendChild(sy); }
+  }
+  if(p.t==="wrong"){
+    const b=document.createElement("button"); b.className="btn gx-fix"; b.textContent="Показать правильно";
+    b.onclick=e=>{ e.stopPropagation(); st.fix=!st.fix; const src=st.fix?p.img2:p.img; st.root.querySelectorAll(".gx-img,.gx-bgblur").forEach(i=>{ i.src=src; }); b.textContent=st.fix?"Показать, как было":"Показать правильно"; if(gxLearn()) SFX.panel(); };
+    st.root.appendChild(b);
+  }
+}
+const ITEM_FILE={ball:"ball",dress:"dress",shorts:"shorts",bag:"bag",cap:"cap",comb:"comb",skirt:"skirt",scrunchie:"scrunchie",backpack:"backpack",car:"car",sandals:"sandals",flipflops:"flipflops"};
+const COLORS_GX={red:"",blue:"hue-rotate(205deg) saturate(1.05)",green:"hue-rotate(105deg)",yellow:"hue-rotate(48deg) saturate(1.15) brightness(1.1)"};
+const EMW={joy:"радуется",sad:"грустит",angry:"сердится",fear:"боится",surprise:"удивляется",calm:"спокоен"};
+function gxPick(b,o){
+  const st=GX[cur], p=st.p; if(st.solved) return;
+  const all=st.root.querySelectorAll(".gx-ch");
+  if(!gxLearn()){ all.forEach(x=>x.classList.remove("pick")); b.classList.add("pick"); return; }
+  if(o.e===p.target){ st.solved=true; b.classList.add("good"); const r=b.getBoundingClientRect(), f=st.root.getBoundingClientRect(); chime(); gxStars(st.root,(r.left+r.width/2-f.left)/f.width*100,(r.top+r.height/2-f.top)/f.height*100,12); gxPraise(st.root); gxSay(st.root,"Верно! Так выглядит тот, кто "+EMW[p.target]+".",50,22,GXFACE.alex); }
+  else { b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); setTimeout(()=>b.classList.remove("shake"),600); tone(300,260,.12,.04); }
+}
+function gxHint(){
+  const st=GX[cur]; if(!st||!gxLearn()) return; const p=st.p; st.hint=Math.min(3,st.hint+1); SFX.panel();
+  st.cues.forEach(c=>c.classList.add("on"));
+  if(p.t==="choose") st.root.querySelectorAll(".gx-ch").forEach((b,i)=>b.classList.toggle("cuehit",p.opts[i].e===p.target));
+  st.root.querySelectorAll(".gx-hintbox").forEach(e=>e.remove());
+  if(st.hint>=2){
+    let text; if(p.t==="choose") text="Ищем того, кто "+EMW[p.target]+".";
+    else { const a=(p.qs[0].a||[""])[0], w=a.split(" "); text=st.hint>=3?a:w.slice(0,Math.max(1,Math.ceil(w.length/2))).join(" ")+"…"; }
+    const hb=document.createElement("div"); hb.className="gx-hintbox"; hb.textContent=text; (st.box||st.root).appendChild(hb);
+  }
+}
+function gxSide(){
+  const p=PICS[cur], d=INFO[cur], learn=gxLearn();
+  let h=`<h3>Отрабатываем</h3><p class="skill">${d.skill}</p><span class="chip where">${p.pos||""}</span>`;
+  if(learn&&p.say&&p.t!=="choose") h+=`<div class="tip"><b>Как играть</b>${p.say}</div>`;
+  h+=`<div class="ask">Спросите у ребёнка</div>`;
+  p.qs.forEach((q,k)=>{ const key="gx:"+cur+":"+k; h+=`<button class="q ${doneQ.has(key)?"done":""}" data-k="${key}"><b>${k+1}</b><span>${q.q}${learn&&q.a&&p.t!=="choose"?`<em class="smp">Образец: ${q.a.join(" / ")}</em>`:""}</span></button>`; });
+  if(learn) h+=`<button class="zbtn" id="gxh">💡 Подсказка</button>`;
+  if(p.t==="give"||(p.t==="scene"&&p.drag)||p.t==="choose") h+=`<button class="zbtn" id="gxr">🔁 Заново</button>`;
+  $("side").innerHTML=h;
+  $("side").querySelectorAll(".q").forEach(b=>b.onclick=()=>{ const k=b.dataset.k; const was=doneQ.has(k); was?doneQ.delete(k):doneQ.add(k); b.classList.toggle("done"); SFX.panel(); if(!was) gxCheer(); });
+  if($("gxh")) $("gxh").onclick=gxHint; if($("gxr")) $("gxr").onclick=()=>{ gxRender(); SFX.all(); };
+  $("side").scrollTop=0;
+}
+function gxSetMode(m){
+  gxMode=m; try{ localStorage.setItem("gxmode",m); }catch(e){} document.body.classList.toggle("gxdiag",m==="diag");
+  document.querySelectorAll("#gseg button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));
+  if(PICS[cur]&&PICS[cur].kind==="gx"){ gxRender(); renderSide(); }
+}
+const GXPLAN=[
+ [["Сцены с Олей","Смотрим картинку и отвечаем на вопросы"],["Перетаскиваем предметы","Куртку в шкафчик, игрушки на стол"],["Рассказываем по порядку","Сначала, потом, после этого"]],
+ [["Кому отдадим?","Отдаём вещи Мише или Оле"],["Чья вещь?","Мишин, Олин: чей, чья, чьё, чьи"],["Какой? Какая?","Говорим про цвет вещи"],["Предложения","Кто что кому дал"]],
+ [["Покажи эмоцию","Узнаём по лицу"],["Что чувствует?","Называем эмоции"],["Почему так?","Разбираем 8 ситуаций"],["Что сказать?","Придумываем слова"]],
+ [["Что здесь не так?","Находим нелепость на картинке"],["Почему неудобно?","Объясняем"],["Как правильно?","Исправляем предложение"]]
+].map(a=>a.map(([t,s])=>`<li><b>${t}</b><span>${s}</span></li>`).join(""));
+if(LESSON>=11){
+  document.body.classList.add("gxl");
+  const gs=document.createElement("span"); gs.className="seg"; gs.id="gseg"; gs.innerHTML=`<button data-m="learn" title="С подсказками и образцами ответов">Обучение</button><button data-m="diag" title="Без подсказок, звуков и наград">Диагностика</button>`;
+  $("help").before(gs); gs.querySelectorAll("button").forEach(b=>b.onclick=()=>gxSetMode(b.dataset.m)); document.body.classList.toggle("gxdiag",gxMode==="diag"); gs.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.m===gxMode));
+}
+
 /* ============ Состояние: упражнение cur, шаг sub (0 — вся картинка, 1..N — эпизод) ============ */
 let cur=0, sub=0; const balls={};
 const nPanels=i=>PICS[i].cols?PICS[i].cols*PICS[i].rows:(PICS[i].kind==="sounds"?PICS[i].animals.length+1:0);
@@ -655,6 +987,7 @@ const slides=PICS.map(p=>{
   if(p.kind==="hear"){ tilt.appendChild(s); makeHear(s,p); return s; }
   if(p.kind==="chain"){ tilt.appendChild(s); makeChain(s,p); return s; }
   if(p.kind==="memory"){ tilt.appendChild(s); makeMemory(s,p); return s; }
+  if(p.kind==="gx"){ tilt.appendChild(s); makeGX(s,p); return s; }
   if(p.kind==="story"){ tilt.appendChild(s); s.innerHTML=`<div class="story">${p.slides.map((x,i)=>`<img class="sl ${i===0?"on":""}" src="${x.img}" alt="Кадр ${i+1}" draggable="false">`).join("")}</div>`; return s; }
   s.innerHTML=`<div class="zoom"><img src="${p.file}" alt="${p.title}" draggable="false"><div class="fxl"></div><div class="hov"></div><div class="focus"></div></div>`;
   buildFx(s.querySelector(".fxl"),p.fx||[]); tilt.appendChild(s);
@@ -695,7 +1028,7 @@ function startQuiz(){
 }
 function loadCredits(){
   const box=document.getElementById("credBox"); if(!box) return;
-  const draw=()=>{ const names={}; (PICS[cur].animals||[]).forEach(a=>names[a.k]=a.n); (PICS[cur].sounds||[]).forEach(a=>names["h_"+a.k]=a.n);
+  const draw=()=>{ const names={}; (PICS[cur].animals||[]).forEach(a=>names[a.k]=a.n); (PICS[cur].sounds||[]).forEach(a=>names[a.a||("h_"+a.k)]=a.n);
     box.innerHTML=credits.filter(c=>names[c.key]).map(c=>`<div>${names[c.key]||c.key}: <a href="${c.page}" target="_blank" rel="noopener">${c.file}</a>, ${c.license}${c.artist?`, ${c.artist}`:""}</div>`).join("")+`<div style="margin-top:6px">Источник: Wikimedia Commons.</div>`; };
   if(credits) return draw();
   fetch("audio/credits.json").then(r=>r.json()).then(j=>{ credits=j; draw(); }).catch(()=>{ box.textContent="Источник звуков: Wikimedia Commons."; });
@@ -835,11 +1168,11 @@ function makeVoice(s,p){
     <div class="vo-stars"></div><div class="vo-pick"></div><img class="vo-smile" src="assets/smile_calm.png" alt="" draggable="false"><div class="sy-praise vo-praise"></div></div>`;
   const st=VO[idx]={p,k:p.animals[0].k,hits:0,t:0,quiet:1,lvl:0,root:s.querySelector(".voice")};
   const pick=st.root.querySelector(".vo-pick");
-  p.animals.forEach(a=>{ const b=document.createElement("button"); b.className="vo-chip"; b.innerHTML=`<img src="assets/an_${a.k}.png" alt="${a.n}" draggable="false">`; b.onclick=()=>{ st.k=a.k; voiceRender(); tone(500,700,.1,.05); }; pick.appendChild(b); });
-  voiceRender();
+  if(p.animals.length>1) p.animals.forEach(a=>{ const b=document.createElement("button"); b.className="vo-chip"; b.innerHTML=`<img src="assets/an_${a.k}.png" alt="${a.n}" draggable="false">`; b.onclick=()=>{ st.k=a.k; voiceRender(st); tone(500,700,.1,.05); }; pick.appendChild(b); });
+  voiceRender(st);
 }
-function voiceRender(){
-  const st=VO[PICS.findIndex(x=>x.kind==="voice")]; if(!st) return;
+function voiceRender(st){
+  st=st||VO[cur]; if(!st) return;
   st.root.querySelector(".vo-an").src="assets/an_"+st.k+".png";
   [...st.root.querySelectorAll(".vo-chip")].forEach((b,i)=>b.classList.toggle("on",st.p.animals[i].k===st.k));
   st.root.querySelector(".vo-stars").innerHTML=Array.from({length:5},(_,i)=>`<i class="${i<st.hits?"on":""}"></i>`).join("");
@@ -856,51 +1189,52 @@ function voiceTick(ts){
 }
 function voiceHit(st){
   st.hits++; tone(500+st.hits*80,560+st.hits*80,.18,.07,"triangle"); miniStars(st.root.querySelector(".vo-stage"),6);
-  if(st.hits>=5){ st.hits=0; const sm=st.root.querySelector(".vo-smile"); sm.src="assets/smile_happy.png"; const pr=st.root.querySelector(".vo-praise"); pr.textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)]; pr.classList.remove("pop"); void pr.offsetWidth; pr.classList.add("pop"); chime(); burst(frame); setTimeout(()=>sm.src="assets/smile_calm.png",2200); }
-  voiceRender();
+  if(st.hits>=5){ st.hits=0; const sm=st.root.querySelector(".vo-smile"); sm.src="assets/smile_happy.png"; const pr=st.root.querySelector(".vo-praise"); pr.textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)]; pr.classList.remove("pop"); void pr.offsetWidth; pr.classList.add("pop"); chime(); burst(frame); setTimeout(()=>{ if(PICS[cur]===st.p) playAnimal(st.k); },700); setTimeout(()=>sm.src="assets/smile_calm.png",2200); }
+  voiceRender(st);
 }
 
 /* ============ Хочу! (помоги Тёме попросить) ============ */
 function makeWant(s,p){
   const idx=PICS.indexOf(p); WN=WN||{};
-  s.innerHTML=`<div class="want"><div class="wn-tema"><div class="wn-think"><img alt="" draggable="false"></div><img class="wn-kid" src="assets/toddler.png" alt="" draggable="false"></div>
-    <div class="wn-mid"><div class="wn-title">Что хочет Тёма?</div><div class="wn-items"></div></div>
+  const W=p.who;
+  s.innerHTML=`<div class="want"><div class="wn-tema"><div class="wn-think"><img alt="" draggable="false"></div><img class="wn-kid" src="${W.kid}" alt="" draggable="false"></div>
+    <div class="wn-mid"><div class="wn-title">${W.top}</div><div class="wn-items"></div></div>
     <div class="wn-mama-box"><div class="wn-bubble"></div><img class="wn-mama" src="assets/mama.png" alt="" draggable="false"></div></div>`;
   WN[idx]={p,root:s.querySelector(".want"),done:false,target:null};
 }
 function wantRender(){
   const st=WN[cur]; if(!st) return; const round=st.p.rounds[Math.max(0,Math.min(st.p.rounds.length-1,sub-1))]; st.done=false;
   st.target=round[Math.floor(Math.random()*round.length)];
-  const r=st.root; r.classList.remove("gave"); r.querySelector(".wn-kid").src="assets/toddler.png";
+  const r=st.root; r.classList.remove("gave"); const kid=r.querySelector(".wn-kid"); kid.classList.remove("hop"); kid.src=st.p.who.kid;
   r.querySelector(".wn-think img").src=st.p.items[st.target].img;
   const box=r.querySelector(".wn-items"); box.innerHTML="";
   round.slice().sort(()=>Math.random()-.5).forEach(k=>{ const it=st.p.items[k]; const b=document.createElement("button"); b.className="wn-item"; b.dataset.k=k; b.innerHTML=`<img src="${it.img}" alt="${it.n}" draggable="false"><span>${it.n}</span>`; b.onclick=()=>wantPick(b,k); box.appendChild(b); });
-  const bub=r.querySelector(".wn-bubble"); bub.textContent="Что хочет Тёма?"; bub.classList.add("show");
+  const bub=r.querySelector(".wn-bubble"); bub.textContent=st.p.who.top; bub.classList.add("show");
 }
 function wantPick(b,k){
   const st=WN[cur]; if(st.done) return; const it=st.p.items[k];
-  if(k!==st.target){ b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); tone(300,260,.12,.04); st.root.querySelector(".wn-bubble").textContent="Тёма хочет другое. Посмотри на облачко!"; return; }
+  if(k!==st.target){ b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); tone(300,260,.12,.04); st.root.querySelector(".wn-bubble").textContent=st.p.who.other; return; }
   st.done=true; b.classList.add("fly");
   [...st.root.querySelectorAll(".wn-item")].forEach(x=>{ if(x!==b) x.classList.add("fade"); });
-  setTimeout(()=>{ st.root.querySelector(".wn-kid").src="assets/toddler_happy.png"; st.root.classList.add("gave"); },700);
-  st.root.querySelector(".wn-bubble").textContent="Держи, Тёма: "+it.acc+"!"; chime(); miniStars(st.root.querySelector(".wn-tema"),10);
+  setTimeout(()=>{ const kk=st.root.querySelector(".wn-kid"); kk.src=st.p.who.happy; if(st.p.who.hop){ kk.classList.remove("hop"); void kk.offsetWidth; kk.classList.add("hop"); } st.root.classList.add("gave"); },700);
+  st.root.querySelector(".wn-bubble").textContent=st.p.who.give+it.acc+"!"; chime(); miniStars(st.root.querySelector(".wn-tema"),10);
 }
 /* ============ Что звучит? ============ */
 function makeHear(s,p){
   const idx=PICS.indexOf(p); HE=HE||{};
   s.innerHTML=`<div class="hear"><div class="he-top"><button class="he-play" aria-label="Послушать ещё раз">${spkSvg()}</button><div class="he-q">Что звучит?</div></div><div class="he-choices"></div><div class="sy-praise he-praise"></div></div>`;
   HE[idx]={p,root:s.querySelector(".hear"),order:p.sounds.map((x,i)=>i).sort(()=>Math.random()-.5),solved:false};
-  s.querySelector(".he-play").onclick=()=>{ const st=HE[cur]; playH(st.target); };
+  s.querySelector(".he-play").onclick=()=>{ const st=HE[cur]; playH(st.ta); };
 }
-function playH(k){ if(muted) return; Object.values(AUD||{}).forEach(a=>a.pause()); const a=audioOf("h_"+k); a.currentTime=0; a.play().catch(()=>{}); }
+function playH(k){ if(muted) return; Object.values(AUD||{}).forEach(a=>a.pause()); const a=audioOf(k); a.currentTime=0; a.play().catch(()=>{}); }
 function hearStart(){
   const st=HE[cur]; if(!st) return; const p=st.p, n=p.sounds.length; st.solved=false;
-  const t=p.sounds[st.order[(sub-1)%n]]; st.target=t.k;
+  const t=p.sounds[st.order[(sub-1)%n]]; st.target=t.k; st.ta=t.a||("h_"+t.k);
   const others=p.sounds.filter(x=>x.k!==t.k).sort(()=>Math.random()-.5).slice(0,2);
   const opts=[t,...others].sort(()=>Math.random()-.5);
   const box=st.root.querySelector(".he-choices"); box.innerHTML="";
-  opts.forEach(o=>{ const b=document.createElement("button"); b.className="he-card"; b.innerHTML=`<img src="assets/hr_${o.k}.png" alt="${o.n}" draggable="false"><span>${o.n}</span>`; b.onclick=()=>hearPick(b,o); box.appendChild(b); });
-  st.root.querySelector(".he-praise").textContent=""; setTimeout(()=>playH(t.k),350);
+  opts.forEach(o=>{ const b=document.createElement("button"); b.className="he-card"; b.innerHTML=`<img src="${o.img||("assets/hr_"+o.k+".png")}" alt="${o.n}" draggable="false"><span>${o.n}</span>`; b.onclick=()=>hearPick(b,o); box.appendChild(b); });
+  st.root.querySelector(".he-praise").textContent=""; setTimeout(()=>{ if(HE[cur]===st) playH(st.ta); },350);
 }
 function hearPick(b,o){
   const st=HE[cur]; if(st.solved) return;
@@ -1023,7 +1357,7 @@ function makeBall(s,p,i){
 }
 function ballTo(i,z){ const st=balls[i]; st.x=z.x; st.y=z.y; st.s=z.s||1; placeBall(st); setTimeout(()=>snapFx(st),500); SFX.panel(); }
 function resetBall(){ const st=balls[cur]; if(!st) return; st.x=st.p.home.x; st.y=st.p.home.y; st.s=1; placeBall(st); SFX.all(); }
-const dots=$("dots");
+const dots=$("dots"); if(PICS.length>12) dots.classList.add("many");
 PICS.forEach((p,i)=>{
   const b=document.createElement("button"); b.className="thumb"; b.title=(i+1)+". "+p.title; b.setAttribute("aria-label",p.title);
   b.innerHTML=`<img src="${p.thumb||p.file}" alt="" class="${p.alpha?"alpha":""}">`; b.onclick=()=>go(i); dots.appendChild(b);
@@ -1032,7 +1366,12 @@ PICS.forEach((p,i)=>{
 /* подгонка кадра под свободное место (16:9, без наложения на подписи и панель) */
 function fit(){
   const st=$("stage"); let W=st.clientWidth, H=st.clientHeight;
-  if(innerWidth<=900){ H=W*9/16; }
+  if(LESSON>=11){
+    /* игры l=12–15: кадр 4:3 по пропорции картинок, справа панель фиксированной ширины, всё по центру */
+    if(innerWidth<=900){ st.style.flex=""; H=W*3/4; }
+    else { const wk=st.parentElement; H=st.clientHeight; W=H*4/3; const pw=document.body.classList.contains("noside")?0:Math.min(380,Math.max(300,innerWidth*.26)); const avW=wk.clientWidth-40-(pw?16+pw:0); if(W>avW){ W=avW; H=W*3/4; } st.style.flex="0 0 "+Math.floor(W)+"px"; }
+  }
+  else if(innerWidth<=900){ H=W*9/16; }
   else if(W/H>16/9) W=H*16/9; else H=W*9/16;
   frame.style.width=Math.floor(W)+"px"; frame.style.height=Math.floor(H)+"px";
   applyView();
@@ -1060,6 +1399,7 @@ function applyView(){
 const doneQ=new Set();
 function renderSide(){
   const p=PICS[cur], d=INFO[cur], n=nPanels(cur);
+  if(p.kind==="gx"){ gxSide(); return; }
   if(p.kind==="story"){
     const sl=p.slides[sub];
     $("side").innerHTML=`
@@ -1118,8 +1458,8 @@ function renderSide(){
     $("side").innerHTML=`
       <h3>Отрабатываем</h3><p class="skill">${d.skill}</p><span class="chip where">Раунд ${sub} из ${p.rounds.length}</span>
       <div class="ask">Как играть</div>
-      <div class="tip">В облачке над Тёмой нарисовано то, что он хочет. Попросите ребёнка помочь Тёме попросить: найти такую же картинку на столе и сказать маме «дай сок». Подождите 3–5 секунд; если не говорит, подскажите «дай» и повторите вместе. Мама отдаёт нужное, и Тёма радуется.</div>
-      ${["Что хочет Тёма?","Скажи маме: «дай …».","Что мама отдала Тёме?"].map((t,k)=>`<button class="q" data-k="wn:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
+      <div class="tip">В облачке над ${p.who.over} нарисовано то, что ${p.who.name==="Оля"?"она":"он"} хочет. Попросите ребёнка помочь ${p.who.name==="Оля"?"Оле":"Тёме"} попросить: найти такую же картинку на столе и сказать маме «дай ${p.who.name==="Оля"?"барабан":"сок"}». Подождите 3–5 секунд; если не говорит, подскажите «дай» и повторите вместе. Мама отдаёт нужное, и ${p.who.name} радуется.</div>
+      ${[p.who.top,"Скажи маме: «дай …».","Что мама отдала "+(p.who.name==="Оля"?"Оле":"Тёме")+"?"].map((t,k)=>`<button class="q" data-k="wn:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
       <button class="zbtn" id="wAgain">🔁 Раунд заново</button>`;
     $("wAgain").onclick=()=>{ wantRender(); SFX.all(); };
     $("side").querySelectorAll(".q").forEach(b=>b.onclick=()=>{ b.classList.toggle("done"); SFX.panel(); });
@@ -1131,9 +1471,9 @@ function renderSide(){
       <div class="ask">Как играть</div>
       <div class="tip">Звучит бытовой звук. Попросите ребёнка послушать и показать картинку, которая так звучит. Можно повторить звук кнопкой.</div>
       <button class="zbtn" id="hAgain">🔊 Послушать ещё раз</button>
-      ${["Что это звучит?","Покажи, где дрель/пылесос…","Где ты слышал такой звук?"].map((t,k)=>`<button class="q" data-k="he:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
+      ${["Что это звучит?","Покажи картинку, которая так звучит.","Где ты слышал такой звук?"].map((t,k)=>`<button class="q" data-k="he:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
       <details class="cred"><summary>Авторы звуков</summary><div id="credBox">Загрузка…</div></details>`;
-    $("hAgain").onclick=()=>{ const st=HE[cur]; if(st) playH(st.target); };
+    $("hAgain").onclick=()=>{ const st=HE[cur]; if(st) playH(st.ta); };
     $("side").querySelectorAll(".q").forEach(b=>b.onclick=()=>{ b.classList.toggle("done"); SFX.panel(); });
     $("side").querySelector(".cred").addEventListener("toggle",loadCredits); $("side").scrollTop=0; return;
   }
@@ -1234,7 +1574,7 @@ function updateUI(){
   [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===cur));
   const ball=p.kind==="ball", custom=!!p.kind;
   const o=orderOf(cur), ix=o.indexOf(sub), N=p.animals?p.animals.length:0;
-  $("pos").textContent=ball?"Перетащите мячик":(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?"Все животные":(sub<=N?`Животное ${sub} из ${N}`:"Угадай, кто говорит")):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
+  $("pos").textContent=ball?"Перетащите мячик":p.kind==="gx"?(p.pos||""):(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?"Все животные":(sub<=N?`Животное ${sub} из ${N}`:"Угадай, кто говорит")):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
   $("modeAll").style.display=$("modePanel").style.display=custom?"none":""; $("resetBall").style.display=ball?"":"none";
   $("modeAll").classList.toggle("on",sub===0); $("modePanel").classList.toggle("on",sub>0); $("modePanel").disabled=!n;
   const atEnd=(cur===PICS.length-1&&ix===o.length-1);
@@ -1266,7 +1606,7 @@ function setSub(s){ sub=s; applyView(); updateUI(); onEnter(); if(PICS[cur].kind
 /* единая логика «дальше / назад» — по порядку занятия */
 function next(){ const o=orderOf(cur), ix=o.indexOf(sub); if(ix<o.length-1) setSub(o[ix+1]); else if(cur<PICS.length-1) go(cur+1); else showFinale(); }
 function onEnter(){
-  const p=PICS[cur]; if(p.kind!=="blow"&&p.kind!=="voice") stopMic(); chainStop(); if(p.kind==="want"){ wantRender(); return; } if(p.kind==="hear"){ hearStart(); return; } if(p.kind==="chain"){ chainRender(); return; } if(p.kind==="syll"){ sylRender(); return; } if(p.kind!=="sounds") return;
+  const p=PICS[cur]; if(p.kind!=="blow"&&p.kind!=="voice") stopMic(); chainStop(); if(p.kind==="gx"){ gxRender(); return; } if(p.kind==="want"){ wantRender(); return; } if(p.kind==="hear"){ hearStart(); return; } if(p.kind==="chain"){ chainRender(); return; } if(p.kind==="syll"){ sylRender(); return; } if(p.kind!=="sounds") return;
   const N=p.animals.length, big=slides[cur].querySelector(".bigc");
   if(sub>=1&&sub<=N){ quiz=null; playAnimal(p.animals[sub-1].k); big.classList.remove("say"); void big.offsetWidth; big.classList.add("say"); setTimeout(()=>big.classList.remove("say"),2600); }
   else if(sub===N+1){ quizStop=false; startQuiz(); }
@@ -1282,11 +1622,11 @@ function addNar(){
 }
 /* финал занятия */
 function showFinale(){
-  const skills=PICS.map((p,i)=>`<li>${p.title}: ${INFO[i].skill}</li>`).join("");
-  openModal(`<div class="nbox"><img class="nimg" src="assets/narrator_thumbs.png" alt="Александра"><div class="nsay"><b>Отлично! Занятие пройдено.</b><br>Вы большие молодцы. Спросите ребёнка, что ему понравилось больше всего, и похвалите за старание.</div></div>
+  const seenSk=new Set(); const skills=PICS.map((p,i)=>{ if(seenSk.has(INFO[i].skill)) return ""; seenSk.add(INFO[i].skill); return `<li>${LESSON>=11?"":p.title+": "}${INFO[i].skill}</li>`; }).join("");
+  openModal(`<div class="nbox"><img class="nimg" src="assets/narrator_thumbs.png" alt="Александра"><div class="nsay"><b>${LESSON>=11?"Молодец! Мы прошли игру.":"Отлично! Занятие пройдено."}</b><br>Вы большие молодцы. Спросите ребёнка, что ему понравилось больше всего, и похвалите за старание.</div></div>
     <h2 style="font-size:20px">Что мы сегодня отработали</h2><ul>${skills}</ul>
     <div class="tip"><b>Совет</b>Повторите занятие через пару дней: так навык закрепляется. Можно выбрать другое занятие.</div>
-    <div class="mnav"><span></span><div><button class="btn" id="fa">Пройти ещё раз</button> <a class="btn primary" href="index.html" style="text-decoration:none;display:inline-block">Все занятия ›</a></div></div>`);
+    <div class="mnav"><span></span><div><button class="btn" id="fa">${LESSON>=11?"Ещё раз":"Пройти ещё раз"}</button> <a class="btn primary" href="index.html" style="text-decoration:none;display:inline-block">${LESSON>=11?"К другим играм ›":"Все занятия ›"}</a></div></div>`);
   if(LESSON===2) $("mcard").querySelector(".nbox").insertAdjacentHTML("afterend",HOT_HTML);
   applyPromoText();
   burst($("modal")); $("fa").onclick=()=>{ closeModal(); hidePromo(); go(0); };
@@ -1308,7 +1648,7 @@ function prev(){ const o=orderOf(cur), ix=o.indexOf(sub); if(ix>0) setSub(o[ix-1
 $("next").onclick=next; $("prev").onclick=prev;
 $("modeAll").onclick=()=>{ if(sub>0) setSub(0); };
 $("modePanel").onclick=()=>{ if(nPanels(cur)&&sub===0) setSub(1); };
-$("good").onclick=burst; $("resetBall").onclick=resetBall;
+$("good").onclick=()=>burst(); $("resetBall").onclick=resetBall;
 $("hints").onclick=()=>{ document.body.classList.toggle("noside"); fit(); SFX.panel(); };
 
 /* клик по картинке: приблизить эпизод под курсором / вернуть всю */
@@ -1348,7 +1688,7 @@ function showWelcome(s=0){
    `<div class="nbox"><img class="nimg" src="assets/narrator_wave.png" alt="Александра"><div class="nsay">Привет! Меня зовут <b>Александра Карачинцева</b>. Я поведенческий аналитик, специалист по запуску речи и психолог. Я буду рядом на этом занятии и подскажу, о чём спросить.</div></div>
     <h2>${LTITLE[LESSON]}</h2>
     <p>Сегодня мы будем отрабатывать ${LAIM[LESSON]}. План занятия:</p>
-    <ol class="plan">${PICS.map((p,i)=>`<li><b>${p.title}</b><span>${INFO[i].skill}</span></li>`).join("")}</ol>
+    <ol class="plan">${LESSON>=11?GXPLAN[LESSON-11]:PICS.map((p,i)=>`<li><b>${p.title}</b><span>${INFO[i].skill}</span></li>`).join("")}</ol>
     <p>Это не экзамен, а игра. Главное, чтобы ребёнку было интересно.</p>`,
    `<h2>Как пользоваться</h2>
     <div class="keys">
@@ -1359,7 +1699,7 @@ function showWelcome(s=0){
       <kbd>клик</kbd><span>по эпизоду на картинке: приблизить его; ещё клик возвращает всю картинку</span>
       <kbd>💡</kbd><span>показать или скрыть вопросы справа (клавиша Q). Если ребёнок видит экран, скройте их</span>
       <kbd>⭐</kbd><span>«Молодец!»: конфетти и звук в награду</span>
-      <kbd>✨ 🔊</kbd><span>выключить эффекты и звук, если они отвлекают</span>
+      <kbd>✨ 🔊</kbd><span>выключить эффекты и звук, если они отвлекают</span>${LESSON>=11?`<kbd>Обучение</kbd><span>с подсказками, образцами ответов и наградами. «Диагностика»: без подсказок, звуков и наград</span><kbd>предмет</kbd><span>предметы с картинок можно перетаскивать пальцем или мышкой</span>`:""}
     </div>`,
    `<h2>Как заниматься с ребёнком</h2>
     <ul>
@@ -1413,7 +1753,7 @@ addEventListener("resize",fit);
 (function(){ const r=$("rot"); let off=false; try{ off=sessionStorage.getItem("rotx")==="1"; }catch(e){} const mq=matchMedia("(max-width:900px) and (orientation:portrait)"); const upd=()=>r.classList.toggle("show",mq.matches&&!off&&!modal.classList.contains("show")); mq.addEventListener?mq.addEventListener("change",upd):mq.addListener(upd); $("rotX").onclick=()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); }; $("rotFs").onclick=()=>{ toggleFS(); }; setTimeout(upd,900); })();
 if("ResizeObserver" in window) new ResizeObserver(fit).observe($("stage"));
 setFx(fxOn);
-slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
+slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain","gx"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
 let welcomed=false; try{ welcomed=localStorage.getItem("w3_"+LESSON)==="1"; localStorage.setItem("w3_"+LESSON,"1"); }catch(e){}
 if(!welcomed) showWelcome(0);
 </script>

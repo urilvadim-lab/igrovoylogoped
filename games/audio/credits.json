@@ -131,5 +131,68 @@
   "license": "Public domain",
   "artist": "ezwa",
   "page": "https://commons.wikimedia.org/wiki/File:Rain_on_a_veranda_and_t.ogg"
+ },
+ {
+  "key": "h_bell",
+  "file": "Sound Effect - Door Bell.ogg",
+  "license": "CC0",
+  "artist": "Amada44",
+  "page": "https://commons.wikimedia.org/wiki/File:Sound_Effect_-_Door_Bell.ogg"
+ },
+ {
+  "key": "h_laugh",
+  "file": "Four Years Old child laughing.ogg",
+  "license": "CC BY 3.0",
+  "artist": "morgantj",
+  "page": "https://commons.wikimedia.org/wiki/File:Four_Years_Old_child_laughing.ogg"
+ },
+ {
+  "key": "h_kettle",
+  "file": "Kettle whistle.ogg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Secretlondon",
+  "page": "https://commons.wikimedia.org/wiki/File:Kettle_whistle.ogg"
+ },
+ {
+  "key": "h_water",
+  "file": "Faucet water into sink.ogg",
+  "license": "Public domain",
+  "artist": "stephan",
+  "page": "https://commons.wikimedia.org/wiki/File:Faucet_water_into_sink.ogg"
+ },
+ {
+  "key": "h_clap",
+  "file": "Clapping hurray (cropped).oga",
+  "license": "Public domain",
+  "artist": "Starlite",
+  "page": "https://commons.wikimedia.org/wiki/File:Clapping_hurray_(cropped).oga"
+ },
+ {
+  "key": "h_flush",
+  "file": "Toilet-flush.ogg",
+  "license": "CC BY-SA 4.0",
+  "artist": "DrTrumpet",
+  "page": "https://commons.wikimedia.org/wiki/File:Toilet-flush.ogg"
+ },
+ {
+  "key": "h_washer",
+  "file": "Washing machine.ogg",
+  "license": "Public domain",
+  "artist": "chocoholic",
+  "page": "https://commons.wikimedia.org/wiki/File:Washing_machine.ogg"
+ },
+ {
+  "key": "h_thunder",
+  "file": "Thunder 01.ogg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Amuzujoe",
+  "page": "https://commons.wikimedia.org/wiki/File:Thunder_01.ogg"
+ },
+ {
+  "key": "h_micro",
+  "file": "Microwave oven.ogg",
+  "license": "Public domain",
+  "artist": "stephan",
+  "page": "https://commons.wikimedia.org/wiki/File:Microwave_oven.ogg"
  }
 ]

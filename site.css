@@ -617,3 +617,28 @@ h3{text-wrap:balance}
 .gi{position:relative;height:118px;aspect-ratio:auto;padding:0;display:block}
 .gi img{position:absolute;left:10px;top:8px;width:calc(100% - 20px);height:calc(100% - 16px);max-width:none;max-height:none;object-fit:contain}
 .gcard{justify-content:flex-start}
+
+/* ===== v5.5: кликабельные карточки, подсветка кнопок, кнопка звука ===== */
+.case{cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+.case:hover{border-color:var(--terra-hi);box-shadow:0 26px 44px -22px rgba(196,86,31,.45)}
+.case .pic::after{content:"Нажмите";position:absolute;right:12px;top:12px;z-index:3;background:rgba(255,255,255,.95);color:var(--terra-d);font-weight:800;font-size:12.5px;border-radius:999px;padding:6px 12px;box-shadow:0 8px 18px -10px rgba(25,52,73,.6);transition:background .25s,color .25s}
+.case:hover .pic::after{content:"Открыть →";background:var(--terra);color:#fff}
+.case .more{margin-top:auto;align-self:flex-start;padding:11px 18px;border-radius:999px;background:var(--terra-soft);color:var(--terra-d);font-weight:800;transition:background .25s,color .25s,transform .25s}
+.case:hover .more{background:var(--terra);color:#fff;transform:translateX(3px)}
+.case .more svg{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.case:active{transform:scale(.99)}
+.hero5 .cta .btn:first-child,.nav>a.btn{animation:ring 3.6s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 14px 28px -14px rgba(217,112,60,.85),0 0 0 0 rgba(196,86,31,.45)}60%,100%{box-shadow:0 14px 28px -14px rgba(217,112,60,.85),0 0 0 16px rgba(196,86,31,0)}}
+.btn:hover{box-shadow:0 18px 32px -12px rgba(196,86,31,.8),0 0 0 4px rgba(247,198,75,.55)}
+.sndbtn{position:fixed;left:14px;bottom:20px;z-index:45;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--teal);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 20px -10px rgba(25,52,73,.5);transition:transform .2s var(--ease)}
+.sndbtn:hover{transform:scale(1.08)}.sndbtn svg{width:22px;height:22px}
+@media (max-width:760px){.sndbtn{bottom:92px;left:10px;width:38px;height:38px}}
+
+a.card.case{display:flex;flex-direction:column}
+.case .body{flex:1}
+
+/* v5.6: карточки продуктов без обрезки */
+.pv{position:relative;height:270px;padding:0;display:block}
+.pv img,.pv img.flat{position:absolute;left:18px;top:18px;width:calc(100% - 36px);height:calc(100% - 36px);max-width:none;max-height:none;object-fit:contain}
+.vc figcaption{display:none}
