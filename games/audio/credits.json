@@ -89,5 +89,47 @@
   "license": "Public domain",
   "artist": "alys",
   "page": "https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg"
+ },
+ {
+  "key": "h_door",
+  "file": "Knocking on wood or door.ogg",
+  "license": "Public domain",
+  "artist": "stephan",
+  "page": "https://commons.wikimedia.org/wiki/File:Knocking_on_wood_or_door.ogg"
+ },
+ {
+  "key": "h_clock",
+  "file": "Mechanical Clock Ring (Directory.Audio).mp3",
+  "license": "CC0",
+  "artist": "Yoo-toob-FX (https://directory.audio/authoritems/665-yoo-toob-fx, https://web.ar",
+  "page": "https://commons.wikimedia.org/wiki/File:Mechanical_Clock_Ring_(Directory.Audio).mp3"
+ },
+ {
+  "key": "h_drill",
+  "file": "Drilling next door 4.ogg",
+  "license": "Public domain",
+  "artist": "ezwa",
+  "page": "https://commons.wikimedia.org/wiki/File:Drilling_next_door_4.ogg"
+ },
+ {
+  "key": "h_vacuum",
+  "file": "Het aanstaan van een stofzuiger - SoundCloud - Beeld en Geluid.ogg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Beeld en Geluid",
+  "page": "https://commons.wikimedia.org/wiki/File:Het_aanstaan_van_een_stofzuiger_-_SoundCloud_-_Beeld_en_Geluid.ogg"
+ },
+ {
+  "key": "h_phone",
+  "file": "Model 500 Telephone British ring.ogg",
+  "license": "CC BY-SA 3.0",
+  "artist": "CianMcCann",
+  "page": "https://commons.wikimedia.org/wiki/File:Model_500_Telephone_British_ring.ogg"
+ },
+ {
+  "key": "h_rain",
+  "file": "Rain on a veranda and t.ogg",
+  "license": "Public domain",
+  "artist": "ezwa",
+  "page": "https://commons.wikimedia.org/wiki/File:Rain_on_a_veranda_and_t.ogg"
  }
 ]
