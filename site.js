@@ -3,9 +3,9 @@
   var root=document.body.getAttribute("data-root")||"";
   var cur=document.body.getAttribute("data-page")||"";
   var chev='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
-  var svc=[["work","Индивидуальная работа","Консультации, сопровождение, группа","work/"],["toilet","Туалетный навык","Курс, руководство и сопровождение","toilet/"],["speech","Запуск речи","От первых звуков до фраз","speech/"],["behavior","Работа с поведением","Истерики, отказы, правила","behavior/"]];
+  var svc=[["work","Индивидуальная работа","Консультации, сопровождение, группа","work/"],["toilet","Туалетный навык","Курс, руководство и сопровождение","toilet/"],["speech","Запуск речи","От первых звуков до фраз","speech/"],["behavior","Работа с поведением","Истерики, отказы, правила","behavior/"],["abroad","Для семей за границей","Онлайн из любой страны","abroad/"]];
   var prod=[["course","Видеокурс «Дефекация сидя»","5 видеолекций и материалы","products/course/"],["guide-toilet","Руководство по туалетному навыку","PDF для самостоятельной работы","products/guide-toilet/"],["guide-behavior","Руководство: истерики и протесты","Алгоритм на принципах ABA","products/guide-behavior/"]];
-  var about=[["about","Обо мне","Образование и подход","about/"],["aba","Метод ABA","Как это работает","aba/"],["team","Команда специалистов","Роли и взаимодействие","team/"]];
+  var about=[["about","Обо мне","Образование и подход","about/"],["aba","Метод ABA","Как это работает","aba/"],["team","Команда специалистов","Роли и взаимодействие","team/"],["articles","Статьи для родителей","Речь, поведение, горшок","articles/"]];
   function menu(id,label,list,on){
     return '<div class="dd'+(on?' on':'')+'" id="'+id+'"><button type="button">'+label+' '+chev+'</button><div class="menu">'+
       list.map(function(s){return '<a href="'+root+s[3]+'"><b>'+s[1]+'</b><span>'+s[2]+'</span></a>';}).join("")+'</div></div>';
@@ -31,7 +31,7 @@
   var f=document.getElementById("foot");
   if(f){
     f.innerHTML='<footer><div class="wrap"><div class="cols"><div><h4>Александра Карачинцева</h4><p style="margin:0;font-size:15px;line-height:1.6">Психолог, поведенческий аналитик (ABA), специалист по запуску речи. Работаю онлайн вместе с командой специалистов.</p></div>'+
-      '<div><h4>Разделы</h4>'+svc.map(function(s){return '<a href="'+root+s[3]+'">'+s[1]+'</a>';}).join("")+'<a href="'+root+'products/">Продукты</a><a href="'+root+'about/">Обо мне</a><a href="'+root+'aba/">Метод ABA</a><a href="'+root+'team/">Команда специалистов</a></div>'+
+      '<div><h4>Разделы</h4>'+svc.map(function(s){return '<a href="'+root+s[3]+'">'+s[1]+'</a>';}).join("")+'<a href="'+root+'products/">Продукты</a><a href="'+root+'about/">Обо мне</a><a href="'+root+'aba/">Метод ABA</a><a href="'+root+'team/">Команда специалистов</a><a href="'+root+'articles/">Статьи для родителей</a></div>'+
       '<div><h4>Связаться</h4><a href="https://vk.ru/id286171382" target="_blank" rel="noopener">VK</a><a href="https://t.me/rechi_igra" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOJkMLvXYQZugiVzBTNR0zrlftLzZGXLHUhJ5cvkQXhTXoKwvF8" target="_blank" rel="noopener">MAX</a><a href="https://www.instagram.com/igrovoy_logoped" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@rechi_igra" target="_blank" rel="noopener">YouTube</a><a href="'+root+'games/">Упражнения для речи</a></div></div>'+
       '<div class="legal">© Александра Карачинцева. Материалы сайта не заменяют консультацию специалиста. Запись и оплата из других стран возможны, условия обсуждаются индивидуально.</div></div></footer>'+
       '<div class="dock"><a class="v" href="https://vk.ru/id286171382" target="_blank" rel="noopener">VK</a><a class="g" href="'+root+'games/">Упражнения</a><a class="a js-choose" data-topic="Хочу записаться на консультацию" href="'+root+'contact/">Записаться</a></div>'+

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Запуск речи — картинки для диагностики</title>
+<meta name="robots" content="noindex,follow">
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
 <meta name="description" content="Сюжетные картинки для диагностики речи и связного рассказа. Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -505,8 +506,26 @@ body.gxl .stage{min-width:0}
 #rotFs{display:none}
 #rotX{padding:6px 12px;font-size:13px}
 </style>
+<!--seo-->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="yandex-verification" content="fa10f2d1a342b924" />
+<meta name="google-site-verification" content="a8iCu7dg9j0U-8gw7BsdnLNioH6554VckiGDvdwuvAA">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114300635', 'ym');
+    ym(114300635, 'init', {ssr:true, webvisor:false, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!--/seo-->
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/114300635" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <header>
   <div class="brand" style="display:flex;align-items:center;gap:14px">
     <a class="btn" href="index.html" style="text-decoration:none;padding:8px 14px" title="Все занятия">‹ Все занятия</a>
@@ -1821,7 +1840,7 @@ if("ResizeObserver" in window) new ResizeObserver(fit).observe($("stage"));
 setFx(fxOn);
 slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain","gx"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
 let welcomed=false; try{ welcomed=localStorage.getItem("w3_"+LESSON)==="1"; localStorage.setItem("w3_"+LESSON,"1"); }catch(e){}
-if(!welcomed) showWelcome(0);
+/* описание игры теперь на странице игры (/games/<slug>/); окно приветствия открывается кнопкой ? */
 </script>
 <style>
 .appnote{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;max-width:460px;margin:0 auto;background:#fffaf1;color:#4a3b2e;border-radius:20px;box-shadow:0 14px 40px rgba(80,50,10,.3);padding:14px 16px;display:none;gap:12px;align-items:flex-start;font:600 15px/1.4 Nunito,system-ui,sans-serif}
