@@ -677,3 +677,9 @@ html,body{overflow-x:hidden}
 .art+.band,.art+section{margin-top:56px}
 @media (max-width:900px){.arts{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:760px){.art{font-size:17px}.art-cta{padding:18px}}
+/* v7 статьи: иллюстрации и источники */
+.art .artfig{margin:22px auto;max-width:460px;text-align:center}
+.art .artfig img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line)}
+.art .artfig figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.4}
+.art ul.src{font-size:14.5px;color:var(--muted);padding-left:20px}
+.art ul.src li{margin:0 0 6px}
