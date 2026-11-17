@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Запуск речи — картинки для диагностики</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
 <meta name="description" content="Сюжетные картинки для диагностики речи и связного рассказа. Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -374,7 +375,7 @@ body.nofx .fxl,body.nofx .hov{display:none}
 .author.open .menu{pointer-events:auto}.author.open .card{opacity:1;transform:none}.author.open .lnk{opacity:1;transform:none}
 .author.open .lnk:nth-child(2){transition-delay:.05s}.author.open .lnk:nth-child(3){transition-delay:.1s}.author.open .lnk:nth-child(4){transition-delay:.15s}
 
-@media (max-width:900px){
+@media (max-width:900px) and (orientation:portrait){
   body{overflow:auto}
   .work{flex-direction:column;flex:none}
   .stage{flex:none}
@@ -435,11 +436,74 @@ body.gxl .work{justify-content:center}
 body.gxl .thumb{width:48px;height:36px}
 .dots.many .thumb{width:36px;height:27px}
 body.gxl .stage{min-width:0}
-@media (max-width:900px){body.gxl .side{flex:none}}
+@media (max-width:900px) and (orientation:portrait){body.gxl .side{flex:none}}
 .dots.many{flex-wrap:wrap;justify-content:center;max-width:94vw;gap:5px}
 .dots.many .thumb{width:36px;height:21px;border-width:2px;border-radius:6px}
 .dots.many .thumb.active{transform:translateY(-2px) scale(1.12)}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+
+/* ===== v6 мобильная раскладка (телефон): приложение на весь экран, крупные кнопки ===== */
+@media (max-width:700px){
+  html,body{max-width:100vw;overflow:hidden}
+  body{height:100vh;height:100dvh}
+  header{padding:8px 10px 0;gap:8px;flex-wrap:nowrap}
+  .brand{min-width:0;flex:1}
+  .brand>div>div,.brand p,.brand h1{display:none}
+  .brand .btn{padding:0 12px;height:44px;display:inline-flex;align-items:center;font-size:14px;white-space:nowrap}
+  .seg,.seg button{height:40px;line-height:40px}.seg button{font-size:13px;padding:0 10px}
+  .tools{flex:none;gap:6px}
+  #help,#fxb,#fs{display:none}
+  .iconbtn{width:44px;height:44px;font-size:19px}
+  .tools .seg,#gseg{max-width:230px}
+  .lesson{padding:6px 14px 4px;gap:6px;flex-wrap:nowrap;align-items:baseline}
+  .lesson .n,.lesson .chip{display:none}
+  .lesson b{font-size:18px;line-height:1.2}
+  .work{flex:1;min-height:0;flex-direction:column;padding:0 10px;gap:8px;overflow:hidden}
+  .stage{flex:none;width:100%}
+  .frame{border-radius:16px}
+  .side{flex:1;min-height:0;width:auto;max-width:none;max-height:none;padding:12px 12px 14px;border-radius:18px;overflow:auto;-webkit-overflow-scrolling:touch}
+  body.gxl .side{width:auto;max-width:none;flex:1}
+  .nimg{height:96px}
+  .nbox{gap:10px;margin-bottom:8px}
+  .nsay{font-size:15px;margin-bottom:14px}
+  .side .ask{font-size:17px}
+  .q{font-size:16px;padding:12px;min-height:48px;align-items:center}
+  .bar{padding:6px 10px calc(10px + env(safe-area-inset-bottom,0px));gap:6px;width:100%}
+  .ctrl{display:flex;flex-wrap:wrap;gap:8px;width:100%;align-items:center;justify-content:stretch}
+  .ctrl #prev{flex:1 1 38%}.ctrl #next{flex:1.4 1 52%}.ctrl .pos{display:none}
+  .ctrl .btn:not(#prev):not(#next){flex:1 1 20%}
+  .ctrl .btn{height:52px;font-size:17px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+  .ctrl #prev,.ctrl #next{height:56px}
+  .ctrl .pos{min-width:0;font-size:13px;padding:0 4px}
+  #modeAll,#modePanel,#resetBall,#good,#hints{height:46px;font-size:14px;padding:0 6px}
+  .dots{display:none}
+  .author{display:none}
+  .mcard{padding:18px 16px 16px;border-radius:22px;max-height:88dvh}
+  .mcard h2{font-size:21px}
+  .mnav .btn{height:48px;padding:0 20px;font-size:16px}
+  .promo{width:min(360px,94vw)}
+  .promo p{display:none}
+  .keys{display:none}
+  .mnav{position:sticky;bottom:-16px;background:var(--card);padding:10px 0 4px;margin-top:8px}
+  .rot{z-index:40}
+  .mem-go,.gx-ch{min-height:48px}
+  .sy-hint,.ch-hint,.bhint{display:none!important}
+  .mem-word,.mem-say{font-size:13px!important;line-height:1.25}
+}
+/* телефон лежа: кадр слева, панель справа, всё компактнее */
+@media (max-height:540px) and (orientation:landscape){
+  html,body{overflow:hidden}
+  .work{flex-direction:row;flex:1;min-height:0}
+  .ctrl .btn{padding:6px 12px}
+  .author{display:none}
+}
+/* подсказка «поверните телефон»: плашка, не блокирует игру */
+.rot{inset:60px 10px auto 10px;background:none;padding:0;align-items:flex-end;pointer-events:none}
+.rot-card{flex-direction:row;gap:10px;padding:10px 14px;border-radius:18px;max-width:420px;text-align:left;pointer-events:auto;box-shadow:var(--shadow);animation:fadein .4s ease}
+.rot-card svg{width:32px;height:32px;flex:none}
+.rot-card b{font-size:14px}.rot-card span{display:none}
+#rotFs{display:none}
+#rotX{padding:6px 12px;font-size:13px}
 </style>
 </head>
 <body>
@@ -477,7 +541,7 @@ body.gxl .stage{min-width:0}
   <div class="dots" id="dots"></div>
 </div>
 
-<div class="rot" id="rot"><div class="rot-card"><svg viewBox="0 0 64 64" width="64" height="64"><rect x="18" y="6" width="28" height="48" rx="5" fill="none" stroke="currentColor" stroke-width="4"/><path d="M52 18c6 4 8 12 4 20M56 38l-1-8 7 3" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg><b>Поверните телефон горизонтально</b><span>Так картинки и игры видно лучше.</span><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button class="btn primary" id="rotFs">На весь экран</button><button class="btn" id="rotX">Продолжить так</button></div></div></div>
+<div class="rot" id="rot"><div class="rot-card"><svg viewBox="0 0 64 64" width="64" height="64"><rect x="18" y="6" width="28" height="48" rx="5" fill="none" stroke="currentColor" stroke-width="4"/><path d="M52 18c6 4 8 12 4 20M56 38l-1-8 7 3" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg><b>Поверните телефон: картинка станет крупнее</b><span></span><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button class="btn primary" id="rotFs">На весь экран</button><button class="btn" id="rotX">Ок</button></div></div></div>
 <div class="modal" id="modal"><div class="mcard" id="mcard"></div></div>
 
 <aside class="promo" id="promo" aria-label="Об Александре">
@@ -1364,14 +1428,15 @@ PICS.forEach((p,i)=>{
 });
 
 /* подгонка кадра под свободное место (16:9, без наложения на подписи и панель) */
+function STACK(){ return matchMedia("(max-width:900px) and (orientation:portrait)").matches; }
 function fit(){
   const st=$("stage"); let W=st.clientWidth, H=st.clientHeight;
   if(LESSON>=11){
     /* игры l=12–15: кадр 4:3 по пропорции картинок, справа панель фиксированной ширины, всё по центру */
-    if(innerWidth<=900){ st.style.flex=""; H=W*3/4; }
+    if(STACK()){ st.style.flex=""; H=W*3/4; }
     else { const wk=st.parentElement; H=st.clientHeight; W=H*4/3; const pw=document.body.classList.contains("noside")?0:Math.min(380,Math.max(300,innerWidth*.26)); const avW=wk.clientWidth-40-(pw?16+pw:0); if(W>avW){ W=avW; H=W*3/4; } st.style.flex="0 0 "+Math.floor(W)+"px"; }
   }
-  else if(innerWidth<=900){ H=W*9/16; }
+  else if(STACK()){ H=W*9/16; }
   else if(W/H>16/9) W=H*16/9; else H=W*9/16;
   frame.style.width=Math.floor(W)+"px"; frame.style.height=Math.floor(H)+"px";
   applyView();
@@ -1684,6 +1749,7 @@ function openModal(html){ $("mcard").innerHTML=html; modal.classList.add("show")
 function closeModal(){ modal.classList.remove("show"); }
 const dotsHtml=(n,i)=>`<div class="mstep">${Array.from({length:n},(_,k)=>`<i class="${k===i?"on":""}"></i>`).join("")}</div>`;
 function showWelcome(s=0){
+  const MOB=matchMedia("(max-width:700px)").matches; if(MOB&&s===1) s=2;
   const pages=[
    `<div class="nbox"><img class="nimg" src="assets/narrator_wave.png" alt="Александра"><div class="nsay">Привет! Меня зовут <b>Александра Карачинцева</b>. Я поведенческий аналитик, специалист по запуску речи и психолог. Я буду рядом на этом занятии и подскажу, о чём спросить.</div></div>
     <h2>${LTITLE[LESSON]}</h2>
@@ -1711,9 +1777,9 @@ function showWelcome(s=0){
      <li>Занимайтесь 10–15 минут и хвалите за старание.</li>
     </ul>`
   ];
-  openModal(pages[s]+`<div class="mnav">${dotsHtml(3,s)}<div>${s>0?'<button class="btn" id="mb">Назад</button> ':''}<button class="btn primary" id="mn">${s<2?"Далее":"Начать занятие"}</button></div></div>`);
-  if($("mb")) $("mb").onclick=()=>showWelcome(s-1);
-  $("mn").onclick=()=>{ SFX.slide(); if(s<2) showWelcome(s+1); else { closeModal(); SFX.open(); } };
+  openModal((MOB?pages[s].replace(/справа/g,"ниже"):pages[s])+`<div class="mnav">${dotsHtml(3,s)}<div>${s>0?'<button class="btn" id="mb">Назад</button> ':''}<button class="btn primary" id="mn">${s<2?"Далее":"Начать занятие"}</button></div></div>`);
+  if($("mb")) $("mb").onclick=()=>showWelcome(MOB&&s===2?0:s-1);
+  $("mn").onclick=()=>{ SFX.slide(); if(s<2) showWelcome(MOB&&s===0?2:s+1); else { closeModal(); SFX.open(); } };
 }
 
 /* ============ Клавиатура и прочее ============ */
@@ -1750,12 +1816,48 @@ $("avatar").onclick=e=>{ e.stopPropagation(); au.classList.toggle("open"); au.cl
 document.addEventListener("click",e=>{ if(!au.contains(e.target)&&au.classList.contains("open")){ au.classList.remove("open"); SFX.close(); } });
 
 addEventListener("resize",fit);
-(function(){ const r=$("rot"); let off=false; try{ off=sessionStorage.getItem("rotx")==="1"; }catch(e){} const mq=matchMedia("(max-width:900px) and (orientation:portrait)"); const upd=()=>r.classList.toggle("show",mq.matches&&!off&&!modal.classList.contains("show")); mq.addEventListener?mq.addEventListener("change",upd):mq.addListener(upd); $("rotX").onclick=()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); }; $("rotFs").onclick=()=>{ toggleFS(); }; setTimeout(upd,900); })();
+(function(){ const r=$("rot"); let off=false; try{ off=sessionStorage.getItem("rotx")==="1"; }catch(e){} const mq=matchMedia("(max-width:900px) and (orientation:portrait)"); const upd=()=>r.classList.toggle("show",mq.matches&&!off&&!modal.classList.contains("show")); mq.addEventListener?mq.addEventListener("change",upd):mq.addListener(upd); $("rotX").onclick=()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); }; $("rotFs").onclick=()=>{ toggleFS(); }; setTimeout(upd,900); setTimeout(()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); },8000); })();
 if("ResizeObserver" in window) new ResizeObserver(fit).observe($("stage"));
 setFx(fxOn);
 slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain","gx"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
 let welcomed=false; try{ welcomed=localStorage.getItem("w3_"+LESSON)==="1"; localStorage.setItem("w3_"+LESSON,"1"); }catch(e){}
 if(!welcomed) showWelcome(0);
+</script>
+<style>
+.appnote{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;max-width:460px;margin:0 auto;background:#fffaf1;color:#4a3b2e;border-radius:20px;box-shadow:0 14px 40px rgba(80,50,10,.3);padding:14px 16px;display:none;gap:12px;align-items:flex-start;font:600 15px/1.4 Nunito,system-ui,sans-serif}
+.appnote.show{display:flex;animation:appin .4s ease}
+@keyframes appin{from{opacity:0;transform:translateY(20px)}}
+.appnote b{display:block;font-size:16px;margin-bottom:2px}
+.appnote .ax{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:#f5e6cf;font-size:20px;cursor:pointer;color:#4a3b2e}
+.appnote .ai{flex:none;font-size:26px;line-height:1}
+.appnote .ab{display:inline-block;margin-top:8px;border:0;border-radius:999px;background:#f0a62b;color:#fff;font:800 15px Nunito,system-ui,sans-serif;padding:10px 18px;cursor:pointer}
+</style>
+<div class="appnote" id="appnote" role="note"><span class="ai" id="appi"></span><div id="appt" style="flex:1"></div><button class="ax" id="appx" aria-label="Закрыть">×</button></div>
+<script>
+(function(){
+  try{
+    var ua=navigator.userAgent||"", mobile=/Android|iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua));
+    var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+    if(!mobile||standalone) return;
+    var ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua)), android=/Android/i.test(ua);
+    var inApp=/Instagram|FBAN|FBAV|Telegram|VKClient|VK\/|MAX\/|Line\/|; wv\)|OKApp|TikTok|Snapchat/i.test(ua)||(ios&&!/Safari\//.test(ua));
+    var key="appnote_"+(inApp?"b":"i"), now=Date.now();
+    try{ var t=+localStorage.getItem(key)||0; if(now-t<7*864e5) return; }catch(e){}
+    var box=document.getElementById("appnote"), tx=document.getElementById("appt"), ic=document.getElementById("appi"), deferred=null;
+    function show(i,h){ ic.textContent=i; tx.innerHTML=h; box.classList.add("show"); }
+    var onlyIn=true;
+    if(inApp){
+      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так игры идут быстрее и звук работает.");
+    } else if(!onlyIn){
+      if(ios) show("⬆️","<b>Как приложение, на весь экран</b>Нажмите «Поделиться» внизу Safari и выберите «На экран Домой». Значок появится рядом с другими приложениями.");
+      else if(android){
+        window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; show("📲","<b>Как приложение, на весь экран</b>Значок на главном экране, без вкладок и адресной строки.<br><button class=\"ab\" id=\"appgo\">Установить</button>"); document.getElementById("appgo").onclick=function(){ deferred.prompt(); box.classList.remove("show"); }; });
+        setTimeout(function(){ if(!box.classList.contains("show")) show("📲","<b>Как приложение, на весь экран</b>Откройте меню Chrome «⋮» и выберите «Установить приложение» (или «Добавить на главный экран»)."); },2500);
+      }
+    }
+    document.getElementById("appx").onclick=function(){ box.classList.remove("show"); try{localStorage.setItem(key,String(Date.now()));}catch(e){} };
+  }catch(e){}
+})();
 </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Игры и упражнения для запуска и развития речи</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
 <meta name="description" content="Сюжетные картинки и игры для развития речи ребёнка: связный рассказ, предлоги, ответы на вопросы. Занятия для родителей и логопедов. Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -123,6 +124,17 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 .pgdots i.on{width:30px;background:var(--accent)}
 .pgcount{font-weight:800;color:var(--ink2);min-width:58px;text-align:center;font-size:15px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.bubble{opacity:1;transform:none}}
+/* v6 мобильная: приветствие над головой, меньше лишнего */
+@media (max-width:820px){
+  .stage{padding-top:92px;margin-top:0}
+  .stage img.nm{height:300px}
+  .bubble{left:50%;top:0;max-width:270px;width:max-content;border-radius:20px;transform:translateX(-50%) scale(.6);transform-origin:50% 100%;animation-name:bpopm}
+  .bubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:var(--card);transform:translateX(-50%) rotate(45deg)}
+  .toy{display:none}
+  .how{display:none}
+  .cta{padding:16px 28px;font-size:18px}
+}
+@keyframes bpopm{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
 .homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
 </head>
 <body>
@@ -348,6 +360,42 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
     box.setAttribute("tabindex","0"); box.addEventListener("keydown",function(e){ if(e.key==="ArrowRight") go(cur+1); if(e.key==="ArrowLeft") go(cur-1); });
     go(0);
   });
+})();
+</script>
+<style>
+.appnote{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;max-width:460px;margin:0 auto;background:#fffaf1;color:#4a3b2e;border-radius:20px;box-shadow:0 14px 40px rgba(80,50,10,.3);padding:14px 16px;display:none;gap:12px;align-items:flex-start;font:600 15px/1.4 Nunito,system-ui,sans-serif}
+.appnote.show{display:flex;animation:appin .4s ease}
+@keyframes appin{from{opacity:0;transform:translateY(20px)}}
+.appnote b{display:block;font-size:16px;margin-bottom:2px}
+.appnote .ax{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:#f5e6cf;font-size:20px;cursor:pointer;color:#4a3b2e}
+.appnote .ai{flex:none;font-size:26px;line-height:1}
+.appnote .ab{display:inline-block;margin-top:8px;border:0;border-radius:999px;background:#f0a62b;color:#fff;font:800 15px Nunito,system-ui,sans-serif;padding:10px 18px;cursor:pointer}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<div class="appnote" id="appnote" role="note"><span class="ai" id="appi"></span><div id="appt" style="flex:1"></div><button class="ax" id="appx" aria-label="Закрыть">×</button></div>
+<script>
+(function(){
+  try{
+    var ua=navigator.userAgent||"", mobile=/Android|iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua));
+    var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+    if(!mobile||standalone) return;
+    var ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua)), android=/Android/i.test(ua);
+    var inApp=/Instagram|FBAN|FBAV|Telegram|VKClient|VK\/|MAX\/|Line\/|; wv\)|OKApp|TikTok|Snapchat/i.test(ua)||(ios&&!/Safari\//.test(ua));
+    var key="appnote_"+(inApp?"b":"i"), now=Date.now();
+    try{ var t=+localStorage.getItem(key)||0; if(now-t<7*864e5) return; }catch(e){}
+    var box=document.getElementById("appnote"), tx=document.getElementById("appt"), ic=document.getElementById("appi"), deferred=null;
+    function show(i,h){ ic.textContent=i; tx.innerHTML=h; box.classList.add("show"); }
+    var onlyIn=document.body.getAttribute("data-appnote")==="inapp";
+    if(inApp){
+      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так игры идут быстрее и звук работает.");
+    } else if(!onlyIn){
+      if(ios) show("⬆️","<b>Как приложение, на весь экран</b>Нажмите «Поделиться» внизу Safari и выберите «На экран Домой». Значок появится рядом с другими приложениями.");
+      else if(android){
+        window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; show("📲","<b>Как приложение, на весь экран</b>Значок на главном экране, без вкладок и адресной строки.<br><button class=\"ab\" id=\"appgo\">Установить</button>"); document.getElementById("appgo").onclick=function(){ deferred.prompt(); box.classList.remove("show"); }; });
+        setTimeout(function(){ if(!box.classList.contains("show")) show("📲","<b>Как приложение, на весь экран</b>Откройте меню Chrome «⋮» и выберите «Установить приложение» (или «Добавить на главный экран»)."); },2500);
+      }
+    }
+    document.getElementById("appx").onclick=function(){ box.classList.remove("show"); try{localStorage.setItem(key,String(Date.now()));}catch(e){} };
+  }catch(e){}
 })();
 </script>
 </body>

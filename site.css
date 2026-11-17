@@ -642,3 +642,13 @@ a.card.case{display:flex;flex-direction:column}
 .pv{position:relative;height:270px;padding:0;display:block}
 .pv img,.pv img.flat{position:absolute;left:18px;top:18px;width:calc(100% - 36px);height:calc(100% - 36px);max-width:none;max-height:none;object-fit:contain}
 .vc figcaption{display:none}
+
+/* v6 mobile: поздние правила перебивали адаптив */
+html,body{overflow-x:hidden}
+@media (max-width:900px){.prods{grid-template-columns:minmax(0,1fr)}}
+/* v6: backdrop-filter у .top делал меню position:fixed относительным шапки (меню уезжало вправо и растягивало страницу до 780px) */
+@media (max-width:1060px){
+  .top{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(251,245,234,.97)}
+  .nav{visibility:hidden;height:calc(100dvh - 68px);bottom:auto;transition:transform .3s var(--ease),visibility 0s .3s}
+  .top.open .nav{visibility:visible;transition:transform .3s var(--ease),visibility 0s}
+}
