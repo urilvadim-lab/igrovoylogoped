@@ -60,9 +60,9 @@ h2{font-size:clamp(24px,3.6vw,34px);margin:44px 0 14px;scroll-margin-top:20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
 .lcard{display:flex;flex-direction:column;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
 .lcard:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(120,80,30,.22)}
-.lcard .cover{aspect-ratio:16/9;overflow:hidden;position:relative}
-.lcard .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
-.lcard:hover .cover img{transform:scale(1.07)}
+.lcard .cover{aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(160deg,#fff4dc,#ffe0a8)}
+.lcard .cover img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .8s ease}
+.lcard:hover .cover img{transform:scale(1.03)}
 .lcard .num{position:absolute;left:14px;top:14px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:5px 14px;font-size:14px;box-shadow:var(--shadow)}
 .lcard .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .lcard h3{margin:0;font-size:22px}
@@ -99,7 +99,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
   .how{grid-template-columns:1fr}
 }
 .agehead{margin:30px 0 6px}.agehead h2{margin:0 0 6px}
-.agenav{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:14px 0 8px}
+.agenav{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:14px 0 8px}
 .agenav a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-decoration:none;color:var(--ink);border-radius:28px;padding:20px 22px 22px;box-shadow:var(--shadow);overflow:hidden;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s;background:var(--card)}
 .agenav a:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(120,80,30,.24)}
 .agenav .ag1{background:linear-gradient(160deg,#fff3dc,#ffe0a8)}.agenav .ag2{background:linear-gradient(160deg,#e8f5ec,#c6e6d3)}.agenav .ag3{background:linear-gradient(160deg,#f1ebff,#d9ccf5)}
@@ -113,7 +113,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 .agenav .agbtn{margin-top:12px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(240,166,43,.4);transition:transform .25s}
 .agenav .ag2 .agbtn{background:#5b9d83;box-shadow:0 8px 18px rgba(91,157,131,.4)}.agenav .ag3 .agbtn{background:#8d6bd6;box-shadow:0 8px 18px rgba(141,107,214,.4)}
 .agenav a:hover .agbtn{transform:translateY(3px)}
-@media (max-width:760px){.agenav{grid-template-columns:1fr}.agpics{height:70px}}
+@media (max-width:980px){.agenav{grid-template-columns:1fr}.agpics{height:70px}}
 /* листание страниц по 6 занятий */
 .pgnav{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 4px}
 .pgbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--accent);color:#fff;font:800 26px/1 "Nunito",system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 22px rgba(240,166,43,.4);transition:transform .25s cubic-bezier(.3,1.5,.5,1),opacity .2s;display:grid;place-items:center;padding:0 0 3px}
@@ -131,7 +131,6 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
   .bubble{left:50%;top:0;max-width:270px;width:max-content;border-radius:20px;transform:translateX(-50%) scale(.6);transform-origin:50% 100%;animation-name:bpopm}
   .bubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:var(--card);transform:translateX(-50%) rotate(45deg)}
   .toy{display:none}
-  .how{display:none}
   .cta{padding:16px 28px;font-size:18px}
 }
 @keyframes bpopm{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
@@ -158,7 +157,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <meta name="yandex-verification" content="fa10f2d1a342b924" />
 <meta name="google-site-verification" content="a8iCu7dg9j0U-8gw7BsdnLNioH6554VckiGDvdwuvAA">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ItemList", "name": "Игры и упражнения для развития речи", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://igrovoylogoped.ru/games/rasskazyvaem-po-kartinkam/", "name": "Рассказываем по картинкам: сюжетные картинки для развития речи"}, {"@type": "ListItem", "position": 2, "url": "https://igrovoylogoped.ru/games/gde-myachik/", "name": "Где мячик? Игра на предлоги «в», «на», «под», «за» для детей"}, {"@type": "ListItem", "position": 3, "url": "https://igrovoylogoped.ru/games/tualetnye-dela-tyomy/", "name": "Туалетные дела Тёмы: картинки по шагам про горшок и туалет"}, {"@type": "ListItem", "position": 4, "url": "https://igrovoylogoped.ru/games/ferma/", "name": "Кто как говорит: игра со звуками животных для малышей"}, {"@type": "ListItem", "position": 5, "url": "https://igrovoylogoped.ru/games/duem-i-plyvem/", "name": "Дуем и плывём: игра на дыхание и голос для малышей"}, {"@type": "ListItem", "position": 6, "url": "https://igrovoylogoped.ru/games/slogovaya-struktura/", "name": "Слоговая структура слов: игра для детей, от «дом» до «крокодил»"}, {"@type": "ListItem", "position": 7, "url": "https://igrovoylogoped.ru/games/golosovoy-zverek/", "name": "Голосовой зверёк: игра на голос для малышей"}, {"@type": "ListItem", "position": 8, "url": "https://igrovoylogoped.ru/games/zvuki-i-slogi/", "name": "Звуки и слоги: упражнение на артикуляцию, ПА-ТА-КА"}, {"@type": "ListItem", "position": 9, "url": "https://igrovoylogoped.ru/games/najdi-paru/", "name": "Найди пару: игра на внимание и память со слогами"}, {"@type": "ListItem", "position": 10, "url": "https://igrovoylogoped.ru/games/hochu/", "name": "Хочу! Игра на просьбу «дай» для малышей"}, {"@type": "ListItem", "position": 11, "url": "https://igrovoylogoped.ru/games/chto-zvuchit/", "name": "Что звучит? Игра на слуховое внимание: бытовые звуки"}, {"@type": "ListItem", "position": 12, "url": "https://igrovoylogoped.ru/games/den-v-detskom-sadu/", "name": "Один день в детском саду: игра на предлоги и связный рассказ"}, {"@type": "ListItem", "position": 13, "url": "https://igrovoylogoped.ru/games/chya-veshch/", "name": "Чья вещь? Кому отдадим? Игра на род, число и падежи"}, {"@type": "ListItem", "position": 14, "url": "https://igrovoylogoped.ru/games/kto-chto-chuvstvuet/", "name": "Кто что чувствует? Игра про эмоции для детей 5–7 лет"}, {"@type": "ListItem", "position": 15, "url": "https://igrovoylogoped.ru/games/chto-zdes-ne-tak/", "name": "Что здесь не так? Игра на понимание бытовых ситуаций"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://igrovoylogoped.ru/"}, {"@type": "ListItem", "position": 2, "name": "Игры и упражнения", "item": "https://igrovoylogoped.ru/games/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ItemList", "name": "Игры и упражнения для развития речи", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://igrovoylogoped.ru/games/rasskazyvaem-po-kartinkam/", "name": "Рассказ по сюжетным картинкам: занятие «Рассказываем по картинкам» (связная речь)"}, {"@type": "ListItem", "position": 2, "url": "https://igrovoylogoped.ru/games/gde-myachik/", "name": "Предлоги «в», «на», «под», «за», «около»: занятие «Где мячик?»"}, {"@type": "ListItem", "position": 3, "url": "https://igrovoylogoped.ru/games/tualetnye-dela-tyomy/", "name": "Последовательность действий: занятие «Туалетные дела Тёмы» (картинки по шагам)"}, {"@type": "ListItem", "position": 4, "url": "https://igrovoylogoped.ru/games/ferma/", "name": "Звукоподражания для малышей: занятие «Кто как говорит» (запуск речи)"}, {"@type": "ListItem", "position": 5, "url": "https://igrovoylogoped.ru/games/duem-i-plyvem/", "name": "Речевое дыхание и голос: занятие «Дуем и плывём» для малышей"}, {"@type": "ListItem", "position": 6, "url": "https://igrovoylogoped.ru/games/slogovaya-struktura/", "name": "Слоговая структура слова: занятие для детей (от «дом» до «крокодил»)"}, {"@type": "ListItem", "position": 7, "url": "https://igrovoylogoped.ru/games/golosovoy-zverek/", "name": "Развитие голоса и вокализаций: занятие «Голосовой зверёк» для малышей"}, {"@type": "ListItem", "position": 8, "url": "https://igrovoylogoped.ru/games/zvuki-i-slogi/", "name": "Артикуляция гласных, слоги и ПА-ТА-КА: занятие для логопеда и родителей"}, {"@type": "ListItem", "position": 9, "url": "https://igrovoylogoped.ru/games/najdi-paru/", "name": "Внимание, память и слоговая структура: игра «Найди пару» (4 уровня)"}, {"@type": "ListItem", "position": 10, "url": "https://igrovoylogoped.ru/games/hochu/", "name": "Просьба «дай»: занятие «Хочу!» по функциональной коммуникации"}, {"@type": "ListItem", "position": 11, "url": "https://igrovoylogoped.ru/games/chto-zvuchit/", "name": "Слуховое внимание и различение неречевых звуков: занятие «Что звучит?»"}, {"@type": "ListItem", "position": 12, "url": "https://igrovoylogoped.ru/games/den-v-detskom-sadu/", "name": "Предлоги, падежи и связный рассказ: занятие «Один день в детском саду» (5–7 лет)"}, {"@type": "ListItem", "position": 13, "url": "https://igrovoylogoped.ru/games/chya-veshch/", "name": "Род, число и падежи: занятие «Чья вещь? Кому отдадим?» (5–7 лет)"}, {"@type": "ListItem", "position": 14, "url": "https://igrovoylogoped.ru/games/kto-chto-chuvstvuet/", "name": "Эмоции и их причины: занятие «Кто что чувствует?» (5–7 лет)"}, {"@type": "ListItem", "position": 15, "url": "https://igrovoylogoped.ru/games/chto-zdes-ne-tak/", "name": "Понимание бытовых ситуаций: занятие «Что здесь не так?» (нелепицы, 5–7 лет)"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://igrovoylogoped.ru/"}, {"@type": "ListItem", "position": 2, "name": "Игры и упражнения", "item": "https://igrovoylogoped.ru/games/"}]}]}</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -178,11 +177,11 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 <main><a class="homebtn" href="../">← На главную</a>
   <section class="hero">
     <div class="reveal">
-      <div class="kicker">Занятия для родителей и логопедов</div>
+      <div class="kicker">Занятия для логопедов и родителей</div>
       <h1>Запуск речи</h1>
-      <p class="sub">Игровые занятия для детей и родителей</p>
-      <p class="lead">Картинки, игры и подсказки, о чём спросить ребёнка. Выберите занятие и начните прямо сейчас, это бесплатно.</p>
-      <a class="cta" href="#agesTitle">Выбрать игры ↓</a>
+      <p class="sub">Интерактивные занятия для развития речи</p>
+      <p class="lead">Бесплатные занятия от доречевого этапа до связной речи: слуховое внимание, дыхание и голос, звукоподражания, слоги, грамматика, рассказ. У каждого занятия есть описание: что оно развивает и при каких трудностях полезно.</p>
+      <a class="cta" href="#agesTitle">Выбрать занятие ↓</a>
     </div>
     <div class="stage reveal" style="--d:.2s">
       <div class="bubble">Привет! Я Александра. Давайте будем играть и учиться красиво говорить!</div>
@@ -195,162 +194,164 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
     </div>
   </section>
 
-  <div class="how reveal" style="--d:.25s">
-    <div><b>1</b>Выберите занятие ниже и прочитайте короткий план.</div>
-    <div><b>2</b>Покажите ребёнку картинку и дайте рассмотреть её.</div>
-    <div><b>3</b>Задавайте вопросы, которые видны справа, и хвалите за старание.</div>
-  </div>
-
-  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Нажмите на нужный блок, и страница сама спустится к нужным играм.</p></div>
-  <nav class="agenav reveal" id="ages" aria-label="Выбор по цели">
-    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Если ребёнок пока не говорит или говорит мало</em><span class="agcount">5 игр</span><span class="agbtn">Смотреть игры ↓</span></a>
-    <a href="#develop" class="ag2"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Если ребёнок уже говорит</em><span class="agcount">10 игр</span><span class="agbtn">Смотреть игры ↓</span></a>
+  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Выберите этап: нажмите на блок, и страница спустится к нужным занятиям.</p></div>
+  <nav class="agenav reveal" id="ages" aria-label="Выбор по этапу речи">
+    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Ребёнок пока не говорит или говорит мало</em><span class="agcount">5 занятий</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="#syllables" class="ag2"><div class="agpics"><img src="assets/an_duck.png" alt="" loading="lazy" decoding="async"><img src="assets/sprite_ball.png" alt="Мячик" loading="lazy" decoding="async"><img src="assets/an_car.png" alt="" loading="lazy" decoding="async"></div><b>Слоги и первые слова</b><em>Ребёнок уже произносит слоги и лепетные слова</em><span class="agcount">3 занятия</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="#develop" class="ag3"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Ребёнок уже говорит словами и фразами</em><span class="agcount">7 занятий</span><span class="agbtn">Смотреть ↓</span></a>
   </nav>
-    <h2 id="launch">Запуск речи</h2>
-  <p class="secsub">Для детей, которые пока не говорят или говорят мало: слушаем, узнаём, просим, повторяем.</p>
-  <div class="cards" data-pager>
-    <a class="lcard reveal" style="--d:.1s" href="ferma/">
-      <div class="cover"><img src="img/sounds_cover.jpg" alt="" loading="lazy" decoding="async"><span class="num">Игра</span></div>
-      <div class="body">
-        <h3>Кто как говорит: ферма</h3>
-        <p>10 животных фермы по одному: слушаем настоящий звук, повторяем, а потом играем в «Угадай, кто говорит». Для самых первых слов.</p>
-        <div class="tags"><span class="tag">10 животных</span><span class="tag">слушаем</span><span class="tag">угадываем</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="duem-i-plyvem/">
-      <div class="cover"><img src="img/blow/bg_sea.jpg" alt="" loading="lazy" decoding="async"><span class="num">Игра</span></div>
-      <div class="body">
-        <h3>Дуем и плывём</h3>
-        <p>Дуем на экран, и кораблик плывёт, гудим «у-у-у», и паровозик едет, надуваем шарик. Игра с микрофоном для дыхания и голоса.</p>
-        <div class="tags"><span class="tag">3 игры</span><span class="tag">дыхание</span><span class="tag">голос</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.3s" href="golosovoy-zverek/">
-      <div class="cover"><img src="img/cover_voice.jpg" alt="" loading="lazy" decoding="async"><span class="num">Игра</span></div>
-      <div class="body">
-        <h3>Голосовой зверёк</h3>
-        <p>Любой звук малыша оживляет зверька: корову, кошку, собаку, утку, лошадь и других. Пять звёздочек за пять звуков, а в награду настоящий голос зверя.</p>
-        <div class="tags"><span class="tag">10 зверей</span><span class="tag">голос</span><span class="tag">микрофон</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.4s" href="hochu/">
-      <div class="cover"><img src="img/cover_want.jpg" alt="" loading="lazy" decoding="async"><span class="num">Игра</span></div>
-      <div class="body">
-        <h3>Хочу!</h3>
-        <p>Помогаем Тёме и Оле попросить: в облачке нарисовано, чего хочет герой, а ребёнок выбирает картинку и говорит маме «дай».</p>
-        <div class="tags"><span class="tag">2 героя</span><span class="tag">по 7 заданий</span><span class="tag">просьба</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.5s" href="chto-zvuchit/">
-      <div class="cover"><img src="img/cover_hear.jpg" alt="" loading="lazy" decoding="async"><span class="num">Игра</span></div>
+
+  <h2 id="launch">Запуск речи: доречевые навыки</h2>
+  <p class="secsub">Для детей, которые пока не говорят или говорят мало. Развиваем доречевые навыки: слуховое внимание, дыхание, голос, подражание и просьбу. Готовим базу для формирования речи. Занятия идут по порядку: от слуха к голосу, подражанию и просьбе.</p>
+  <div class="cards">
+    <a class="lcard reveal" style="--d:.1s" href="chto-zvuchit/">
+      <div class="cover"><img src="img/cover_hear.jpg" alt="Что звучит?" loading="lazy" decoding="async"><span class="num">Малыши</span></div>
       <div class="body">
         <h3>Что звучит?</h3>
-        <p>Слушаем настоящие звуки: дрель, телефон, дождь, машина, поезд и другие. Ребёнок выбирает картинку, которая так звучит.</p>
-        <div class="tags"><span class="tag">2 игры</span><span class="tag">слуховое внимание</span><span class="tag">реальные звуки</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a><div class="soon reveal" style="--d:.3s"><div><span>🌱</span>Скоро: звери, птицы, транспорт, звуки дома</div></div>
-  </div>
-  <h2 id="develop">Развитие речи</h2>
-  <p class="secsub">Для детей, которые уже говорят: слоги и слова, предлоги, фразы, эмоции, рассказ по картинкам.</p>
-  <div class="cards" data-pager>
-    <a class="lcard reveal" style="--d:.1s" href="rasskazyvaem-po-kartinkam/">
-      <div class="cover"><img src="img/01_olya_morning.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 1</span></div>
-      <div class="body">
-        <h3>Рассказываем по картинкам</h3>
-        <p>Утро и день Оли, кухня, магазин, уборка, прогулка. Связный рассказ, глаголы, предлоги, ответы на вопросы.</p>
-        <div class="tags"><span class="tag">6 картинок</span><span class="tag">от лёгкого к сложному</span></div>
+        <p>Слуховое внимание и различение неречевых звуков: ребёнок узнаёт настоящие бытовые звуки и выбирает картинку.</p>
+        <div class="tags"><span class="tag">слуховое внимание</span><span class="tag">дифференциация звуков</span><span class="tag">словарь</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
     </a>
-    <a class="lcard reveal" style="--d:.2s" href="gde-myachik/">
-      <div class="cover"><img src="img/ball/b3_sofa.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 2</span></div>
+    <a class="lcard reveal" style="--d:.2 s" href="duem-i-plyvem/">
+      <div class="cover"><img src="img/blow/bg_sea.jpg" alt="Дуем и плывём" loading="lazy" decoding="async"><span class="num">Малыши</span></div>
       <div class="body">
-        <h3>Где мячик?</h3>
-        <p>Мячик можно перетаскивать: в шкаф, на стол, под диван, за коробку. Тренируем предлоги в игре.</p>
-        <div class="tags"><span class="tag">7 игр</span><span class="tag">предлоги</span></div>
+        <h3>Дуем и плывём</h3>
+        <p>Речевое дыхание и голос: длинный плавный выдох, гудение «у-у-у». Работает с микрофоном.</p>
+        <div class="tags"><span class="tag">речевое дыхание</span><span class="tag">голос</span><span class="tag">микрофон</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
     </a>
-    <a class="lcard reveal" style="--d:.3s" href="tualetnye-dela-tyomy/">
-      <div class="cover"><img src="img/potty/s5.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 3</span></div>
+    <a class="lcard reveal" style="--d:.3 s" href="golosovoy-zverek/">
+      <div class="cover"><img src="img/cover_voice.jpg" alt="Голосовой зверёк" loading="lazy" decoding="async"><span class="num">Малыши</span></div>
       <div class="body">
-        <h3>Туалетные дела Тёмы</h3>
-        <p>Что за чем делаем: хочу в туалет, горшок, гигиена, мытьё рук. Цельный рассказ по порядку: «сначала, потом, после».</p>
-        <div class="tags"><span class="tag">9 эпизодов</span><span class="tag">последовательность</span></div>
+        <h3>Голосовой зверёк</h3>
+        <p>Мотивация к вокализации: любой звук ребёнка оживляет зверька. Первый шаг для неговорящих детей.</p>
+        <div class="tags"><span class="tag">вокализации</span><span class="tag">голос</span><span class="tag">мотивация</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
     </a>
-    <a class="lcard reveal" style="--d:.4s" href="slogovaya-struktura/">
-      <div class="cover"><img src="img/syll_cover.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 4</span></div>
+    <a class="lcard reveal" style="--d:.4 s" href="ferma/">
+      <div class="cover"><img src="img/sounds_cover.jpg" alt="Кто как говорит: ферма" loading="lazy" decoding="async"><span class="num">Малыши</span></div>
       <div class="body">
-        <h3>Слоговая структура слов</h3>
-        <p>Называем слоги по порядку, собираем слово из слогов: от односложных (дом, кот) до слов со стечением согласных (вертолёт, крокодил).</p>
-        <div class="tags"><span class="tag">24 слова</span><span class="tag">4 уровня</span><span class="tag">слоги</span></div>
+        <h3>Кто как говорит: ферма</h3>
+        <p>Звукоподражания и первые слова: настоящие голоса 10 животных, затем игра «Угадай, кто говорит».</p>
+        <div class="tags"><span class="tag">звукоподражания</span><span class="tag">первые слова</span><span class="tag">слуховое внимание</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
     </a>
-      <a class="lcard reveal" style="--d:.5s" href="zvuki-i-slogi/">
-      <div class="cover"><img src="img/cover_chain.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 5</span></div>
+    <a class="lcard reveal" style="--d:.5 s" href="hochu/">
+      <div class="cover"><img src="img/cover_want.jpg" alt="Хочу!" loading="lazy" decoding="async"><span class="num">Малыши</span></div>
       <div class="body">
-        <h3>Звуки и слоги: логопед показывает</h3>
-        <p>Гласные с положением губ, прямые слоги, ПА-ТА-КА, глухие и звонкие, стечения. Мячик прыгает по слогам, а ребёнок повторяет.</p>
-        <div class="tags"><span class="tag">5 уровней</span><span class="tag">артикуляция</span><span class="tag">для логопеда</span></div>
+        <h3>Хочу!</h3>
+        <p>Функциональная коммуникация: ребёнок учится просить «дай» словом, жестом или картинкой.</p>
+        <div class="tags"><span class="tag">просьба</span><span class="tag">коммуникация</span><span class="tag">первые слова</span></div>
         <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.6s" href="najdi-paru/">
-      <div class="cover"><img src="img/cover_pairs.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 6</span></div>
-      <div class="body">
-        <h3>Найди пару</h3>
-        <p>Классическая игра на внимание и память. На каждой найденной паре говорим слово по слогам, а картинки взяты из слоговых уровней.</p>
-        <div class="tags"><span class="tag">4 уровня</span><span class="tag">внимание</span><span class="tag">проговаривание</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.1s" href="den-v-detskom-sadu/">
-      <div class="cover"><img src="img/gram/g1_s6.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 7</span></div>
-      <div class="body">
-        <h3>Один день в детском саду</h3>
-        <p>Восемь сцен с Олей: куда пошла, где сидит, чем рисует. Предлоги, падежи, ответы на вопросы и связный рассказ.</p>
-        <div class="tags"><span class="tag">8 сцен</span><span class="tag">предлоги</span><span class="tag">связный рассказ</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="chya-veshch/">
-      <div class="cover"><img src="img/gram/g2_bg.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 8</span></div>
-      <div class="body">
-        <h3>Чья вещь? Кому отдадим?</h3>
-        <p>Перетаскиваем вещи Мише и Оле: кому отдали, чья это вещь, какая она. Род, число и падежи.</p>
-        <div class="tags"><span class="tag">4 уровня</span><span class="tag">род и число</span><span class="tag">падежи</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.3s" href="kto-chto-chuvstvuet/">
-      <div class="cover"><img src="img/gram/g3_s1.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 9</span></div>
-      <div class="body">
-        <h3>Кто что чувствует?</h3>
-        <p>Узнаём и называем эмоции, объясняем причины и ищем, что сказать в трудной ситуации.</p>
-        <div class="tags"><span class="tag">8 ситуаций</span><span class="tag">эмоции</span><span class="tag">причины</span></div>
-        <span class="go">Открыть игру ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.4s" href="chto-zdes-ne-tak/">
-      <div class="cover"><img src="img/gram/g4_a1.jpg" alt="" loading="lazy" decoding="async"><span class="num">Занятие 10</span></div>
-      <div class="body">
-        <h3>Что здесь не так?</h3>
-        <p>Находим нелепость на картинке, объясняем, почему так неудобно, и исправляем предложение.</p>
-        <div class="tags"><span class="tag">8 картинок</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
-        <span class="go">Открыть игру ›</span>
       </div>
     </a>
   </div>
 
-  <h2>Об авторе</h2>
+  <h2 id="syllables">Слоги и первые слова</h2>
+  <p class="secsub">Для детей, которые уже произносят слоги и лепетные слова (ма-ма, ба-ба, ла-ла-ла). Отрабатываем артикуляцию, слоговую структуру слова, внимание и память.</p>
+  <div class="cards">
+    <a class="lcard reveal" style="--d:.1s" href="zvuki-i-slogi/">
+      <div class="cover"><img src="img/cover_chain.jpg" alt="Звуки и слоги: логопед показывает" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Звуки и слоги: логопед показывает</h3>
+        <p>Гласные, прямые слоги, цепочки ПА-ТА-КА, глухие и звонкие. Ведёт взрослый, ребёнок повторяет.</p>
+        <div class="tags"><span class="tag">артикуляция</span><span class="tag">слоги</span><span class="tag">ПА-ТА-КА</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2 s" href="slogovaya-struktura/">
+      <div class="cover"><img src="img/syll_cover.jpg" alt="Слоговая структура слова" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Слоговая структура слова</h3>
+        <p>Слова от «дом» до «крокодил»: слогоделение и воспроизведение слоговой структуры. 24 слова, 4 уровня.</p>
+        <div class="tags"><span class="tag">слоговая структура</span><span class="tag">слогоделение</span><span class="tag">4 уровня</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3 s" href="najdi-paru/">
+      <div class="cover"><img src="img/cover_pairs.jpg" alt="Найди пару" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Найди пару</h3>
+        <p>Внимание и зрительная память с проговариванием слов по слогам. 4 уровня.</p>
+        <div class="tags"><span class="tag">внимание</span><span class="tag">память</span><span class="tag">слова по слогам</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+  </div>
+
+  <h2 id="develop">Развитие речи: слова, фразы, рассказ</h2>
+  <p class="secsub">Для детей, которые уже говорят словами и фразами. Предлоги, падежи, связный рассказ, понимание ситуаций и эмоций.</p>
+  <div class="cards">
+    <a class="lcard reveal" style="--d:.1s" href="gde-myachik/">
+      <div class="cover"><img src="img/ball/b3_sofa.jpg" alt="Где мячик?" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Где мячик?</h3>
+        <p>Предлоги «в», «на», «под», «за», «около» и пространственные представления. 7 комнат.</p>
+        <div class="tags"><span class="tag">предлоги</span><span class="tag">пространство</span><span class="tag">фразы</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2 s" href="rasskazyvaem-po-kartinkam/">
+      <div class="cover"><img src="img/01_olya_morning.jpg" alt="Рассказываем по картинкам" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Рассказываем по картинкам</h3>
+        <p>Связная речь: ответы на вопросы, рассказ по сюжетной картинке, пересказ. 6 картинок.</p>
+        <div class="tags"><span class="tag">связная речь</span><span class="tag">рассказ</span><span class="tag">глаголы</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3 s" href="tualetnye-dela-tyomy/">
+      <div class="cover"><img src="img/potty/s5.jpg" alt="Туалетные дела Тёмы" loading="lazy" decoding="async"><span class="num">3+</span></div>
+      <div class="body">
+        <h3>Туалетные дела Тёмы</h3>
+        <p>Последовательность действий и рассказ по серии картинок: туалет, гигиена, мытьё рук. 9 эпизодов.</p>
+        <div class="tags"><span class="tag">последовательность</span><span class="tag">рассказ</span><span class="tag">бытовой словарь</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.4 s" href="den-v-detskom-sadu/">
+      <div class="cover"><img src="img/gram/g1_s6.jpg" alt="Один день в детском саду" loading="lazy" decoding="async"><span class="num">5–7 лет</span></div>
+      <div class="body">
+        <h3>Один день в детском саду</h3>
+        <p>Предлоги и падежи, ответы на вопросы и связный рассказ. 8 сцен, режимы «Обучение» и «Диагностика».</p>
+        <div class="tags"><span class="tag">предлоги</span><span class="tag">падежи</span><span class="tag">рассказ</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.5 s" href="chya-veshch/">
+      <div class="cover"><img src="img/gram/g2_bg.jpg" alt="Чья вещь? Кому отдадим?" loading="lazy" decoding="async"><span class="num">5–7 лет</span></div>
+      <div class="body">
+        <h3>Чья вещь? Кому отдадим?</h3>
+        <p>Род, число и падежи, притяжательные местоимения (чей, чья, чьё, чьи). 4 уровня.</p>
+        <div class="tags"><span class="tag">согласование</span><span class="tag">падежи</span><span class="tag">род и число</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.6 s" href="kto-chto-chuvstvuet/">
+      <div class="cover"><img src="img/gram/g3_s1.jpg" alt="Кто что чувствует?" loading="lazy" decoding="async"><span class="num">5–7 лет</span></div>
+      <div class="body">
+        <h3>Кто что чувствует?</h3>
+        <p>Эмоции, их причины и что сказать в трудной ситуации. 8 ситуаций.</p>
+        <div class="tags"><span class="tag">эмоции</span><span class="tag">причины</span><span class="tag">социальные навыки</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.7 s" href="chto-zdes-ne-tak/">
+      <div class="cover"><img src="img/gram/g4_a1.jpg" alt="Что здесь не так?" loading="lazy" decoding="async"><span class="num">5–7 лет</span></div>
+      <div class="body">
+        <h3>Что здесь не так?</h3>
+        <p>Нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок.</p>
+        <div class="tags"><span class="tag">логика</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+  </div>
+
+<h2>Об авторе</h2>
   <div class="about reveal">
     <img src="assets/alexandra.jpg" alt="Александра Карачинцева" loading="lazy" decoding="async">
     <div class="t">
