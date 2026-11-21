@@ -5,9 +5,9 @@
 <style>:root{color-scheme:only light}.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Игры и упражнения для запуска и развития речи</title>
+<title>Упражнения для запуска и развития речи у детей онлайн, бесплатно</title>
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
-<meta name="description" content="Сюжетные картинки и игры для развития речи ребёнка: связный рассказ, предлоги, ответы на вопросы. Занятия для родителей и логопедов. Александра Карачинцева.">
+<meta name="description" content="Бесплатные онлайн-упражнения для запуска и развития речи у детей: звукоподражания, слоговая структура, предлоги, местоимения, множественное число, связный рассказ, понимание речи. Логопедам, дефектологам и родителям. Автор: Александра Карачинцева.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -59,7 +59,7 @@ h1{margin:6px 0 10px;font-size:clamp(42px,8vw,88px);line-height:.98;font-weight:
 
 h2{font-size:clamp(24px,3.6vw,34px);margin:44px 0 14px;scroll-margin-top:20px}
 .secsub{color:var(--ink2);font-weight:600;margin:-6px 0 16px;line-height:1.5;max-width:640px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
 .lcard{display:flex;flex-direction:column;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
 .lcard:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(120,80,30,.22)}
 .lcard .cover{aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(160deg,#fff4dc,#ffe0a8)}
@@ -137,29 +137,44 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 }
 @keyframes bpopm{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
 .homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
-<!--seo-->
+<style>
+.dn{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,#fbf3e6,#f5e6cf 55%,#cfe5c4);font-family:"Nunito",system-ui,sans-serif;color:#4a3b2e;text-align:center;overflow:hidden}
+.dn.show{display:flex}
+.dn::before,.dn::after{content:"";position:absolute;border-radius:50%;filter:blur(36px);opacity:.6}
+.dn::before{width:300px;height:300px;background:#ffd9a0;left:-90px;top:-60px}
+.dn::after{width:340px;height:340px;background:#cddcf3;right:-110px;bottom:-90px}
+.dn-in{position:relative;z-index:1;max-width:420px;animation:dnup .7s cubic-bezier(.2,.9,.3,1) both}
+@keyframes dnup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.dn-ic{font-size:76px;line-height:1;margin-bottom:14px;display:inline-block;animation:dnb 3s ease-in-out infinite}
+@keyframes dnb{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.dn h2{margin:0 0 14px;font-size:clamp(30px,8.5vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.5px}
+.dn p{margin:0 0 26px;font-size:clamp(17px,4.6vw,20px);line-height:1.5;font-weight:600;color:#8a7560}
+.dn p b{color:#4a3b2e}
+.dn button{font:inherit;font-weight:800;font-size:17px;color:#fff;background:#f0a62b;border:0;border-radius:999px;padding:15px 30px;box-shadow:0 10px 24px rgba(240,166,43,.45);cursor:pointer}
+.dn small{display:block;margin-top:14px;font-size:14px;font-weight:600;color:#8a7560}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style><!--seo-->
 <link rel="canonical" href="https://igrovoylogoped.ru/games/">
 <link rel="alternate" hreflang="ru" href="https://igrovoylogoped.ru/games/">
 <link rel="alternate" hreflang="x-default" href="https://igrovoylogoped.ru/games/">
 <meta property="og:url" content="https://igrovoylogoped.ru/games/">
 <meta property="og:site_name" content="Игровой логопед">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="Игры и упражнения для запуска и развития речи">
-<meta property="og:description" content="Сюжетные картинки и игры для развития речи ребёнка: связный рассказ, предлоги, ответы на вопросы. Занятия для родителей и логопедов. Александра Карачинцева.">
+<meta property="og:title" content="Упражнения для запуска и развития речи у детей онлайн, бесплатно">
+<meta property="og:description" content="Бесплатные онлайн-упражнения для запуска и развития речи у детей: звукоподражания, слоговая структура, предлоги, местоимения, множественное число, связный рассказ, понимание речи. Логопедам, дефектологам и родителям. Автор: Александра Карачинцева.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://igrovoylogoped.ru/games/og_games.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Запуск речи">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Игры и упражнения для запуска и развития речи">
-<meta name="twitter:description" content="Сюжетные картинки и игры для развития речи ребёнка: связный рассказ, предлоги, ответы на вопросы. Занятия для родителей и логопедов. Александра Карачинцева.">
+<meta name="twitter:title" content="Упражнения для запуска и развития речи у детей онлайн, бесплатно">
+<meta name="twitter:description" content="Бесплатные онлайн-упражнения для запуска и развития речи у детей: звукоподражания, слоговая структура, предлоги, местоимения, множественное число, связный рассказ, понимание речи. Логопедам, дефектологам и родителям. Автор: Александра Карачинцева.">
 <meta name="twitter:image" content="https://igrovoylogoped.ru/games/og_games.jpg">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <meta name="yandex-verification" content="fa10f2d1a342b924" />
 <meta name="google-site-verification" content="a8iCu7dg9j0U-8gw7BsdnLNioH6554VckiGDvdwuvAA">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ItemList", "name": "Игры и упражнения для развития речи", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://igrovoylogoped.ru/games/rasskazyvaem-po-kartinkam/", "name": "Рассказ по сюжетным картинкам: занятие «Рассказываем по картинкам» (связная речь)"}, {"@type": "ListItem", "position": 2, "url": "https://igrovoylogoped.ru/games/gde-myachik/", "name": "Предлоги «в», «на», «под», «за», «около»: занятие «Где мячик?»"}, {"@type": "ListItem", "position": 3, "url": "https://igrovoylogoped.ru/games/tualetnye-dela-tyomy/", "name": "Последовательность действий: занятие «Туалетные дела Тёмы» (картинки по шагам)"}, {"@type": "ListItem", "position": 4, "url": "https://igrovoylogoped.ru/games/ferma/", "name": "Звукоподражания: занятие «Кто как говорит» (запуск речи)"}, {"@type": "ListItem", "position": 5, "url": "https://igrovoylogoped.ru/games/duem-i-plyvem/", "name": "Речевое дыхание и голос: занятие «Дуем и плывём»"}, {"@type": "ListItem", "position": 6, "url": "https://igrovoylogoped.ru/games/slogovaya-struktura/", "name": "Слоговая структура слова: занятие для детей (от «дом» до «крокодил»)"}, {"@type": "ListItem", "position": 7, "url": "https://igrovoylogoped.ru/games/golosovoy-zverek/", "name": "Развитие голоса и вокализаций: занятие «Голосовой зверёк»"}, {"@type": "ListItem", "position": 8, "url": "https://igrovoylogoped.ru/games/zvuki-i-slogi/", "name": "Артикуляция гласных, слоги и ПА-ТА-КА: занятие для логопеда и родителей"}, {"@type": "ListItem", "position": 9, "url": "https://igrovoylogoped.ru/games/najdi-paru/", "name": "Внимание, память и слоговая структура: игра «Найди пару» (4 уровня)"}, {"@type": "ListItem", "position": 10, "url": "https://igrovoylogoped.ru/games/hochu/", "name": "Просьба «дай»: занятие «Хочу!» по функциональной коммуникации"}, {"@type": "ListItem", "position": 11, "url": "https://igrovoylogoped.ru/games/chto-zvuchit/", "name": "Слуховое внимание и различение неречевых звуков: занятие «Что звучит?»"}, {"@type": "ListItem", "position": 12, "url": "https://igrovoylogoped.ru/games/den-v-detskom-sadu/", "name": "Предлоги, падежи и связный рассказ: занятие «Один день в детском саду»"}, {"@type": "ListItem", "position": 13, "url": "https://igrovoylogoped.ru/games/chya-veshch/", "name": "Род, число и падежи: занятие «Чья вещь? Кому отдадим?»"}, {"@type": "ListItem", "position": 14, "url": "https://igrovoylogoped.ru/games/kto-chto-chuvstvuet/", "name": "Эмоции и их причины: занятие «Кто что чувствует?»"}, {"@type": "ListItem", "position": 15, "url": "https://igrovoylogoped.ru/games/chto-zdes-ne-tak/", "name": "Понимание бытовых ситуаций: занятие «Что здесь не так?» (нелепицы)"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://igrovoylogoped.ru/"}, {"@type": "ListItem", "position": 2, "name": "Игры и упражнения", "item": "https://igrovoylogoped.ru/games/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ItemList", "name": "Упражнения для запуска и развития речи", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://igrovoylogoped.ru/games/rasskazyvaem-po-kartinkam/", "name": "Рассказ по сюжетным картинкам: упражнения на развитие связной речи"}, {"@type": "ListItem", "position": 2, "url": "https://igrovoylogoped.ru/games/gde-myachik/", "name": "Предлоги «в», «на», «под», «за», «около»: упражнение «Где мячик?»"}, {"@type": "ListItem", "position": 3, "url": "https://igrovoylogoped.ru/games/tualetnye-dela-tyomy/", "name": "Последовательность действий: упражнение «Туалетные дела Тёмы» (картинки по шагам)"}, {"@type": "ListItem", "position": 4, "url": "https://igrovoylogoped.ru/games/ferma/", "name": "Звукоподражания: упражнение «Кто как говорит» (запуск речи)"}, {"@type": "ListItem", "position": 5, "url": "https://igrovoylogoped.ru/games/duem-i-plyvem/", "name": "Речевое дыхание и голос: упражнение «Дуем и плывём»"}, {"@type": "ListItem", "position": 6, "url": "https://igrovoylogoped.ru/games/slogovaya-struktura/", "name": "Слоговая структура слова: упражнение для детей (от «дом» до «крокодил»)"}, {"@type": "ListItem", "position": 7, "url": "https://igrovoylogoped.ru/games/golosovoy-zverek/", "name": "Развитие голоса и вокализаций: упражнение «Голосовой зверёк»"}, {"@type": "ListItem", "position": 8, "url": "https://igrovoylogoped.ru/games/zvuki-i-slogi/", "name": "Артикуляция гласных, слоги и ПА-ТА-КА: упражнение для логопеда и родителей"}, {"@type": "ListItem", "position": 9, "url": "https://igrovoylogoped.ru/games/najdi-paru/", "name": "Внимание, память и слоговая структура: упражнение «Найди пару» (4 уровня)"}, {"@type": "ListItem", "position": 10, "url": "https://igrovoylogoped.ru/games/hochu/", "name": "Просьба «дай»: упражнение «Хочу!» по функциональной коммуникации"}, {"@type": "ListItem", "position": 11, "url": "https://igrovoylogoped.ru/games/chto-zvuchit/", "name": "Слуховое внимание и различение неречевых звуков: упражнение «Что звучит?»"}, {"@type": "ListItem", "position": 12, "url": "https://igrovoylogoped.ru/games/den-v-detskom-sadu/", "name": "Предлоги, падежи и связный рассказ: упражнение «Один день в детском саду»"}, {"@type": "ListItem", "position": 13, "url": "https://igrovoylogoped.ru/games/chya-veshch/", "name": "Род, число и падежи: упражнение «Чья вещь? Кому отдадим?»"}, {"@type": "ListItem", "position": 14, "url": "https://igrovoylogoped.ru/games/kto-chto-chuvstvuet/", "name": "Эмоции и их причины: упражнение «Кто что чувствует?»"}, {"@type": "ListItem", "position": 15, "url": "https://igrovoylogoped.ru/games/chto-zdes-ne-tak/", "name": "Понимание бытовых ситуаций: упражнение «Что здесь не так?» (нелепицы)"}, {"@type": "ListItem", "position": 16, "url": "https://igrovoylogoped.ru/games/rasskazhi-po-kartinke/", "name": "Описание предмета по плану: упражнение «Расскажи по картинке»"}, {"@type": "ListItem", "position": 17, "url": "https://igrovoylogoped.ru/games/u-nego-ili-u-neyo/", "name": "Местоимения он и она: упражнение «У него или у неё?»"}, {"@type": "ListItem", "position": 18, "url": "https://igrovoylogoped.ru/games/odin-mnogo/", "name": "Единственное и множественное число: упражнение «Один — много»"}, {"@type": "ListItem", "position": 19, "url": "https://igrovoylogoped.ru/games/vyberi-pravilnuyu-kartinku/", "name": "Понимание речи и логика: упражнение «Выбери правильную картинку»"}, {"@type": "ListItem", "position": 20, "url": "https://igrovoylogoped.ru/games/kto-chto-delaet/", "name": "Составление предложений по сюжетной картинке: упражнение «Кто что делает?»"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://igrovoylogoped.ru/"}, {"@type": "ListItem", "position": 2, "name": "Упражнения для развития речи", "item": "https://igrovoylogoped.ru/games/"}]}]}</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -196,16 +211,16 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
     </div>
   </section>
 
-  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Выберите этап: нажмите на блок, и страница спустится к нужным занятиям.</p></div>
+  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Выберите этап: нажмите на блок, и страница спустится к нужным упражнениям. Всего в каталоге 20 упражнений.</p></div>
   <nav class="agenav reveal" id="ages" aria-label="Выбор по этапу речи">
-    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Ребёнок пока не говорит или говорит мало</em><span class="agcount">5 занятий</span><span class="agbtn">Смотреть ↓</span></a>
-    <a href="#syllables" class="ag2"><div class="agpics"><img src="assets/an_duck.png" alt="" loading="lazy" decoding="async"><img src="assets/sprite_ball.png" alt="Мячик" loading="lazy" decoding="async"><img src="assets/an_car.png" alt="" loading="lazy" decoding="async"></div><b>Слоги и первые слова</b><em>Ребёнок уже произносит слоги и лепетные слова</em><span class="agcount">3 занятия</span><span class="agbtn">Смотреть ↓</span></a>
-    <a href="#develop" class="ag3"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Ребёнок уже говорит словами и фразами</em><span class="agcount">7 занятий</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Ребёнок пока не говорит или говорит мало</em><span class="agcount">5 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="#syllables" class="ag2"><div class="agpics"><img src="assets/an_duck.png" alt="" loading="lazy" decoding="async"><img src="assets/sprite_ball.png" alt="Мячик" loading="lazy" decoding="async"><img src="assets/an_car.png" alt="" loading="lazy" decoding="async"></div><b>Слоги и первые слова</b><em>Ребёнок уже произносит слоги и лепетные слова</em><span class="agcount">3 упражнения</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="#develop" class="ag3"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Ребёнок уже говорит словами и фразами</em><span class="agcount">12 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
   </nav>
 
   <h2 id="launch">Запуск речи: доречевые навыки</h2>
   <p class="secsub">Для детей, которые пока не говорят или говорят мало. Развиваем доречевые навыки: слуховое внимание, дыхание, голос, подражание и просьбу. Готовим базу для формирования речи. Занятия идут по порядку: от слуха к голосу, подражанию и просьбе.</p>
-  <div class="cards">
+  <div class="cards" data-pager>
     <a class="lcard reveal" style="--d:.1s" href="chto-zvuchit/">
       <div class="cover"><img src="img/cover_hear.jpg" alt="Что звучит?" loading="lazy" decoding="async"></div>
       <div class="body">
@@ -237,7 +252,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
       <div class="cover"><img src="img/sounds_cover.jpg" alt="Кто как говорит: ферма" loading="lazy" decoding="async"></div>
       <div class="body">
         <h3>Кто как говорит: ферма</h3>
-        <p>Звукоподражания и первые слова: настоящие голоса 10 животных, затем игра «Угадай, кто говорит».</p>
+        <p>Звукоподражания и первые слова: настоящие голоса 10 животных, затем упражнение «Угадай, кто говорит».</p>
         <div class="tags"><span class="tag">звукоподражания</span><span class="tag">первые слова</span><span class="tag">слуховое внимание</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
@@ -255,7 +270,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 
   <h2 id="syllables">Слоги и первые слова</h2>
   <p class="secsub">Для детей, которые уже произносят слоги и лепетные слова (ма-ма, ба-ба, ла-ла-ла). Отрабатываем артикуляцию, слоговую структуру слова, внимание и память.</p>
-  <div class="cards">
+  <div class="cards" data-pager>
     <a class="lcard reveal" style="--d:.1s" href="zvuki-i-slogi/">
       <div class="cover"><img src="img/cover_chain.jpg" alt="Звуки и слоги: логопед показывает" loading="lazy" decoding="async"></div>
       <div class="body">
@@ -287,7 +302,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 
   <h2 id="develop">Развитие речи: слова, фразы, рассказ</h2>
   <p class="secsub">Для детей, которые уже говорят словами и фразами. Предлоги, падежи, связный рассказ, понимание ситуаций и эмоций.</p>
-  <div class="cards">
+  <div class="cards" data-pager>
     <a class="lcard reveal" style="--d:.1s" href="gde-myachik/">
       <div class="cover"><img src="img/ball/b3_sofa.jpg" alt="Где мячик?" loading="lazy" decoding="async"></div>
       <div class="body">
@@ -348,6 +363,51 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
         <h3>Что здесь не так?</h3>
         <p>Нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок.</p>
         <div class="tags"><span class="tag">логика</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.8s" href="rasskazhi-po-kartinke/">
+      <div class="cover"><img src="img/tell_cover.jpg" alt="Расскажи по картинке" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Расскажи по картинке</h3>
+        <p>Описание предмета по плану: кто это, какой, что есть, где живёт, что делает. 6 карточек, в конце устный рассказ.</p>
+        <div class="tags"><span class="tag">описание</span><span class="tag">рассказ</span><span class="tag">словарь</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:0.9s" href="u-nego-ili-u-neyo/">
+      <div class="cover"><img src="img/hers_cover.jpg" alt="У него или у неё?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>У него или у неё?</h3>
+        <p>Местоимения он и она: у него, у неё. 12 заданий с мальчиками и девочками.</p>
+        <div class="tags"><span class="tag">местоимения</span><span class="tag">род</span><span class="tag">предложения</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1s" href="odin-mnogo/">
+      <div class="cover"><img src="img/many_cover.jpg" alt="Один — много" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Один — много</h3>
+        <p>Единственное и множественное число существительных. 10 заданий, задание можно прослушать.</p>
+        <div class="tags"><span class="tag">число</span><span class="tag">словоизменение</span><span class="tag">слух</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1.1s" href="vyberi-pravilnuyu-kartinku/">
+      <div class="cover"><img src="img/pick_cover.jpg" alt="Выбери правильную картинку" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Выбери правильную картинку</h3>
+        <p>Понимание речи, логика и словарь: чем чистят зубы, на чём спят. 10 заданий.</p>
+        <div class="tags"><span class="tag">понимание речи</span><span class="tag">словарь</span><span class="tag">логика</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1.2s" href="kto-chto-delaet/">
+      <div class="cover"><img src="img/gram/g5_s1.jpg" alt="Кто что делает?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Кто что делает?</h3>
+        <p>Связная речь: кто на картинке, что делает, что ещё видно. 10 сюжетных картинок, пример ответа по кнопке.</p>
+        <div class="tags"><span class="tag">действия</span><span class="tag">полные предложения</span><span class="tag">рассказ</span></div>
         <span class="go">Открыть занятие ›</span>
       </div>
     </a>
@@ -425,7 +485,7 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
     function show(i,h){ ic.textContent=i; tx.innerHTML=h; box.classList.add("show"); }
     var onlyIn=document.body.getAttribute("data-appnote")==="inapp";
     if(inApp){
-      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так игры идут быстрее и звук работает.");
+      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так упражнения идут быстрее и звук работает.");
     } else if(!onlyIn){
       if(ios) show("⬆️","<b>Как приложение, на весь экран</b>Нажмите «Поделиться» внизу Safari и выберите «На экран Домой». Значок появится рядом с другими приложениями.");
       else if(android){
@@ -437,5 +497,15 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
   }catch(e){}
 })();
 </script>
-</body>
+<div class="dn" id="dn" role="dialog" aria-modal="true" aria-labelledby="dnh"><div class="dn-in"><div class="dn-ic">💻</div><h2 id="dnh">Упражнения лучше на большом экране</h2><p>Мы рекомендуем заниматься с <b>компьютера или планшета</b>: картинки крупнее, а ребёнку удобнее нажимать и слушать.</p><button type="button" id="dnok">Всё равно продолжить</button><small>Можно вернуться позже с компьютера</small></div></div>
+<script>
+(function(){try{
+  var ua=navigator.userAgent||"";
+  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone|Mobile Safari/i.test(ua)||(Math.min(screen.width,screen.height)<600);
+  if(!phone) return;
+  try{if(sessionStorage.getItem("dn_ok")) return;}catch(e){}
+  var b=document.getElementById("dn"); b.classList.add("show"); document.documentElement.style.overflow="hidden";
+  document.getElementById("dnok").onclick=function(){b.classList.remove("show");document.documentElement.style.overflow="";try{sessionStorage.setItem("dn_ok","1");}catch(e){}};
+}catch(e){}})();
+</script></body>
 </html>
