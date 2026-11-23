@@ -489,6 +489,73 @@ body.noru .tl-sp{display:none}
 .pk-o.shake{animation:shk .5s}
 
 .tl.many .tl-pr,.tl.pk .tl-pr{grid-column:1/-1}
+/* «Давай познакомимся!» (t:"meet"): Оля слева, картинки-ответы справа */
+.mt{position:absolute;inset:0;container-type:size;display:grid;grid-template-columns:30% minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto auto;gap:1.6cqh 2.6cqw;padding:2.6cqh 3cqw 2.6cqh;background:linear-gradient(160deg,#fff4dc,#ffe6bf);overflow:hidden}
+.mt-pr{grid-column:1/3;display:flex;gap:1.1cqw;justify-content:center;align-items:center;height:2.4cqw}
+.mt-pr i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:#ecd8b6;transition:.3s}
+.mt-pr i.ok{background:#7ed957}.mt-pr i.cur{background:var(--accent);transform:scale(1.5)}
+.mt-olya{grid-column:1;grid-row:2/6;position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;min-height:0;gap:1.4cqh}
+.mt-ol{flex:1 1 auto;min-height:0;max-width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 1.2cqh 1cqh rgba(120,80,30,.22));animation:mtsway 4.6s ease-in-out infinite;transform-origin:50% 100%;pointer-events:none}
+@keyframes mtsway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg) translateY(-.8%)}}
+.mt-olya.hop .mt-ol{animation:mthop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes mthop{0%{transform:scale(1)}40%{transform:scale(1.07,.95) translateY(-4%)}100%{transform:scale(1)}}
+.mt-sp{position:absolute;left:4%;right:-6%;top:0;z-index:5;background:#fffdf6;border-radius:2cqw;padding:1.1cqh 1.6cqw;font-weight:800;font-size:2.5cqw;line-height:1.1;color:#4a3b2e;text-align:center;box-shadow:var(--shadow);opacity:0;transform:translateY(8px) scale(.85);transition:opacity .25s,transform .35s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+.mt-sp.on{opacity:1;transform:none}
+.mt-sp::after{content:"";position:absolute;left:30%;bottom:-.9cqw;width:1.8cqw;height:1.8cqw;background:#fffdf6;transform:rotate(45deg)}
+.mt-more{border:0;cursor:pointer;font:inherit;font-weight:800;font-size:2.1cqw;line-height:1.05;color:#fff;background:#5b9d83;border-radius:99px;padding:1.3cqh 2cqw;box-shadow:var(--shadow);transition:transform .2s;flex:none}
+.mt-more:hover{transform:scale(1.05)}
+.mt-more.pulse{animation:mtpulse 1.6s ease-in-out infinite}
+@keyframes mtpulse{50%{transform:scale(1.07);box-shadow:0 0 0 1cqw rgba(91,157,131,.25)}}
+.mt-head{grid-column:2;grid-row:2;display:flex;align-items:center;gap:2cqw;min-width:0}.mt-qs{flex:1;display:flex;flex-direction:column;gap:.6cqh;min-width:0}
+.mt-q{font-weight:800;font-size:4.2cqw;line-height:1.05;color:#4a3b2e}
+.mt-lead{font-weight:800;font-size:2.6cqw;line-height:1.1;color:#c4561f}
+.mt-grid{grid-column:2;grid-row:3;display:grid;gap:1.8cqw;min-height:0;align-content:stretch}
+.mt-grid.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.mt-grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.mt-grid.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mt-grid{grid-auto-rows:minmax(0,1fr)}
+.mt-o{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4cqh;border:0;cursor:pointer;font:inherit;background:#fff;border-radius:2.6cqw;box-shadow:var(--shadow);min-height:0;min-width:0;padding:1cqh 1cqw .8cqh;animation:gxpop .5s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i,0)*.07s);transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s,background .25s}
+.mt-o img{flex:1 1 auto;min-height:0;width:92%;object-fit:contain;pointer-events:none}
+.mt-o span{flex:none;font-weight:800;font-size:2.3cqw;line-height:1.05;color:#4a3b2e;text-align:center}
+.mt-o:hover{transform:scale(1.04)}
+.mt-o.sel{transform:scale(1.07);background:#eaf7e2;box-shadow:0 0 0 .55cqw #7ed957,0 1.4cqh 3cqh rgba(110,190,80,.4);z-index:2}
+.mt-o.sel::after{content:"✓";position:absolute;right:-.6cqw;top:-.8cqh;width:3.4cqw;height:3.4cqw;border-radius:50%;background:#7ed957;color:#fff;font-weight:800;font-size:2.3cqw;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:gxpop .4s cubic-bezier(.3,1.7,.5,1) both}
+.mt-o.asked{box-shadow:0 0 0 .5cqw rgba(91,157,131,.55)}
+.mt-deco{flex:none;height:13cqh;width:auto;pointer-events:none;animation:mtsway 5s ease-in-out infinite}
+.mt-row2{grid-column:2;grid-row:4;display:flex;align-items:center;gap:1.8cqw;min-height:0}
+.mt-row2 .mt-q2{font-weight:800;font-size:2.5cqw;line-height:1.05;color:#4a3b2e;flex:1 1 40%}
+.mt-row2 .mt-o{flex:0 0 17cqw;height:19cqh;flex-direction:row;gap:.8cqw;padding:.6cqh 1cqw}
+.mt-row2 .mt-o img{flex:0 0 30%;width:30%;height:100%}
+.mt-row2 .mt-o span{font-size:2.3cqw;flex:1}
+.mt-foot{grid-column:2;grid-row:5;display:flex;align-items:center;justify-content:space-between;gap:1.6cqw;min-height:0}
+.mt-chip{min-width:0;line-height:1.1;font-weight:800;font-size:1.9cqw;color:#9a6a1f;background:rgba(255,255,255,.7);border-radius:99px;padding:.7cqh 1.6cqw}
+.mt-skip{white-space:nowrap;flex:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:2.1cqw;color:#8a7560;background:rgba(255,255,255,.75);border-radius:99px;padding:1.1cqh 2.2cqw;box-shadow:var(--shadow);margin-left:auto}
+.mt-skip:hover{background:#fff;transform:scale(1.04)}
+.mt-tag{grid-column:2;grid-row:3;position:relative;display:grid;place-items:center;cursor:pointer;min-height:0;animation:gxpop .6s cubic-bezier(.3,1.5,.5,1) both}
+.mt-tag img{width:84%;height:100%;object-fit:contain;filter:drop-shadow(0 1.2cqh 1.2cqh rgba(120,80,30,.2));transition:transform .3s}
+.mt-tag:hover img{transform:scale(1.03) rotate(-1deg)}
+.mt-tagtxt{position:absolute;left:12%;right:12%;top:38%;text-align:center;font-weight:800;font-size:5.6cqw;line-height:1.05;color:#2f6fb0;pointer-events:none}
+.mt-tagtxt small{display:block;margin-top:1cqh;font-size:2.4cqw;color:#8a7560}
+.mt.intro{grid-template-columns:38% minmax(0,1fr)}
+.mt-cloud{grid-column:2;grid-row:2/6;align-self:center;background:#fffdf6;border-radius:4cqw;padding:4cqh 3.4cqw;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;gap:2.6cqh;animation:gxpop .6s cubic-bezier(.3,1.5,.5,1) both}
+.mt-cloud::before{content:"";position:absolute;left:-1.6cqw;top:50%;width:3.2cqw;height:3.2cqw;background:#fffdf6;transform:translateY(-50%) rotate(45deg)}
+.mt-cloud b{font-size:4.1cqw;line-height:1.12;color:#4a3b2e}
+.mt-cloud p{margin:0;font-size:3cqw;font-weight:800;line-height:1.15;color:#7a6650}
+.mt-go{align-self:flex-start;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:3.2cqw;color:#fff;background:#f0a62b;border-radius:99px;padding:1.6cqh 4.4cqw;box-shadow:0 1.2cqh 2.6cqh rgba(240,166,43,.5);transition:transform .2s}
+.mt-go:hover{transform:translateY(-3px) scale(1.04)}
+.mt-askq{grid-column:2;grid-row:2;display:flex;align-items:center;gap:1.6cqw;min-height:0}
+.mt-bub{flex:1;background:#fffdf6;border-radius:2.6cqw;padding:1.4cqh 2cqw;font-weight:800;font-size:3cqw;line-height:1.1;color:#4a3b2e;box-shadow:var(--shadow);min-height:11cqh;display:flex;align-items:center}
+.mt-bub.q{color:#2f6fb0;animation:gxpop .4s cubic-bezier(.3,1.6,.5,1) both}
+.mt-done{border:0;cursor:pointer;font:inherit;font-weight:800;font-size:2.6cqw;color:#fff;background:#f0a62b;border-radius:99px;padding:1.5cqh 3.4cqw;box-shadow:0 1cqh 2.2cqh rgba(240,166,43,.5);margin-left:auto;transition:transform .2s}
+.mt-done:hover{transform:scale(1.05)}
+.mt-done.pulse{animation:mtpulse 1.5s ease-in-out infinite}
+.mt-ov{position:absolute;inset:0;z-index:12;display:grid;place-items:center;background:rgba(74,59,46,.35);animation:gxfade .25s both}
+.mt-ovc{width:84%;max-height:88%;overflow:auto;background:#fffdf6;border-radius:3.4cqw;padding:3cqh 3.4cqw;box-shadow:0 2cqh 6cqh rgba(0,0,0,.3);animation:gxpop .4s cubic-bezier(.3,1.5,.5,1) both}
+.mt-ovc h4{margin:0 0 1.6cqh;font-size:4cqw;color:#2f7a52}
+.mt-ovc ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1.4cqh;counter-reset:m}
+.mt-ovc li{counter-increment:m;font-weight:800;font-size:2.9cqw;line-height:1.12;color:#4a3b2e;background:#f6efe0;border-radius:2cqw;padding:1.2cqh 2cqw 1.2cqh 5.6cqw;position:relative}
+.mt-ovc li::before{content:counter(m);position:absolute;left:1.6cqw;top:50%;transform:translateY(-50%);width:3cqw;height:3cqw;border-radius:50%;background:#5b9d83;color:#fff;font-size:2cqw;display:grid;place-items:center}
+.mt-ovx{margin-top:2cqh;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:2.4cqw;color:#fff;background:#5b9d83;border-radius:99px;padding:1.2cqh 3cqw}
+body.gxdiag .mt-sp{display:none}
+@media (max-width:900px) and (orientation:portrait){.mt-o span{font-size:3.3cqw}.mt-q{font-size:5cqw}.mt-lead{font-size:3.2cqw}.mt-skip,.mt-more{font-size:3cqw}.mt-chip{display:none}.mt{grid-template-columns:22% minmax(0,1fr);gap:1.4cqh 2cqw}.mt.intro{grid-template-columns:34% minmax(0,1fr)}.mt-more{font-size:2.5cqw;padding:1cqh 1cqw}.mt-sp{font-size:3cqw;top:auto;bottom:34%;left:-4%;right:auto;width:150%;max-width:36cqw}.mt-q2{font-size:3cqw!important}.mt-cloud b{font-size:4.6cqw}.mt-cloud p{font-size:3.4cqw}.mt-go{font-size:3.6cqw}.mt-bub{font-size:3.4cqw}.mt-done{font-size:3cqw}}
 
 
 body.gxl .side{width:clamp(300px,26vw,380px);flex:none;max-width:380px}
@@ -977,8 +1044,52 @@ TELL.forEach((c,i)=>add({g:15,t:"tell",tell:c,thumb:"assets/sprite_t_"+c.k+".png
   qs:[{q:"Кто изображён на картинке?",a:[x[0]]},{q:"Что он или она делает?",a:[x[1]]},{q:"Что ещё ты видишь на картинке?",a:[x[2]]}],
   say:"Дайте ребёнку рассмотреть картинку. Задавайте вопросы и просите отвечать полным предложением. Пример ответа покажет кнопка справа.",
   info:{skill:"Связная речь: понимание действий, ответы полными предложениями.",say:"Ребёнок отвечает своими словами, полным предложением. Готовый пример откроется только по кнопке."}}));
+/* игра 10: «Давай познакомимся!» (t:"meet"): Оля задаёт вопросы, ребёнок выбирает картинки и отвечает устно. Неправильных ответов нет.
+   Поля: pose (поза Оли), title (вопрос), lead (подпись), opts [[ключ, подпись]], multi, row2 {q,opts}, deco, tag, intro, ask, qs (вопросы взрослого), more («Расскажи подробнее!»), note */
+
+[
+ {pose:"olya_wave",title:"Привет!",intro:{b:"Привет! Давай познакомимся!",t:"Мне очень хочется узнать о тебе побольше. Будем разговаривать и играть?",btn:"Будем!"},thumb:"olya_wave",skill:"Установление контакта, готовность общаться и играть вместе.",
+  say:"Поздоровайтесь с ребёнком и помашите рукой в ответ. Подождите, пока ребёнок ответит словом или жестом.",qs:["Давай поздороваемся с Олей. Что ты скажешь?","Ты хочешь поиграть и поговорить с Олей?"],more:["Как ты себя чувствуешь сегодня?","Ты уже бывал(а) у логопеда? Как это было?"]},
+ {pose:"olya_wave",title:"Как тебя зовут?",tag:"Меня зовут…",thumb:"tag",skill:"Называние своего имени полным предложением: «Меня зовут…».",
+  say:"Оля машет рукой и спрашивает имя. Помогите начать фразу: «Меня зовут…» и подождите.",qs:["Как тебя зовут?","Скажи целиком: «Меня зовут…»"],more:["Как тебя называют дома?","Тебе нравится твоё имя?","Как зовут твоего друга или подружку?"]},
+ {pose:"olya_think",title:"Сколько тебе лет?",opts:[["d3","три"],["d4","четыре"],["d5","пять"],["d6","шесть"],["d7","семь"],["d8","восемь"],["d9","девять"]],cols:4,thumb:"d5",skill:"Называние возраста, числительные, согласование «год, года, лет».",
+  say:"Ребёнок выбирает цифру и произносит возраст: «Мне пять лет». Если трудно, пусть покажет возраст на пальцах.",qs:["Сколько тебе лет?","Скажи: «Мне … лет»"],more:["Покажи на пальчиках, сколько тебе лет","Когда у тебя день рождения?","Сколько лет тебе будет в следующий раз?"]},
+ {pose:"olya_wave",title:"Расскажи про свою семью!",opts:[["mama","мама"],["papa","папа"],["sister","сестрёнка"],["brother","братик"],["grandma","бабушка"],["grandpa","дедушка"]],multi:true,thumb:"mama",skill:"Рассказ о семье: кто есть в семье, имена, с кем живёт ребёнок. Словарь по теме «семья».",
+  say:"Ребёнок выбирает тех, кто есть в его семье. Не предполагайте, что у каждого ребёнка есть оба родителя.",note:"Не предполагайте, что у ребёнка есть и мама, и папа. Пусть сам выберет тех, кто есть в его семье, и расскажет, с кем живёт.",
+  qs:["Как зовут твою маму? А папу?","С кем ты живёшь?","Кто есть в твоей семье?"],more:["Что вы любите делать всей семьёй?","Есть ли у тебя братик или сестрёнка?","Как зовут твою бабушку и дедушку?"]},
+ {pose:"olya_cheer",title:"Во что ты любишь играть?",opts:[["dolls","куклы"],["cars","машинки"],["blocks","конструктор"],["ball","мяч"],["puzzle","пазлы"],["board","настольные игры"]],multi:true,thumb:"blocks",skill:"Рассказ об интересах, словарь по теме «игрушки», ответы полным предложением: «Я люблю играть в…».",
+  say:"Можно выбрать несколько картинок. Попросите рассказать про любимую игру.",qs:["Во что ты любишь играть?","Ты играешь один или с кем-то?"],more:["Какая у тебя самая любимая игрушка?","Как её зовут?","Во что ты играешь с друзьями?"]},
+ {pose:"olya_think",title:"Какие мультики тебе нравятся?",opts:[["c_cat","кот-герой"],["robot","робот"],["princess","принцесса"],["dino","динозавр"],["c_car","машинка"],["dragon","дракончик"]],multi:true,deco:"tv",thumb:"tv",skill:"Пересказ любимого мультфильма, называние героев и их действий.",
+  say:"Картинки обобщённые, мультфильмы называет сам ребёнок. Пусть расскажет, про что мультик и что делает герой.",qs:["Какие мультики тебе нравятся?","Кто твой любимый герой?"],more:["Про что этот мультик?","Что делает этот герой?","Ты хочешь с ним дружить?"]},
+ {pose:"olya_wave",title:"Кто тебе больше нравится: кошки или собаки?",opts:[["cat","кошка"],["dog","собака"],["parrot","попугай"],["rabbit","кролик"]],multi:true,cols:2,thumb:"dog",skill:"Выбор и объяснение своего выбора, словарь по теме «животные».",
+  say:"Можно выбрать несколько животных. Спросите «Почему?» и помогите ответить: «Потому что…».",qs:["Кто тебе больше нравится: кошки или собаки?","Почему?"],more:["Какое у тебя любимое животное?","Что оно умеет делать?","Как оно говорит?"]},
+ {pose:"olya_think",title:"А у тебя есть домашние животные?",opts:[["cat","кошка"],["dog","собака"],["parrot","попугай"],["hamster","хомяк"],["fish","рыбки"],["turtle","черепаха"],["nopet","у меня нет питомца"]],multi:true,cols:4,thumb:"hamster",skill:"Ответ на вопрос, рассказ о питомце: кто, как зовут, что любит делать.",
+  say:"Если питомца нет, спросите про любимое животное или про животных у друзей и бабушки.",note:"Вариант «У меня нет питомца» нужен, чтобы ребёнок не чувствовал себя неловко.",
+  qs:["Кто у тебя живёт?","Как его зовут?","Что он любит делать?"],more:["Кто его кормит?","Какого он цвета?","Какое животное ты хотел(а) бы завести?"]},
+ {pose:"olya_cheer",title:"Что ты любишь делать?",opts:[["a_draw","рисовать"],["a_dance","танцевать"],["a_sing","петь"],["a_walk","гулять"],["a_swim","плавать"],["a_read","читать"],["a_bike","кататься на велосипеде"]],multi:true,cols:4,thumb:"a_draw",skill:"Глаголы, рассказ о любимых занятиях: «Я люблю…».",
+  say:"Ребёнок выбирает любимые занятия и называет их глаголами. Попросите показать действие.",qs:["Что ты любишь делать?","Что тебе нравится больше всего?"],more:["Что ты любишь делать дома?","Кто тебя этому научил?","Чему ты хочешь научиться?"]},
+ {pose:"olya_point",title:"Какая погода сейчас за твоим окном?",lead:"Посмотри внимательно в окно!",opts:[["sunny","солнечно"],["cloudy","пасмурно"],["rainy","дождливо"],["snowy","снежно"],["windy","ветрено"]],cols:3,
+  row2:{q:"На улице тепло или холодно?",opts:[["warm","тепло"],["cold","холодно"]]},thumb:"sunny",skill:"Описание погоды, прилагательные, сравнение «тепло — холодно».",
+  say:"Попросите ребёнка посмотреть в настоящее окно и выбрать картинку, которая похожа на погоду сейчас.",qs:["Какая погода за окном?","На улице тепло или холодно?"],more:["Что ты надел(а) сегодня на улицу?","Что можно делать в такую погоду?","Какая погода тебе нравится?"]},
+ {pose:"olya_think",title:"Какое время года тебе нравится?",opts:[["winter","зима"],["spring","весна"],["summer","лето"],["autumn","осень"]],cols:2,thumb:"summer",skill:"Времена года, объяснение выбора: «Мне нравится… потому что…».",
+  say:"Ребёнок выбирает время года и объясняет, почему оно нравится.",qs:["Какое время года тебе нравится?","Почему тебе нравится это время года?"],more:["Что ты делаешь летом? А зимой?","Какое время года сейчас?","Какое время года будет после этого?"]},
+ {pose:"olya_wave",title:"Какая одежда тебе нравится?",opts:[["dress","платье"],["tshirt","футболка"],["jeans","брюки"],["skirt","юбка"],["hoodie","толстовка"],["sneakers","кроссовки"]],multi:true,thumb:"hoodie",skill:"Словарь по теме «одежда», прилагательные цвета, рассказ: «Я люблю носить…».",
+  say:"Можно выбрать несколько. Спросите про цвет любимой одежды.",qs:["Что ты любишь носить?","Какого цвета твоя любимая одежда?"],more:["Что ты надеваешь, когда холодно?","Что надеваешь, когда жарко?","Что ты надеваешь на праздник?"]},
+ {pose:"olya_cheer",title:"Какая еда тебе нравится?",opts:[["fruit","фрукты"],["soup","суп"],["pizza","пицца"],["icecream","мороженое"],["porridge","каша"],["pasta","макароны"]],multi:true,thumb:"pizza",skill:"Словарь по теме «еда», рассказ о любимых блюдах: «Я люблю есть…».",
+  say:"Можно выбрать несколько любимых блюд. Это опрос, а не оценка: любое блюдо подходит.",qs:["Что ты любишь кушать?","Какое у тебя любимое блюдо?"],more:["Что было сегодня на завтрак?","Что ты не любишь есть?","Кто готовит тебе еду?"]},
+ {pose:"olya_think",title:"Какой твой любимый цвет?",opts:[["red","красный"],["yellow","жёлтый"],["green","зелёный"],["blue","синий"],["orange","оранжевый"],["purple","фиолетовый"]],thumb:"red",skill:"Названия цветов, поиск предметов нужного цвета, ответ полным предложением.",
+  say:"Ребёнок выбирает цвет и называет предметы такого цвета, которые есть у него дома.",qs:["Какой твой любимый цвет?","А что у тебя есть такого цвета?"],more:["Какого цвета небо? А трава?","Что вокруг нас такого же цвета?","Какого цвета твоя любимая игрушка?"]},
+ {pose:"olya_cheer",title:"Что тебе нравится делать на прогулке?",opts:[["swing","качели"],["slide","горка"],["bike","велосипед"],["sandbox","песочница"],["park","парк"],["kite","воздушный змей"]],multi:true,thumb:"swing",skill:"Рассказ о прогулке, словарь по теме «детская площадка», глаголы.",
+  say:"Можно выбрать несколько. Попросите рассказать о любимой прогулке.",qs:["Что тебе нравится делать на прогулке?","Куда вы ходите гулять?"],more:["С кем ты гуляешь?","Что ты берёшь с собой на прогулку?","Что тебе нравится больше всего на площадке?"]},
+ {pose:"olya_cheer",title:"А теперь твоя очередь спрашивать!",intro:{b:"Ты столько рассказал о себе!",t:"А теперь задай мне вопросы!",btn:"Давай!"},thumb:"olya_cheer",skill:"Переход к инициативной речи: ребёнок готовится задавать вопросы.",
+  say:"Скажите ребёнку, что теперь он будет задавать вопросы, а отвечать будет логопед или педагог.",qs:["Ты хочешь задать Оле вопросы?"],more:[]},
+ {pose:"olya_point",title:"Теперь ты спроси меня!",ask:[["cat","Животные","А у тебя есть кошка или собака?"],["ball","Игрушки","Во что ты любишь играть?"],["sunny","Погода","Какая у тебя сегодня погода?"],["red","Цвета","Какой твой любимый цвет?"],["pizza","Еда","Что ты любишь кушать?"],["tv","Мультфильмы","Какие мультики тебе нравятся?"],["mama","Семья","А у тебя большая семья?"]],cols:4,thumb:"star",skill:"Задавание вопросов собеседнику: ребёнок учится самостоятельно начинать разговор.",
+  say:"Ребёнок нажимает на картинку и произносит вопрос вслух. Взрослый отвечает полным предложением, как образец. Помогите начать фразу, если нужно.",note:"Самое важное в этом задании: ребёнок задаёт вопрос сам. Ответьте полным предложением и похвалите за вопрос.",
+  qs:["Нажми на картинку и задай мне вопрос","Спроси ещё о чём-нибудь"],more:["Если трудно, задайте вопрос вместе, а потом пусть ребёнок повторит","Ответьте полным предложением, как образец","Похвалите за каждый заданный вопрос"]}
+].forEach((x,i,arr)=>add({g:20,t:"meet",meet:x,thumb:"assets/sprite_mt_"+x.thumb+".png",alpha:true,title:x.title,level:i===0?"Знакомство с Олей":(i<arr.length-2?"Вопрос "+i+" из "+(arr.length-3):"Теперь спрашиваешь ты"),pos:i===0?"Знакомимся":(i<arr.length-2?"Вопрос "+i+" из "+(arr.length-3):(i===arr.length-2?"Меняемся ролями":"Задай вопрос")),
+   qs:x.qs.map(q=>({q:q})),say:x.say,info:{skill:x.skill,say:x.say}}));
 })();
-const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"},{name:"Расскажи по картинке"},{name:"У него или у неё?"},{name:"Один — много"},{name:"Выбери правильную картинку"},{name:"Кто что делает?"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
+const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"},{name:"Расскажи по картинке"},{name:"У него или у неё?"},{name:"Один — много"},{name:"Выбери правильную картинку"},{name:"Кто что делает?"},{name:"Давай познакомимся!"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
 
 /* skill — что отрабатываем; q — вопросы ко всей картинке; panels — вопросы к каждому эпизоду */
 const INFO_ALL=[
@@ -1033,8 +1144,8 @@ const INFO_ALL=[
 INFO_ALL[14].panels=INFO_ALL[14].panels.map(a=>["Что мы видим на картинке?",...a]); /* индекс 14 = «Туалетные дела» */
 /* какое занятие открыто: lesson.html?l=1 (рассказ по картинкам) или ?l=2 («Где мячик?») */
 const LESSON=Math.max(0,Math.min(GROUPS.length-1,(parseInt(new URLSearchParams(location.search).get("l"))||1)-1));
-const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голосовой зверёк","Занятие 5: звуки и слоги","Занятие 6: найди пару","Запуск речи для малышей: хочу!","Запуск речи для малышей: что звучит?","Речь и грамматика: один день в детском саду","Речь и грамматика: чья вещь? кому отдадим?","Речь и грамматика: кто что чувствует?","Речь и грамматика: что здесь не так?","Речь и грамматика: расскажи по картинке","Речь и грамматика: у него или у неё?","Речь и грамматика: один — много","Понимание речи: выбери правильную картинку","Развитие речи: кто что делает?"];
-const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос: говорим любой звук, и зверёк оживает","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам","просьбу: помогаем попросить «дай»","слуховое внимание: узнаём бытовые звуки","предлоги, падежи и связный рассказ: один день Оли в детском саду","род, число и падежи: чья это вещь и кому её отдадим","эмоции и их причины: называем, объясняем и ищем, что сказать","понимание бытовых ситуаций: находим, что не так, объясняем и исправляем","описание предмета по плану и устный рассказ: кто это, какой, что есть, где живёт, что делает","местоимения он и она: у него, у неё","единственное и множественное число существительных","понимание речи и словарь: что для чего нужно","связную речь: кто что делает, полные предложения"];
+const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голосовой зверёк","Занятие 5: звуки и слоги","Занятие 6: найди пару","Запуск речи для малышей: хочу!","Запуск речи для малышей: что звучит?","Речь и грамматика: один день в детском саду","Речь и грамматика: чья вещь? кому отдадим?","Речь и грамматика: кто что чувствует?","Речь и грамматика: что здесь не так?","Речь и грамматика: расскажи по картинке","Речь и грамматика: у него или у неё?","Речь и грамматика: один — много","Понимание речи: выбери правильную картинку","Развитие речи: кто что делает?","Развитие речи: давай познакомимся!"];
+const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос: говорим любой звук, и зверёк оживает","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам","просьбу: помогаем попросить «дай»","слуховое внимание: узнаём бытовые звуки","предлоги, падежи и связный рассказ: один день Оли в детском саду","род, число и падежи: чья это вещь и кому её отдадим","эмоции и их причины: называем, объясняем и ищем, что сказать","понимание бытовых ситуаций: находим, что не так, объясняем и исправляем","описание предмета по плану и устный рассказ: кто это, какой, что есть, где живёт, что делает","местоимения он и она: у него, у неё","единственное и множественное число существительных","понимание речи и словарь: что для чего нужно","связную речь: кто что делает, полные предложения","знакомство: рассказ о себе, ответы на вопросы и умение самому задавать вопросы"];
 const keepIdx=PICS_ALL.map((p,i)=>i).filter(i=>grp(PICS_ALL[i])===LESSON);
 const PICS=keepIdx.map(i=>PICS_ALL[i]), INFO=keepIdx.map(i=>PICS_ALL[i].info||INFO_ALL[i]);
 document.title=LTITLE[LESSON]+" — Запуск речи";
@@ -1113,7 +1224,7 @@ const GX={}; const gxLearn=()=>gxMode==="learn";
 const GXFACE={misha:"assets/sprite_p_misha_joy.png",olya:"assets/sprite_p_olya_joy.png",alex:"assets/narrator_thumbs.png"};
 function makeGX(s,p){
   const idx=PICS.indexOf(p), bg=p.t==="give"?"img/gram/g2_bg.jpg":(p.img||"");
-  if(p.t==="choose"||p.t==="single"||p.t==="retell"||p.t==="tell"||G_ROUND.includes(p.t)) s.innerHTML=`<div class="gx"></div>`;
+  if(p.t==="choose"||p.t==="single"||p.t==="retell"||p.t==="tell"||p.t==="meet"||G_ROUND.includes(p.t)) s.innerHTML=`<div class="gx"></div>`;
   else s.innerHTML=`<div class="gx"><img class="gx-bgblur" src="${bg}" alt="" draggable="false"><div class="gx-box"><img class="gx-img" src="${bg}" alt="${p.title}" draggable="false"><div class="fxl"></div><div class="gx-dyn"></div></div></div>`;
   GX[idx]={p,root:s.querySelector(".gx"),box:s.querySelector(".gx-box"),dyn:s.querySelector(".gx-dyn"),hint:0,placed:0,total:0,cues:[]};
   if(p.fx&&s.querySelector(".fxl")) buildFx(s.querySelector(".fxl"),p.fx);
@@ -1138,6 +1249,7 @@ function gxRender(){
   const st=GX[cur]; if(!st) return; const p=st.p, learn=gxLearn(); st.hint=0; st.placed=0; st.solved=false; st.cues=[]; st.fix=false;
   st.root.querySelectorAll(".gx-hintbox,.gx-say,.gx-bubble,.gx-fix").forEach(e=>e.remove());
   if(p.t==="who") st.showEx=false;
+  if(p.t==="meet"){ meetRender(st); return; }
   if(G_ROUND.includes(p.t)){ gxRound(st); return; }
   if(p.t==="tell"){ tellRender(st); return; }
   if(p.t==="choose"){
@@ -1189,7 +1301,7 @@ function gxPick(b,o){
   else { b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); setTimeout(()=>b.classList.remove("shake"),600); tone(300,260,.12,.04); }
 }
 function gxHint(){
-  const st=GX[cur]; if(!st||!gxLearn()) return; const p=st.p; if(p.t==="who") return; if(G_ROUND.includes(p.t)){ SFX.panel(); st.root.querySelectorAll(".tl-o,.pk-o").forEach(b=>b.classList.remove("cue")); const ob=[...st.root.querySelectorAll(".tl-o,.pk-o")]; const k=p.t==="hers"?p.hers.sex==="m"?"него":"неё":p.t==="many"?p.many.pl:null; ob.forEach((b,i)=>{ const okb=p.t==="pick"?st.ord[i]===p.pick.ok:(p.t==="hers"?st.ord[i]===k:st.ord[i]===k); if(okb) b.classList.add("cue"); }); return; } if(p.t==="tell"){ if(sub<1||sub>8) return; SFX.panel(); st.root.querySelectorAll(".tl-o").forEach((b,i)=>{ if(st.ord[sub][i]===p.tell.qs[sub-1][1]) b.classList.add("cue"); }); return; } st.hint=Math.min(3,st.hint+1); SFX.panel();
+  const st=GX[cur]; if(!st||!gxLearn()) return; const p=st.p; if(p.t==="who"||p.t==="meet") return; if(G_ROUND.includes(p.t)){ SFX.panel(); st.root.querySelectorAll(".tl-o,.pk-o").forEach(b=>b.classList.remove("cue")); const ob=[...st.root.querySelectorAll(".tl-o,.pk-o")]; const k=p.t==="hers"?p.hers.sex==="m"?"него":"неё":p.t==="many"?p.many.pl:null; ob.forEach((b,i)=>{ const okb=p.t==="pick"?st.ord[i]===p.pick.ok:(p.t==="hers"?st.ord[i]===k:st.ord[i]===k); if(okb) b.classList.add("cue"); }); return; } if(p.t==="tell"){ if(sub<1||sub>8) return; SFX.panel(); st.root.querySelectorAll(".tl-o").forEach((b,i)=>{ if(st.ord[sub][i]===p.tell.qs[sub-1][1]) b.classList.add("cue"); }); return; } st.hint=Math.min(3,st.hint+1); SFX.panel();
   st.cues.forEach(c=>c.classList.add("on"));
   if(p.t==="choose") st.root.querySelectorAll(".gx-ch").forEach((b,i)=>b.classList.toggle("cuehit",p.opts[i].e===p.target));
   st.root.querySelectorAll(".gx-hintbox").forEach(e=>e.remove());
@@ -1201,6 +1313,7 @@ function gxHint(){
 }
 function gxSide(){
   const p=PICS[cur], d=INFO[cur], learn=gxLearn();
+  if(p.t==="meet"){ meetSide(); return; }
   let h=`<h3>Отрабатываем</h3><p class="skill">${d.skill}</p><span class="chip where">${p.t==="tell"?(sub<=8?"Вопрос "+sub+" из 8":"Составляем рассказ"):G_ROUND.includes(p.t)?gPos():(p.pos||"")}</span>`;
   if(learn&&p.say&&p.t!=="choose") h+=`<div class="tip"><b>Как играть</b>${p.say}</div>`;
   h+=`<div class="ask">Спросите у ребёнка</div>`;
@@ -1309,6 +1422,73 @@ function gReset(){
   SFX.all(); go(0);
 }
 
+/* ============ «Давай познакомимся!» (t:"meet"): Оля слева, картинки-ответы справа; ответов «неверных» нет ============ */
+const MT_REACT=["Здорово!","Как интересно!","Ой, мне тоже нравится!","Расскажи подробнее!","Правда? Вот это да!","Какой ты молодец!"];
+function mtSpr(n){ return "assets/sprite_mt_"+n+".png"; }
+function mtSay(st,text){ if(!gxLearn()) return; const sp=st.root.querySelector(".mt-sp"), ol=st.root.querySelector(".mt-olya"); if(!sp||!ol) return; sp.textContent=text; sp.classList.add("on"); ol.classList.remove("hop"); void ol.offsetWidth; ol.classList.add("hop"); clearTimeout(st.spT); st.spT=setTimeout(()=>sp.classList.remove("on"),2600); }
+function mtCelebrate(st,el){ if(!gxLearn()) return; chime(); const r=el.getBoundingClientRect(), f=st.root.getBoundingClientRect(); gxStars(st.root,(r.left+r.width/2-f.left)/f.width*100,(r.top+r.height/2-f.top)/f.height*100,10); }
+function mtMore(st){
+  const M=st.p.meet; if(!M.more||!M.more.length||st.root.querySelector(".mt-ov")) return;
+  const ov=document.createElement("div"); ov.className="mt-ov"; ov.innerHTML=`<div class="mt-ovc"><h4>Расскажи подробнее!</h4><ol>${M.more.map(q=>`<li>${q}</li>`).join("")}</ol><button class="mt-ovx" type="button">Хорошо</button></div>`;
+  ov.onclick=e=>{ if(e.target===ov||e.target.classList.contains("mt-ovx")) ov.remove(); };
+  st.root.querySelector(".mt").appendChild(ov); if(gxLearn()) SFX.panel();
+}
+function mtPick(st,b,grp,multi){
+  const k=b.dataset.k, root=st.root, on=!st.sel.has(k), M=st.p.meet, q=grp==="row2"?".mt-row2 .mt-o":".mt-grid .mt-o";
+  if(!multi) root.querySelectorAll(q).forEach(x=>{ x.classList.remove("sel"); st.sel.delete(x.dataset.k); });
+  if(on&&grp==="grid"&&M.opts&&M.opts.some(o=>o[0]==="nopet")) root.querySelectorAll(q).forEach(x=>{ if((k==="nopet")!==(x.dataset.k==="nopet")&&x!==b){ x.classList.remove("sel"); st.sel.delete(x.dataset.k); } });
+  if(on){ st.sel.add(k); b.classList.add("sel"); mtCelebrate(st,b); mtSay(st,MT_REACT[Math.floor(Math.random()*MT_REACT.length)]); }
+  else { st.sel.delete(k); b.classList.remove("sel"); }
+  const mb=root.querySelector(".mt-more"); if(mb) mb.classList.toggle("pulse",st.sel.size>0);
+}
+function meetRender(st){
+  const p=st.p, M=p.meet, learn=gxLearn(), root=st.root;
+  st.sel=st.sel||new Set(); st.asked=st.asked||new Set(); st.seen=true;
+  const dots=`<div class="mt-pr">${PICS.map((q,i)=>`<i class="${i!==cur&&GX[i]&&GX[i].seen?"ok":""} ${i===cur?"cur":""}"></i>`).join("")}</div>`;
+  const olya=`<div class="mt-olya"><div class="mt-sp"></div><img class="mt-ol" src="${mtSpr(M.pose)}" alt="Оля" draggable="false">${M.more&&M.more.length?`<button class="mt-more${st.sel.size||st.asked.size?" pulse":""}" type="button">💬 Расскажи подробнее!</button>`:""}</div>`;
+  const wire=()=>{ const mb=root.querySelector(".mt-more"); if(mb) mb.onclick=()=>mtMore(st); const sk=root.querySelector(".mt-skip"); if(sk) sk.onclick=()=>next(); };
+  if(M.intro){
+    root.innerHTML=`<div class="mt intro">${dots}${olya}<div class="mt-cloud"><b>${M.intro.b}</b><p>${M.intro.t}</p><button class="mt-go" type="button">${M.intro.btn}</button></div></div>`;
+    root.querySelector(".mt-go").onclick=()=>{ if(learn) chime(); next(); }; wire(); return;
+  }
+  const head=`<div class="mt-head"><div class="mt-qs"><div class="mt-q">${p.title}</div>${M.lead?`<div class="mt-lead">${M.lead}</div>`:""}</div>${M.deco?`<img class="mt-deco" src="${mtSpr(M.deco)}" alt="" draggable="false">`:""}</div>`;
+  if(M.tag){
+    root.innerHTML=`<div class="mt">${dots}${olya}${head}<div class="mt-tag"><img src="${mtSpr("tag")}" alt="" draggable="false"><div class="mt-tagtxt">${M.tag}<small>Скажи вслух</small></div></div><div class="mt-foot"><span class="mt-chip">Отвечаем вслух</span><button class="mt-skip" type="button">Пропустить ›</button></div></div>`;
+    root.querySelector(".mt-tag").onclick=e=>{ mtCelebrate(st,e.currentTarget); mtSay(st,"Приятно познакомиться!"); }; wire(); return;
+  }
+  if(M.ask){
+    const cards=M.ask.map((a,i)=>`<button class="mt-o ${st.asked.has(a[0])?"asked":""}" type="button" data-k="${a[0]}" style="--i:${i}"><img src="${mtSpr(a[0])}" alt="" draggable="false"><span>${a[1]}</span></button>`).join("");
+    root.innerHTML=`<div class="mt">${dots}${olya}<div class="mt-askq"><div class="mt-bub">Нажми на картинку и задай мне вопрос!</div><button class="mt-done${st.asked.size?" pulse":""}" type="button">Я задал вопрос!</button></div><div class="mt-grid c4">${cards}</div><div class="mt-foot"><span class="mt-chip">Вопрос задаёт ребёнок, отвечает взрослый</span></div></div>`;
+    const bub=root.querySelector(".mt-bub"), dn=root.querySelector(".mt-done");
+    root.querySelectorAll(".mt-grid .mt-o").forEach((b,i)=>b.onclick=()=>{ const a=M.ask[i]; st.asked.add(a[0]); b.classList.add("asked"); bub.textContent=a[2]; bub.classList.remove("q"); void bub.offsetWidth; bub.classList.add("q"); dn.classList.add("pulse"); mtCelebrate(st,b); const mb=root.querySelector(".mt-more"); if(mb) mb.classList.add("pulse"); });
+    dn.onclick=()=>{ if(learn) chime(); next(); }; wire(); return;
+  }
+  const n=M.opts.length, cols=M.cols||(n<=3?n:(n===4?2:(n<=6?3:4)));
+  const opt=(o,i)=>`<button class="mt-o ${st.sel.has(o[0])?"sel":""}" type="button" data-k="${o[0]}" style="--i:${i}"><img src="${mtSpr(o[0])}" alt="" draggable="false"><span>${o[1]}</span></button>`;
+  const row2=M.row2?`<div class="mt-row2"><div class="mt-q2">${M.row2.q}</div>${M.row2.opts.map((o,i)=>opt(o,i+n)).join("")}</div>`:"";
+  root.innerHTML=`<div class="mt">${dots}${olya}${head}<div class="mt-grid c${cols}">${M.opts.map(opt).join("")}</div>${row2}<div class="mt-foot"><span class="mt-chip">${M.multi?"Можно выбрать несколько · ":""}рассказываем вслух</span><button class="mt-skip" type="button">Пропустить ›</button></div></div>`;
+  root.querySelectorAll(".mt-grid .mt-o").forEach(b=>b.onclick=()=>mtPick(st,b,"grid",!!M.multi));
+  root.querySelectorAll(".mt-row2 .mt-o").forEach(b=>b.onclick=()=>mtPick(st,b,"row2",false));
+  wire();
+}
+function meetSide(){
+  const p=PICS[cur], d=INFO[cur], M=p.meet, learn=gxLearn();
+  let h=`<h3>Отрабатываем</h3><p class="skill">${d.skill}</p><span class="chip where">${p.pos||""}</span>`;
+  if(learn&&p.say) h+=`<div class="tip"><b>Как играть</b>${p.say}</div>`;
+  if(M.note) h+=`<div class="tip"><b>Важно</b>${M.note}</div>`;
+  h+=`<div class="ask">Спросите у ребёнка</div>`;
+  p.qs.forEach((q,k)=>{ const key="gx:"+cur+":"+k; h+=`<button class="q ${doneQ.has(key)?"done":""}" data-k="${key}"><b>${k+1}</b><span>${q.q}</span></button>`; });
+  if(M.more&&M.more.length){ h+=`<div class="ask">Расскажи подробнее!</div>`; M.more.forEach((q,k)=>{ const key="gx:"+cur+":m"+k; h+=`<button class="q ${doneQ.has(key)?"done":""}" data-k="${key}"><b>${p.qs.length+k+1}</b><span>${q}</span></button>`; }); }
+  $("side").innerHTML=h;
+  $("side").querySelectorAll(".q").forEach(b=>b.onclick=()=>{ const k=b.dataset.k; const was=doneQ.has(k); was?doneQ.delete(k):doneQ.add(k); b.classList.toggle("done"); SFX.panel(); });
+  $("side").scrollTop=0;
+}
+function meetFinale(){
+  openModal(`<div class="nbox"><img class="nimg" src="assets/sprite_mt_olya_cheer.png" alt="Оля" style="height:190px"><div class="nsay" style="font-size:20px"><b>Как здорово мы познакомились!</b><br>Мне было очень интересно с тобой разговаривать!</div></div>
+    <div class="tip"><b>Для взрослого</b>Вспомните вместе с ребёнком, что он рассказал: имя, семью, игры, питомцев, любимую еду. Похвалите за ответы и за вопросы, которые он задал сам. Через несколько дней можно сыграть ещё раз и посмотреть, как изменилась речь.</div>
+    <div class="mnav"><span></span><div><button class="btn" id="fa">Ещё раз</button> <a class="btn primary" href="index.html" style="text-decoration:none;display:inline-block">К другим упражнениям ›</a></div></div>`);
+  burst($("modal")); $("fa").onclick=()=>{ closeModal(); PICS.forEach((q,i)=>{ if(GX[i]){ GX[i].sel=null; GX[i].asked=null; GX[i].seen=false; } }); doneQ.clear(); go(0); };
+}
 const GXPLAN=[
  [["Сцены с Олей","Смотрим картинку и отвечаем на вопросы"],["Перетаскиваем предметы","Куртку в шкафчик, игрушки на стол"],["Рассказываем по порядку","Сначала, потом, после этого"]],
  [["Кому отдадим?","Отдаём вещи Мише или Оле"],["Чья вещь?","Мишин, Олин: чей, чья, чьё, чьи"],["Какой? Какая?","Говорим про цвет вещи"],["Предложения","Кто что кому дал"]],
@@ -1318,7 +1498,8 @@ const GXPLAN=[
  [["Читаем предложение","У мальчика в руках цветы. У кого цветы?"],["Выбираем ответ","У него или у неё"],["12 заданий","Мальчики и девочки с разными предметами"]],
  [["Один и много","Слева один предмет, справа несколько"],["Выбираем слово","огурец, а тут огурцы"],["10 заданий","Слушаем задание и выбираем ответ"]],
  [["Читаем вопрос","Чем чистят зубы? Чем режут бумагу?"],["Показываем картинку","Три картинки на выбор"],["10 заданий","Счётчик и кнопка «Играть заново»"]],
- [["Кто это?","Рассматриваем картинку"],["Что делает?","Отвечаем полным предложением"],["Что ещё видишь?","10 картинок, пример ответа по кнопке"]]
+ [["Кто это?","Рассматриваем картинку"],["Что делает?","Отвечаем полным предложением"],["Что ещё видишь?","10 картинок, пример ответа по кнопке"]],
+ [["Знакомимся","Оля машет рукой и здоровается"],["14 вопросов о себе","Имя, возраст, семья, игры, питомцы, еда, погода, цвета"],["Выбираем картинки","Можно несколько. Неправильных ответов нет"],["Теперь спроси ты","Ребёнок задаёт вопросы Оле и учится начинать разговор"]]
 ].map(a=>a.map(([t,s])=>`<li><b>${t}</b><span>${s}</span></li>`).join(""));
 if(LESSON>=11){
   document.body.classList.add("gxl");
@@ -1976,6 +2157,7 @@ function addNar(){
 }
 /* финал занятия */
 function showFinale(){
+  if(LESSON===20){ meetFinale(); return; }
   const seenSk=new Set(); const skills=PICS.map((p,i)=>{ if(seenSk.has(INFO[i].skill)) return ""; seenSk.add(INFO[i].skill); return `<li>${LESSON>=11?"":p.title+": "}${INFO[i].skill}</li>`; }).join("");
   openModal(`<div class="nbox"><img class="nimg" src="assets/narrator_thumbs.png" alt="Александра"><div class="nsay"><b>${LESSON>=11?"Молодец! Мы прошли упражнение.":"Отлично! Занятие пройдено."}</b><br>Вы большие молодцы. Спросите ребёнка, что ему понравилось больше всего, и похвалите за старание.</div></div>
     <h2 style="font-size:20px">Что мы сегодня отработали</h2><ul>${skills}</ul>
