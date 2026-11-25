@@ -1,7 +1,7 @@
 /* Кнопка «Купить» -> оплата ЮKassa через Google-скрипт. Подключается только на страницах товаров. */
 (function () {
   var API = "https://script.google.com/macros/s/AKfycbyNhGfsa4Ah72qm0I6i31HULQ1FSdf7NzqHstHfnYcHOsebX-GNlVkh1ag0Oc7uVgmF/exec";
-  var LIVE = false; // true = кнопки оплаты включены для всех; false = только для проверки (адрес с ?pay=1)
+  var LIVE = true; // true = кнопки оплаты включены для всех; false = только для проверки (адрес с ?pay=1)
 
   var test = false;
   try {
