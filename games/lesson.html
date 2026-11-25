@@ -216,6 +216,8 @@ body.nofx .fxl,body.nofx .hov{display:none}
 .bhint{font-size:2cqw;font-weight:600;color:#a89580}
 .snd.quizmode .acard{background:rgba(255,255,255,.85)}
 .snd.quizmode .aw{display:none}
+.snd.snd6{grid-template-columns:repeat(3,1fr)}
+.snd.snd6 .acard img{position:absolute;left:6%;top:6%;width:88%;height:88%}
 
 /* --- Яркий блок про горшок --- */
 .hotbox{background:linear-gradient(135deg,#ff8a3c,#ff5f6d);color:#fff;border-radius:22px;padding:18px 20px;margin:4px 0 16px;box-shadow:0 10px 26px rgba(255,95,109,.4);animation:hotpulse 2.4s ease-in-out infinite}
@@ -1089,6 +1091,28 @@ TELL.forEach((c,i)=>add({g:15,t:"tell",tell:c,thumb:"assets/sprite_t_"+c.k+".png
 ].forEach((x,i,arr)=>add({g:20,t:"meet",meet:x,thumb:"assets/sprite_mt_"+x.thumb+".png",alpha:true,title:x.title,level:i===0?"Знакомство с Олей":(i<arr.length-2?"Вопрос "+i+" из "+(arr.length-3):"Теперь спрашиваешь ты"),pos:i===0?"Знакомимся":(i<arr.length-2?"Вопрос "+i+" из "+(arr.length-3):(i===arr.length-2?"Меняемся ролями":"Задай вопрос")),
    qs:x.qs.map(q=>({q:q})),say:x.say,info:{skill:x.skill,say:x.say}}));
 })();
+/* ---- 2026-11-25: дополнительные сцены. Добавлять ТОЛЬКО в конец: INFO_ALL привязан к порядку PICS_ALL ---- */
+PICS_ALL.push({kind:"sounds", g:3, mixed:true, thumb:"assets/an_frog.png", alpha:true, title:"Что гудит, кто квакает", level:"Звукоподражания",
+  animals:[{k:"car",w:"Би-би!",n:"Машина"},{k:"train",w:"Ту-ту!",n:"Поезд"},{k:"frog",w:"Ква-ква!",n:"Лягушка"},{k:"duck",w:"Кря-кря!",n:"Утка"},{k:"dog",w:"Ав-ав!",n:"Собака"},{k:"cat",w:"Мяу!",n:"Кошка"}],
+  info:{skill:"Звукоподражания: транспорт и животные. Би-би, ту-ту, ква-ква."}});
+PICS_ALL.push({kind:"blow", g:4, mode:"sea", flip:true, bg:"img/blow/bg_sea.jpg", sprite:"assets/sprite_duck.png", w:15, from:{x:12,y:62}, to:{x:68,y:62}, thumb:"assets/sprite_duck.png", alpha:true, title:"Уточка", level:"Дуем: мягкий долгий выдох",
+  how:"Пусть ребёнок дует тихо и долго. Пока он дует, уточка плывёт к острову. Следите, чтобы щёки не надувались.",
+  info:{skill:"Речевое дыхание: мягкий и долгий выдох."}});
+PICS_ALL.push({kind:"blow", g:4, mode:"sky", bg:"img/blow/bg_sky.jpg", sprite:"assets/sprite_t_butterfly.png", w:15, from:{x:50,y:76}, to:{x:50,y:28}, thumb:"assets/sprite_t_butterfly.png", alpha:true, title:"Бабочка", level:"Дуем: короткие выдохи",
+  how:"Дуем короткими порциями: подул, отдохнул, подул ещё. С каждым выдохом бабочка поднимается выше.",
+  info:{skill:"Речевое дыхание: несколько коротких выдохов подряд."}});
+PICS_ALL.push({kind:"want", g:9, thumb:"assets/toy_ball.png", alpha:true, title:"Хочу! Игрушки для Тёмы", level:"Просим: «дай»",
+  who:{name:"Тёма",top:"Что хочет Тёма?",over:"Тёмой",other:"Тёма хочет другое. Посмотри на облачко!",give:"Держи, Тёма: ",kid:"assets/toddler.png",happy:"assets/toddler_happy.png"},
+  items:{ball:{n:"мяч",acc:"мяч",img:"assets/toy_ball.png"},phone:{n:"телефон",acc:"телефон",img:"assets/toy_phone.png"},drum:{n:"барабан",acc:"барабан",img:"assets/toy_drum.png"},pyramid:{n:"пирамидка",acc:"пирамидку",img:"assets/toy_pyramid.png"},bell:{n:"колокольчик",acc:"колокольчик",img:"assets/toy_bell.png"},bubbles:{n:"пузыри",acc:"пузыри",img:"assets/toy_bubbles.png"},horn:{n:"дудка",acc:"дудку",img:"assets/toy_horn.png"}},
+  rounds:[["ball","drum"],["phone","bell"],["pyramid","bubbles"],["horn","ball","phone"],["drum","pyramid","bell"],["bubbles","horn"],["bell","ball","drum"]],
+  info:{skill:"Просьба: выбираем игрушку, просим, получаем."}});
+PICS_ALL.push({g:2, file:"img/potty/hands.jpg", cols:3, rows:2, title:"Тёма моет руки", level:"Гигиена по шагам",
+  fx:[{t:"bubbles",x:18,y:72},{t:"sparkle",x:90,y:60}],
+  info:{skill:"Последовательность действий и рассказ о мытье рук. Слова «сначала», «потом», «в конце».",
+   panels:[["Что случилось с руками у Тёмы?","Что ему нужно сделать?"],["Куда встал Тёма?","Что он открывает?"],["Что Тёма берёт?","Зачем нужно мыло?"],["Что делает Тёма?","Что появилось на руках?"],["Чем Тёма смывает пену?","Какие теперь руки?"],["Что у Тёмы в руках?","Как Тёма себя чувствует?"]],
+   q:["Расскажи по порядку, как Тёма моет руки.","А как ты моешь руки?"],
+   extra:"Помойте руки вместе и называйте каждый шаг.",
+   tip:"Эпизоды идут слева направо и сверху вниз. В конце покажется вся картинка: пусть ребёнок расскажет всё по порядку."}});
 const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"},{name:"Расскажи по картинке"},{name:"У него или у неё?"},{name:"Один — много"},{name:"Выбери правильную картинку"},{name:"Кто что делает?"},{name:"Давай познакомимся!"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
 
 /* skill — что отрабатываем; q — вопросы ко всей картинке; panels — вопросы к каждому эпизоду */
@@ -1533,7 +1557,7 @@ var AUD, quiz=null, lastQ=null, credits=null, quizStop=false;
 function audioOf(k){ if(!AUD) AUD={}; if(!AUD[k]){ AUD[k]=new Audio("audio/"+k+".mp3"); AUD[k].preload="auto"; } return AUD[k]; }
 function playAnimal(k){ if(muted) return; Object.values(AUD||{}).forEach(a=>a.pause()); const a=audioOf(k); a.currentTime=0; a.play().catch(()=>{}); }
 function makeSounds(s,p){
-  const wrap=document.createElement("div"); wrap.className="snd";
+  const wrap=document.createElement("div"); wrap.className="snd"+(p.animals.length<=6?" snd6":"");
   p.animals.forEach(a=>{
     const b=document.createElement("button"); b.className="acard"; b.dataset.k=a.k; b.setAttribute("aria-label",a.n);
     b.innerHTML=`<span class="aw">${a.w}</span><img src="assets/an_${a.k}.png" alt="${a.n}" draggable="false"><i class="wave"></i><i class="wave w2"></i>`;
@@ -1572,7 +1596,7 @@ var MIC=null, BL, blowMsg="Нажмите «Включить микрофон» 
 function setBlowStatus(m){ blowMsg=m; const e=document.getElementById("blowStatus"); if(e) e.textContent=m; }
 function makeBlow(s,p){
   const idx=PICS.indexOf(p); BL=BL||{};
-  s.innerHTML=`<div class="blow"><img class="bgi" src="${p.bg}" alt="" draggable="false"><div class="bl-fx"></div><div class="bl-sprite" style="width:${p.w}cqw"><img src="${p.sprite}" alt="" draggable="false"></div></div>`;
+  s.innerHTML=`<div class="blow"><img class="bgi" src="${p.bg}" alt="" draggable="false"><div class="bl-fx"></div><div class="bl-sprite" style="width:${p.w}cqw"><img src="${p.sprite}" alt="" draggable="false"${p.flip?' style="transform:scaleX(-1)"':""}></div></div>`;
   BL[idx]={p,prog:0,force:0,done:false,t:0,acc:0,el:s.querySelector(".bl-sprite"),fx:s.querySelector(".bl-fx")};
   placeBlow(BL[idx]);
 }
@@ -1950,16 +1974,16 @@ function renderSide(){
     const N=p.animals.length; let body="";
     if(sub>=1&&sub<=N){
       const a=p.animals[sub-1], w=a.w.replace(/!/g,"");
-      body=`<h3>Знакомимся</h3><span class="chip where">Животное ${sub} из ${N}</span>
+      body=`<h3>Знакомимся</h3><span class="chip where">${p.mixed?"Картинка":"Животное"} ${sub} из ${N}</span>
         <div class="storytext">${a.n}: ${a.w}</div>
-        <div class="tip">Покажите на животное и скажите: «Это ${a.n.toLowerCase()}. ${a.n} говорит «${w}»». Подождите 5 секунд: пусть ребёнок повторит звук или хотя бы попробует. Любая попытка уже успех, похвалите!</div>
+        <div class="tip">Покажите на ${p.mixed?"картинку":"животное"} и скажите: «Это ${a.n.toLowerCase()}. ${p.mixed?"Слушай":a.n+" говорит"}: «${w}»». Подождите 5 секунд: пусть ребёнок повторит звук или хотя бы попробует. Любая попытка уже успех, похвалите!</div>
         <div class="ask">Спросите у ребёнка</div>
-        ${["Кто это?","Как он говорит?","Повтори за мной."].map((t,k)=>`<button class="q" data-k="snd:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
-        <button class="zbtn" id="qh">🔊 Послушать ещё раз</button><button class="zbtn" id="qg">🐾 Показать всех животных</button>`;
+        ${(p.mixed?["Кто это или что это?","Какой звук слышно?","Повтори за мной."]:["Кто это?","Как он говорит?","Повтори за мной."]).map((t,k)=>`<button class="q" data-k="snd:${sub}:${k}"><b>${k+1}</b><span>${t}</span></button>`).join("")}
+        <button class="zbtn" id="qh">🔊 Послушать ещё раз</button><button class="zbtn" id="qg">🐾 Показать ${p.mixed?"все картинки":"всех животных"}</button>`;
     } else if(sub===0){
-      body=`<h3>Все животные</h3><div class="tip">Нажмите на любое животное, чтобы познакомиться с ним поближе. Или нажмите «Дальше», чтобы пройти всех по порядку.</div><button class="zbtn" id="qb">▶ Начать знакомство</button>`;
+      body=`<h3>${p.mixed?"Все картинки":"Все животные"}</h3><div class="tip">${p.mixed?"Нажмите на любую картинку, чтобы послушать. Или нажмите «Дальше», чтобы пройти все по порядку.":"Нажмите на любое животное, чтобы познакомиться с ним поближе. Или нажмите «Дальше», чтобы пройти всех по порядку."}</div><button class="zbtn" id="qb">▶ Начать знакомство</button>`;
     } else {
-      body=`<h3>Игра «Угадай»</h3><div class="tip">Звучит голос животного. Нажмите на того, кто так говорит. Если ошиблись, ничего страшного: карточка просто покачается, пробуйте ещё.</div>
+      body=`<h3>Игра «Угадай»</h3><div class="tip">${p.mixed?"Звучит один из звуков. Нажмите на картинку, которой он подходит.":"Звучит голос животного. Нажмите на того, кто так говорит."} Если ошиблись, ничего страшного: карточка просто покачается, пробуйте ещё.</div>
         <button class="zbtn" id="qz">🎲 Другой звук</button><button class="zbtn" id="qr">🔁 Послушать ещё раз</button><button class="zbtn" id="qs">✋ Закончить игру</button>
         <div class="tip"><b>Когда наиграетесь</b>Нажмите «Завершить»: занятие закончится.</div>`;
     }
@@ -2108,7 +2132,7 @@ function updateUI(){
   [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===cur));
   const ball=p.kind==="ball", custom=!!p.kind;
   const o=orderOf(cur), ix=o.indexOf(sub), N=p.animals?p.animals.length:0;
-  $("pos").textContent=ball?"Перетащите мячик":p.kind==="gx"?(p.t==="tell"?(sub<=8?`Вопрос ${sub} из 8`:"Составляем рассказ"):(G_ROUND.includes(p.t)?gPos():(p.pos||""))):(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?"Все животные":(sub<=N?`Животное ${sub} из ${N}`:"Угадай, кто говорит")):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
+  $("pos").textContent=ball?"Перетащите мячик":p.kind==="gx"?(p.t==="tell"?(sub<=8?`Вопрос ${sub} из 8`:"Составляем рассказ"):(G_ROUND.includes(p.t)?gPos():(p.pos||""))):(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?(p.mixed?"Все картинки":"Все животные"):(sub<=N?`${p.mixed?"Картинка":"Животное"} ${sub} из ${N}`:(p.mixed?"Угадай звук":"Угадай, кто говорит"))):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
   $("modeAll").style.display=$("modePanel").style.display=custom?"none":""; $("resetBall").style.display=ball?"":"none";
   $("modeAll").classList.toggle("on",sub===0); $("modePanel").classList.toggle("on",sub>0); $("modePanel").disabled=!n;
   const atEnd=(cur===PICS.length-1&&ix===o.length-1);
