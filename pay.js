@@ -12,8 +12,10 @@
   if (!LIVE && !test) return;
 
   var m = location.pathname.match(/\/products\/(course|guide-toilet|guide-behavior)\/?/);
-  if (!m) return;
-  var id = m[1];
+  // в общем списке товаров одна кнопка покупки: «Купить курс»
+  var list = /\/products\/(index\.html)?$/.test(location.pathname);
+  if (!m && !list) return;
+  var id = m ? m[1] : "course";
   var T = {
     "course": ["Видеокурс «Дефекация сидя»", "3 500 ₽"],
     "guide-toilet": ["Руководство «Туалетный навык без давления»", "999 ₽"],
@@ -27,7 +29,7 @@
     '<div class="pm-back"></div><div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="pm-h">' +
     '<button type="button" class="pm-x" aria-label="Закрыть">×</button>' +
     '<h3 id="pm-h"></h3><p class="pm-price"></p>' +
-    '<p class="pm-note">Укажите email: на него придут ссылки на материал и чек.</p>' +
+    '<p class="pm-note">Укажите email: на него придут ссылки на материал. Чек пришлём отдельно.</p>' +
     '<form class="pm-form" novalidate>' +
     '<input type="email" class="pm-email" placeholder="Ваш email" autocomplete="email" required>' +
     '<label class="pm-agree"><input type="checkbox" class="pm-ok"> <span>Согласен(на) с <a href="/oferta/" target="_blank">офертой</a> и <a href="/privacy/" target="_blank">политикой конфиденциальности</a></span></label>' +
@@ -74,6 +76,8 @@
   for (var i = 0; i < links.length; i++) {
     if (/^\s*Купить/.test(links[i].textContent)) {
       links[i].addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); open(); }, true);
+      var note = links[i].parentNode.querySelector("p.note");
+      if (note) note.textContent = "Оплата на сайте через ЮKassa. Ссылки на материал придут на почту.";
     }
   }
 })();
