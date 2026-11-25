@@ -803,6 +803,10 @@ html,body{overflow-x:hidden}
 .paymodal .pm-go:disabled{opacity:.6;cursor:wait}
 .paymodal .pm-small{font-size:13px;color:#4b5f6c;margin:12px 0 0}
 .paymodal .pm-legal a{color:#194F52;text-decoration:underline}
+/* ссылка на материалы на первом экране */
+.hero-mat{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:6px 0;color:#194F52;font-size:16px;font-weight:600;text-decoration:none}
+.hero-mat svg{width:22px;height:22px;flex:none;color:#C4561F}
+.hero-mat span{text-decoration:underline;text-underline-offset:4px}
 html.pm-open{overflow:hidden}
 /* pay: страница спасибо */
 .thx{max-width:640px;margin:0 auto}
