@@ -802,6 +802,7 @@ html,body{overflow-x:hidden}
 .paymodal .pm-go{width:100%}
 .paymodal .pm-go:disabled{opacity:.6;cursor:wait}
 .paymodal .pm-small{font-size:13px;color:#4b5f6c;margin:12px 0 0}
+.paymodal .pm-legal a{color:#194F52;text-decoration:underline}
 html.pm-open{overflow:hidden}
 /* pay: страница спасибо */
 .thx{max-width:640px;margin:0 auto}

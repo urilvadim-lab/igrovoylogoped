@@ -32,9 +32,9 @@
     '<p class="pm-note">Укажите email: на него придут ссылки на материал. Чек пришлём отдельно.</p>' +
     '<form class="pm-form" novalidate>' +
     '<input type="email" class="pm-email" placeholder="Ваш email" autocomplete="email" required>' +
-    '<label class="pm-agree"><input type="checkbox" class="pm-ok"> <span>Согласен(на) с <a href="/oferta/" target="_blank">офертой</a> и <a href="/privacy/" target="_blank">политикой конфиденциальности</a></span></label>' +
     '<p class="pm-err" role="alert"></p>' +
     '<button type="submit" class="btn xl pm-go">Перейти к оплате</button>' +
+    '<p class="pm-small pm-legal">Нажимая «Перейти к оплате» и оплачивая заказ, вы принимаете условия <a href="/oferta/" target="_blank">публичной оферты</a>. Как мы обрабатываем данные: <a href="/privacy/" target="_blank">политика конфиденциальности</a>.</p>' +
     '</form>' +
     '<p class="pm-small">Оплата проходит на защищённой странице ЮKassa. Данные карты на сайте не сохраняются.</p></div>';
   document.body.appendChild(box);
@@ -42,7 +42,7 @@
   box.querySelector(".pm-price").textContent = T[1];
 
   var form = box.querySelector(".pm-form"), em = box.querySelector(".pm-email"),
-      ok = box.querySelector(".pm-ok"), err = box.querySelector(".pm-err"), go = box.querySelector(".pm-go");
+      err = box.querySelector(".pm-err"), go = box.querySelector(".pm-go");
 
   function open() { box.hidden = false; document.documentElement.classList.add("pm-open"); err.textContent = ""; setTimeout(function () { em.focus(); }, 50); }
   function close() { box.hidden = true; document.documentElement.classList.remove("pm-open"); }
@@ -60,7 +60,6 @@
     e.preventDefault();
     var v = em.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { err.textContent = MSG.email; em.focus(); return; }
-    if (!ok.checked) { err.textContent = "Поставьте галочку согласия."; return; }
     err.textContent = ""; go.disabled = true; go.textContent = "Создаём оплату…";
     fetch(API + "?action=create&product=" + encodeURIComponent(id) + "&email=" + encodeURIComponent(v))
       .then(function (r) { return r.json(); })
