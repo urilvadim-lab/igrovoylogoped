@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Личный кабинет — Игровой логопед</title>
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css">
+<style>
+body{background:#FAF5EB;min-height:100vh;display:flex;flex-direction:column}
+.sh{background:#FAF5EB;border-bottom:1px solid rgba(25,52,73,.1)}
+.sh .in{max-width:1040px;margin:0 auto;padding:0 20px;height:66px;display:flex;align-items:center;gap:16px}
+.sh b{font:800 19px Onest,Inter,sans-serif;color:#194F52;margin-right:auto;white-space:nowrap}
+.sh a{font:600 15px Inter,sans-serif;color:#194F52;text-decoration:none;white-space:nowrap}
+main.s{flex:1;width:100%;max-width:1040px;margin:0 auto;padding:36px 20px 48px;box-sizing:border-box}
+.s h1{font:800 clamp(28px,4vw,40px)/1.15 Onest,Inter,sans-serif;color:#193449;margin:0 0 12px}
+.s p{margin:0 0 12px}
+.lead2{font-size:18px;color:#4b5f6c;max-width:560px}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+.box{background:#fff;border-radius:24px;box-shadow:0 10px 34px rgba(25,52,73,.10);padding:28px}
+.sb-list{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.sb-list li{display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.45;background:#fff;border-radius:16px;padding:14px 16px}
+.sb-list li:before{content:"\2713";flex:none;width:26px;height:26px;border-radius:50%;background:#DFEEE9;color:#194F52;font-weight:700;display:grid;place-items:center;font-size:15px}
+.also{margin:16px 0 0;font-size:15px;color:#4b5f6c;line-height:1.55}
+.sb-price{font:800 40px/1 Onest,Inter,sans-serif;color:#194F52}
+.sb-price small{font:600 17px Inter,sans-serif;color:#4b5f6c}
+.terms{background:#F9E4D5;border-radius:16px;padding:14px 16px;font-size:15px;line-height:1.5;margin:18px 0 14px}
+.agree{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.5;margin:0 0 16px}
+.agree i{flex:none;width:20px;height:20px;border:2px solid #194F52;border-radius:6px;margin-top:1px;background:#fff}
+.agree.on i{background:#194F52;color:#fff;display:grid;place-items:center;font-style:normal}
+.agree.on i:after{content:"\2713";font-size:14px}
+.s a{color:#194F52;text-decoration:underline}
+.b{display:block;width:100%;box-sizing:border-box;text-align:center;border:0;border-radius:999px;padding:16px 22px;font:700 17px/1.2 Onest,Inter,sans-serif;background:#C4561F;color:#fff;cursor:pointer}
+.b.dk{background:#194F52}
+.b.ln{background:#fff;color:#193449;border:1.5px solid rgba(25,52,73,.3)}
+.small{font-size:13.5px;color:#5b6b76;line-height:1.5}
+.center{text-align:center}
+.narrow{max-width:460px;margin:0 auto}
+.inp{display:block;width:100%;box-sizing:border-box;padding:15px 16px;border:1px solid rgba(25,52,73,.35);border-radius:14px;font:500 17px Inter,sans-serif;background:#fff;margin:6px 0 16px;color:#193449}
+.lbl{font:600 14px Inter,sans-serif}
+.digits{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:14px 0 18px}
+.digits span{height:58px;border:1.5px solid rgba(25,52,73,.3);border-radius:14px;display:grid;place-items:center;font:700 26px Onest,sans-serif;background:#fff}
+.digits span.cur{border-color:#C4561F;box-shadow:0 0 0 3px rgba(196,86,31,.18)}
+.note4{background:#DFEEE9;border-radius:16px;padding:13px 16px;font-size:15px;font-weight:600;margin:0 0 16px}
+.badge{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 14px;font:700 14px Inter,sans-serif;background:#DFEEE9;color:#194F52}
+.badge:before{content:"";width:9px;height:9px;border-radius:50%;background:#2e8b6b}
+.badge.warn{background:#F9E4D5;color:#8a3d12}.badge.warn:before{background:#C4561F}
+.sb-rows{margin:18px 0 0}
+.sb-rows div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(25,52,73,.12);font-size:16px}
+.sb-rows span{color:#5b6b76}.sb-rows b{text-align:right}
+.cardbox{border:1.5px solid rgba(25,52,73,.18);border-radius:18px;padding:18px;margin-top:20px}
+.cardline{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.cardline svg{width:46px;height:32px;flex:none}
+.cardline b{display:block}.cardline span{font-size:14px;color:#5b6b76}
+.stack{display:grid;gap:12px}
+.cab{max-width:560px;margin:0 auto}
+.ov{position:fixed;inset:0;background:rgba(25,52,73,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:99}
+.dlg{background:#FAF5EB;border-radius:22px;max-width:430px;width:100%;padding:26px}
+.dlg h2{font:800 23px/1.25 Onest,sans-serif;margin:0 0 12px}
+div.sf{border-top:1px solid rgba(25,52,73,.12);padding:20px;font-size:13px;line-height:1.7;color:#5b6b76;text-align:center}
+div.sf a{color:#194F52}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:22px}main.s{padding:24px 16px 36px}.box{padding:22px 18px}.digits{gap:6px}.digits span{height:50px;font-size:22px}}
+.sb-rows{border:0;border-radius:0;display:block;background:none;box-shadow:none;overflow:visible}
+.also{margin-top:16px}
+div.sf a{display:inline}
+@media (max-width:480px){.sh .in{padding:0 14px;gap:12px}.sh b{font-size:16px}.sh a{font-size:13.5px}}
+.s p.also{margin-top:16px}
+.cardline b,.sb-rows b{white-space:nowrap}
+@media (max-width:480px){.cardline{gap:10px}.cardline svg{width:36px;height:25px}.cardline b{font-size:15px}}
+.devnote{border:1.5px solid #194F52;border-radius:16px;padding:12px 16px;font-size:15px;line-height:1.5;margin:0 0 16px}
+.devnote b{display:block}
+/* v2: компактнее и строже */
+body{font-size:15px}
+.sh .in{max-width:940px;height:56px}.sh b{font-size:17px}.sh a{font-size:14px}
+main.s{max-width:940px;padding:28px 20px 28px}
+.s h1{font-size:28px;line-height:1.22;margin-bottom:8px;letter-spacing:-.01em}
+.lead2{font-size:15.5px}
+.two{grid-template-columns:1.12fr .88fr;gap:28px}
+.box{border-radius:14px;box-shadow:0 6px 22px rgba(25,52,73,.08);border:1px solid rgba(25,52,73,.10);padding:22px}
+.inc{background:#fff;border:1px solid rgba(25,52,73,.10);border-radius:14px;padding:6px 20px 14px;margin-top:18px}
+.inc-h,.pay-h{font:700 12px Onest,Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5b6b76}
+.inc-h{padding:12px 0 4px}
+.sb-list{margin:0;gap:0}
+.sb-list li{font-size:15px;background:none;border-radius:0;padding:10px 0;gap:11px;border-bottom:1px solid rgba(25,52,73,.09)}
+.sb-list li:last-child{border-bottom:0}
+.sb-list li:before{width:20px;height:20px;font-size:12px}
+.s p.also{font-size:13.5px;margin:6px 0 0;padding-top:12px;border-top:1px solid rgba(25,52,73,.18)}
+.pay-h{margin-bottom:10px}
+.sb-price{font-size:32px;padding-bottom:14px;border-bottom:1px solid rgba(25,52,73,.12)}.sb-price small{font-size:15px}
+.devnote{border:0;border-radius:0;padding:12px 0 0;margin:0 0 14px !important;font-size:13.5px;color:#4b5f6c}
+.devnote b{display:inline;color:#193449}
+.consent{border:1.5px solid #194F52;background:#EEF5F3;border-radius:10px;padding:13px 14px}
+.consent .agree{margin:0;font-size:14.5px;font-weight:600;line-height:1.45;color:#193449}
+.agree i{width:18px;height:18px;border-radius:5px}
+.fine{font-size:12.5px;line-height:1.5;color:#5b6b76}
+.s p.fine{margin:9px 0 14px}
+.b{border-radius:10px;padding:13px 18px;font-size:15.5px}
+.have{margin-top:14px;padding-top:12px;border-top:1px solid rgba(25,52,73,.12);text-align:center;font-size:14px}
+.narrow{max-width:400px}.cab{max-width:480px}
+.s .narrow h1{font-size:23px !important}
+.inp{padding:12px 14px;font-size:15.5px;border-radius:10px}
+.digits span{height:48px;font-size:21px;border-radius:10px}
+.sb-rows div{padding:10px 0;font-size:14.5px}
+.badge{font-size:12.5px;padding:5px 12px}
+.cardbox{border-radius:10px;padding:15px}
+.note4,.dlg{border-radius:12px}.dlg{max-width:390px;padding:22px}.dlg h2{font-size:19px}
+div.sf{font-size:12px;padding:14px 20px}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:18px}main.s{padding:20px 14px 28px}.s h1{font-size:23px}.box{padding:18px 16px}.inc{padding:4px 16px 14px}}
+/* v4: значки у пунктов */
+.feat{list-style:none;margin:0;padding:0}
+.feat li{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid rgba(25,52,73,.09);font-size:15px;line-height:1.4;color:#193449}
+.feat li:last-child{border-bottom:0}
+.feat img{width:44px;height:44px;object-fit:contain;flex:none}
+
+.demo{background:#193449;color:#fff;text-align:center;font:600 13.5px/1.45 Inter,sans-serif;padding:9px 14px}
+.key{background:#EEF5F3;border:1.5px dashed #194F52;border-radius:10px;padding:11px 14px;margin:0 0 14px;font-size:14px;line-height:1.55;color:#193449}
+input.inp{outline-color:#C4561F}
+.code-inp{text-align:center;letter-spacing:.45em;font:700 24px Onest,sans-serif !important}
+.err{color:#B3261E;font-size:13.5px;min-height:20px;margin:0 0 8px}
+.agree{cursor:pointer}.agree input{position:absolute;opacity:0;width:18px;height:18px;margin:0}
+.agree input:checked + i{background:#194F52;display:grid;place-items:center}
+.agree input:checked + i:after{content:"\2713";color:#fff;font-size:13px;font-style:normal}
+.agree input:focus-visible + i{outline:2px solid #C4561F;outline-offset:2px}
+.b:disabled{opacity:.45;cursor:default}
+a.b{text-decoration:none !important;color:#fff !important}
+.link{background:none;border:0;padding:0;font:inherit;color:#194F52;text-decoration:underline;cursor:pointer}
+
+.news{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45;color:#193449;margin:0 0 14px;cursor:pointer}
+.news input{width:19px;height:19px;flex:none;margin:1px 0 0;accent-color:#194F52}
+.news{gap:8px;font-size:12.5px;color:#5b6b76;margin:0 0 10px}.news input{width:15px;height:15px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+</style>
+</head>
+<body>
+<div class="sh"><div class="in"><b>Игровой логопед</b><a href="../">Все занятия</a></div></div>
+<main class="s" id="m"></main>
+<div class="sf"><a href="../../privacy/">Политика конфиденциальности</a> · <a href="../../oferta/">Публичная оферта</a><br>Поддержка: <a href="mailto:igrovoylogoped@gmail.com">igrovoylogoped@gmail.com</a></div>
+<script>
+(function(){
+var API="https://script.google.com/macros/s/AKfycbwZ8Jdt7uZmugQ5z6xnE65OTWZKBIsvM2k2c0Yx2FtzrAUR632k-S2-y-SNgLjzvFAH/exec", KEY="igl_cab", m=document.getElementById("m");
+var ERR={email:"Проверьте адрес почты.",wait:"Письмо уже запрошено. Новое можно запросить через минуту.",limit:"Сейчас письмо отправить не получается: достигнут дневной предел. Попробуйте завтра.",code:"Неверный код.",expired:"Код больше не действует. Запросите новый.",busy:"Сервер занят, повторите через несколько секунд.",network:"Нет связи. Проверьте интернет и повторите.",has_subscription:"Сначала дождитесь окончания подписки или напишите в поддержку."};
+function get(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return mem;}}
+var mem={};
+function set(v){mem=v;try{localStorage.setItem(KEY,JSON.stringify(v));}catch(e){}}
+function call(action,data){var v=get(),q={action:action,email:v.email,token:v.token},k;for(k in data||{})q[k]=data[k];
+ return fetch(API,{method:"POST",body:JSON.stringify(q)}).then(function(r){return r.json();}).catch(function(){return {ok:false,error:"network"};});}
+function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function $(id){return document.getElementById(id);}
+function on(id,ev,fn){var e=$(id);if(e)e.addEventListener(ev,fn);}
+function say(e){var x=$("er");if(x)x.textContent=ERR[e]||"Что-то пошло не так. Повторите позже.";}
+function remember(r){var v=get();if(r.token)v.token=r.token;v.email=r.email;v.news=r.news;set(v);}
+var views={
+email:function(){return '<div class="narrow"><div class="box"><h1>Личный кабинет</h1><p>Введите почту: пришлём письмо с кодом из 6 цифр. Пароль придумывать не нужно. Если кабинета ещё нет, он создастся сам. Когда подписка заработает, пришлём письмо.</p><form id="f"><label class="lbl" for="em">Ваша почта</label><input class="inp" id="em" type="email" autocomplete="email" value="'+esc(get().email)+'"><input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'+
+ '<p class="err" id="er"></p><button class="b dk" id="go">Получить код</button></form><p class="fine" style="margin:12px 0 0">Регистрируясь, вы соглашаетесь получать на эту почту письма о запуске подписки и ссылку для оформления, о реферальной программе, скидках и новых играх, а также на обработку адреса по <a href="../../privacy/">политике конфиденциальности</a>. Отписаться можно в кабинете.</p></div></div>';},
+code:function(){return '<div class="narrow"><div class="box"><h1>Введите код</h1><p>Отправили 6 цифр на <b>'+esc(get().email)+'</b>. Если письма нет, проверьте папку «Спам».</p><form id="f"><input class="inp code-inp" id="cd" inputmode="numeric" maxlength="6" autocomplete="one-time-code" aria-label="Код из 6 цифр"><p class="err" id="er"></p><button class="b dk" id="go">Войти</button></form><p class="small center" style="margin-top:14px">Код действует 10 минут. <a href="#" id="back">Изменить почту или прислать новый</a></p><p class="small center" style="margin:0">Вход на этом устройстве запомним на 90 дней.</p></div></div>';},
+cab:function(){var v=get();return '<div class="cab"><h1>Мой кабинет</h1><p class="small" style="font-size:15px">'+esc(v.email)+'</p>'+
+ '<div class="box"><span class="badge warn">Подписка в разработке</span><p style="margin:14px 0 8px">Оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽ в месяц.</p><p class="small" style="margin:0">Сейчас бесплатно без ограничений: «Туалетные дела Тёмы» и «Кто как говорит». В остальных играх открыта часть заданий.</p></div>'+
+ '<div class="box" style="margin-top:14px"><label class="news" style="margin:0"><input type="checkbox" id="nw2"'+(v.news?" checked":"")+'><span>Получать письма о запуске подписки, реферальной программе, скидках и новых играх</span></label><p class="small" id="nws" style="margin:8px 0 0"></p></div>'+
+ '<p class="err" id="er"></p><div class="stack"><a class="b" href="../">Перейти к играм</a></div><p class="center" style="margin-top:16px"><button class="link" id="out">Выйти</button> · <button class="link" id="del">Удалить мой кабинет</button></p></div>';},
+ask:function(){return '<div class="narrow"><div class="box"><h1>Удалить кабинет?</h1><p>Адрес <b>'+esc(get().email)+'</b> и настройки писем будут удалены из списка.</p><p class="err" id="er"></p><div class="stack"><button class="b" id="yes">Да, удалить</button><button class="b ln" id="no">Оставить</button></div></div></div>';}
+};
+function show(n){
+ m.innerHTML=views[n]();window.scrollTo(0,0);
+ on("f","submit",function(e){e.preventDefault();var b=$("go");
+  if(n==="email"){if($("hp").value)return;b.disabled=true;var em=$("em").value.trim().toLowerCase();set({email:em});
+   call("code").then(function(r){b.disabled=false;if(r.ok)show("code");else say(r.error);});}
+  else{b.disabled=true;call("login",{code:$("cd").value.trim(),news:true}).then(function(r){b.disabled=false;if(!r.ok)return say(r.error);remember(r);show("cab");});}});
+ on("back","click",function(e){e.preventDefault();show("email");});
+ on("nw2","change",function(){var c=this;c.disabled=true;call("news",{on:c.checked}).then(function(r){c.disabled=false;if(r.ok){remember(r);$("nws").textContent="Сохранено.";}else{c.checked=!c.checked;say(r.error);}});});
+ on("out","click",function(){call("logout").then(function(){set({});show("email");});});
+ on("del","click",function(){show("ask");});
+ on("no","click",function(){show("cab");});
+ on("yes","click",function(){var b=this;b.disabled=true;call("remove").then(function(r){if(r.ok){set({});show("email");}else{b.disabled=false;say(r.error);}});});
+}
+if(get().token){show("cab");call("me").then(function(r){if(r.ok){remember(r);show("cab");}else if(r.error==="auth"){set({email:get().email});show("email");}});}
+else show("email");
+})();
+</script>
+</body>
+</html>

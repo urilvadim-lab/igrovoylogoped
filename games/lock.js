@@ -24,7 +24,7 @@
 
   var st = document.createElement("style");
   st.textContent =
-    ".sub-mark{display:inline-block;margin:6px 12px;border-radius:999px;padding:5px 12px;font:800 13px Nunito,system-ui,sans-serif;background:#F9E4D5;color:#8a3d12}.sub-mark.full{background:#DFEEE9;color:#194F52}" +
+    ".sub-mark{display:inline-block;margin:6px 12px;border-radius:999px;padding:5px 12px;font:800 13px Nunito,system-ui,sans-serif;background:#EEF5F3;color:#194F52}.sub-mark.full{background:#FFF1CF;color:#7a4b00}" +
     ".sub-note{max-width:900px;margin:12px auto 14px;box-sizing:border-box;background:#fffaf0;border-radius:16px;box-shadow:0 6px 16px rgba(90,60,20,.12);padding:12px 18px;text-align:center;font:700 15px/1.5 Nunito,system-ui,sans-serif;color:#4a3b2c}" +
     ".dots>*.locked{opacity:.3}" +
     ".gate{position:fixed;inset:0;z-index:200;background:rgba(25,52,73,.6);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}" +
@@ -41,12 +41,12 @@
     if (main) {
       var note = document.createElement("div");
       note.className = "sub-note";
-      note.textContent = "Две игры открыты бесплатно полностью, в остальных бесплатна часть заданий, без регистрации. Подписка на все интерактивные занятия и игры сейчас в разработке.";
+      note.textContent = "Две игры бесплатны полностью, в остальных часть заданий доступна по подписке. Подписка на все интерактивные занятия и игры сейчас в разработке.";
       main.insertBefore(note, main.firstChild);
     }
     [].forEach.call(document.querySelectorAll("a.lcard"), function (a) {
       var m = document.createElement("span"); m.className = "sub-mark"; var num = +((a.getAttribute("href") || "").match(/[?&]l=(\d+)/) || [])[1] || slugNum(a);
-      m.textContent = FULL[num] ? "Бесплатно полностью" : "🔒 Часть заданий бесплатно"; if (FULL[num]) m.className += " full"; a.appendChild(m);
+      m.textContent = FULL[num] ? "💛 Бесплатно полностью" : "✨ Часть заданий доступна по подписке"; if (FULL[num]) m.className += " full"; a.appendChild(m);
     });
     return;
   }
