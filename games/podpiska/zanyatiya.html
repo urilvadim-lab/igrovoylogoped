@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<base href="../">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<style>:root{color-scheme:only light}/* скоро новая игра */
+.lcard.lc-next{border:2px dashed rgba(120,80,30,.28);box-shadow:none;background:rgba(255,255,255,.55);cursor:default}
+.lcard.lc-next:hover{transform:none;box-shadow:none}
+.lcard.lc-next .cover img{opacity:.55;padding:14px;box-sizing:border-box}
+.lcard.lc-next:hover .cover img{transform:none}
+.lc-badge{position:absolute;left:14px;top:14px;background:#194F52;color:#fff;font-weight:800;font-size:13px;border-radius:999px;padding:6px 14px}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Все занятия (демонстрация подписки)</title>
+<meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf3e6;--bg2:#f5e6cf;--ink:#4a3b2e;--ink2:#8a7560;--card:#fffaf1;--accent:#f0a62b;--shadow:0 10px 30px rgba(120,80,30,.14)}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Nunito",system-ui,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
+.blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.blobs i{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:drift 22s ease-in-out infinite}
+.blobs i:nth-child(1){width:380px;height:380px;background:#ffd9a0;left:-90px;top:8%}
+.blobs i:nth-child(2){width:320px;height:320px;background:#cfe5c4;right:-60px;top:30%;animation-delay:-7s}
+.blobs i:nth-child(3){width:420px;height:420px;background:#cddcf3;left:30%;bottom:-160px;animation-delay:-13s}
+
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
+main{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:28px 20px 50px}
+.reveal{opacity:0;transform:translateY(22px);animation:up .8s cubic-bezier(.2,.9,.3,1) forwards;animation-delay:var(--d,0s)}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* 1. Главное: название + рассказчица */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;min-height:min(78vh,620px)}
+.kicker{font-weight:800;color:var(--accent);letter-spacing:.6px;text-transform:uppercase;font-size:13px}
+h1{margin:6px 0 10px;font-size:clamp(42px,8vw,88px);line-height:.98;font-weight:800;letter-spacing:-1px}
+.sub{font-weight:800;font-size:clamp(18px,2.6vw,26px);margin:0 0 12px}
+.lead{font-size:clamp(16px,2vw,19px);line-height:1.55;margin:0 0 22px;max-width:520px;color:var(--ink2);font-weight:600}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:18px;text-decoration:none;border-radius:999px;padding:15px 30px;box-shadow:0 10px 24px rgba(240,166,43,.45);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.cta:hover{transform:translateY(-3px) scale(1.04)}
+.stage{position:relative;display:grid;place-items:end center;height:100%}
+.stage::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffe6b0,transparent 68%);bottom:4%;animation:glow 5s ease-in-out infinite}
+@keyframes glow{0%,100%{transform:scale(.94);opacity:.8}50%{transform:scale(1.06);opacity:1}}
+.stage img.nm{position:relative;height:min(68vh,560px);max-width:100%;object-fit:contain;transform-origin:50% 100%;animation:nbob 4s ease-in-out infinite}
+@keyframes nbob{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.4deg) translateY(-5px)}}
+.toy{position:absolute;width:var(--w,88px);height:auto;animation:toyf 4.4s ease-in-out infinite;animation-delay:var(--d,0s);filter:drop-shadow(0 8px 10px rgba(120,80,30,.22));cursor:pointer;z-index:2}
+.toy:hover{animation-duration:.7s}
+.toy.ball{animation-name:toyb;animation-duration:3s}
+@keyframes toyf{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+@keyframes toyb{0%,100%{transform:translateY(0)}45%{transform:translateY(-16px)}90%{transform:translateY(0) scale(1.05,.95)}}
+@media (max-width:820px){.toy{--w:58px!important}}
+.bubble{position:absolute;left:-4%;top:8%;max-width:200px;background:var(--card);border-radius:20px 20px 20px 4px;padding:12px 16px;font-weight:800;font-size:15px;line-height:1.35;box-shadow:var(--shadow);
+  opacity:0;transform:scale(.6);transform-origin:0 100%;animation:bpop .6s cubic-bezier(.3,1.6,.5,1) 1.2s forwards;z-index:2}
+@keyframes bpop{to{opacity:1;transform:none}}
+.spark{position:absolute;width:22px;height:22px;background:#ffd23f;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:tw 3s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+
+/* 2. Как это работает */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:10px 0 8px}
+.how div{background:var(--card);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow);font-weight:600;line-height:1.4;font-size:15px}
+.how b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;margin-bottom:8px}
+
+h2{font-size:clamp(24px,3.6vw,34px);margin:44px 0 14px;scroll-margin-top:20px}
+.secsub{color:var(--ink2);font-weight:600;margin:-6px 0 16px;line-height:1.5;max-width:640px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.lcard{display:flex;flex-direction:column;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
+.lcard:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(120,80,30,.22)}
+.lcard .cover{aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(160deg,#fff4dc,#ffe0a8)}
+.lcard .cover img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .8s ease}
+.lcard:hover .cover img{transform:scale(1.03)}
+.lcard .num{position:absolute;left:14px;top:14px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:5px 14px;font-size:14px;box-shadow:var(--shadow)}
+.lcard .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.lcard h3{margin:0;font-size:22px}
+.lcard p{margin:0;color:var(--ink2);font-weight:600;line-height:1.45;font-size:15px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:var(--bg);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.go{margin-top:auto;align-self:flex-start;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;transition:transform .2s}
+.lcard:hover .go{transform:translateX(4px)}
+.soon{border:3px dashed var(--bg2);display:grid;place-items:center;text-align:center;min-height:260px;color:var(--ink2);font-weight:700;border-radius:24px;padding:20px}
+.soon span{font-size:38px;display:block;margin-bottom:6px}
+
+/* 3. Герои занятий (внизу) */
+.family{margin:0;position:relative}
+.family img{width:100%;display:block;border-radius:24px;box-shadow:var(--shadow);animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.cap{color:var(--ink2);font-weight:600;margin:10px 4px 0;line-height:1.5}
+
+/* 4. Об авторе (внизу) */
+.about{display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:var(--card);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+.about img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid #fff;box-shadow:var(--shadow);flex:none}
+.about .t{flex:1;min-width:230px}
+.about b{font-size:20px;display:block}
+.about p{margin:4px 0 12px;color:var(--ink2);font-weight:600;line-height:1.45}
+.social{display:flex;gap:10px;flex-wrap:wrap}
+.sbtn{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-weight:800;font-size:14px;border-radius:999px;padding:9px 16px 9px 12px;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.sbtn.vk{order:-1}
+.sbtn:hover{transform:translateY(-4px) scale(1.04)}
+.sbtn svg{width:20px;height:20px;fill:currentColor}
+.ig{background:linear-gradient(45deg,#f9a03f,#e1306c 55%,#833ab4)}.tg{background:#2aabee}.vk{background:#0077ff}.yt{background:#ff2d2d}
+footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:0;gap:6px}
+  .stage{order:2;margin-top:10px}.stage img.nm{height:330px}.bubble{left:2%;top:0}
+  .how{grid-template-columns:1fr}
+}
+.agehead{margin:30px 0 6px}.agehead h2{margin:0 0 6px}
+.agenav{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:14px 0 8px}
+.agenav a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-decoration:none;color:var(--ink);border-radius:28px;padding:20px 22px 22px;box-shadow:var(--shadow);overflow:hidden;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s;background:var(--card)}
+.agenav a:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(120,80,30,.24)}
+.agenav .ag1{background:linear-gradient(160deg,#fff3dc,#ffe0a8)}.agenav .ag2{background:linear-gradient(160deg,#e8f5ec,#c6e6d3)}.agenav .ag3{background:linear-gradient(160deg,#f1ebff,#d9ccf5)}
+.agpics{display:flex;align-items:flex-end;gap:6px;height:84px;margin-bottom:8px}
+.agpics img{height:100%;width:auto;max-width:96px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(80,50,10,.22));animation:agb 3.6s ease-in-out infinite}
+.agpics img:nth-child(2){height:78%;animation-delay:-1.2s}.agpics img:nth-child(3){height:86%;animation-delay:-2.4s}
+@keyframes agb{50%{transform:translateY(-6px) rotate(2deg)}}
+.agenav b{font-size:clamp(28px,3.4vw,38px);line-height:1.05}
+.agenav em{font-style:normal;font-weight:800;font-size:16px;color:var(--ink)}
+.agenav .agcount{color:var(--ink2);font-weight:700;font-size:14px}
+.agenav .agbtn{margin-top:12px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(240,166,43,.4);transition:transform .25s}
+.agenav .ag2 .agbtn{background:#5b9d83;box-shadow:0 8px 18px rgba(91,157,131,.4)}.agenav .ag3 .agbtn{background:#8d6bd6;box-shadow:0 8px 18px rgba(141,107,214,.4)}
+.agenav a:hover .agbtn{transform:translateY(3px)}
+@media (max-width:980px){.agenav{grid-template-columns:1fr}.agpics{height:70px}}
+/* листание страниц по 6 занятий */
+.pgnav{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 4px}
+.pgbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--accent);color:#fff;font:800 26px/1 "Nunito",system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 22px rgba(240,166,43,.4);transition:transform .25s cubic-bezier(.3,1.5,.5,1),opacity .2s;display:grid;place-items:center;padding:0 0 3px}
+.pgbtn:hover:not(:disabled){transform:scale(1.1)}
+.pgbtn:disabled{opacity:.3;cursor:default;box-shadow:none}
+.pgdots{display:flex;align-items:center;gap:8px}
+.pgdots i{display:block;width:11px;height:11px;border-radius:6px;background:var(--bg2);transition:width .3s,background .3s;cursor:pointer}
+.pgdots i.on{width:30px;background:var(--accent)}
+.pgcount{font-weight:800;color:var(--ink2);min-width:58px;text-align:center;font-size:15px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.bubble{opacity:1;transform:none}}
+/* v6 мобильная: приветствие над головой, меньше лишнего */
+@media (max-width:820px){
+  .stage{padding-top:92px;margin-top:0}
+  .stage img.nm{height:300px}
+  .bubble{left:50%;top:0;max-width:270px;width:max-content;border-radius:20px;transform:translateX(-50%) scale(.6);transform-origin:50% 100%;animation-name:bpopm}
+  .bubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:var(--card);transform:translateX(-50%) rotate(45deg)}
+  .toy{display:none}
+  .cta{padding:16px 28px;font-size:18px}
+}
+@keyframes bpopm{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<style>
+.dn{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,#fbf3e6,#f5e6cf 55%,#cfe5c4);font-family:"Nunito",system-ui,sans-serif;color:#4a3b2e;text-align:center;overflow:hidden}
+.dn.show{display:flex}
+.dn::before,.dn::after{content:"";position:absolute;border-radius:50%;filter:blur(36px);opacity:.6}
+.dn::before{width:300px;height:300px;background:#ffd9a0;left:-90px;top:-60px}
+.dn::after{width:340px;height:340px;background:#cddcf3;right:-110px;bottom:-90px}
+.dn-in{position:relative;z-index:1;max-width:420px;animation:dnup .7s cubic-bezier(.2,.9,.3,1) both}
+@keyframes dnup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.dn-ic{font-size:76px;line-height:1;margin-bottom:14px;display:inline-block;animation:dnb 3s ease-in-out infinite}
+@keyframes dnb{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.dn h2{margin:0 0 14px;font-size:clamp(30px,8.5vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.5px}
+.dn p{margin:0 0 26px;font-size:clamp(17px,4.6vw,20px);line-height:1.5;font-weight:600;color:#8a7560}
+.dn p b{color:#4a3b2e}
+.dn button{font:inherit;font-weight:800;font-size:17px;color:#fff;background:#f0a62b;border:0;border-radius:999px;padding:15px 30px;box-shadow:0 10px 24px rgba(240,166,43,.45);cursor:pointer}
+.dn small{display:block;margin-top:14px;font-size:14px;font-weight:600;color:#8a7560}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style></head>
+<body>
+<div class="blobs"><i></i><i></i><i></i></div>
+<main><a class="homebtn" href="../">← На главную</a>
+  <section class="hero">
+    <div class="reveal">
+      <div class="kicker">Занятия для логопедов и родителей</div>
+      <h1>Запуск речи</h1>
+      <p class="sub">Интерактивные занятия для развития речи</p>
+      <p class="lead">Занятия от доречевого этапа до связной речи: слуховое внимание, дыхание и голос, звукоподражания, слоги, грамматика, рассказ. У каждого занятия есть описание: что оно развивает и при каких трудностях полезно.</p>
+      <a class="cta" href="podpiska/zanyatiya.html#agesTitle">Выбрать занятие ↓</a>
+    </div>
+    <div class="stage reveal" style="--d:.2s">
+      <div class="bubble">Привет! Я Александра. Давайте будем играть и учиться красиво говорить!</div>
+      <img class="nm" src="assets/narrator_wave.png" alt="Александра Карачинцева, глиняная версия">
+      <img class="toy" src="assets/toy_pyramid.png" alt="" style="left:1%;bottom:2%;--w:88px;--d:0s" loading="lazy" decoding="async">
+      <img class="toy" src="assets/toy_drum.png" alt="" style="left:-1%;bottom:calc(2% + 104px);--w:96px;--d:-1.1s" loading="lazy" decoding="async">
+      <img class="toy ball" src="assets/toy_ball.png" alt="" style="right:1%;bottom:2%;--w:92px;--d:-.5s" loading="lazy" decoding="async">
+      <img class="toy" src="assets/toy_xylophone.png" alt="" style="right:-2%;bottom:calc(2% + 104px);--w:116px;--d:-1.8s" loading="lazy" decoding="async">
+      <i class="spark" style="left:8%;top:30%;--d:0s"></i><i class="spark" style="right:6%;top:18%;--d:1.1s"></i><i class="spark" style="right:12%;bottom:30%;--d:2s"></i>
+    </div>
+  </section>
+
+  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Выберите этап: нажмите на блок, и страница спустится к нужным упражнениям. Всего в каталоге 21 упражнение.</p></div>
+  <nav class="agenav reveal" id="ages" aria-label="Выбор по этапу речи">
+    <a href="podpiska/zanyatiya.html#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Ребёнок пока не говорит или говорит мало</em><span class="agcount">5 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="podpiska/zanyatiya.html#syllables" class="ag2"><div class="agpics"><img src="assets/an_duck.png" alt="" loading="lazy" decoding="async"><img src="assets/sprite_ball.png" alt="Мячик" loading="lazy" decoding="async"><img src="assets/an_car.png" alt="" loading="lazy" decoding="async"></div><b>Слоги и первые слова</b><em>Ребёнок уже произносит слоги и лепетные слова</em><span class="agcount">3 упражнения</span><span class="agbtn">Смотреть ↓</span></a>
+    <a href="podpiska/zanyatiya.html#develop" class="ag3"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Ребёнок уже говорит словами и фразами</em><span class="agcount">13 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
+  </nav>
+
+  <h2 id="launch">Запуск речи: доречевые навыки</h2>
+  <p class="secsub">Для детей, которые пока не говорят или говорят мало. Развиваем доречевые навыки: слуховое внимание, дыхание, голос, подражание и просьбу. Готовим базу для формирования речи. Занятия идут по порядку: от слуха к голосу, подражанию и просьбе.</p>
+  <div class="cards" data-pager>
+    <a class="lcard reveal" style="--d:.1s" href="podpiska/lesson.html?l=11">
+      <div class="cover"><img src="img/cover_hear.jpg" alt="Что звучит?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Что звучит?</h3>
+        <p>Слуховое внимание и различение неречевых звуков: ребёнок узнаёт настоящие бытовые звуки и выбирает картинку.</p>
+        <div class="tags"><span class="tag">слуховое внимание</span><span class="tag">дифференциация звуков</span><span class="tag">словарь</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2 s" href="podpiska/lesson.html?l=5">
+      <div class="cover"><img src="img/blow/bg_sea.jpg" alt="Дуем и плывём" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Дуем и плывём</h3>
+        <p>Речевое дыхание и голос: длинный плавный выдох, короткие выдохи, гудение «у-у-у». 5 сцен, работает с микрофоном.</p>
+        <div class="tags"><span class="tag">речевое дыхание</span><span class="tag">голос</span><span class="tag">микрофон</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3 s" href="podpiska/lesson.html?l=7">
+      <div class="cover"><img src="img/cover_voice.jpg" alt="Голосовой зверёк" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Голосовой зверёк</h3>
+        <p>Мотивация к вокализации: любой звук ребёнка оживляет зверька. Первый шаг для неговорящих детей.</p>
+        <div class="tags"><span class="tag">вокализации</span><span class="tag">голос</span><span class="tag">мотивация</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.4 s" href="podpiska/lesson.html?l=4">
+      <div class="cover"><img src="img/sounds_cover.jpg" alt="Кто как говорит: ферма" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Кто как говорит: ферма</h3>
+        <p>Звукоподражания и первые слова: настоящие голоса животных и звуки транспорта, 2 набора с игрой на угадывание.</p>
+        <div class="tags"><span class="tag">звукоподражания</span><span class="tag">первые слова</span><span class="tag">слуховое внимание</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.5 s" href="podpiska/lesson.html?l=10">
+      <div class="cover"><img src="img/cover_want.jpg" alt="Хочу!" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Хочу!</h3>
+        <p>Функциональная коммуникация: ребёнок учится просить «дай» словом, жестом или картинкой.</p>
+        <div class="tags"><span class="tag">просьба</span><span class="tag">коммуникация</span><span class="tag">первые слова</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <div class="lcard lc-next">
+      <div class="cover"><img src="assets/toy_xylophone.png" alt="" loading="lazy" decoding="async"><span class="lc-badge">Скоро новая игра</span></div>
+      <div class="body">
+        <h3>Повтори за мной</h3>
+        <p>Подражание движениям: хлопаем, машем, топаем. Один из первых шагов к речи.</p>
+        <div class="tags"><span class="tag">подражание</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="syllables">Слоги и первые слова</h2>
+  <p class="secsub">Для детей, которые уже произносят слоги и лепетные слова (ма-ма, ба-ба, ла-ла-ла). Отрабатываем артикуляцию, слоговую структуру слова, внимание и память.</p>
+  <div class="cards" data-pager>
+    <a class="lcard reveal" style="--d:.1s" href="podpiska/lesson.html?l=8">
+      <div class="cover"><img src="img/cover_chain.jpg" alt="Звуки и слоги: логопед показывает" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Звуки и слоги: логопед показывает</h3>
+        <p>Гласные, прямые слоги, цепочки ПА-ТА-КА, глухие и звонкие. Ведёт взрослый, ребёнок повторяет.</p>
+        <div class="tags"><span class="tag">артикуляция</span><span class="tag">слоги</span><span class="tag">ПА-ТА-КА</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2 s" href="podpiska/lesson.html?l=6">
+      <div class="cover"><img src="img/syll_cover.jpg" alt="Слоговая структура слова" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Слоговая структура слова</h3>
+        <p>Слова от «дом» до «крокодил»: слогоделение и воспроизведение слоговой структуры. 24 слова, 4 уровня.</p>
+        <div class="tags"><span class="tag">слоговая структура</span><span class="tag">слогоделение</span><span class="tag">4 уровня</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3 s" href="podpiska/lesson.html?l=9">
+      <div class="cover"><img src="img/cover_pairs.jpg" alt="Найди пару" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Найди пару</h3>
+        <p>Внимание и зрительная память с проговариванием слов по слогам. 4 уровня.</p>
+        <div class="tags"><span class="tag">внимание</span><span class="tag">память</span><span class="tag">слова по слогам</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <div class="lcard lc-next">
+      <div class="cover"><img src="assets/sprite_blocks.png" alt="" loading="lazy" decoding="async"><span class="lc-badge">Скоро новая игра</span></div>
+      <div class="body">
+        <h3>Первые слова</h3>
+        <p>Короткие первые слова в понятных ситуациях: «мама», «на», «там».</p>
+        <div class="tags"><span class="tag">первые слова</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="develop">Развитие речи: слова, фразы, рассказ</h2>
+  <p class="secsub">Для детей, которые уже говорят словами и фразами. Предлоги, падежи, связный рассказ, понимание ситуаций и эмоций.</p>
+  <div class="cards" data-pager>
+    <a class="lcard reveal" style="--d:.1s" href="podpiska/lesson.html?l=2">
+      <div class="cover"><img src="img/ball/b3_sofa.jpg" alt="Где мячик?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Где мячик?</h3>
+        <p>Предлоги «в», «на», «под», «за», «около» и пространственные представления. 7 комнат.</p>
+        <div class="tags"><span class="tag">предлоги</span><span class="tag">пространство</span><span class="tag">фразы</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.2 s" href="podpiska/lesson.html?l=1">
+      <div class="cover"><img src="img/01_olya_morning.jpg" alt="Рассказываем по картинкам" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Рассказываем по картинкам</h3>
+        <p>Связная речь: ответы на вопросы, рассказ по сюжетной картинке, пересказ. 6 картинок.</p>
+        <div class="tags"><span class="tag">связная речь</span><span class="tag">рассказ</span><span class="tag">глаголы</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.3 s" href="podpiska/lesson.html?l=3">
+      <div class="cover"><img src="img/potty/s5.jpg" alt="Туалетные дела Тёмы" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Туалетные дела Тёмы</h3>
+        <p>Последовательность действий и рассказ по серии картинок: туалет, гигиена, мытьё рук. 2 истории: 9 и 6 эпизодов.</p>
+        <div class="tags"><span class="tag">последовательность</span><span class="tag">рассказ</span><span class="tag">бытовой словарь</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.4 s" href="podpiska/lesson.html?l=12">
+      <div class="cover"><img src="img/gram/g1_s6.jpg" alt="Один день в детском саду" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Один день в детском саду</h3>
+        <p>Предлоги и падежи, ответы на вопросы и связный рассказ. 8 сцен, режимы «Обучение» и «Диагностика».</p>
+        <div class="tags"><span class="tag">предлоги</span><span class="tag">падежи</span><span class="tag">рассказ</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.5 s" href="podpiska/lesson.html?l=13">
+      <div class="cover"><img src="img/gram/g2_bg.jpg" alt="Чья вещь? Кому отдадим?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Чья вещь? Кому отдадим?</h3>
+        <p>Род, число и падежи, притяжательные местоимения (чей, чья, чьё, чьи). 4 уровня.</p>
+        <div class="tags"><span class="tag">согласование</span><span class="tag">падежи</span><span class="tag">род и число</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.6 s" href="podpiska/lesson.html?l=14">
+      <div class="cover"><img src="img/gram/g3_s1.jpg" alt="Кто что чувствует?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Кто что чувствует?</h3>
+        <p>Эмоции, их причины и что сказать в трудной ситуации. 8 ситуаций.</p>
+        <div class="tags"><span class="tag">эмоции</span><span class="tag">причины</span><span class="tag">социальные навыки</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.7 s" href="podpiska/lesson.html?l=15">
+      <div class="cover"><img src="img/gram/g4_a1.jpg" alt="Что здесь не так?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Что здесь не так?</h3>
+        <p>Нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок.</p>
+        <div class="tags"><span class="tag">логика</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:.8s" href="podpiska/lesson.html?l=16">
+      <div class="cover"><img src="img/tell_cover.jpg" alt="Расскажи по картинке" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Расскажи по картинке</h3>
+        <p>Описание предмета по плану: кто это, какой, что есть, где живёт, что делает. 6 карточек, в конце устный рассказ.</p>
+        <div class="tags"><span class="tag">описание</span><span class="tag">рассказ</span><span class="tag">словарь</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:0.9s" href="podpiska/lesson.html?l=17">
+      <div class="cover"><img src="img/hers_cover.jpg" alt="У него или у неё?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>У него или у неё?</h3>
+        <p>Местоимения он и она: у него, у неё. 12 заданий с мальчиками и девочками.</p>
+        <div class="tags"><span class="tag">местоимения</span><span class="tag">род</span><span class="tag">предложения</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1s" href="podpiska/lesson.html?l=18">
+      <div class="cover"><img src="img/many_cover.jpg" alt="Один — много" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Один — много</h3>
+        <p>Единственное и множественное число существительных. 10 заданий, задание можно прослушать.</p>
+        <div class="tags"><span class="tag">число</span><span class="tag">словоизменение</span><span class="tag">слух</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1.1s" href="podpiska/lesson.html?l=19">
+      <div class="cover"><img src="img/pick_cover.jpg" alt="Выбери правильную картинку" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Выбери правильную картинку</h3>
+        <p>Понимание речи, логика и словарь: чем чистят зубы, на чём спят. 10 заданий.</p>
+        <div class="tags"><span class="tag">понимание речи</span><span class="tag">словарь</span><span class="tag">логика</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1.2s" href="podpiska/lesson.html?l=20">
+      <div class="cover"><img src="img/gram/g5_s1.jpg" alt="Кто что делает?" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Кто что делает?</h3>
+        <p>Связная речь: кто на картинке, что делает, что ещё видно. 10 сюжетных картинок, пример ответа по кнопке.</p>
+        <div class="tags"><span class="tag">действия</span><span class="tag">полные предложения</span><span class="tag">рассказ</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <a class="lcard reveal" style="--d:1.3s" href="podpiska/lesson.html?l=21">
+      <div class="cover"><img src="img/meet_cover.jpg" alt="Давай познакомимся!" loading="lazy" decoding="async"></div>
+      <div class="body">
+        <h3>Давай познакомимся!</h3>
+        <p>Игра для первого занятия: Оля задаёт вопросы о семье, играх, питомцах и погоде, а потом ребёнок сам задаёт вопросы. 14 тем без неправильных ответов.</p>
+        <div class="tags"><span class="tag">знакомство</span><span class="tag">диалог</span><span class="tag">задай вопрос</span></div>
+        <span class="go">Открыть занятие ›</span>
+      </div>
+    </a>
+    <div class="lcard lc-next">
+      <div class="cover"><img src="assets/toy_pyramid.png" alt="" loading="lazy" decoding="async"><span class="lc-badge">Скоро новая игра</span></div>
+      <div class="body">
+        <h3>Что к чему?</h3>
+        <p>Обобщающие слова: раскладываем одежду, посуду и игрушки по группам.</p>
+        <div class="tags"><span class="tag">словарь</span></div>
+      </div>
+    </div>
+  </div>
+
+<h2>Об авторе</h2>
+  <div class="about reveal">
+    <img src="assets/alexandra.jpg" alt="Александра Карачинцева" loading="lazy" decoding="async">
+    <div class="t">
+      <b>Александра Карачинцева</b>
+      <p>Поведенческий аналитик, специалист по запуску речи, психолог. Загляните ко мне: там новые занятия и полезные материалы.</p>
+      <div class="social">
+        <a class="sbtn ig" href="https://www.instagram.com/igrovoy_logoped" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.3 6.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1-1 0-1.7.2-2.3.4-.6.2-1.2.6-1.7 1.1-.5.5-.9 1.1-1.1 1.7-.2.6-.4 1.3-.4 2.3C2.5 9.1 2.5 9.4 2.5 12s0 2.9.1 3.9c0 1 .2 1.7.4 2.3.2.6.6 1.2 1.1 1.7.5.5 1.1.9 1.7 1.1.6.2 1.3.4 2.3.4 1 .1 1.3.1 3.9.1s2.9 0 3.9-.1c1 0 1.7-.2 2.3-.4.6-.2 1.2-.6 1.7-1.1.5-.5.9-1.1 1.1-1.7.2-.6.4-1.3.4-2.3.1-1 .1-1.3.1-3.9s0-2.9-.1-3.9c0-1-.2-1.7-.4-2.3a4.6 4.6 0 0 0-1.1-1.7 4.6 4.6 0 0 0-1.7-1.1c-.6-.2-1.3-.4-2.3-.4-1-.1-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1.9 0 1.4.2 1.7.3.4.2.7.4 1 .7.3.3.5.6.7 1 .1.3.3.8.3 1.7.1 1 .1 1.3.1 3.8s0 2.8-.1 3.8c0 .9-.2 1.4-.3 1.7-.2.4-.4.7-.7 1-.3.3-.6.5-1 .7-.3.1-.8.3-1.7.3-1 .1-1.3.1-3.8.1s-2.8 0-3.8-.1c-.9 0-1.4-.2-1.7-.3-.4-.2-.7-.4-1-.7-.3-.3-.5-.6-.7-1-.1-.3-.3-.8-.3-1.7-.1-1-.1-1.3-.1-3.8s0-2.8.1-3.8c0-.9.2-1.4.3-1.7.2-.4.4-.7.7-1 .3-.3.6-.5 1-.7.3-.1.8-.3 1.7-.3 1-.1 1.3-.1 3.8-.1z"/></svg>Instagram</a>
+        <a class="sbtn tg" href="https://t.me/rechi_igra" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.7 4.2 2.9 11c-1.2.5-1.2 1.2-.2 1.5l4.5 1.4 1.7 5.3c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3-14.2c.3-1.2-.5-1.8-1.4-1.6zM9 13.7l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.4-.3 3z"/></svg>Telegram</a>
+        <a class="sbtn vk" href="https://vk.ru/id286171382" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.8 17.3c-6.3 0-9.9-4.3-10.1-11.5h3.2c.1 5.3 2.4 7.5 4.2 8V5.8h3v4.6c1.8-.2 3.7-2.3 4.3-4.6h3c-.5 2.8-2.6 4.9-4.1 5.8 1.5.7 3.9 2.5 4.8 5.7h-3.3c-.7-2.2-2.5-3.9-4.7-4.1v4.1h-.3z"/></svg>ВКонтакте</a>
+        <a class="sbtn yt" href="https://www.youtube.com/@rechi_igra" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>YouTube</a>
+      </div>
+    </div>
+  </div>
+  <footer>© Александра Карачинцева · Запуск речи</footer>
+</main>
+<script>
+/* По 6 занятий на странице, стрелки влево-вправо, точки, свайп и клавиши */
+(function(){
+  var size=parseInt(new URLSearchParams(location.search).get("pp"),10)||6;
+  document.querySelectorAll("[data-pager]").forEach(function(box){
+    var items=Array.prototype.slice.call(box.children);
+    var soon=items.filter(function(e){return e.classList.contains("soon");});
+    var cards=items.filter(function(e){return !e.classList.contains("soon");});
+    var pages=[]; for(var i=0;i<cards.length;i+=size) pages.push(cards.slice(i,i+size));
+    if(pages.length<2) return;
+    var last=pages[pages.length-1]; if(last.length<size) soon.forEach(function(s){last.push(s);});
+    else if(soon.length) pages.push(soon);
+    var cur=0, nav=document.createElement("div"); nav.className="pgnav";
+    nav.innerHTML='<button class="pgbtn" type="button" aria-label="Назад">‹</button><div class="pgdots"></div><span class="pgcount"></span><button class="pgbtn" type="button" aria-label="Вперёд">›</button>';
+    box.parentNode.insertBefore(nav,box.nextSibling);
+    var prev=nav.children[0], next=nav.children[3], dots=nav.children[1], cnt=nav.children[2];
+    pages.forEach(function(_,i){var d=document.createElement("i"); d.onclick=function(){go(i);}; dots.appendChild(d);});
+    function go(n){
+      cur=Math.max(0,Math.min(pages.length-1,n));
+      items.forEach(function(e){e.style.display="none";});
+      pages[cur].forEach(function(e,k){e.style.display=""; e.style.setProperty("--d",(k*0.08)+"s");});
+      Array.prototype.forEach.call(dots.children,function(d,i){d.className=i===cur?"on":"";});
+      cnt.textContent=(cur+1)+" / "+pages.length; prev.disabled=cur===0; next.disabled=cur===pages.length-1;
+    }
+    prev.onclick=function(){go(cur-1);}; next.onclick=function(){go(cur+1);};
+    var x0=null; box.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;},{passive:true});
+    box.addEventListener("touchend",function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>60) go(cur+(dx<0?1:-1)); x0=null; },{passive:true});
+    box.setAttribute("tabindex","0"); box.addEventListener("keydown",function(e){ if(e.key==="ArrowRight") go(cur+1); if(e.key==="ArrowLeft") go(cur-1); });
+    go(0);
+  });
+})();
+</script>
+<style>
+.appnote{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;max-width:460px;margin:0 auto;background:#fffaf1;color:#4a3b2e;border-radius:20px;box-shadow:0 14px 40px rgba(80,50,10,.3);padding:14px 16px;display:none;gap:12px;align-items:flex-start;font:600 15px/1.4 Nunito,system-ui,sans-serif}
+.appnote.show{display:flex;animation:appin .4s ease}
+@keyframes appin{from{opacity:0;transform:translateY(20px)}}
+.appnote b{display:block;font-size:16px;margin-bottom:2px}
+.appnote .ax{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:#f5e6cf;font-size:20px;cursor:pointer;color:#4a3b2e}
+.appnote .ai{flex:none;font-size:26px;line-height:1}
+.appnote .ab{display:inline-block;margin-top:8px;border:0;border-radius:999px;background:#f0a62b;color:#fff;font:800 15px Nunito,system-ui,sans-serif;padding:10px 18px;cursor:pointer}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<div class="appnote" id="appnote" role="note"><span class="ai" id="appi"></span><div id="appt" style="flex:1"></div><button class="ax" id="appx" aria-label="Закрыть">×</button></div>
+<script>
+(function(){
+  try{
+    var ua=navigator.userAgent||"", mobile=/Android|iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua));
+    var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+    if(!mobile||standalone) return;
+    var ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua)), android=/Android/i.test(ua);
+    var inApp=/Instagram|FBAN|FBAV|Telegram|VKClient|VK\/|MAX\/|Line\/|; wv\)|OKApp|TikTok|Snapchat/i.test(ua)||(ios&&!/Safari\//.test(ua));
+    var key="appnote_"+(inApp?"b":"i"), now=Date.now();
+    try{ var t=+localStorage.getItem(key)||0; if(now-t<7*864e5) return; }catch(e){}
+    var box=document.getElementById("appnote"), tx=document.getElementById("appt"), ic=document.getElementById("appi"), deferred=null;
+    function show(i,h){ ic.textContent=i; tx.innerHTML=h; box.classList.add("show"); }
+    var onlyIn=document.body.getAttribute("data-appnote")==="inapp";
+    if(inApp){
+      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так упражнения идут быстрее и звук работает.");
+    } else if(!onlyIn){
+      if(ios) show("⬆️","<b>Как приложение, на весь экран</b>Нажмите «Поделиться» внизу Safari и выберите «На экран Домой». Значок появится рядом с другими приложениями.");
+      else if(android){
+        window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; show("📲","<b>Как приложение, на весь экран</b>Значок на главном экране, без вкладок и адресной строки.<br><button class=\"ab\" id=\"appgo\">Установить</button>"); document.getElementById("appgo").onclick=function(){ deferred.prompt(); box.classList.remove("show"); }; });
+        setTimeout(function(){ if(!box.classList.contains("show")) show("📲","<b>Как приложение, на весь экран</b>Откройте меню Chrome «⋮» и выберите «Установить приложение» (или «Добавить на главный экран»)."); },2500);
+      }
+    }
+    document.getElementById("appx").onclick=function(){ box.classList.remove("show"); try{localStorage.setItem(key,String(Date.now()));}catch(e){} };
+  }catch(e){}
+})();
+</script>
+<div class="dn" id="dn" role="dialog" aria-modal="true" aria-labelledby="dnh"><div class="dn-in"><div class="dn-ic">💻</div><h2 id="dnh">Упражнения лучше на большом экране</h2><p>Мы рекомендуем заниматься с <b>компьютера или планшета</b>: картинки крупнее, а ребёнку удобнее нажимать и слушать.</p><button type="button" id="dnok">Всё равно продолжить</button><small>Можно вернуться позже с компьютера</small></div></div>
+<script>
+(function(){try{
+  var ua=navigator.userAgent||"";
+  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone|Mobile Safari/i.test(ua)||(Math.min(screen.width,screen.height)<600);
+  if(!phone) return;
+  try{if(sessionStorage.getItem("dn_ok")) return;}catch(e){}
+  var b=document.getElementById("dn"); b.classList.add("show"); document.documentElement.style.overflow="hidden";
+  document.getElementById("dnok").onclick=function(){b.classList.remove("show");document.documentElement.style.overflow="";try{sessionStorage.setItem("dn_ok","1");}catch(e){}};
+}catch(e){}})();
+</script><script src="podpiska/state.js"></script>
+<script src="podpiska/catalog.js"></script>
+</body>
+</html>
