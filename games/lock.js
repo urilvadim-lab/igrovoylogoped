@@ -21,6 +21,8 @@
     });
   }
   if (staff) return;
+  /* свой аккаунт: вошли в кабинете, сервер подтвердил полный доступ */
+  try { var cab = JSON.parse(read("localStorage", "igl_cab") || "{}"); if (cab.token && cab.full && cab.fullUntil > Date.now()) return; } catch (e) {}
 
   var st = document.createElement("style");
   st.textContent =
