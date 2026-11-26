@@ -1,7 +1,8 @@
-/* Пробная часть игр. Подписка пока в разработке: оплаты и сбора почт здесь нет.
+/* Пробная часть игр и доступ подписчика. Оплата оформляется только в кабинете (kabinet/).
+   SALES (apply_lock.py): false = для гостей «подписка в разработке», true = подписка продаётся всем.
    Список бесплатного: GAMES_TRIAL_PLAN.md (согласован 2026-11-26). */
 (function () {
-  var STAFF_HASH = "ed6050309e534b91dea4ac6e5175f74d14f9f0f0249c66354939b296fc835522";
+  var STAFF_HASH = "ed6050309e534b91dea4ac6e5175f74d14f9f0f0249c66354939b296fc835522", API = "https://script.google.com/macros/s/AKfycbwZ8Jdt7uZmugQ5z6xnE65OTWZKBIsvM2k2c0Yx2FtzrAUR632k-S2-y-SNgLjzvFAH/exec", SALES = true;
   var FULL = { 3: 1, 4: 1 };   /* эти две игры открыты полностью (решение 2026-11-26) */
   var FREE = { 1: 1, 2: 2, 5: 2, 6: 1, 7: 3, 8: 1, 9: 1, 10: 1, 11: 1, 12: 3, 13: 4, 14: 5, 15: 2, 16: 1, 17: 3, 18: 3, 19: 3, 20: 3, 21: 4 };
   var isLesson = typeof PICS !== "undefined" && typeof LESSON !== "undefined";
@@ -21,8 +22,61 @@
     });
   }
   if (staff) return;
+  var cab = {};
+  try { cab = JSON.parse(read("localStorage", "igl_cab") || "{}") || {}; } catch (e) {}
   /* свой аккаунт: вошли в кабинете, сервер подтвердил полный доступ */
-  try { var cab = JSON.parse(read("localStorage", "igl_cab") || "{}"); if (cab.token && cab.full && cab.fullUntil > Date.now()) return; } catch (e) {}
+  if (cab.token && cab.full && cab.fullUntil > Date.now()) return;
+
+  /* подписчик: доступ до конца оплаченного срока, который сообщил сервер */
+  function paidNow(c) { return !!(c.token && c.access && c.paidUntil > Date.now()); }
+  var subscriber = paidNow(cab);
+  refresh();
+  /* раз в час (а когда срок вышел, раз в минуту) спрашиваем сервер: продление, новый отказ, отключённое устройство */
+  function refresh() {
+    if (!cab.token || !window.fetch) return;
+    var age = Date.now() - (cab.checkedAt || 0);
+    if (age < (cab.access && cab.paidUntil <= Date.now() ? 60e3 : 3600e3)) return;
+    fetch(API, { method: "POST", body: JSON.stringify({ action: "me", email: cab.email, token: cab.token }) })
+      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        var now = {}; try { now = JSON.parse(read("localStorage", "igl_cab") || "{}") || {}; } catch (e) {}
+        if (now.token !== cab.token) return;                       /* пока ждали, вышли или вошли заново */
+        if (r.ok) { now.access = r.access === true; now.paidUntil = r.paidUntil || 0; now.canPay = r.canPay === true; }
+        else if (r.error === "auth") { delete now.token; now.access = false; now.full = false; }
+        else return;
+        now.checkedAt = Date.now();
+        write("igl_cab", JSON.stringify(now));
+        var saved = {}; try { saved = JSON.parse(read("localStorage", "igl_cab") || "{}") || {}; } catch (e) {}
+        if (saved.checkedAt === now.checkedAt && paidNow(saved) !== subscriber) location.reload();
+      }).catch(function () {});
+  }
+  if (subscriber) return cleanView();
+
+  /* подписчику: без рекламы и соцсетей, без имени в приветствиях */
+  function cleanView() {
+    var css = document.createElement("style");
+    css.textContent = "#promo,#author,.hotbox,.hlinks,.hnote,.homebtn,.about,a[href*='t.me/'],a[href*='instagram.com'],a[href*='vk.ru'],a[href*='youtube.com']{display:none!important}";
+    document.head.appendChild(css);
+    function greet() {
+      [].forEach.call(document.querySelectorAll("#mcard .nsay,.bubble"), function (e) {
+        var t = e.innerHTML.replace(/Меня зовут\s*<b>Александра Карачинцева<\/b>\.\s*/, "").replace(/Я Александра\.\s*/, "");
+        if (t !== e.innerHTML) e.innerHTML = t;
+      });
+    }
+    var card = document.getElementById("mcard");
+    if (card && window.MutationObserver) new MutationObserver(greet).observe(card, { childList: true, subtree: true });
+    greet();
+    if (isLesson) {
+      var h1 = document.querySelector("h1");
+      if (h1) { h1.textContent = "Игровой логопед"; if (h1.nextElementSibling) h1.nextElementSibling.textContent = "Интерактивные занятия и игры"; }
+    } else {
+      var about = document.querySelector(".about");
+      if (about && about.previousElementSibling && about.previousElementSibling.tagName === "H2") about.previousElementSibling.style.display = "none";
+    }
+    function rename() { var s = document.querySelector(".cab-btn span"); if (s) s.textContent = "Моя подписка"; }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", rename); else rename();
+  }
+  var selling = SALES || cab.canPay === true;
 
   var st = document.createElement("style");
   st.textContent =
@@ -43,7 +97,7 @@
     if (main) {
       var note = document.createElement("div");
       note.className = "sub-note";
-      note.textContent = "Две игры бесплатны полностью, в остальных часть заданий доступна по подписке. Подписка на все интерактивные занятия и игры сейчас в разработке.";
+      note.textContent = "Две игры бесплатны полностью, в остальных часть заданий доступна по подписке. " + (selling ? "Подписка на все интерактивные занятия и игры: 399 ₽ в месяц, оформляется в кабинете." : "Подписка на все интерактивные занятия и игры сейчас в разработке.");
       main.insertBefore(note, main.firstChild);
     }
     [].forEach.call(document.querySelectorAll("a.lcard"), function (a) {
@@ -68,8 +122,10 @@
     box.className = "gate";
     box.innerHTML = "<div role='dialog' aria-modal='true' aria-label='Пробная часть пройдена'><h2>Пробная часть пройдена</h2>" +
       "<p>Остальные задания этой игры пока закрыты.</p>" +
-      "<p><b>Подписка сейчас в разработке</b>, оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p>" +
-      "<a class='gb main' href='index.html'>Выбрать другое занятие</a><button type='button' class='gb ln'>Остаться в пробной части</button>" +
+      (selling
+        ? "<p>Подписка открывает все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p><a class='gb main' href='kabinet/' target='_top'>Оформить подписку</a><a class='gb ln' href='kabinet/' target='_top'>Уже подписаны? Войти</a>"
+        : "<p><b>Подписка сейчас в разработке</b>, оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p><a class='gb main' href='index.html'>Выбрать другое занятие</a>") +
+      "<button type='button' class='gb ln'>Остаться в пробной части</button>" +
       "<small>Вопросы: <a href='mailto:igrovoylogoped@gmail.com'>igrovoylogoped@gmail.com</a></small></div>";
     box.querySelector("button").onclick = close;
     document.body.appendChild(box);

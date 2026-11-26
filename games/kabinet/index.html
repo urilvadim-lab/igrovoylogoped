@@ -141,7 +141,8 @@ a.b{text-decoration:none !important;color:#fff !important}
 <script>
 (function(){
 var API="https://script.google.com/macros/s/AKfycbwZ8Jdt7uZmugQ5z6xnE65OTWZKBIsvM2k2c0Yx2FtzrAUR632k-S2-y-SNgLjzvFAH/exec", KEY="igl_cab", m=document.getElementById("m");
-var ERR={email:"Проверьте адрес почты.",wait:"Письмо уже запрошено. Новое можно запросить через минуту.",limit:"Сейчас письмо отправить не получается: достигнут дневной предел. Попробуйте завтра.",code:"Неверный код.",expired:"Код больше не действует. Запросите новый.",busy:"Сервер занят, повторите через несколько секунд.",network:"Нет связи. Проверьте интернет и повторите.",has_subscription:"Сначала дождитесь окончания подписки или напишите в поддержку."};
+var CARD='<svg viewBox="0 0 46 32" width="46" height="32" aria-hidden="true"><rect x="1" y="1" width="44" height="30" rx="6" fill="#DFEEE9" stroke="#194F52" stroke-width="1.5"/><rect x="1" y="8" width="44" height="6" fill="#194F52"/><rect x="7" y="21" width="16" height="3" rx="1.5" fill="#194F52"/></svg>';
+var ERR={closed:"Оформить подписку пока нельзя.",consent:"Отметьте согласие на автоматическое списание.",already:"Карта уже привязана. Обновите страницу.",payment:"Не получилось открыть оплату. Повторите чуть позже.",pending:"Предыдущая оплата ещё проверяется. Подождите минуту.",email:"Проверьте адрес почты.",wait:"Письмо уже запрошено. Новое можно запросить через минуту.",limit:"Сейчас письмо отправить не получается: достигнут дневной предел. Попробуйте завтра.",code:"Неверный код.",expired:"Код больше не действует. Запросите новый.",busy:"Сервер занят, повторите через несколько секунд.",network:"Нет связи. Проверьте интернет и повторите.",has_subscription:"Сначала дождитесь окончания подписки или напишите в поддержку."};
 function get(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return mem;}}
 var mem={};
 function set(v){mem=v;try{localStorage.setItem(KEY,JSON.stringify(v));}catch(e){}}
@@ -151,15 +152,44 @@ function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return {"&":"
 function $(id){return document.getElementById(id);}
 function on(id,ev,fn){var e=$(id);if(e)e.addEventListener(ev,fn);}
 function say(e){var x=$("er");if(x)x.textContent=ERR[e]||"Что-то пошло не так. Повторите позже.";}
-function remember(r){var v=get();if(r.token)v.token=r.token;v.email=r.email;v.news=r.news;v.full=r.full===true;v.fullUntil=v.full?Date.now()+90*864e5:0;set(v);}
+var st=null, returned=/[?&]s=return/.test(location.search), polls=0, timer=0;   /* st = последний ответ сервера */
+function remember(r){st=r;var v=get();if(r.token)v.token=r.token;v.email=r.email;v.news=r.news;v.full=r.full===true;v.fullUntil=v.full?Date.now()+90*864e5:0;v.access=r.access===true;v.paidUntil=r.paidUntil||0;v.canPay=r.canPay===true;v.checkedAt=Date.now();set(v);}
+function day(t){return new Date(t).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"}).replace(/\s*г\.$/,"")+" года";}
+function row(a,b){return '<div><span>'+a+'</span><b>'+b+'</b></div>';}
+function cardBox(){return '<div class="cardbox"><div class="cardline">'+CARD+'<div><b>Банковская карта •••• '+esc(st.card.last4)+'</b><span>для автоматической оплаты</span></div></div><button class="b ln" id="unbind">Отвязать карту</button><p class="small" style="margin:10px 0 0">Отвязка отменяет подписку: автосписания прекратятся, оплаченный доступ сохранится до конца срока.</p></div>';}
+function offer(){return '<div class="sb-price">399 ₽ <small>в месяц</small></div><p>Все интерактивные занятия и игры, без рекламы и ссылок на соцсети. До 3 устройств.</p><p class="small"><b>Для компьютера или планшета.</b> На телефоне картинки мелкие, и заниматься неудобно.</p>'+
+ '<div class="consent"><label class="agree"><input type="checkbox" id="ag"><i></i><span>Согласен(на) на автоматическое списание 399 ₽ раз в месяц. Отключить можно в любой момент в личном кабинете.</span></label></div>'+
+ '<p class="fine">Если очередное списание не пройдёт, повторим через 1, 3 и 7 дней, затем списания прекратятся. Оформляя подписку, вы принимаете <a href="../../oferta/">публичную оферту</a>, в том числе <a href="../../oferta/#subscription">условия подписки</a>.</p><button class="b" id="start" disabled>Перейти к оплате</button><p class="fine center" style="margin:10px 0 0">Откроется страница оплаты ЮKassa.</p>';}
+/* что показать про подписку: только по ответу сервера */
+function subBox(v){
+ if(v.full)return '<span class="badge">Полный доступ открыт</span><p style="margin:14px 0 0">На этом устройстве открыты все задания во всех играх. Чтобы закрыть доступ, нажмите «Выйти».</p>';
+ if(!st)return '<p style="margin:0">Проверяем подписку…</p>';
+ var open=st.access, till=st.paidUntil?day(st.paidUntil):"", test=st.mode==="test"&&(st.canPay||st.card||st.access)?'<p class="small" style="margin:0 0 12px"><b>Тестовый режим: деньги не списываются.</b></p>':"", h;
+ if(st.pending&&!open&&st.status!=="retry")h='<span class="badge warn">Проверяем оплату</span><p style="margin:14px 0">Ждём подтверждение от ЮKassa. Если вы не закончили оплату, откройте её страницу снова.</p><div class="stack"><button class="b" id="again">Проверить ещё раз</button><button class="b ln" id="resume">Открыть страницу оплаты</button></div>';
+ else if(st.status==="retry"&&st.card)h='<span class="badge warn">Списание не прошло</span><p style="margin:14px 0">Не получилось списать 399 ₽. '+(open?"Занятия открыты до "+till+".":"Доступ закрыт до успешной оплаты. За дни без доступа деньги не берём.")+'</p><div class="sb-rows">'+row("Следующая попытка",day(st.retryAt))+'</div><p class="small">Пробуем ещё через 1, 3 и 7 дней после первого отказа, потом списания прекращаются.</p>'+cardBox();
+ else if(st.status==="review")h='<span class="badge warn">Платёж проверяется</span><p style="margin:14px 0">Мы вручную проверяем последнее списание. Напишите в <a href="mailto:igrovoylogoped@gmail.com">поддержку</a>.</p>'+(st.card?cardBox():"");
+ else if(open&&st.card)h='<span class="badge">Подписка активна</span><div class="sb-rows">'+row("Стоимость","399 ₽ в месяц")+row("Следующее списание",till)+row("Устройства",st.devices+" из "+st.maxDevices)+'</div>'+cardBox();
+ else if(open)h='<span class="badge warn">Карта отвязана</span><p style="margin:14px 0"><b>Списаний больше не будет.</b> Занятия и игры открыты до '+till+'.</p><div class="sb-rows">'+row("Устройства",st.devices+" из "+st.maxDevices)+'</div>';
+ else{
+  var why=st.status==="failed"?"Списания остановлены: оплата не прошла, карта отвязана.":(returned&&!st.pending?"Оплата не прошла или была отменена.":(till?"Оплаченный срок закончился "+till+".":""));
+  if(st.canPay)h=(why?'<p><b>'+why+'</b></p>':"")+offer();
+  else h='<span class="badge warn">Подписка в разработке</span><p style="margin:14px 0 8px">'+(why?why+" ":"")+'Оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽ в месяц.</p><p class="small" style="margin:0">Сейчас бесплатно без ограничений: «Туалетные дела Тёмы» и «Кто как говорит». В остальных играх открыта часть заданий.</p>';
+ }
+ return test+h;
+}
+function draw(){if($("sb"))show("cab");}
+/* ждём подтверждение оплаты: несколько проверок с паузой */
+function watch(){clearTimeout(timer);if(!st||!st.pending||polls>=8)return;timer=setTimeout(function(){polls++;call("check").then(function(r){if(!r.ok)return;remember(r);draw();watch();});},4000);}
+function load(){call(returned?"check":"me").then(function(r){if(r.ok){remember(r);draw();if(r.pending){call("check").then(function(c){if(c.ok){remember(c);draw();watch();}});}}else if(r.error==="auth"){set({email:get().email});st=null;show("email");}else say(r.error);});}
 var views={
-email:function(){return '<div class="narrow"><div class="box"><h1>Личный кабинет</h1><p>Введите почту: пришлём письмо с кодом из 6 цифр. Пароль придумывать не нужно. Если кабинета ещё нет, он создастся сам. Когда подписка заработает, пришлём письмо.</p><form id="f"><label class="lbl" for="em">Ваша почта</label><input class="inp" id="em" type="email" autocomplete="email" value="'+esc(get().email)+'"><input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'+
- '<p class="err" id="er"></p><button class="b dk" id="go">Получить код</button></form><p class="fine" style="margin:12px 0 0">Регистрируясь, вы соглашаетесь получать на эту почту письма о запуске подписки и ссылку для оформления, о реферальной программе, скидках и новых играх, а также на обработку адреса по <a href="../../privacy/">политике конфиденциальности</a>. Отписаться можно в кабинете.</p></div></div>';},
+email:function(){return '<div class="narrow"><div class="box"><h1>Личный кабинет</h1><p>Введите почту: пришлём письмо с кодом из 6 цифр. Пароль придумывать не нужно. Если кабинета ещё нет, он создастся сам.</p><form id="f"><label class="lbl" for="em">Ваша почта</label><input class="inp" id="em" type="email" autocomplete="email" value="'+esc(get().email)+'"><input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'+
+ '<p class="err" id="er"></p><button class="b dk" id="go">Получить код</button></form><p class="fine" style="margin:12px 0 0">Регистрируясь, вы соглашаетесь получать на эту почту письма о подписке, о реферальной программе, скидках и новых играх, а также на обработку адреса по <a href="../../privacy/">политике конфиденциальности</a>. Отписаться можно в кабинете.</p></div></div>';},
 code:function(){return '<div class="narrow"><div class="box"><h1>Введите код</h1><p>Отправили 6 цифр на <b>'+esc(get().email)+'</b>. Если письма нет, проверьте папку «Спам».</p><form id="f"><input class="inp code-inp" id="cd" inputmode="numeric" maxlength="6" autocomplete="one-time-code" aria-label="Код из 6 цифр"><p class="err" id="er"></p><button class="b dk" id="go">Войти</button></form><p class="small center" style="margin-top:14px">Код действует 10 минут. <a href="#" id="back">Изменить почту или прислать новый</a></p><p class="small center" style="margin:0">Вход на этом устройстве запомним на 90 дней.</p></div></div>';},
 cab:function(){var v=get();return '<div class="cab"><h1>Мой кабинет</h1><p class="small" style="font-size:15px">'+esc(v.email)+'</p>'+
- (v.full?'<div class="box"><span class="badge">Полный доступ открыт</span><p style="margin:14px 0 0">На этом устройстве открыты все задания во всех играх. Чтобы закрыть доступ, нажмите «Выйти».</p></div>':'<div class="box"><span class="badge warn">Подписка в разработке</span><p style="margin:14px 0 8px">Оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽ в месяц.</p><p class="small" style="margin:0">Сейчас бесплатно без ограничений: «Туалетные дела Тёмы» и «Кто как говорит». В остальных играх открыта часть заданий.</p></div>')+
- '<div class="box" style="margin-top:14px"><label class="news" style="margin:0"><input type="checkbox" id="nw2"'+(v.news?" checked":"")+'><span>Получать письма о запуске подписки, реферальной программе, скидках и новых играх</span></label><p class="small" id="nws" style="margin:8px 0 0"></p></div>'+
+ '<div class="box" id="sb">'+subBox(v)+'</div>'+
+ '<div class="box" style="margin-top:14px"><label class="news" style="margin:0"><input type="checkbox" id="nw2"'+(v.news?" checked":"")+'><span>Получать письма о подписке, реферальной программе, скидках и новых играх</span></label><p class="small" id="nws" style="margin:8px 0 0"></p></div>'+
  '<p class="err" id="er"></p><div class="stack"><a class="b" href="../">Перейти к играм</a></div><p class="center" style="margin-top:16px"><button class="link" id="out">Выйти</button> · <button class="link" id="del">Удалить мой кабинет</button></p></div>';},
+unbindAsk:function(){return '<div class="narrow"><div class="box"><h1>Отвязать карту?</h1><p>Автоматические списания прекратятся.</p>'+(st&&st.access?'<p>Занятия и игры останутся открытыми до <b>'+day(st.paidUntil)+'</b>.</p>':'')+'<p class="err" id="er"></p><div class="stack"><button class="b" id="uyes">Да, отвязать карту</button><button class="b ln" id="no">Оставить карту</button></div></div></div>';},
 ask:function(){return '<div class="narrow"><div class="box"><h1>Удалить кабинет?</h1><p>Адрес <b>'+esc(get().email)+'</b> и настройки писем будут удалены из списка.</p><p class="err" id="er"></p><div class="stack"><button class="b" id="yes">Да, удалить</button><button class="b ln" id="no">Оставить</button></div></div></div>';}
 };
 function show(n){
@@ -167,15 +197,22 @@ function show(n){
  on("f","submit",function(e){e.preventDefault();var b=$("go");
   if(n==="email"){if($("hp").value)return;b.disabled=true;var em=$("em").value.trim().toLowerCase();set({email:em});
    call("code").then(function(r){b.disabled=false;if(r.ok)show("code");else say(r.error);});}
-  else{b.disabled=true;call("login",{code:$("cd").value.trim(),news:true}).then(function(r){b.disabled=false;if(!r.ok)return say(r.error);remember(r);show("cab");});}});
+  else{b.disabled=true;call("login",{code:$("cd").value.trim(),news:true}).then(function(r){b.disabled=false;if(!r.ok)return say(r.error);remember(r);show("cab");if(r.pending)load();});}});
+ function toPay(b){b.disabled=true;call("pay",{consent:true}).then(function(r){if(r.ok&&r.url){location.href=r.url;return;}b.disabled=false;say(r.error);if(r.error==="pending"||r.error==="already")load();});}
+ on("ag","change",function(){$("start").disabled=!this.checked;});
+ on("start","click",function(){toPay(this);});
+ on("resume","click",function(){toPay(this);});
+ on("again","click",function(){var b=this;b.disabled=true;polls=0;call("check").then(function(r){b.disabled=false;if(r.ok){remember(r);draw();watch();}else say(r.error);});});
+ on("unbind","click",function(){clearTimeout(timer);show("unbindAsk");});
+ on("uyes","click",function(){var b=this;b.disabled=true;call("unbind").then(function(r){if(r.ok){returned=false;remember(r);show("cab");}else{b.disabled=false;say(r.error);}});});
  on("back","click",function(e){e.preventDefault();show("email");});
  on("nw2","change",function(){var c=this;c.disabled=true;call("news",{on:c.checked}).then(function(r){c.disabled=false;if(r.ok){remember(r);$("nws").textContent="Сохранено.";}else{c.checked=!c.checked;say(r.error);}});});
- on("out","click",function(){call("logout").then(function(){set({});show("email");});});
+ on("out","click",function(){clearTimeout(timer);call("logout").then(function(){st=null;set({});show("email");});});
  on("del","click",function(){show("ask");});
  on("no","click",function(){show("cab");});
  on("yes","click",function(){var b=this;b.disabled=true;call("remove").then(function(r){if(r.ok){set({});show("email");}else{b.disabled=false;say(r.error);}});});
 }
-if(get().token){show("cab");call("me").then(function(r){if(r.ok){remember(r);show("cab");}else if(r.error==="auth"){set({email:get().email});show("email");}});}
+if(get().token){show("cab");load();}
 else show("email");
 })();
 </script>
