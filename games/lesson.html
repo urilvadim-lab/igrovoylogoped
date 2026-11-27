@@ -635,6 +635,7 @@ body.gxl .stage{min-width:0}
 #rotFs{display:none}
 #rotX{padding:6px 12px;font-size:13px}
 </style>
+<link rel="stylesheet" href="games2.css">
 <!--seo-->
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
@@ -712,6 +713,7 @@ body.gxl .stage{min-width:0}
   <button class="avatar" id="avatar" aria-label="Об авторе и соцсети"><img src="assets/alexandra.jpg" alt="Александра Карачинцева"></button>
 </div>
 
+<script src="games2.js"></script>
 <script>
 /* ============ Данные ============ */
 const PICS_ALL = [
@@ -1114,7 +1116,8 @@ PICS_ALL.push({g:2, file:"img/potty/hands.jpg", cols:3, rows:2, title:"Тёма 
    q:["Расскажи по порядку, как Тёма моет руки.","А как ты моешь руки?"],
    extra:"Помойте руки вместе и называйте каждый шаг.",
    tip:"Эпизоды идут слева направо и сверху вниз. В конце покажется вся картинка: пусть ребёнок расскажет всё по порядку."}});
-const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"},{name:"Расскажи по картинке"},{name:"У него или у неё?"},{name:"Один — много"},{name:"Выбери правильную картинку"},{name:"Кто что делает?"},{name:"Давай познакомимся!"}];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
+PICS_ALL.push(...NG.pics);
+const GROUPS=[{name:"Рассказываем по картинкам"},{name:"Где мячик?"},{name:"Туалетные дела"},{name:"Кто как говорит"},{name:"Дуем и плывём"},{name:"Слоговая структура"},{name:"Голосовой зверёк"},{name:"Звуки и слоги"},{name:"Найди пару"},{name:"Хочу!"},{name:"Что звучит?"},{name:"Один день в детском саду"},{name:"Чья вещь? Кому отдадим?"},{name:"Кто что чувствует?"},{name:"Что здесь не так?"},{name:"Расскажи по картинке"},{name:"У него или у неё?"},{name:"Один — много"},{name:"Выбери правильную картинку"},{name:"Кто что делает?"},{name:"Давай познакомимся!"},...NG.groups];const grp=p=>p.g!==undefined?p.g:(p.kind==="ball"?1:0);
 
 /* skill — что отрабатываем; q — вопросы ко всей картинке; panels — вопросы к каждому эпизоду */
 const INFO_ALL=[
@@ -1169,8 +1172,8 @@ const INFO_ALL=[
 INFO_ALL[14].panels=INFO_ALL[14].panels.map(a=>["Что мы видим на картинке?",...a]); /* индекс 14 = «Туалетные дела» */
 /* какое занятие открыто: lesson.html?l=1 (рассказ по картинкам) или ?l=2 («Где мячик?») */
 const LESSON=Math.max(0,Math.min(GROUPS.length-1,(parseInt(new URLSearchParams(location.search).get("l"))||1)-1));
-const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голосовой зверёк","Занятие 5: звуки и слоги","Занятие 6: найди пару","Запуск речи для малышей: хочу!","Запуск речи для малышей: что звучит?","Речь и грамматика: один день в детском саду","Речь и грамматика: чья вещь? кому отдадим?","Речь и грамматика: кто что чувствует?","Речь и грамматика: что здесь не так?","Речь и грамматика: расскажи по картинке","Речь и грамматика: у него или у неё?","Речь и грамматика: один — много","Понимание речи: выбери правильную картинку","Развитие речи: кто что делает?","Развитие речи: давай познакомимся!"];
-const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос: говорим любой звук, и зверёк оживает","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам","просьбу: помогаем попросить «дай»","слуховое внимание: узнаём бытовые звуки","предлоги, падежи и связный рассказ: один день Оли в детском саду","род, число и падежи: чья это вещь и кому её отдадим","эмоции и их причины: называем, объясняем и ищем, что сказать","понимание бытовых ситуаций: находим, что не так, объясняем и исправляем","описание предмета по плану и устный рассказ: кто это, какой, что есть, где живёт, что делает","местоимения он и она: у него, у неё","единственное и множественное число существительных","понимание речи и словарь: что для чего нужно","связную речь: кто что делает, полные предложения","знакомство: рассказ о себе, ответы на вопросы и умение самому задавать вопросы"];
+const LTITLE=["Занятие 1: рассказываем по картинкам","Занятие 2: «Где мячик?»","Занятие 3: туалетные дела","Запуск речи для малышей: кто как говорит","Запуск речи для малышей: дуем и плывём","Занятие 4: слоговая структура слов","Запуск речи для малышей: голосовой зверёк","Занятие 5: звуки и слоги","Занятие 6: найди пару","Запуск речи для малышей: хочу!","Запуск речи для малышей: что звучит?","Речь и грамматика: один день в детском саду","Речь и грамматика: чья вещь? кому отдадим?","Речь и грамматика: кто что чувствует?","Речь и грамматика: что здесь не так?","Речь и грамматика: расскажи по картинке","Речь и грамматика: у него или у неё?","Речь и грамматика: один — много","Понимание речи: выбери правильную картинку","Развитие речи: кто что делает?","Развитие речи: давай познакомимся!",...NG.titles];
+const LAIM=["связный рассказ, предлоги, грамматику и умение отвечать на вопросы","предлоги «в», «на», «под», «за», «около» в игре с мячиком","последовательность действий и цельный рассказ: туалет и гигиена","звукоподражания и первые слова: слушаем, повторяем, пробуем сами","дыхание и голос: длинный выдох, гудение","слоговую структуру: от односложных слов до слов со стечением согласных","голос: говорим любой звук, и зверёк оживает","произнесение гласных, слогов и цепочек: логопед показывает, ребёнок повторяет","внимание, память и чёткое произнесение слов по слогам","просьбу: помогаем попросить «дай»","слуховое внимание: узнаём бытовые звуки","предлоги, падежи и связный рассказ: один день Оли в детском саду","род, число и падежи: чья это вещь и кому её отдадим","эмоции и их причины: называем, объясняем и ищем, что сказать","понимание бытовых ситуаций: находим, что не так, объясняем и исправляем","описание предмета по плану и устный рассказ: кто это, какой, что есть, где живёт, что делает","местоимения он и она: у него, у неё","единственное и множественное число существительных","понимание речи и словарь: что для чего нужно","связную речь: кто что делает, полные предложения","знакомство: рассказ о себе, ответы на вопросы и умение самому задавать вопросы",...NG.aims];
 const keepIdx=PICS_ALL.map((p,i)=>i).filter(i=>grp(PICS_ALL[i])===LESSON);
 const PICS=keepIdx.map(i=>PICS_ALL[i]), INFO=keepIdx.map(i=>PICS_ALL[i].info||INFO_ALL[i]);
 document.title=LTITLE[LESSON]+" — Запуск речи";
@@ -1525,8 +1528,9 @@ const GXPLAN=[
  [["Читаем вопрос","Чем чистят зубы? Чем режут бумагу?"],["Показываем картинку","Три картинки на выбор"],["10 заданий","Счётчик и кнопка «Играть заново»"]],
  [["Кто это?","Рассматриваем картинку"],["Что делает?","Отвечаем полным предложением"],["Что ещё видишь?","10 картинок, пример ответа по кнопке"]],
  [["Знакомимся","Оля машет рукой и здоровается"],["14 вопросов о себе","Имя, возраст, семья, игры, питомцы, еда, погода, цвета"],["Выбираем картинки","Можно несколько. Неправильных ответов нет"],["Теперь спроси ты","Ребёнок задаёт вопросы Оле и учится начинать разговор"]]
-].map(a=>a.map(([t,s])=>`<li><b>${t}</b><span>${s}</span></li>`).join(""));
-if(LESSON>=11){
+].concat(NG.plans).map(a=>a.map(([t,s])=>`<li><b>${t}</b><span>${s}</span></li>`).join(""));
+if(LESSON>=21) document.body.classList.add("gxl","ngl");
+else if(LESSON>=11){
   document.body.classList.add("gxl");
   const gs=document.createElement("span"); gs.className="seg"; gs.id="gseg"; gs.innerHTML=`<button data-m="learn" title="С подсказками и образцами ответов">Обучение</button><button data-m="diag" title="Без подсказок, звуков и наград">Диагностика</button>`;
   $("help").before(gs); gs.querySelectorAll("button").forEach(b=>b.onclick=()=>gxSetMode(b.dataset.m)); document.body.classList.toggle("gxdiag",gxMode==="diag"); gs.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.m===gxMode));
@@ -1546,6 +1550,7 @@ const slides=PICS.map(p=>{
   if(p.kind==="chain"){ tilt.appendChild(s); makeChain(s,p); return s; }
   if(p.kind==="memory"){ tilt.appendChild(s); makeMemory(s,p); return s; }
   if(p.kind==="gx"){ tilt.appendChild(s); makeGX(s,p); return s; }
+  if(p.kind==="ng"){ tilt.appendChild(s); NG.make(s,p); return s; }
   if(p.kind==="story"){ tilt.appendChild(s); s.innerHTML=`<div class="story">${p.slides.map((x,i)=>`<img class="sl ${i===0?"on":""}" src="${x.img}" alt="Кадр ${i+1}" draggable="false">`).join("")}</div>`; return s; }
   s.innerHTML=`<div class="zoom"><img src="${p.file}" alt="${p.title}" draggable="false"><div class="fxl"></div><div class="hov"></div><div class="focus"></div></div>`;
   buildFx(s.querySelector(".fxl"),p.fx||[]); tilt.appendChild(s);
@@ -1959,6 +1964,7 @@ const doneQ=new Set();
 function renderSide(){
   const p=PICS[cur], d=INFO[cur], n=nPanels(cur);
   if(p.kind==="gx"){ gxSide(); return; }
+  if(p.kind==="ng"){ NG.side(); return; }
   if(p.kind==="story"){
     const sl=p.slides[sub];
     $("side").innerHTML=`
@@ -2133,7 +2139,7 @@ function updateUI(){
   [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===cur));
   const ball=p.kind==="ball", custom=!!p.kind;
   const o=orderOf(cur), ix=o.indexOf(sub), N=p.animals?p.animals.length:0;
-  $("pos").textContent=ball?"Перетащите мячик":p.kind==="gx"?(p.t==="tell"?(sub<=8?`Вопрос ${sub} из 8`:"Составляем рассказ"):(G_ROUND.includes(p.t)?gPos():(p.pos||""))):(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?(p.mixed?"Все картинки":"Все животные"):(sub<=N?`${p.mixed?"Картинка":"Животное"} ${sub} из ${N}`:(p.mixed?"Угадай звук":"Угадай, кто говорит"))):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
+  $("pos").textContent=p.kind==="ng"?NG.pos(p):ball?"Перетащите мячик":p.kind==="gx"?(p.t==="tell"?(sub<=8?`Вопрос ${sub} из 8`:"Составляем рассказ"):(G_ROUND.includes(p.t)?gPos():(p.pos||""))):(p.kind==="blow"?"Дуйте или гудите":p.kind==="voice"?"Говорите любой звук":p.kind==="want"?`Раунд ${sub} из ${p.rounds.length}`:p.kind==="hear"?`Звук ${sub} из ${p.sounds.length}`:p.kind==="chain"?`${sub} из ${p.items.length}`:p.kind==="memory"?"Находим пары":p.kind==="syll"?`Слово ${sub} из ${p.words.length}`:p.kind==="sounds"?(sub===0?(p.mixed?"Все картинки":"Все животные"):(sub<=N?`${p.mixed?"Картинка":"Животное"} ${sub} из ${N}`:(p.mixed?"Угадай звук":"Угадай, кто говорит"))):(p.cols?(sub>0?`Эпизод ${sub} из ${n}`:"Вся картинка: расскажи по порядку"):"Картинка целиком"));
   $("modeAll").style.display=$("modePanel").style.display=custom?"none":""; $("resetBall").style.display=ball?"":"none";
   $("modeAll").classList.toggle("on",sub===0); $("modePanel").classList.toggle("on",sub>0); $("modePanel").disabled=!n;
   const atEnd=(cur===PICS.length-1&&ix===o.length-1);
@@ -2151,6 +2157,7 @@ function orderOf(i){
   if(p.kind==="hear"){ for(let k=1;k<=p.sounds.length;k++) a.push(k); return a; }
   if(p.kind==="chain"){ for(let k=1;k<=p.items.length;k++) a.push(k); return a; }
   if(p.t==="tell"){ for(let k=1;k<=9;k++) a.push(k); return a; }
+  if(p.kind==="ng") return NG.order(p);
   return [0];
 }
 function go(i,s,quiet){
@@ -2166,7 +2173,7 @@ function setSub(s){ sub=s; applyView(); updateUI(); onEnter(); if(PICS[cur].kind
 /* единая логика «дальше / назад» — по порядку занятия */
 function next(){ const o=orderOf(cur), ix=o.indexOf(sub); if(ix<o.length-1) setSub(o[ix+1]); else if(cur<PICS.length-1) go(cur+1); else showFinale(); }
 function onEnter(){
-  const p=PICS[cur]; if(p.kind!=="blow"&&p.kind!=="voice") stopMic(); chainStop(); if(p.kind==="gx"){ gxRender(); return; } if(p.kind==="want"){ wantRender(); return; } if(p.kind==="hear"){ hearStart(); return; } if(p.kind==="chain"){ chainRender(); return; } if(p.kind==="syll"){ sylRender(); return; } if(p.kind!=="sounds") return;
+  const p=PICS[cur]; if(p.kind!=="blow"&&p.kind!=="voice") stopMic(); chainStop(); NG.stop(); if(p.kind==="ng"){ NG.render(); return; } if(p.kind==="gx"){ gxRender(); return; } if(p.kind==="want"){ wantRender(); return; } if(p.kind==="hear"){ hearStart(); return; } if(p.kind==="chain"){ chainRender(); return; } if(p.kind==="syll"){ sylRender(); return; } if(p.kind!=="sounds") return;
   const N=p.animals.length, big=slides[cur].querySelector(".bigc");
   if(sub>=1&&sub<=N){ quiz=null; playAnimal(p.animals[sub-1].k); big.classList.remove("say"); void big.offsetWidth; big.classList.add("say"); setTimeout(()=>big.classList.remove("say"),2600); }
   else if(sub===N+1){ quizStop=false; startQuiz(); }
@@ -2261,7 +2268,7 @@ function showWelcome(s=0){
       <kbd>клик</kbd><span>по эпизоду на картинке: приблизить его; ещё клик возвращает всю картинку</span>
       <kbd>💡</kbd><span>показать или скрыть вопросы справа (клавиша Q). Если ребёнок видит экран, скройте их</span>
       <kbd>⭐</kbd><span>«Молодец!»: конфетти и звук в награду</span>
-      <kbd>✨ 🔊</kbd><span>выключить эффекты и звук, если они отвлекают</span>${LESSON>=11?`<kbd>Обучение</kbd><span>с подсказками, образцами ответов и наградами. «Диагностика»: без подсказок, звуков и наград</span><kbd>предмет</kbd><span>предметы с картинок можно перетаскивать пальцем или мышкой</span>`:""}
+      <kbd>✨ 🔊</kbd><span>выключить эффекты и звук, если они отвлекают</span>${LESSON>=11&&LESSON<21?`<kbd>Обучение</kbd><span>с подсказками, образцами ответов и наградами. «Диагностика»: без подсказок, звуков и наград</span><kbd>предмет</kbd><span>предметы с картинок можно перетаскивать пальцем или мышкой</span>`:""}
     </div>`,
    `<h2>Как заниматься с ребёнком</h2>
     <ul>
@@ -2315,7 +2322,7 @@ addEventListener("resize",fit);
 (function(){ const r=$("rot"); let off=false; try{ off=sessionStorage.getItem("rotx")==="1"; }catch(e){} const mq=matchMedia("(max-width:900px) and (orientation:portrait)"); const upd=()=>r.classList.toggle("show",mq.matches&&!off&&!modal.classList.contains("show")); mq.addEventListener?mq.addEventListener("change",upd):mq.addListener(upd); $("rotX").onclick=()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); }; $("rotFs").onclick=()=>{ toggleFS(); }; setTimeout(upd,900); setTimeout(()=>{ off=true; try{sessionStorage.setItem("rotx","1");}catch(e){} upd(); },8000); })();
 if("ResizeObserver" in window) new ResizeObserver(fit).observe($("stage"));
 setFx(fxOn);
-slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain","gx"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
+slides[0].classList.add("active"); sub=orderOf(0)[0]; updateUI(); fit(); if(["syll","want","hear","chain","gx","ng"].includes(PICS[0].kind)) onEnter(); requestAnimationFrame(blowTick); requestAnimationFrame(voiceTick);
 let welcomed=false; try{ welcomed=localStorage.getItem("w3_"+LESSON)==="1"; localStorage.setItem("w3_"+LESSON,"1"); }catch(e){}
 /* описание игры теперь на странице игры (/games/<slug>/); окно приветствия открывается кнопкой ? */
 </script>

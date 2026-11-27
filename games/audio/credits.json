@@ -194,5 +194,40 @@
   "license": "Public domain",
   "artist": "stephan",
   "page": "https://commons.wikimedia.org/wiki/File:Microwave_oven.ogg"
+ },
+ {
+  "key": "g_clap",
+  "file": "Palmas sevillanas (flamenco clapping), 160 BPM.ogg",
+  "license": "CC0",
+  "artist": "Santiago Sanchez Cifuentes",
+  "page": "https://commons.wikimedia.org/wiki/File:Palmas_sevillanas_(flamenco_clapping),_160_BPM.ogg"
+ },
+ {
+  "key": "g_stomp",
+  "file": "Jump Landing (Gravity Sound).mp3",
+  "license": "CC BY 4.0",
+  "artist": "Gravity Sound",
+  "page": "https://commons.wikimedia.org/wiki/File:Jump_Landing_(Gravity_Sound).mp3"
+ },
+ {
+  "key": "g_drum",
+  "file": "Tom drum 8 inch.ogg",
+  "license": "CC BY-SA 3.0",
+  "artist": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+  "page": "https://commons.wikimedia.org/wiki/File:Tom_drum_8_inch.ogg"
+ },
+ {
+  "key": "g_pot",
+  "file": "Metal pot and lid percu.ogg",
+  "license": "Public domain",
+  "artist": "stilgar",
+  "page": "https://commons.wikimedia.org/wiki/File:Metal_pot_and_lid_percu.ogg"
+ },
+ {
+  "key": "g_bell",
+  "file": "274316 the-very-real-horst ghanta-leather-mallet-2015-05-16.wav",
+  "license": "CC0",
+  "artist": "the_very_Real_Horst",
+  "page": "https://commons.wikimedia.org/wiki/File:274316_the-very-real-horst_ghanta-leather-mallet-2015-05-16.wav"
  }
 ]

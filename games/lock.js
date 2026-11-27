@@ -4,7 +4,7 @@
 (function () {
   var STAFF_HASH = "ed6050309e534b91dea4ac6e5175f74d14f9f0f0249c66354939b296fc835522", API = "https://script.google.com/macros/s/AKfycbwZ8Jdt7uZmugQ5z6xnE65OTWZKBIsvM2k2c0Yx2FtzrAUR632k-S2-y-SNgLjzvFAH/exec", SALES = true;
   var FULL = { 3: 1, 4: 1 };   /* эти две игры открыты полностью (решение 2026-11-26) */
-  var FREE = { 1: 1, 2: 2, 5: 2, 6: 1, 7: 3, 8: 1, 9: 1, 10: 1, 11: 1, 12: 3, 13: 4, 14: 5, 15: 2, 16: 1, 17: 3, 18: 3, 19: 3, 20: 3, 21: 4 };
+  var FREE = { 1: 1, 2: 2, 5: 2, 6: 1, 7: 3, 8: 1, 9: 1, 10: 1, 11: 1, 12: 3, 13: 4, 14: 5, 15: 2, 16: 1, 17: 3, 18: 3, 19: 3, 20: 3, 21: 4, 22: 1, 23: 3, 24: 1, 25: 1, 26: 2, 27: 1, 28: 1, 29: 1, 30: 1, 31: 1 };
   var isLesson = typeof PICS !== "undefined" && typeof LESSON !== "undefined";
 
   function read(store, k) { try { return window[store].getItem(k); } catch (e) { return null; } }

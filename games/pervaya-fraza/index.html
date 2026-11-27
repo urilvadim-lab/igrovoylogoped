@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<style>:root{color-scheme:only light}.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<title>«Первая фраза»: фраза из двух слов, игра для развития речи</title>
+<meta name="description" content="Онлайн-игра для формирования первой фразы: «мама, дай», «ещё сок», «киса спит». Ребёнок выбирает картинки по порядку, и сценка оживает. Для детей, у которых уже есть слова. Логопедам и родителям.">
+<meta property="og:title" content="«Первая фраза»: фраза из двух слов, игра для развития речи">
+<meta property="og:description" content="Онлайн-игра для формирования первой фразы: «мама, дай», «ещё сок», «киса спит». Ребёнок выбирает картинки по порядку, и сценка оживает. Для детей, у которых уже есть слова. Логопедам и родителям.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf3e6;--bg2:#f5e6cf;--ink:#4a3b2e;--ink2:#8a7560;--card:#fffaf1;--accent:#f0a62b;--green:#5b9d83;--shadow:0 10px 30px rgba(120,80,30,.16)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Nunito,system-ui,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(120% 90% at 50% 0%,var(--bg) 0%,var(--bg2) 100%) fixed;line-height:1.55;font-size:17px}
+.page{max-width:980px;margin:0 auto;padding:14px 18px 60px}
+.top{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--card);box-shadow:var(--shadow);color:var(--ink);font-weight:800;text-decoration:none;font-size:15px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;margin:12px 0 26px}
+.hero img.cv{width:100%;height:auto;border-radius:26px;box-shadow:var(--shadow);display:block;background:var(--card)}
+.chip{display:inline-block;background:var(--card);border-radius:999px;padding:5px 14px;font-weight:800;font-size:14px;color:var(--ink2);box-shadow:var(--shadow)}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.12;margin:12px 0 12px;font-weight:800}
+.lead{font-size:clamp(17px,2.2vw,20px);font-weight:600;color:var(--ink2);margin:0 0 20px}
+.play{display:inline-flex;align-items:center;justify-content:center;min-height:62px;padding:0 38px;border-radius:999px;background:var(--accent);color:#fff;font-weight:800;font-size:22px;text-decoration:none;box-shadow:0 12px 26px rgba(240,166,43,.5);transition:transform .2s}
+.play:hover{transform:translateY(-3px)}
+.free{display:block;margin:14px 0 0 6px;font-weight:800;color:var(--green);font-size:15px}
+.card{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:22px 24px;margin:0 0 18px}
+.card h2{margin:0 0 10px;font-size:clamp(21px,3vw,27px)}
+.card p{margin:0 0 10px}
+.card ol,.card ul{margin:6px 0 4px;padding-left:22px}
+.card li{margin:0 0 8px}
+.card li span{display:block;color:var(--ink2);font-size:.92em}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 18px}.cols2 .card{margin:0}.tagline{font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--green);margin:0 0 6px}.tick{list-style:none;padding:0}.tick li{position:relative;padding-left:26px}.tick li:before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.who{display:flex;gap:16px;align-items:center}
+.who img{width:86px;height:auto;flex:none}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rel a{display:block;background:var(--bg);border-radius:18px;padding:14px;text-decoration:none;color:var(--ink);font-weight:800;line-height:1.3}
+.rel a small{display:block;font-weight:600;color:var(--ink2);margin-top:4px;font-size:13.5px}
+.why{background:var(--bg);border-radius:14px;padding:10px 14px;margin-top:12px}.note{font-size:14px;color:var(--ink2)}
+.foot{margin-top:24px;font-size:14px;color:var(--ink2)}
+.foot a{color:var(--ink2)}
+@media (max-width:760px){.cols2{grid-template-columns:1fr}.hero{grid-template-columns:1fr;gap:16px}.rel{grid-template-columns:1fr}.play{width:100%}.free{display:block;margin:10px 0 0}.card{padding:18px}.who{flex-direction:column;align-items:flex-start}}
+.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+<!--seo-->
+<link rel="canonical" href="https://igrovoylogoped.ru/games/pervaya-fraza/">
+<link rel="alternate" hreflang="ru" href="https://igrovoylogoped.ru/games/pervaya-fraza/">
+<link rel="alternate" hreflang="x-default" href="https://igrovoylogoped.ru/games/pervaya-fraza/">
+<meta property="og:url" content="https://igrovoylogoped.ru/games/pervaya-fraza/">
+<meta property="og:site_name" content="Игровой логопед">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://igrovoylogoped.ru/games/og_games.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Первая фраза: игра на фразу из двух слов">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="«Первая фраза»: фраза из двух слов, игра для развития речи">
+<meta name="twitter:description" content="Онлайн-игра для формирования первой фразы: «мама, дай», «ещё сок», «киса спит». Ребёнок выбирает картинки по порядку, и сценка оживает. Для детей, у которых уже есть слова. Логопедам и родителям.">
+<meta name="twitter:image" content="https://igrovoylogoped.ru/games/og_games.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<meta name="yandex-verification" content="fa10f2d1a342b924" />
+<meta name="google-site-verification" content="a8iCu7dg9j0U-8gw7BsdnLNioH6554VckiGDvdwuvAA">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LearningResource", "name": "Первая фраза: игра на фразу из двух слов", "description": "Онлайн-игра для формирования первой фразы: «мама, дай», «ещё сок», «киса спит». Ребёнок выбирает картинки по порядку, и сценка оживает. Для детей, у которых уже есть слова. Логопедам и родителям.", "url": "https://igrovoylogoped.ru/games/pervaya-fraza/", "inLanguage": "ru", "isAccessibleForFree": false, "learningResourceType": "Упражнение", "interactivityType": "active", "image": "https://igrovoylogoped.ru/games/og_games.jpg", "author": {"@type": "Person", "@id": "https://igrovoylogoped.ru/#alexandra", "name": "Александра Карачинцева", "url": "https://igrovoylogoped.ru/about/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://igrovoylogoped.ru/"}, {"@type": "ListItem", "position": 2, "name": "Упражнения для развития речи", "item": "https://igrovoylogoped.ru/games/"}, {"@type": "ListItem", "position": 3, "name": "Первая фраза: игра на фразу из двух слов", "item": "https://igrovoylogoped.ru/games/pervaya-fraza/"}]}]}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114300635', 'ym');
+    ym(114300635, 'init', {ssr:true, webvisor:false, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!--/seo-->
+</head>
+<body data-seo="game">
+<noscript><div><img src="https://mc.yandex.ru/watch/114300635" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<div class="page">
+  <div class="top"><a class="pill" href="../">‹ Все упражнения</a><a class="pill" href="../../">Сайт Александры Карачинцевой</a></div>
+  <section class="hero">
+    <div>
+      <h1>Первая фраза: игра на фразу из двух слов</h1>
+      <p class="lead">Две картинки складываются в фразу: «киса» и «спит». Сказали вместе, и киса засыпает.</p>
+      <a class="play" href="../lesson.html?l=31">Начать упражнение</a><span class="free">✨ Часть заданий доступна по подписке</span>
+    </div>
+    <img class="cv" src="../img/cover_ng_phrase.jpg" alt="Первая фраза: игра на фразу из двух слов">
+  </section>
+  <div class="cols2">
+    <section class="card"><p class="tagline">Для родителей</p><h2>Простыми словами</h2><p>Ребёнок показывает первую картинку и называет её, потом вторую. Картинки встают в ряд, звучит фраза, и сценка оживает.</p><p class="why"><b>Зачем это нужно.</b> Когда отдельных слов уже достаточно, следующий шаг: соединять их по два. Картинки показывают, что слов именно два и в каком порядке.</p></section>
+    <section class="card"><p class="tagline">Для специалистов</p><h2>Методическое описание</h2><p>Формирование фразы из двух слов с наглядной опорой: каждое слово обозначено отдельной картинкой в ряду. Модели: обращение и просьба, «ещё» и предмет, предмет и действие. Взрослый даёт образец слитного произнесения, упрощённые формы слов принимаются.</p></section>
+  </div>
+  <section class="card"><h2>Что развивает упражнение</h2><ul class="tick"><li>Фразу из двух слов</li><li>Порядок слов</li><li>Глаголы и названия предметов</li><li>Переход от слова к предложению</li></ul></section>
+  <section class="card"><h2>Кому и когда полезно</h2><ul class="tick"><li>Дети, которые говорят отдельными словами</li><li>Задержка речевого развития, в комплексной работе со специалистом</li><li>Подготовка к рассказу по картинкам</li></ul><p class="note">Упражнение используется как дополнение к работе со специалистом. Подбор материала зависит от возраста и уровня речи ребёнка. Упражнение не ставит диагноз и не заменяет логопедическое обследование: диагноз ставит врач.</p></section>
+  <section class="card"><h2>Как проводить упражнение</h2><ol><li>Предложите ребёнку показать и назвать первую картинку.</li><li>Нажмите на неё, потом так же на вторую.</li><li>Скажите фразу целиком, без большой паузы между словами.</li><li>Повторите такую же фразу в жизни: «ещё сок», «киса спит».</li></ol><p class="note">Занимайтесь 10–15 минут и хвалите за старание: это упражнение, а не экзамен.</p></section>
+  <section class="card"><h2>Из чего состоит упражнение</h2><ol><li><b>Прошу</b><span>Мама, дай. Ещё сок. Папа, иди</span></li><li><b>Кто что делает</b><span>Киса спит. Оля ест. Мяч прыг</span></li></ol></section>
+  <section class="card who"><img src="../assets/narrator_wave.png" alt="Александра Карачинцева" width="86" height="120" loading="lazy" decoding="async"><div><h2 style="margin:0 0 6px">Об авторе</h2><p style="margin:0">Упражнения подготовила Александра Карачинцева: психолог, поведенческий аналитик (ABA), специалист по запуску речи. Если ребёнок не говорит или говорит мало, можно <a href="../../speech/">прочитать о запуске речи</a> или <a href="../../contact/">написать Александре</a>.</p></div></section>
+  <section class="card"><h2>Другие упражнения</h2><div class="rel"><a href="../rasskazyvaem-po-kartinkam/">Рассказ по сюжетным картинкам<small>Развитие речи</small></a><a href="../gde-myachik/">Предлоги «в», «на», «под», «за», «около»<small>Развитие речи</small></a><a href="../tualetnye-dela-tyomy/">Последовательность действий<small>Развитие речи</small></a></div></section>
+  <div class="foot"><a href="../">Все упражнения</a> · <a href="../../">Главная сайта</a> · <a href="../../articles/">Статьи для родителей</a></div>
+</div>
+<!--lock--><style>.cab-btn{position:absolute;z-index:75;display:inline-flex;align-items:center;gap:6px;font:800 14px/1 Nunito,system-ui,sans-serif;color:#194F52;background:#fffaf0;border-radius:999px;box-shadow:0 6px 16px rgba(90,60,20,.16);padding:11px 16px;text-decoration:none;white-space:nowrap;right:16px;top:14px}@media (max-width:700px){.cab-btn{right:10px;top:8px;padding:9px 12px;font-size:13px}main{padding-top:52px!important}}</style><a class="cab-btn" href="../kabinet/">👤 <span>Мой кабинет</span></a><!--/lock-->
+<script src="../ux.js"></script>
+</body>
+</html>
