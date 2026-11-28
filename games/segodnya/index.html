@@ -467,6 +467,7 @@ nav a{white-space:nowrap}
   <nav><a href="/games/">Все игры</a><a href="/games/segodnya/" class="cur">Занятие на сегодня</a><a href="/#check">Проверка речи</a><a href="/#price">Тарифы</a><a href="/#faq">Вопросы</a><a href="#">Войти</a></nav>
   <a class="btn main small" href="/games/?free=1">Попробовать</a>
 </div></header>
+<script>window.LESSONS={"chto-zvuchit": 11, "duem-i-plyvem": 5, "golosovoy-zverek": 7, "ferma": 4, "hochu": 10, "povtori-za-mnoj": 22, "raz-dva-tri-pauza": 23, "sedobnoe-nesedobnoe": 24, "najdi-takoj-zhe": 25, "najdi-paru": 9, "slogovaya-struktura": 6, "zvuki-i-slogi": 8, "pervye-slova": 26, "ku-ku-kto-tam": 27, "oj-bah-nyam": 28, "barabanchik": 29, "dogovori-slovechko": 30, "pervaya-fraza": 31, "gde-myachik": 2, "rasskazyvaem-po-kartinkam": 1, "tualetnye-dela-tyomy": 3, "den-v-detskom-sadu": 12, "chya-veshch": 13, "kto-chto-chuvstvuet": 14, "chto-zdes-ne-tak": 15, "rasskazhi-po-kartinke": 16, "u-nego-ili-u-neyo": 17, "odin-mnogo": 18, "vyberi-pravilnuyu-kartinku": 19, "kto-chto-delaet": 20, "davaj-poznakomimsya": 21};</script>
 <main>
   <div class="title"><h1>Занятие на сегодня</h1><p id="sub">Два вопроса, и покажем три игры. Регистрация для пробы не нужна.</p></div>
   <div class="steps3" id="steps" role="group" aria-label="Шаги"><button type="button" data-s="1"><i>1</i>Как говорит ребёнок</button><button type="button" data-s="2"><i>2</i>Что развивать</button><button type="button" data-s="3"><i>3</i>Три игры</button></div>
@@ -527,11 +528,20 @@ function draw(){
     if(s.skills.length>3)h+='<p class="hint">'+nb('Навыков больше трёх, поэтому они чередуются по дням.')+'</p>';
     h+='<div class="progress">'+(n<3?'Сыграно '+n+' из 3':'Занятие на сегодня пройдено!')+'<div class="stars">'+[0,1,2].map(function(i){return '<i class="'+(i<n?'got':'')+'">★</i>'}).join('')+'</div></div>';
     if(n===3)h+='<div class="finish"><img src="/platform/img/narrator_wave.png" alt=""><h2>Отлично позанимались!</h2><p>'+nb('По звёздочке за каждую игру. Завтра будет новый набор.')+'</p><a class="btn line" href="games.html">Посмотреть все игры</a></div><aside class="promo"><img src="/platform/img/alex_face.png" alt=""><div><b>Для родителей: нужна помощь с речью ребёнка?</b><span>Можно разобрать вашу ситуацию на консультации.</span></div><a class="btn line small" href="aleksandra-karachintseva/index.html">Узнать об Александре</a><button type="button" class="x" aria-label="Скрыть">✕</button></aside>';
-    h+='<div class="list">'+list.map(function(g,i){var d=s.done.indexOf(i)>-1,why=g.skills.filter(function(k){return s.skills.indexOf(k)>-1}).map(function(k){return '<em>'+SKILLS[k][0]+'</em>'}).join('');return '<article class="task'+(d?' done':(i===next?' next':''))+'"><img src="'+g.img+'" alt=""><div><span class="n">Игра '+(i+1)+' из 3</span><h3>'+esc(g.title)+'</h3><p>'+esc(nb(g.desc))+'</p><div class="why2">'+(why||'<em class="extra">Дополнительно для этого этапа</em>')+'</div></div><div class="act">'+(d?'<a class="btn line small" href="'+g.url+'" target="_blank" rel="noopener">Сыграть ещё раз</a>':'<a class="btn '+(i===next?'main':'line')+' small" href="'+g.url+'" target="_blank" rel="noopener">▶ Играть</a><button type="button" class="btn light small" style="border-color:var(--line)" data-done="'+i+'">✓ Сыграли</button><button type="button" class="link" data-swap="'+i+'">Заменить игру</button>')+'</div></article>'}).join('')+'</div>';
+    h+='<div class="list">'+list.map(function(g,i){var d=s.done.indexOf(i)>-1,why=g.skills.filter(function(k){return s.skills.indexOf(k)>-1}).map(function(k){return '<em>'+SKILLS[k][0]+'</em>'}).join('');return '<article class="task'+(d?' done':(i===next?' next':''))+'"><img src="'+g.img+'" alt=""><div><span class="n">Игра '+(i+1)+' из 3'+(i===next&&n>0?' · следующая':'')+'</span><h3>'+esc(g.title)+'</h3><p>'+esc(nb(g.desc))+'</p><div class="why2">'+(why||'<em class="extra">Дополнительно для этого этапа</em>')+'</div></div><div class="act">'+(d?'<a class="btn line small" href="'+playUrl(g)+'" data-play="'+i+'">Сыграть ещё раз</a>':'<a class="btn '+(i===next?'main':'line')+' small" href="'+playUrl(g)+'" data-play="'+i+'">▶ Играть</a><button type="button" class="btn light small" style="border-color:var(--line)" data-done="'+i+'">✓ Сыграли</button><button type="button" class="link" data-swap="'+i+'">Заменить игру</button>')+'</div></article>'}).join('')+'</div>';
   }
   view.innerHTML=h;
 }
 function reset(){s.done=[];s.swap=[0,0,0];s.day=1}
+/* игра запоминает, что её открыли из занятия: в конце она сама поставит отметку и вернёт сюда */
+function playUrl(g){var slug=g.url.split('/').filter(Boolean).pop(),L=window.LESSONS||{};return L[slug]?'/games/lesson.html?l='+L[slug]+'&today=1':g.url}
+view.addEventListener('click',function(e){
+  var a=e.target.closest('a[data-play]');if(!a)return;
+  save();
+  try{localStorage.setItem('igl_today_run',JSON.stringify({date:new Date().toLocaleDateString('sv'),i:+a.dataset.play,titles:[].map.call(document.querySelectorAll('.task h3'),function(x){return x.textContent})}))}catch(err){}
+});
+/* кнопка «Назад» в браузере не должна показывать старое состояние */
+addEventListener('pageshow',function(e){if(e.persisted)location.reload()});
 view.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;var d=b.dataset,move=false;
   if(d.stage){if(s.stage!==d.stage){s.stage=d.stage;s.skills=s.skills.filter(function(k){return skillsFor().indexOf(k)>-1});reset()}s.step=2;move=true}
@@ -547,6 +557,7 @@ fetch('/games/').then(function(r){return r.text()}).then(function(t){
   var doc=new DOMParser().parseFromString(t,'text/html');
   games=[].map.call(doc.querySelectorAll('.gc'),function(c){return {stage:c.dataset.stage,skills:c.dataset.skills.split(' '),title:c.querySelector('h3').textContent,desc:c.querySelector('.gb p').textContent,img:c.querySelector('.cv img').getAttribute('src'),url:c.querySelector('.gb a').getAttribute('href')}});
   draw();
+  if(location.hash==='#go'){var el=document.querySelector('.finish')||document.querySelector('.task.next');if(el)setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'center'})},250);history.replaceState(null,'',location.pathname)}
 });
 })();
 </script>
