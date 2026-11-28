@@ -98,7 +98,7 @@
     if (main) {
       var note = document.createElement("div");
       note.className = "sub-note";
-      note.textContent = "Три игры бесплатны полностью, в остальных часть заданий доступна по подписке. " + (selling ? "Подписка на все интерактивные занятия и игры: первый месяц 299 ₽ для новых подписчиков, дальше 399 ₽ в месяц. Оформляется в кабинете." : "Подписка на все интерактивные занятия и игры сейчас в разработке.");
+      note.textContent = "Три игры бесплатны полностью, остальные можно только попробовать. " + (selling ? "Подписка на все интерактивные занятия и игры: первый месяц 299 ₽ для новых подписчиков, дальше 399 ₽ в месяц. Оформляется в кабинете." : "Подписка на все интерактивные занятия и игры сейчас в разработке.");
       main.insertBefore(note, main.firstChild);
     }
     [].forEach.call(document.querySelectorAll("a.lcard"), function (a) {
@@ -115,36 +115,86 @@
   var steps = bySteps ? orderOf(0) : [];
   var okStep = function (s) { return !bySteps || s === 0 || steps.indexOf(s) < n; };
 
-  var box = null;
-  function close() { if (box) { box.remove(); box = null; } }
+  /* Проба в закрытой игре (решение 2026-11-28): всего 2 действия, без ощущения пройденного задания.
+     Действие = выполненное задание (звук успеха, звёздочки, похвала) или переход дальше. Окно не закрывается. */
+  var LIMIT = 2, MAX_TAPS = 12, MAX_MS = 90000;
+  var box = null, over = false, acts = 0, fresh = false, lastWin = 0, touched = false, taps = 0, wallTimer = 0;
   function wall() {
+    over = true;
+    clearTimeout(wallTimer);
     if (box) return;
     box = document.createElement("div");
     box.className = "gate";
-    box.innerHTML = "<div role='dialog' aria-modal='true' aria-label='Пробная часть пройдена'><h2>Пробная часть пройдена</h2>" +
-      "<p>Остальные задания этой игры пока закрыты.</p>" +
+    box.innerHTML = "<div role='dialog' aria-modal='true' aria-label='Это только начало игры'><h2>Это только начало игры</h2>" +
+      "<p>Остальные задания открываются по подписке.</p>" +
       (selling
-        ? "<p>Подписка открывает все интерактивные занятия и игры. Первый месяц 299&nbsp;₽ для новых подписчиков, дальше 399&nbsp;₽ в&nbsp;месяц. На&nbsp;3&nbsp;и&nbsp;12&nbsp;месяцев выгоднее.</p><a class='gb main' href='kabinet/' target='_top'>Оформить подписку</a><a class='gb ln' href='kabinet/' target='_top'>Уже подписаны? Войти</a>"
-        : "<p><b>Подписка сейчас в разработке</b>, оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p><a class='gb main' href='index.html'>Выбрать другое занятие</a>") +
-      "<button type='button' class='gb ln'>Остаться в пробной части</button>" +
+        ? "<p>Первый месяц 299&nbsp;₽ для новых подписчиков, дальше 399&nbsp;₽ в&nbsp;месяц. На&nbsp;3&nbsp;и&nbsp;12&nbsp;месяцев выгоднее.</p><a class='gb main' href='kabinet/' target='_top'>Оформить подписку</a><a class='gb ln' href='kabinet/' target='_top'>Уже подписаны? Войти</a>"
+        : "<p><b>Подписка сейчас в разработке</b>, оформить её пока нельзя.</p>") +
+      "<a class='gb ln' href='index.html' target='_top'>Другие игры</a>" +
       "<small>Вопросы: <a href='mailto:igrovoylogoped@gmail.com'>igrovoylogoped@gmail.com</a></small></div>";
-    box.querySelector("button").onclick = close;
     document.body.appendChild(box);
+    try { if (window.stopMic) window.stopMic(); } catch (e) {}
   }
+  function wallSoon() { over = true; if (!box && !wallTimer) wallTimer = setTimeout(wall, 1800); }
 
-  var go0 = window.go, set0 = window.setSub, fin0 = window.showFinale;
+  /* выполненное задание: несколько реакций подряд считаются за одну */
+  function success() {
+    if (!touched || over) return;
+    var now = Date.now();
+    if (now - lastWin < 3000) return;
+    lastWin = now; fresh = true; acts += 1;
+    if (acts >= LIMIT) wallSoon();
+  }
+  ["chime", "gxPraise", "miniStars", "burst"].forEach(function (name) {
+    var f = window[name];
+    if (typeof f !== "function") return;
+    window[name] = function () {
+      success();
+      if (name === "burst" && (over || acts >= LIMIT)) return;      /* без праздника на последнем пробном действии */
+      return f.apply(this, arguments);
+    };
+  });
+  /* переход дальше: если он сразу после выполненного задания, второй раз не считаем */
+  function step() {
+    if (over) { wall(); return false; }
+    if (!touched) return true;
+    if (fresh) { fresh = false; return true; }
+    if (acts >= LIMIT) { wall(); return false; }
+    acts += 1;
+    return true;
+  }
+  function gameArea(t) { return t && t.closest && !t.closest(".gate, .cab-btn, header, .topbar, a, #modal") && t.closest("button, .frame, #frame, #side, .gx, .ng"); }
+  window.addEventListener("pointerdown", function (e) {
+    if (box) return;
+    if (!gameArea(e.target)) return;
+    if (!touched) { touched = true; setTimeout(wall, MAX_MS); }
+    if (++taps > MAX_TAPS) wall();
+  }, true);
+
+  var go0 = window.go, set0 = window.setSub;
   window.go = function (i, s, quiet) {
     var j = Math.max(0, Math.min(PICS.length - 1, i));
     if (!okPic(j)) return wall();
+    if (!quiet && !step()) return;
     return go0(i, s, quiet);
   };
-  window.setSub = function (s) { if (!okStep(s)) return wall(); return set0(s); };
-  window.addEventListener("keydown", function (e) { if (box) { e.stopImmediatePropagation(); if (e.key === "Escape") close(); } }, true);
+  var inSet = false;
+  window.setSub = function (s) {
+    if (!okStep(s)) return wall();
+    if (!inSet && !step()) return;
+    inSet = true;
+    try { return set0(s); } finally { inSet = false; }
+  };
+  window.addEventListener("keydown", function (e) {
+    if (box) { e.stopImmediatePropagation(); return; }
+    if (!touched && /Arrow|Enter| /.test(e.key)) touched = true;
+  }, true);
 
   if (first > 0) go0(first, undefined, true);
   var dots = document.getElementById("dots");
   if (dots && !bySteps) [].forEach.call(dots.children, function (d, i) { if (!okPic(i)) d.classList.add("locked"); });
-  if (!bySteps && first + n < PICS.length) window.showFinale = function () { if (!okPic(cur)) return wall(); return cur === PICS.length - 1 ? wall() : fin0(); };
-
+  /* в пробной части нет финала с похвалой */
+  window.showFinale = function () { return wall(); };
+  if (window.meetFinale) window.meetFinale = function () { return wall(); };
   window.IGL_GATE = { total: bySteps ? steps.length : PICS.length, free: n, first: first, bySteps: bySteps };
 })();

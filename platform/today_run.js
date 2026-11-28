@@ -16,7 +16,15 @@
   }
   function left() {
     var s = read("igl_today") || { done: [] };
-    return [0, 1, 2].filter(function (k) { return k !== run.i && s.done.indexOf(k) < 0; });
+    return [0, 1, 2].filter(function (k) { return k !== run.i && s.done.indexOf(k) < 0 && (s.sample || []).indexOf(k) < 0; });
+  }
+  /* закрытую игру только посмотрели: звёздочку не даём, но к следующей переходим */
+  function markSample() {
+    var s = read("igl_today");
+    if (!s || !s.done) return;
+    s.sample = s.sample || [];
+    if (s.done.indexOf(run.i) < 0 && s.sample.indexOf(run.i) < 0) s.sample.push(run.i);
+    try { localStorage.setItem("igl_today", JSON.stringify(s)); } catch (e) {}
   }
   function nextLabel() { return left().length ? "Дальше: следующая игра ›" : "Завершить занятие ★"; }
   function stop() { if (timer) { clearInterval(timer); timer = 0; } }
@@ -59,12 +67,12 @@
     if (again) again.addEventListener("click", stop);
   }
 
-  /* закрытая часть игры: пробные задания пройдены, можно идти дальше по занятию */
+  /* окно пробы в закрытой игре: можно идти дальше по занятию */
   function wall(card) {
     card.setAttribute("data-tr", "1");
     var a = document.createElement("a");
     a.className = "gb main"; a.href = BACK; a.target = "_top"; a.textContent = nextLabel();
-    a.addEventListener("click", mark);
+    a.addEventListener("click", markSample);
     [].forEach.call(card.querySelectorAll("a.gb.main"), function (x) { x.classList.remove("main"); x.classList.add("ln"); });
     card.insertBefore(a, card.querySelector(".gb"));
   }
