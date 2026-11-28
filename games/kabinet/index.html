@@ -174,7 +174,27 @@ header nav a{color:var(--ink2);text-decoration:none;white-space:nowrap}header na
 main .box{border-radius:28px;box-shadow:0 14px 40px rgba(25,52,73,.10);background:#fff;border:0}
 main .b{border-radius:999px;font-family:Onest,sans-serif}
 main .pl{border-radius:20px}
-main .promo{grid-template-columns:auto 1fr;margin-top:24px}main .promo .b{grid-column:1/-1;text-align:center}
+/* кабинет */
+main .cab{width:100%;max-width:640px;margin-left:auto;margin-right:auto}
+main .cab>h1{margin-bottom:4px}
+main .who2{color:var(--ink2);margin:0 0 18px;overflow-wrap:anywhere}
+main .cab .box{margin:0;padding:26px 28px;width:100%;box-sizing:border-box}
+main .b:not(.ln):not(.dk){background:#1d726a;color:#fff!important}
+main a.b.ln,main button.b.ln{background:#fff;color:#14534d!important;border:2px solid #1d726a;box-shadow:none}
+main .go2{background:#dfeee9;border-radius:28px;padding:24px 28px;margin-top:18px}
+main .go2 h2{margin:0;font:700 22px/1.25 Onest,sans-serif;color:var(--ink)}
+main .go2 p{margin:6px 0 16px;color:#3d5a63}
+main .go2b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+main .go2b .b{margin:0;width:100%;box-sizing:border-box;text-align:center}
+main .acc{margin-top:18px;padding:0 6px}
+main .acc .news{margin:0;font-size:14px;color:var(--ink2)}
+main .acc #nws:empty{display:none}
+main .accl{display:flex;gap:22px;flex-wrap:wrap;margin:14px 0 0}
+main .cab .promo{display:grid;grid-template-columns:64px 1fr;column-gap:16px;row-gap:14px;align-items:center;width:100%;box-sizing:border-box;margin:26px 0 0;padding:20px 24px}
+main .cab .promo>img{width:72px;height:72px;object-fit:cover;object-position:center}
+main .cab .promo>div{padding-right:34px}
+main .cab .promo .consult{grid-column:1/-1;display:block;text-align:center;background:#fff;color:#14534d;border:2px solid #1d726a;border-radius:999px;padding:12px 16px;font:700 15px Onest,sans-serif;text-decoration:none}
+@media(max-width:560px){main .go2b{grid-template-columns:1fr}main .cab .box,main .go2{padding:20px 18px}}
 </style>
 </head>
 <body>
@@ -234,7 +254,7 @@ function planNote(){return st.nextPlan?'<p class="small" style="margin:12px 0 0"
 function planBtn(){return st.plans?'<button class="b ln" id="chg" style="margin-top:16px">Сменить тариф</button>':'';}
 /* что показать про подписку: только по ответу сервера */
 function subBox(v){
- if(v.full)return '<span class="badge">Полный доступ открыт</span><p style="margin:14px 0 0">На этом устройстве открыты все задания во всех играх. Чтобы закрыть доступ, нажмите «Выйти».</p>';
+ if(v.full)return '<span class="badge">Служебный доступ</span><p style="margin:14px 0 0">Все игры открыты без оплаты, поэтому тарифы здесь не показываются. Чтобы увидеть кабинет покупателя или оформить подписку, нажмите «Выйти» внизу и войдите с другой почтой.</p>';
  if(!st)return '<p style="margin:0">Проверяем подписку…</p>';
  var open=st.access, till=st.paidUntil?day(st.paidUntil):"", test=st.mode==="test"&&(st.canPay||st.card||st.access)?'<p class="small" style="margin:0 0 12px"><b>Тестовый режим: деньги не списываются.</b></p>':"", h;
  if(st.pending&&!open&&st.status!=="retry")h='<span class="badge warn">Проверяем оплату</span><p style="margin:14px 0">Ждём подтверждение от ЮKassa. Если вы не закончили оплату, откройте её страницу снова.</p>'+(st.pendingPlan&&st.plans?'<p class="small">Выбран тариф: <b>'+TERMS[st.pendingPlan].name+', '+rub(st.pendingAmount||prices()[st.pendingPlan])+'</b>. Чтобы выбрать другой, не оплачивайте эту страницу: она закроется сама, и тарифы появятся снова.</p>':'')+'<div class="stack"><button class="b" id="again">Проверить ещё раз</button><button class="b ln" id="resume">Открыть страницу оплаты</button></div>';
@@ -257,10 +277,12 @@ var views={
 email:function(){return '<div class="narrow"><div class="box"><h1>Личный кабинет</h1><p>Введите почту: пришлём письмо с кодом из 6 цифр. Пароль придумывать не нужно. Если кабинета ещё нет, он создастся сам.</p><form id="f"><label class="lbl" for="em">Ваша почта</label><input class="inp" id="em" type="email" autocomplete="email" value="'+esc(get().email)+'"><input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'+
  '<p class="err" id="er"></p><button class="b dk" id="go">Получить код</button></form><p class="fine" style="margin:12px 0 0">Регистрируясь, вы соглашаетесь получать на эту почту письма о подписке, о реферальной программе, скидках и новых играх, а также на обработку адреса по <a href="../../privacy/">политике конфиденциальности</a>. Отписаться можно в кабинете.</p></div></div>';},
 code:function(){return '<div class="narrow"><div class="box"><h1>Введите код</h1><p>Отправили 6 цифр на <b>'+esc(get().email)+'</b>. Если письма нет, проверьте папку «Спам».</p><form id="f"><input class="inp code-inp" id="cd" inputmode="numeric" maxlength="6" autocomplete="one-time-code" aria-label="Код из 6 цифр"><p class="err" id="er"></p><button class="b dk" id="go">Войти</button></form><p class="small center" style="margin-top:14px">Код действует 10 минут. <a href="#" id="back">Изменить почту или прислать новый</a></p><p class="small center" style="margin:0">Вход на этом устройстве запомним на 90 дней.</p></div></div>';},
-cab:function(){var v=get();return '<div class="cab"><h1>Мой кабинет</h1><p class="small" style="font-size:15px">'+esc(v.email)+'</p>'+
+cab:function(){var v=get();return '<div class="cab"><h1>Мой кабинет</h1><p class="who2">'+esc(v.email)+'</p>'+
  '<div class="box" id="sb">'+subBox(v)+'</div>'+
- '<div class="box" style="margin-top:14px"><label class="news" style="margin:0"><input type="checkbox" id="nw2"'+(v.news?" checked":"")+'><span>Получать письма о подписке, реферальной программе, скидках и новых играх</span></label><p class="small" id="nws" style="margin:8px 0 0"></p></div>'+
- '<p class="err" id="er"></p><div class="stack"><a class="b" href="../segodnya/">Занятие на сегодня</a><a class="b ln" href="../">Все игры</a></div><p class="center" style="margin-top:16px"><button class="link" id="out">Выйти</button> · <button class="link" id="del">Удалить мой кабинет</button></p><aside class="promo"><img src="/platform/img/alexandra.webp" alt=""><div><b>Нужна помощь специалиста?</b><span>Консультации Александры Карачинцевой.</span></div><a class="b ln" href="/aleksandra-karachintseva/contact/">Записаться</a><button type="button" class="x" aria-label="Скрыть">✕</button></aside></div>';},
+ '<section class="go2"><h2>Занятие на сегодня</h2><p>Три игры, подобранные для вашего ребёнка.</p><div class="go2b"><a class="b" href="../segodnya/">Открыть занятие</a><a class="b ln" href="../">Все игры</a></div></section>'+
+ '<p class="err" id="er"></p>'+
+ '<div class="acc"><label class="news"><input type="checkbox" id="nw2"'+(v.news?" checked":"")+'><span>Получать письма о подписке, реферальной программе, скидках и новых играх</span></label><p class="small" id="nws"></p><p class="accl"><button class="link" id="out">Выйти</button><button class="link" id="del">Удалить мой кабинет</button></p></div>'+
+ '<aside class="promo"><img src="/platform/img/alex_face.png" alt="Александра Карачинцева"><div><b>Нужна помощь специалиста?</b><span>Консультации Александры Карачинцевой.</span></div><a class="consult" href="/aleksandra-karachintseva/contact/">Записаться на консультацию</a><button type="button" class="x" aria-label="Скрыть">✕</button></aside></div>';},
 planAsk:function(){var mine=st.plan||"1",k=chosen();return '<div class="narrow"><div class="box"><h1>Сменить тариф</h1><p>Сейчас ничего не спишется. Новый тариф начнёт действовать со следующего списания'+(st.status==="retry"?' (с ближайшей повторной попытки)':': '+day(st.paidUntil))+'.</p>'+plansBox("Выберите срок",k,mine,false)+consent(k,false)+'<p class="fine">При возврате денег использованное время считается по цене без скидки: '+sum("1")+' в месяц. <a href="../../oferta/#subscription">Условия подписки</a>.</p><p class="err" id="er"></p><div class="stack"><button class="b" id="psave" disabled>Сохранить тариф</button><button class="b ln" id="no">Назад</button></div></div></div>';},
 unbindAsk:function(){return '<div class="narrow"><div class="box"><h1>'+offName()+'?</h1><p>Автоматические списания прекратятся.</p>'+(st&&st.access?'<p>Занятия и игры останутся открытыми до <b>'+day(st.paidUntil)+'</b>.</p>':'')+'<p class="err" id="er"></p><div class="stack"><button class="b" id="uyes">Да, '+offName().toLowerCase()+'</button><button class="b ln" id="no">Оставить как есть</button></div></div></div>';},
 ask:function(){return '<div class="narrow"><div class="box"><h1>Удалить кабинет?</h1><p>Адрес <b>'+esc(get().email)+'</b> и настройки писем будут удалены из списка.</p><p class="err" id="er"></p><div class="stack"><button class="b" id="yes">Да, удалить</button><button class="b ln" id="no">Оставить</button></div></div></div>';}

@@ -30,3 +30,4 @@ header nav{align-items:center}
 header nav a[href="/games/"],header nav a[href="games.html"]{background:#dfeee9;color:#14534d!important;font-weight:700;border-radius:999px;padding:9px 18px;border:2px solid #1d726a!important;transition:background .2s,color .2s}
 header nav a[href="/games/"]:hover,header nav a[href="games.html"]:hover,header nav a[href="/games/"].cur,header nav a[href="games.html"].cur{background:#1d726a;color:#fff!important}
 @media(max-width:1060px){header nav.open a[href="/games/"],header nav.open a[href="games.html"]{border-radius:14px;margin:8px 0 4px;padding:13px 16px;text-align:center}}
+.promo>img{object-fit:cover;object-position:center!important}
