@@ -3,8 +3,8 @@
    Список бесплатного: GAMES_TRIAL_PLAN.md (согласован 2026-11-26). */
 (function () {
   var STAFF_HASH = "ed6050309e534b91dea4ac6e5175f74d14f9f0f0249c66354939b296fc835522", API = "https://script.google.com/macros/s/AKfycbwZ8Jdt7uZmugQ5z6xnE65OTWZKBIsvM2k2c0Yx2FtzrAUR632k-S2-y-SNgLjzvFAH/exec", SALES = true;
-  var FULL = { 3: 1, 4: 1 };   /* эти две игры открыты полностью (решение 2026-11-26) */
-  var FREE = { 1: 1, 2: 2, 5: 2, 6: 1, 7: 3, 8: 1, 9: 1, 10: 1, 11: 1, 12: 3, 13: 4, 14: 5, 15: 2, 16: 1, 17: 3, 18: 3, 19: 3, 20: 3, 21: 4, 22: 1, 23: 3, 24: 1, 25: 1, 26: 2, 27: 1, 28: 1, 29: 1, 30: 1, 31: 1 };
+  var FULL = { 2: 1, 11: 1, 26: 1 };   /* открыты полностью только «Где мячик?», «Что звучит?», «Первые слова» (решение 2026-11-28) */
+  var FREE = { 1: 1, 3: 1, 4: 1, 5: 2, 6: 1, 7: 3, 8: 1, 9: 1, 10: 1, 11: 1, 12: 3, 13: 4, 14: 5, 15: 2, 16: 1, 17: 3, 18: 3, 19: 3, 20: 3, 21: 4, 22: 1, 23: 3, 24: 1, 25: 1, 26: 2, 27: 1, 28: 1, 29: 1, 30: 1, 31: 1 };
   var isLesson = typeof PICS !== "undefined" && typeof LESSON !== "undefined";
 
   function read(store, k) { try { return window[store].getItem(k); } catch (e) { return null; } }
@@ -93,11 +93,12 @@
   /* в собранном каталоге ссылки ведут на страницы игр, а не на lesson.html */
   function slugNum(a) { var h = a.getAttribute("href") || ""; return /tualetnye-dela-tyomy/.test(h) ? 3 : /(^|\/)ferma\//.test(h) ? 4 : 0; }
   if (!isLesson) { /* каталог */
+    if (!document.querySelector("a.lcard")) return;   /* новый каталог сам подписывает карточки */
     var main = document.querySelector("main");
     if (main) {
       var note = document.createElement("div");
       note.className = "sub-note";
-      note.textContent = "Две игры бесплатны полностью, в остальных часть заданий доступна по подписке. " + (selling ? "Подписка на все интерактивные занятия и игры: 399 ₽ в месяц, оформляется в кабинете." : "Подписка на все интерактивные занятия и игры сейчас в разработке.");
+      note.textContent = "Три игры бесплатны полностью, в остальных часть заданий доступна по подписке. " + (selling ? "Подписка на все интерактивные занятия и игры: первый месяц 299 ₽ для новых подписчиков, дальше 399 ₽ в месяц. Оформляется в кабинете." : "Подписка на все интерактивные занятия и игры сейчас в разработке.");
       main.insertBefore(note, main.firstChild);
     }
     [].forEach.call(document.querySelectorAll("a.lcard"), function (a) {
@@ -109,7 +110,7 @@
 
   var num = LESSON + 1, n = FREE[num] || 1;
   if (FULL[num]) return;
-  var bySteps = PICS.length === 1, first = 0;
+  var bySteps = PICS.length === 1, first = num === 3 && PICS.length > 1 ? 1 : 0;   /* в туалетной истории пробная часть: «Тёма моет руки» */
   var okPic = function (i) { return bySteps || (i >= first && i < first + n); };
   var steps = bySteps ? orderOf(0) : [];
   var okStep = function (s) { return !bySteps || s === 0 || steps.indexOf(s) < n; };
@@ -123,7 +124,7 @@
     box.innerHTML = "<div role='dialog' aria-modal='true' aria-label='Пробная часть пройдена'><h2>Пробная часть пройдена</h2>" +
       "<p>Остальные задания этой игры пока закрыты.</p>" +
       (selling
-        ? "<p>Подписка открывает все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p><a class='gb main' href='kabinet/' target='_top'>Оформить подписку</a><a class='gb ln' href='kabinet/' target='_top'>Уже подписаны? Войти</a>"
+        ? "<p>Подписка открывает все интерактивные занятия и игры. Первый месяц 299&nbsp;₽ для новых подписчиков, дальше 399&nbsp;₽ в&nbsp;месяц. На&nbsp;3&nbsp;и&nbsp;12&nbsp;месяцев выгоднее.</p><a class='gb main' href='kabinet/' target='_top'>Оформить подписку</a><a class='gb ln' href='kabinet/' target='_top'>Уже подписаны? Войти</a>"
         : "<p><b>Подписка сейчас в разработке</b>, оформить её пока нельзя. Она откроет все интерактивные занятия и игры, 399&nbsp;₽&nbsp;в&nbsp;месяц.</p><a class='gb main' href='index.html'>Выбрать другое занятие</a>") +
       "<button type='button' class='gb ln'>Остаться в пробной части</button>" +
       "<small>Вопросы: <a href='mailto:igrovoylogoped@gmail.com'>igrovoylogoped@gmail.com</a></small></div>";

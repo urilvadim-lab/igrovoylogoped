@@ -2,164 +2,560 @@
 <html lang="ru">
 <head>
 <!--lock--><script>(function(){addEventListener("hashchange",function(){if(/^#staff=/.test(location.hash))location.reload()});var m=location.hash.match(/^#staff=([A-Za-z0-9]+)$/);if(!m)return;try{sessionStorage.setItem("igl_staff_try",m[1])}catch(e){}history.replaceState(null,"",location.pathname+location.search)})();</script><!--/lock-->
-<meta name="color-scheme" content="only light">
-<style>:root{color-scheme:only light}/* скоро новая игра */
-.lcard.lc-next{border:2px dashed rgba(120,80,30,.28);box-shadow:none;background:rgba(255,255,255,.55);cursor:default}
-.lcard.lc-next:hover{transform:none;box-shadow:none}
-.lcard.lc-next .cover img{opacity:.55;padding:14px;box-sizing:border-box}
-.lcard.lc-next:hover .cover img{transform:none}
-.lc-badge{position:absolute;left:14px;top:14px;background:#194F52;color:#fff;font-weight:800;font-size:13px;border-radius:999px;padding:6px 14px}
-.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Упражнения для запуска и развития речи у детей онлайн, есть бесплатные</title>
-<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
-<meta name="description" content="Онлайн-упражнения для запуска и развития речи у детей, есть бесплатные: звукоподражания, слоговая структура, предлоги, местоимения, множественное число, связный рассказ, понимание речи. Логопедам, дефектологам и родителям. Автор: Александра Карачинцева.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbf3e6;--bg2:#f5e6cf;--ink:#4a3b2e;--ink2:#8a7560;--card:#fffaf1;--accent:#f0a62b;--shadow:0 10px 30px rgba(120,80,30,.14)}
-
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--cream:#FAF5EB;--paper:#FFFDF8;--ink:#193449;--ink2:#4f6475;--teal:#194F52;--terra:#C4561F;--yellow:#F7C64B;--mint:#DFEEE9;--peach:#F9E4D5;--lilac:#E9E3F7;--line:#e9dfcd;--sh:0 14px 40px rgba(25,52,73,.10)}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Nunito",system-ui,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
-.blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.blobs i{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:drift 22s ease-in-out infinite}
-.blobs i:nth-child(1){width:380px;height:380px;background:#ffd9a0;left:-90px;top:8%}
-.blobs i:nth-child(2){width:320px;height:320px;background:#cfe5c4;right:-60px;top:30%;animation-delay:-7s}
-.blobs i:nth-child(3){width:420px;height:420px;background:#cddcf3;left:30%;bottom:-160px;animation-delay:-13s}
+body{margin:0;background:var(--cream);color:var(--ink);font:500 17px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Onest,Inter,sans-serif;line-height:1.12;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(36px,5.2vw,62px);font-weight:800}
+h2{font-size:clamp(28px,3.6vw,42px);font-weight:700}
+h3{font-size:21px;font-weight:700}
+p{margin:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+.w{max-width:1140px;margin:0 auto;padding:0 20px}
+section{padding:76px 0;scroll-margin-top:70px}
+.head{max-width:680px;margin-bottom:34px}
+.head p{margin-top:12px;color:var(--ink2);font-size:18px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 26px;border-radius:999px;font:700 16px Onest,sans-serif;text-decoration:none;border:2px solid transparent;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--terra);color:#fff;box-shadow:0 10px 24px rgba(196,86,31,.28)}
+.btn.line{border-color:var(--teal);color:var(--teal)}
+.btn.light{background:#fff;color:var(--teal)}
+.btn.small{min-height:42px;padding:8px 18px;font-size:15px}
+.soon{display:inline-block;font:700 12px Onest,sans-serif;text-transform:uppercase;letter-spacing:.08em;background:var(--yellow);color:var(--ink);border-radius:999px;padding:4px 12px}
 
-@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
-main{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:28px 20px 50px}
-.reveal{opacity:0;transform:translateY(22px);animation:up .8s cubic-bezier(.2,.9,.3,1) forwards;animation-delay:var(--d,0s)}
-@keyframes up{to{opacity:1;transform:none}}
+/* шапка */
+.ny{background:var(--teal);color:#fff;text-align:center;font-size:14px;padding:8px 16px}
+.ny a{font-weight:700;margin-left:6px}
+header{position:sticky;top:0;z-index:20;background:rgba(250,245,235,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;gap:26px;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font:800 20px Onest,sans-serif;text-decoration:none;white-space:nowrap}
+.logo i{width:34px;height:34px;border-radius:12px 12px 12px 3px;background:var(--terra);display:grid;place-items:center;color:#fff;font-style:normal;font-size:17px}
+nav{display:flex;gap:22px;margin-left:auto;font-size:15px;font-weight:600}
+nav a{text-decoration:none;color:var(--ink2)}
+nav a:hover{color:var(--ink)}
 
-/* 1. Главное: название + рассказчица */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;min-height:min(78vh,620px)}
-.kicker{font-weight:800;color:var(--accent);letter-spacing:.6px;text-transform:uppercase;font-size:13px}
-h1{margin:6px 0 10px;font-size:clamp(42px,8vw,88px);line-height:.98;font-weight:800;letter-spacing:-1px}
-.sub{font-weight:800;font-size:clamp(18px,2.6vw,26px);margin:0 0 12px}
-.lead{font-size:clamp(16px,2vw,19px);line-height:1.55;margin:0 0 22px;max-width:520px;color:var(--ink2);font-weight:600}
-.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:18px;text-decoration:none;border-radius:999px;padding:15px 30px;box-shadow:0 10px 24px rgba(240,166,43,.45);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
-.cta:hover{transform:translateY(-3px) scale(1.04)}
-.stage{position:relative;display:grid;place-items:end center;height:100%}
-.stage::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffe6b0,transparent 68%);bottom:4%;animation:glow 5s ease-in-out infinite}
-@keyframes glow{0%,100%{transform:scale(.94);opacity:.8}50%{transform:scale(1.06);opacity:1}}
-.stage img.nm{position:relative;height:min(68vh,560px);max-width:100%;object-fit:contain;transform-origin:50% 100%;animation:nbob 4s ease-in-out infinite}
-@keyframes nbob{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.4deg) translateY(-5px)}}
-.toy{position:absolute;width:var(--w,88px);height:auto;animation:toyf 4.4s ease-in-out infinite;animation-delay:var(--d,0s);filter:drop-shadow(0 8px 10px rgba(120,80,30,.22));cursor:pointer;z-index:2}
-.toy:hover{animation-duration:.7s}
-.toy.ball{animation-name:toyb;animation-duration:3s}
-@keyframes toyf{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
-@keyframes toyb{0%,100%{transform:translateY(0)}45%{transform:translateY(-16px)}90%{transform:translateY(0) scale(1.05,.95)}}
-@media (max-width:820px){.toy{--w:58px!important}}
-.bubble{position:absolute;left:-4%;top:8%;max-width:200px;background:var(--card);border-radius:20px 20px 20px 4px;padding:12px 16px;font-weight:800;font-size:15px;line-height:1.35;box-shadow:var(--shadow);
-  opacity:0;transform:scale(.6);transform-origin:0 100%;animation:bpop .6s cubic-bezier(.3,1.6,.5,1) 1.2s forwards;z-index:2}
-@keyframes bpop{to{opacity:1;transform:none}}
-.spark{position:absolute;width:22px;height:22px;background:#ffd23f;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:tw 3s ease-in-out infinite;animation-delay:var(--d)}
-@keyframes tw{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+/* первый экран */
+.hero{padding:52px 0 40px}
+.hero .w{display:grid;grid-template-columns:1.08fr .92fr;gap:36px;align-items:center}
+.eyebrow{display:inline-block;background:var(--mint);color:var(--teal);border-radius:999px;padding:6px 15px;font:700 14px Onest,sans-serif;margin-bottom:18px}
+.lead{font-size:19px;color:var(--ink2);margin:20px 0 28px;max-width:540px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.ticks{display:flex;flex-wrap:wrap;gap:8px 22px;margin:22px 0 0;padding:0;list-style:none;font-size:15px;color:var(--ink2)}
+.ticks li::before{content:"✓";color:var(--teal);font-weight:800;margin-right:7px}
+.scene{position:relative;aspect-ratio:1/.98;border-radius:36px;background:radial-gradient(circle at 50% 62%,#fff6e4 0,#fbe4cf 58%,#f6d9c2 100%);overflow:hidden}
+.scene .floor{position:absolute;left:12%;right:12%;bottom:6%;height:13%;border-radius:50%;background:#e9b98f;opacity:.5}
+.scene .kid{position:absolute;left:50%;bottom:9%;height:76%;transform:translateX(-50%)}
+.say{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border-radius:22px;padding:10px 16px 10px 12px;box-shadow:var(--sh);font:800 18px Onest,sans-serif;animation:float 5s ease-in-out infinite}
+.say img{width:54px;height:54px;object-fit:contain}
+.s1{left:5%;top:9%}.s2{right:4%;top:19%;animation-delay:-1.6s!important}.s3{left:3%;bottom:29%;animation-delay:-3.1s!important}
+.toy{position:absolute;bottom:7%;width:16%;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
 
-/* 2. Как это работает */
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:10px 0 8px}
-.how div{background:var(--card);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow);font-weight:600;line-height:1.4;font-size:15px}
-.how b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;margin-bottom:8px}
+/* этапы */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stage{display:flex;flex-direction:column;background:var(--paper);border-radius:28px;overflow:hidden;box-shadow:var(--sh);text-decoration:none;transition:transform .25s}
+.stage:hover{transform:translateY(-6px)}
+.stage img{aspect-ratio:16/10;width:100%;object-fit:contain;background:var(--peach)}
+.stage:nth-child(2) img{background:var(--mint)}.stage:nth-child(3) img{background:var(--lilac)}
+.stage div{padding:20px 22px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.stage q{font:700 21px/1.3 Onest,sans-serif;quotes:"«" "»"}
+.stage p{color:var(--ink2);font-size:15px}
+.stage b{margin-top:auto;color:var(--terra);font-family:Onest,sans-serif}
 
-h2{font-size:clamp(24px,3.6vw,34px);margin:44px 0 14px;scroll-margin-top:20px}
-.secsub{color:var(--ink2);font-weight:600;margin:-6px 0 16px;line-height:1.5;max-width:640px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
-.lcard{display:flex;flex-direction:column;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
-.lcard:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(120,80,30,.22)}
-.lcard .cover{aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(160deg,#fff4dc,#ffe0a8)}
-.lcard .cover img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .8s ease}
-.lcard:hover .cover img{transform:scale(1.03)}
-.lcard .num{position:absolute;left:14px;top:14px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:5px 14px;font-size:14px;box-shadow:var(--shadow)}
-.lcard .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
-.lcard h3{margin:0;font-size:22px}
-.lcard p{margin:0;color:var(--ink2);font-weight:600;line-height:1.45;font-size:15px}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{background:var(--bg);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
-.go{margin-top:auto;align-self:flex-start;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;transition:transform .2s}
-.lcard:hover .go{transform:translateX(4px)}
-.soon{border:3px dashed var(--bg2);display:grid;place-items:center;text-align:center;min-height:260px;color:var(--ink2);font-weight:700;border-radius:24px;padding:20px}
-.soon span{font-size:38px;display:block;margin-bottom:6px}
+/* бесплатно */
+.band{background:var(--paper);border-block:1px solid var(--line)}
+.games{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.game{background:var(--cream);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.cover{position:relative;aspect-ratio:16/10;background:#fbe9cf}
+.cover img{width:100%;height:100%;object-fit:contain}
+.badge{position:absolute;left:12px;top:12px;background:var(--teal);color:#fff;font:700 12.5px Onest,sans-serif;border-radius:999px;padding:5px 12px}
+.badge.part{background:#fff;color:var(--teal)}
+.game .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.game p{font-size:15px;color:var(--ink2)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{background:#fff;border-radius:999px;padding:3px 11px;font-size:13px;font-weight:600}
+.game .btn{margin-top:auto}
+.under{text-align:center;margin-top:30px}
 
-/* 3. Герои занятий (внизу) */
-.family{margin:0;position:relative}
-.family img{width:100%;display:block;border-radius:24px;box-shadow:var(--shadow);animation:floaty 7s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.cap{color:var(--ink2);font-weight:600;margin:10px 4px 0;line-height:1.5}
+/* как проходит */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{background:var(--paper);border-radius:24px;padding:24px;box-shadow:var(--sh)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:16px;background:var(--peach);color:var(--terra);font:800 20px Onest,sans-serif;margin-bottom:16px}
+.step p{margin-top:8px;color:var(--ink2);font-size:15.5px}
+.path{margin-top:22px;background:var(--mint);border-radius:28px;padding:26px 24px 20px}
+.path .top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.road{display:grid;grid-template-columns:repeat(7,1fr);margin-top:24px;position:relative}
+.road::before{content:"";position:absolute;left:7%;right:7%;top:25px;border-top:7px dotted #9fc6bb}
+.dot{position:relative;display:grid;justify-items:center;gap:7px;font-size:13px;color:var(--teal);font-weight:700}
+.dot i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-size:22px;box-shadow:0 6px 0 #b8d6cd}
+.dot.done i{background:var(--yellow);box-shadow:0 6px 0 #d8a62f}
+.dot.now i{background:var(--terra);color:#fff;box-shadow:0 6px 0 #8f3c13;animation:float 2.4s ease-in-out infinite}
 
-/* 4. Об авторе (внизу) */
-.about{display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:var(--card);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
-.about img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid #fff;box-shadow:var(--shadow);flex:none}
-.about .t{flex:1;min-width:230px}
-.about b{font-size:20px;display:block}
-.about p{margin:4px 0 12px;color:var(--ink2);font-weight:600;line-height:1.45}
-.social{display:flex;gap:10px;flex-wrap:wrap}
-.sbtn{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-weight:800;font-size:14px;border-radius:999px;padding:9px 16px 9px 12px;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
-.sbtn.vk{order:-1}
-.sbtn:hover{transform:translateY(-4px) scale(1.04)}
-.sbtn svg{width:20px;height:20px;fill:currentColor}
-.ig{background:linear-gradient(45deg,#f9a03f,#e1306c 55%,#833ab4)}.tg{background:#2aabee}.vk{background:#0077ff}.yt{background:#ff2d2d}
-footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;min-height:0;gap:6px}
-  .stage{order:2;margin-top:10px}.stage img.nm{height:330px}.bubble{left:2%;top:0}
-  .how{grid-template-columns:1fr}
+/* мультик или занятие */
+.serious{background:var(--ink);color:#fff}
+.serious .head p{color:#bcd0da}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vs>div{border-radius:26px;padding:26px 28px}
+.vs .a{background:rgba(255,255,255,.07)}
+.vs .b{background:var(--cream);color:var(--ink)}
+.vs ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.vs li{display:grid;grid-template-columns:26px 1fr;gap:8px}
+.vs .a li{color:#bcd0da}
+.vs .a li::before{content:"–"}
+.vs .b li::before{content:"✓";color:var(--terra);font-weight:800}
+.principles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.principles div{border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:18px;font-size:14.5px;color:#bcd0da}
+.principles b{display:block;color:#fff;font:700 17px/1.3 Onest,sans-serif;margin-bottom:7px}
+
+/* проверка речи */
+.check{background:var(--paper);border-radius:34px;box-shadow:var(--sh);padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.check h2{margin:12px 0}
+.check p{color:var(--ink2)}
+.res{display:grid;gap:12px}
+.res div{border-radius:20px;padding:15px 18px;display:grid;grid-template-columns:16px 1fr;gap:14px;align-items:start}
+.res i{width:16px;height:16px;border-radius:50%;margin-top:6px}
+.res b{display:block;font-family:Onest,sans-serif}
+.res span{font-size:14.5px;color:var(--ink2)}
+.r1{background:#e5f1e4}.r1 i{background:#4f9a5b}.r2{background:#fdf0cd}.r2 i{background:#d9a21b}.r3{background:#f8e0d6}.r3 i{background:#c4561f}
+.note{font-size:13.5px;margin-top:16px}
+
+/* цены */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.price{position:relative;background:var(--paper);border:2px solid var(--line);border-radius:28px;padding:28px 26px;display:flex;flex-direction:column;gap:8px}
+.price.hit{border-color:var(--terra);box-shadow:0 20px 46px rgba(196,86,31,.18)}
+.price .flag{position:absolute;top:-14px;left:26px;background:var(--terra);color:#fff;font:700 13px Onest,sans-serif;border-radius:999px;padding:4px 14px}
+.sum{font:800 46px/1.05 Onest,sans-serif;margin-top:6px}
+.sum s{font-size:22px;color:#8d9aa4;font-weight:600;margin-left:8px}
+.sum small{font-size:17px;font-weight:600;color:var(--ink2)}
+.per{color:var(--teal);font-weight:700}
+.terms{font-size:14px;color:var(--ink2);margin-bottom:12px}
+.price .btn{margin-top:auto}
+.incl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;max-width:820px;margin:30px auto 0;padding:0;list-style:none}
+.incl li::before{content:"✓";color:var(--teal);font-weight:800;margin-right:10px}
+
+/* автор и услуги */
+.author{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;background:var(--mint);border-radius:34px;overflow:hidden;align-items:end}
+.author .ph{align-self:end;display:flex;justify-content:center}
+.author .ph img{max-height:430px}
+.author .tx{padding:36px 36px 36px 0;align-self:center}
+.author ul{margin:18px 0 24px;padding-left:20px;color:var(--ink2)}
+.serv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.serv a{background:var(--paper);border-radius:20px;padding:18px 20px;text-decoration:none;box-shadow:var(--sh)}
+.serv b{display:block;font-family:Onest,sans-serif;font-size:18px}
+.serv span{display:block;font-size:14.5px;color:var(--ink2);margin:5px 0 10px}
+.serv em{font-style:normal;font-weight:700;color:var(--terra);font-size:15px}
+
+/* вопросы, финал */
+.faq{max-width:820px;margin:0 auto}
+details{background:var(--paper);border-radius:18px;padding:4px 22px;margin-bottom:10px;border:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font:700 18px Onest,sans-serif;padding:15px 30px 15px 0;position:relative}
+summary::after{content:"+";position:absolute;right:0;top:11px;font-size:26px;color:var(--terra)}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 18px;color:var(--ink2)}
+.final{background:var(--teal);color:#fff;border-radius:34px;padding:0 44px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;overflow:hidden}
+.final .tx{padding:44px 0}
+.final p{color:#cde2e0;margin:12px 0 24px}
+.final img{height:300px;align-self:end}
+footer{padding:36px 0 110px;font-size:14px;color:var(--ink2)}
+footer .w{display:flex;flex-wrap:wrap;gap:10px 22px;border-top:1px solid var(--line);padding-top:24px}
+.mbar{display:none}
+
+/* три вопроса и окно-заглушка */
+.quiz{background:var(--peach);border-radius:34px;padding:34px}
+.quiz .head{margin-bottom:18px}
+.q{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.q b{width:100%;font-family:Onest,sans-serif}
+.q button{border:2px solid transparent;background:#fff;color:var(--ink);border-radius:999px;padding:11px 18px;font:600 15px Inter,sans-serif;cursor:pointer}
+.q button.on{border-color:var(--terra);background:var(--terra);color:#fff}
+.plan{margin-top:22px;background:var(--paper);border-radius:22px;padding:20px 22px}
+.plan p{color:var(--ink2);margin:4px 0 14px}
+dialog{border:0;border-radius:28px;padding:30px 28px;max-width:420px;width:calc(100% - 32px);text-align:center;background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(25,52,73,.55)}
+dialog img{height:170px;margin:0 auto 12px}
+dialog p{color:var(--ink2);margin:10px 0 20px}
+@media(max-width:900px){.quiz{padding:22px}}
+
+/* v2: переносы */
+h1,h2,h3,.stage q,summary{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+/* v2: первый экран */
+.ny{background:linear-gradient(90deg,#8f2f22,#c4561f 50%,#8f2f22);font-weight:600}
+.hero{padding:clamp(18px,3.5vh,44px) 0 26px}
+.hero .w{max-width:1240px;grid-template-columns:.9fr 1.1fr;gap:34px}
+.hero h1{font-size:clamp(34px,min(3.75vw,7.6vh),54px);line-height:1.1}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 span:last-child{color:var(--terra)}
+.hero .eyebrow{margin-bottom:12px}
+.hero .lead{font-size:17.5px;margin:14px 0 20px}
+.hero .row{flex-wrap:nowrap;gap:10px}
+.hero .btn{padding:12px 22px;white-space:nowrap}
+.hero .ticks{margin-top:16px;gap:4px 18px;font-size:14px}
+.pic{position:relative;border-radius:34px;overflow:visible}
+.pic>img{width:100%;aspect-ratio:3/2;border-radius:34px;box-shadow:var(--sh)}
+.bub{position:absolute;background:#fff;border-radius:22px;padding:9px 18px;font:800 clamp(15px,1.6vw,20px) Onest,sans-serif;box-shadow:0 10px 26px rgba(25,52,73,.16);opacity:0;animation:pop .6s cubic-bezier(.3,1.6,.5,1) forwards,float 5s ease-in-out 1.6s infinite}
+.bub::after{content:"";position:absolute;bottom:-7px;width:16px;height:16px;background:#fff;transform:rotate(45deg)}
+.b1{left:17%;top:8%;animation-delay:.6s,1.6s}.b1::after{left:58%}
+.b2{right:15%;top:12%;animation-delay:1.2s,2.6s}.b2::after{left:30%}
+@keyframes pop{from{opacity:0;scale:.5}to{opacity:1;scale:1}}
+
+/* v2: новогодний баннер */
+.nyb{padding:16px 0 10px}
+.nyb .box{position:relative;overflow:hidden;border-radius:32px;background:#17535b;color:#fff;aspect-ratio:3/1;box-shadow:var(--sh)}
+.nyb .box>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.nyb .tx{position:absolute;z-index:2;left:5%;top:50%;transform:translateY(-58%);width:48%}
+.nyb h2{font-size:clamp(24px,3.2vw,42px)}
+.nyb h2 span{display:block;color:var(--yellow)}
+.nyb p{margin:10px 0 18px;color:#e3f0ee;font-size:clamp(14px,1.4vw,17px)}
+.flake{position:absolute;top:-24px;color:#fff;opacity:.75;pointer-events:none;animation:snow linear infinite;z-index:1}
+@keyframes snow{to{translate:24px 430px;rotate:280deg}}
+
+/* v2: игры для пробы */
+.who{padding:10px 18px;font:700 14px/1.35 Onest,sans-serif}
+.w1{background:var(--peach)}.w2{background:var(--mint)}.w3{background:var(--lilac)}
+.game .fit{background:#fff;border-radius:14px;padding:10px 13px;font-size:14px;color:var(--ink)}
+.game{box-shadow:var(--sh);transition:transform .25s}
+.game:hover{transform:translateY(-6px)}
+
+/* v2: три вопроса */
+.quiz{background:linear-gradient(160deg,#fbe9dc,#f6dccb);padding:40px 30px 34px}
+.quiz .head{max-width:760px;margin:0 auto 28px;text-align:center}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.qgrid .q{margin:0;display:grid;gap:9px;background:var(--paper);border-radius:26px;padding:20px 16px 18px;box-shadow:var(--sh)}
+.qgrid .q b{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:18px;line-height:1.3;margin-bottom:6px;min-height:104px}
+.qgrid .q b img{width:62px;height:62px;object-fit:contain}
+.qgrid .q button{display:grid;grid-template-columns:22px 1fr;gap:2px 10px;align-items:center;text-align:left;border:2px solid var(--line);background:#fff;border-radius:18px;padding:11px 14px;font:700 15px/1.3 Onest,sans-serif;transition:transform .15s,border-color .15s,background .15s}
+.qgrid .q button::before{content:"";grid-row:1/span 2;width:20px;height:20px;border-radius:50%;border:2px solid #cdbfa8;background:#fff}
+.qgrid .q button small{grid-column:2;font:500 13px/1.35 Inter,sans-serif;color:var(--ink2)}
+.qgrid .q button:hover{transform:translateY(-2px);border-color:#e4a37c}
+.qgrid .q button.on{border-color:var(--terra);background:#fff3ec;color:var(--ink)}
+.qgrid .q button.on::before{border:6px solid var(--terra)}
+.meter{max-width:320px;height:9px;border-radius:9px;background:#fff;margin:24px auto 0;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--terra);transition:width .4s}
+.plan{max-width:560px;margin:20px auto 0;text-align:center;animation:pop .5s both}
+
+/* v2: появление блоков */
+.js .rv{opacity:0;translate:0 26px;transition:opacity .7s,translate .7s}
+.js .rv.in{opacity:1;translate:0 0}
+
+@media(max-width:900px){
+  .hero .w,.qgrid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(28px,8vw,46px)}
+  .hero .row{flex-wrap:wrap}
+  .qgrid .q b{min-height:0}
+  .nyb .box{aspect-ratio:auto;padding-top:0;display:flex;flex-direction:column}
+  .nyb .tx{position:static;transform:none;width:auto;padding:24px 22px 6px}
+  .nyb .box>img{position:static;height:200px;object-position:88% center}
+  .quiz{padding:28px 16px}
 }
-.agehead{margin:30px 0 6px}.agehead h2{margin:0 0 6px}
-.agenav{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:14px 0 8px}
-.agenav a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-decoration:none;color:var(--ink);border-radius:28px;padding:20px 22px 22px;box-shadow:var(--shadow);overflow:hidden;transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s;background:var(--card)}
-.agenav a:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(120,80,30,.24)}
-.agenav .ag1{background:linear-gradient(160deg,#fff3dc,#ffe0a8)}.agenav .ag2{background:linear-gradient(160deg,#e8f5ec,#c6e6d3)}.agenav .ag3{background:linear-gradient(160deg,#f1ebff,#d9ccf5)}
-.agpics{display:flex;align-items:flex-end;gap:6px;height:84px;margin-bottom:8px}
-.agpics img{height:100%;width:auto;max-width:96px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(80,50,10,.22));animation:agb 3.6s ease-in-out infinite}
-.agpics img:nth-child(2){height:78%;animation-delay:-1.2s}.agpics img:nth-child(3){height:86%;animation-delay:-2.4s}
-@keyframes agb{50%{transform:translateY(-6px) rotate(2deg)}}
-.agenav b{font-size:clamp(28px,3.4vw,38px);line-height:1.05}
-.agenav em{font-style:normal;font-weight:800;font-size:16px;color:var(--ink)}
-.agenav .agcount{color:var(--ink2);font-weight:700;font-size:14px}
-.agenav .agbtn{margin-top:12px;background:var(--accent);color:#fff;font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 8px 18px rgba(240,166,43,.4);transition:transform .25s}
-.agenav .ag2 .agbtn{background:#5b9d83;box-shadow:0 8px 18px rgba(91,157,131,.4)}.agenav .ag3 .agbtn{background:#8d6bd6;box-shadow:0 8px 18px rgba(141,107,214,.4)}
-.agenav a:hover .agbtn{transform:translateY(3px)}
-@media (max-width:980px){.agenav{grid-template-columns:1fr}.agpics{height:70px}}
-/* листание страниц по 6 занятий */
-.pgnav{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 4px}
-.pgbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--accent);color:#fff;font:800 26px/1 "Nunito",system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 22px rgba(240,166,43,.4);transition:transform .25s cubic-bezier(.3,1.5,.5,1),opacity .2s;display:grid;place-items:center;padding:0 0 3px}
-.pgbtn:hover:not(:disabled){transform:scale(1.1)}
-.pgbtn:disabled{opacity:.3;cursor:default;box-shadow:none}
-.pgdots{display:flex;align-items:center;gap:8px}
-.pgdots i{display:block;width:11px;height:11px;border-radius:6px;background:var(--bg2);transition:width .3s,background .3s;cursor:pointer}
-.pgdots i.on{width:30px;background:var(--accent)}
-.pgcount{font-weight:800;color:var(--ink2);min-width:58px;text-align:center;font-size:15px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.bubble{opacity:1;transform:none}}
-/* v6 мобильная: приветствие над головой, меньше лишнего */
-@media (max-width:820px){
-  .stage{padding-top:92px;margin-top:0}
-  .stage img.nm{height:300px}
-  .bubble{left:50%;top:0;max-width:270px;width:max-content;border-radius:20px;transform:translateX(-50%) scale(.6);transform-origin:50% 100%;animation-name:bpopm}
-  .bubble::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:var(--card);transform:translateX(-50%) rotate(45deg)}
-  .toy{display:none}
-  .cta{padding:16px 28px;font-size:18px}
+
+/* v3: логотип */
+.logo{gap:10px;font-size:21px;color:var(--ink)}
+.logo img{width:44px;height:44px;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover img{transform:rotate(-8deg) scale(1.08)}
+.logo em{font-style:normal;color:var(--terra)}
+@media(max-width:480px){.logo{font-size:17px}.logo img{width:36px;height:36px}}
+
+/* v3: подписи этапов и карточки игр */
+.game{background:#fff;border:1px solid var(--line)}
+.game .fit{background:var(--cream)}
+.cover{aspect-ratio:16/9}
+.who{display:flex;gap:12px;align-items:center;min-height:78px;padding:13px 16px;color:#fff;font:700 15.5px/1.3 Onest,sans-serif}
+.who i{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:800 21px Onest,sans-serif;font-style:normal}
+.who small{display:block;font:700 11.5px Onest,sans-serif;text-transform:uppercase;letter-spacing:.09em;opacity:.85;margin-bottom:2px}
+.who.w1{background:#b24d19}.w1 i{color:#b24d19}
+.who.w2{background:var(--teal)}.w2 i{color:var(--teal)}
+.who.w3{background:#5e4a9c}.w3 i{color:#5e4a9c}
+
+/* v3: финальная сцена */
+.final{display:block;position:relative;padding:0;aspect-ratio:3/1;background:#145057}
+.final .sc{position:absolute;inset:0}
+.final .sc img{width:100%;height:100%;object-fit:cover;object-position:right center}
+.final .tx{position:absolute;z-index:2;left:5%;top:50%;transform:translateY(-50%);width:42%;padding:0}
+.final .tx h2{font-size:clamp(24px,3.1vw,40px)}
+.hi{position:absolute;transform:translate(-50%,-50%);color:var(--ink);font:800 clamp(11px,1.45vw,18px) Onest,sans-serif;animation:float 4.5s ease-in-out infinite}
+.h1b{left:68.1%;top:13.6%}.h2b{left:87.1%;top:20.6%;animation-delay:-2s}
+
+/* v3: новогодние цены */
+#price{position:relative;overflow:hidden}
+.lights{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-around;border-top:2px solid #3f6b52;height:34px}
+.lights i{width:13px;height:19px;margin-top:3px;border-radius:50% 50% 50% 50%/40% 40% 60% 60%;background:#d9482b;position:relative;animation:blink 1.8s ease-in-out infinite}
+.lights i::before{content:"";position:absolute;left:3px;top:-5px;width:7px;height:6px;border-radius:2px;background:#3f6b52}
+.lights i:nth-child(4n+2){background:#f2b52a;animation-delay:-.45s;margin-top:9px}
+.lights i:nth-child(4n+3){background:#2f8f6b;animation-delay:-.9s}
+.lights i:nth-child(4n){background:#3d7fc4;animation-delay:-1.35s;margin-top:9px}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 12px 2px rgba(247,198,75,.55)}50%{opacity:.55;box-shadow:none}}
+.gift{position:absolute;right:18px;top:20px;width:62px;height:62px;filter:drop-shadow(0 6px 8px rgba(25,52,73,.18));animation:wig 3.2s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes wig{0%,70%,100%{rotate:0deg}76%{rotate:-11deg}82%{rotate:9deg}88%{rotate:-5deg}94%{rotate:2deg}}
+.nytag{align-self:flex-start;background:var(--mint);color:var(--teal);border-radius:999px;padding:4px 12px;font:700 13px Onest,sans-serif;margin-top:2px}
+@media(max-width:900px){
+  .final{aspect-ratio:auto}
+  .final .tx{position:static;transform:none;width:auto;padding:30px 22px 8px}
+  .final .sc{position:relative;aspect-ratio:3/2}
+  .final .sc img{position:absolute;inset:0;object-position:right center}
+  .hi{display:none}
+  .lights i:nth-child(n+13){display:none}
 }
-@keyframes bpopm{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
-.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
+
+.nyb .ln{display:block;white-space:nowrap}
+.nyb .ln b{color:#fff;font-size:1.12em}
+.nyb .ln.small{font-size:.88em;opacity:.85;margin-top:4px}
+@media(max-width:900px){.nyb .tx{position:relative;z-index:2}.nyb .flake{z-index:0}}
+@media(max-width:380px){.nyb .ln{white-space:normal}}
+
+/* v4: дети разговаривают */
+.pic>svg{display:block;width:100%;height:auto;border-radius:34px;box-shadow:var(--sh)}
+.face{opacity:0}.face.on{opacity:1}
+.pic .bub{animation:none;opacity:0;scale:.7;transition:opacity .25s,scale .35s cubic-bezier(.3,1.7,.5,1);max-width:44%;line-height:1.25;text-align:center;width:max-content}
+.pic .bub.on{opacity:1;scale:1}
+.pic .b1{left:8%;right:auto;top:auto;bottom:77%;transform-origin:75% 100%}.pic .b1::after{left:70%}
+.pic .b2{right:6%;top:auto;bottom:73%;transform-origin:25% 100%}.pic .b2::after{left:24%}
+.final .sc svg{width:100%;height:100%;display:block}
+.say-t{fill:#193449;font:800 40px Onest,sans-serif;text-anchor:middle;dominant-baseline:middle}
+.qgrid .q b img.ava{width:84px;height:84px;margin:-11px 0;border-radius:50%;object-fit:cover;background:#fbe9dc;border:4px solid #fff;box-shadow:0 4px 14px rgba(25,52,73,.16)}
+
+.logo img{width:48px;height:48px;border-radius:14px;box-shadow:0 5px 14px rgba(25,52,73,.22)}
+.lsw{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:8px 10px 8px 16px;box-shadow:var(--sh);font:700 13px Onest,sans-serif}
+.lsw button{display:flex;align-items:center;gap:6px;border:2px solid transparent;background:var(--cream);border-radius:999px;padding:3px 11px 3px 3px;font:700 14px Onest,sans-serif;color:var(--ink);cursor:pointer}
+.lsw button.on{border-color:var(--terra)}
+.lsw img{width:34px;height:34px;border-radius:50%}
+@media(max-width:900px){.logo img{width:38px;height:38px;border-radius:11px}.lsw{bottom:86px;left:8px}.lsw span{display:none}.nbtn{bottom:150px}}
+
+/* v5: палитры. По умолчанию спокойная */
+:root{--terra:#1d726a;--glow:rgba(29,114,106,.24);--deep:#124440;--hl:#c25724;--pick:#eaf4f1;--hover:#8fbfb5;--s1:#bd5626;--s2:#1d726a;--s3:#6a55a6;--strip:#194f52;--hitline:#eba53c}
+:root[data-pal="warm"]{--terra:#c25724;--glow:rgba(194,87,36,.24);--deep:#873a15;--hl:#c25724;--pick:#fdf1e8;--hover:#e8a880;--hitline:#e0824f}
+:root[data-pal="old"]{--terra:#c4561f;--glow:rgba(196,86,31,.28);--deep:#8f3c13;--hl:#c4561f;--pick:#fff3ec;--hover:#e4a37c;--s1:#b24d19;--s2:#194f52;--s3:#5e4a9c;--strip:#a33a22;--hitline:#c4561f}
+.btn.main{box-shadow:0 8px 20px var(--glow)}
+.ny{background:var(--strip)}
+.hero h1 span:last-child{color:var(--hl)}
+.who.w1{background:var(--s1)}.w1 i{color:var(--s1)}
+.who.w2{background:var(--s2)}.w2 i{color:var(--s2)}
+.who.w3{background:var(--s3)}.w3 i{color:var(--s3)}
+.price.hit{border-color:var(--hitline);box-shadow:0 18px 42px var(--glow)}
+.price .flag{background:var(--hl)}
+.stage b,.serv em,summary::after{color:var(--hl)}
+.dot.now i{box-shadow:0 6px 0 var(--deep)}
+.qgrid .q button:hover{border-color:var(--hover)}
+.qgrid .q button.on{background:var(--pick)}
+
+/* панель выбора в макете */
+.lsw{flex-direction:column;align-items:flex-start;border-radius:22px;padding:10px 14px;gap:7px}
+.lsw>div{display:flex;gap:6px;align-items:center}
+.lsw>div>span{width:62px}
+.lsw button i{width:20px;height:20px;border-radius:50%;margin-left:3px}
+.lsw button{min-height:34px}
+.lsw img{width:30px;height:30px}
+.mini{position:fixed}
+@media(max-width:900px){
+  .lsw{position:static;margin:0 12px 20px;border-radius:18px}
+  .lsw>div{flex-wrap:wrap}.lsw>div>span{display:block;width:100%}
+  .nbtn{bottom:86px}
+  .mbar{padding:8px 14px}.mbar .btn{min-height:46px;box-shadow:none}
+}
+
+/* пометки */
+.why{display:none;max-width:1100px;margin:0 auto 18px;background:#fff3b8;border:2px dashed #b38f00;color:#473a00;border-radius:14px;padding:10px 16px;font-size:14px}
+body.notes .why{display:block}
+body.notes header .why{display:none}
+.nbtn{position:fixed;right:16px;bottom:16px;z-index:40;border:0;border-radius:999px;background:var(--ink);color:#fff;font:700 14px Onest,sans-serif;padding:12px 18px;cursor:pointer;box-shadow:var(--sh)}
+
+@media(max-width:900px){
+  nav{display:none}
+  header .w{justify-content:space-between;height:62px}
+  header .btn{padding:8px 14px}
+  section{padding:52px 0}
+  .hero{padding:28px 0 20px}
+  .hero .w,.check,.vs,.author,.final{grid-template-columns:1fr}
+  .stages,.games,.steps,.prices,.serv,.incl{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr 1fr}
+  .price.hit{order:-1}
+  .prices{gap:24px}
+  .check{padding:24px}
+  .author .tx{padding:28px 22px 0;order:-1}
+  .final{padding:0 24px}.final .tx{padding:32px 0 0}.final img{height:220px;justify-self:center}
+  .say{font-size:15px}.say img{width:38px;height:38px}
+  .road{grid-template-columns:repeat(4,1fr);row-gap:22px}.road::before{display:none}
+  .btn.wide{width:100%}
+  .mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(250,245,235,.96);border-top:1px solid var(--line);padding:10px 16px}
+  .mbar .btn{width:100%}
+  .nbtn{bottom:86px}
+}
+@media(max-width:480px){.principles{grid-template-columns:1fr}.ticks{display:grid}}
+</style>
 <style>
-.dn{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,#fbf3e6,#f5e6cf 55%,#cfe5c4);font-family:"Nunito",system-ui,sans-serif;color:#4a3b2e;text-align:center;overflow:hidden}
-.dn.show{display:flex}
-.dn::before,.dn::after{content:"";position:absolute;border-radius:50%;filter:blur(36px);opacity:.6}
-.dn::before{width:300px;height:300px;background:#ffd9a0;left:-90px;top:-60px}
-.dn::after{width:340px;height:340px;background:#cddcf3;right:-110px;bottom:-90px}
-.dn-in{position:relative;z-index:1;max-width:420px;animation:dnup .7s cubic-bezier(.2,.9,.3,1) both}
-@keyframes dnup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.dn-ic{font-size:76px;line-height:1;margin-bottom:14px;display:inline-block;animation:dnb 3s ease-in-out infinite}
-@keyframes dnb{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
-.dn h2{margin:0 0 14px;font-size:clamp(30px,8.5vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.5px}
-.dn p{margin:0 0 26px;font-size:clamp(17px,4.6vw,20px);line-height:1.5;font-weight:600;color:#8a7560}
-.dn p b{color:#4a3b2e}
-.dn button{font:inherit;font-weight:800;font-size:17px;color:#fff;background:#f0a62b;border:0;border-radius:999px;padding:15px 30px;box-shadow:0 10px 24px rgba(240,166,43,.45);cursor:pointer}
-.dn small{display:block;margin-top:14px;font-size:14px;font-weight:600;color:#8a7560}
-.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style><!--seo-->
+nav a{white-space:nowrap}nav a.cur{color:var(--ink);border-bottom:3px solid var(--hl)}
+@media(max-width:1060px){nav{display:none}header .w{justify-content:space-between}}
+.top{padding:30px 0 6px}
+.top h1{font-size:clamp(32px,4.4vw,50px)}
+.top p{color:var(--ink2);margin-top:8px}
+.stabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.stabs button{text-align:left;background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:12px 16px;font:700 16px/1.3 Onest,sans-serif;color:var(--ink);cursor:pointer;transition:transform .2s}
+.stabs button:hover{transform:translateY(-3px)}
+.stabs button small{display:block;font:500 13px/1.4 Inter,sans-serif;color:var(--ink2);margin-top:3px}
+.stabs button.on{color:#fff;border-color:transparent;background:var(--ink)}
+.stabs button.on small{color:#fff;opacity:.85}
+.stabs [data-v=launch].on{background:var(--s1)}.stabs [data-v=syllables].on{background:var(--s2)}.stabs [data-v=develop].on{background:var(--s3)}
+.bar{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:16px;margin-top:14px;box-shadow:var(--sh)}
+.line1{display:flex;gap:10px;flex-wrap:wrap}
+.search{flex:1;min-width:220px;border:2px solid var(--line);border-radius:999px;padding:11px 18px;font:500 16px Inter,sans-serif;color:var(--ink);background:#fff}
+.search:focus{outline:0;border-color:var(--terra)}
+.chip{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 15px;font:600 14.5px Inter,sans-serif;cursor:pointer}
+.chip i{font-style:normal;color:var(--ink2);margin-left:6px;font-size:12.5px}
+.chip.on{background:var(--terra);border-color:var(--terra);color:#fff}.chip.on i{color:#fff}
+.chip:disabled{opacity:.38;cursor:default}
+.skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.ftoggle{display:none}
+.info{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:20px 0 12px;font-weight:700}
+.reset{border:0;background:none;color:var(--hl);font:700 15px Onest,sans-serif;cursor:pointer;text-decoration:underline}
+.nyc{display:flex;gap:18px;align-items:center;background:#17535b;color:#fff;border-radius:24px;overflow:hidden;padding:0 0 0 24px;margin-top:20px;min-height:112px}
+.nyc div{flex:1;padding:16px 0}.nyc b{font:800 21px Onest,sans-serif;display:block}.nyc span{color:#d8ecea;font-size:15px}
+.nyc img{width:40%;max-width:380px;height:130px;object-fit:cover;object-position:right center;align-self:stretch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.gc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--sh);transition:transform .25s}
+.gc:hover{transform:translateY(-5px)}
+.cv{position:relative;display:block;aspect-ratio:16/9;background:#fbe9cf}
+.cv img{width:100%;height:100%;object-fit:contain}
+.newb{position:absolute;right:12px;top:12px;background:var(--yellow);color:var(--ink);font:800 12.5px Onest,sans-serif;border-radius:999px;padding:5px 12px}
+.gb{display:flex;flex-direction:column;gap:9px;padding:16px 18px 20px;flex:1}
+.st{align-self:flex-start;color:#fff;border-radius:999px;padding:3px 11px;font:700 12.5px Onest,sans-serif}
+.st.s1{background:var(--s1)}.st.s2{background:var(--s2)}.st.s3{background:var(--s3)}
+.gb p{font-size:14.5px;color:var(--ink2);line-height:1.5}
+.tr b{font:700 11.5px Onest,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2)}
+.tr .tags{margin-top:5px}.tr .tags span{background:var(--cream);border:1px solid var(--line)}
+.gb .btn{margin-top:auto}
+.ad{display:flex;flex-direction:column;justify-content:flex-end;background:var(--mint);border-radius:24px;overflow:hidden;text-align:center}
+.ad img{height:230px;width:auto;margin:14px auto 0;object-fit:contain}
+.ad div{background:var(--teal);color:#fff;padding:18px 20px 22px}.ad b{font:700 19px Onest,sans-serif}.ad p{color:#d3e8e5;font-size:14.5px;margin:6px 0 14px}
+.empty{background:var(--paper);border-radius:24px;padding:36px;text-align:center}
+.sub{margin:34px 0 10px;background:var(--paper);border:2px solid var(--hitline);border-radius:26px;padding:24px 28px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.sub b{font:800 22px Onest,sans-serif;display:block}.sub span{color:var(--ink2)}
+.top{text-align:center}
+.ages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.age{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:4px solid transparent;border-radius:32px;padding:18px 22px 20px;cursor:pointer;color:var(--ink);font:500 16px Inter,sans-serif;box-shadow:var(--sh);transition:transform .3s cubic-bezier(.3,1.5,.5,1),opacity .25s,box-shadow .25s}
+.a1{background:linear-gradient(160deg,#fff3dc,#ffdf9f)}.a2{background:linear-gradient(160deg,#e9f6ee,#bfe3d0)}.a3{background:linear-gradient(160deg,#f2edff,#d3c4f4)}
+.age:hover{transform:translateY(-8px);box-shadow:0 24px 44px rgba(25,52,73,.18)}
+.age .pics{display:flex;align-items:flex-end;justify-content:center;gap:8px;align-self:stretch;height:118px;margin-bottom:10px}
+.age .pics img{height:100%;width:auto;max-width:34%;object-fit:contain;filter:drop-shadow(0 8px 7px rgba(80,50,10,.22));animation:bob 3.6s ease-in-out infinite}
+.age .pics img:nth-child(2){height:78%;animation-delay:-1.2s}.age .pics img:nth-child(3){height:88%;animation-delay:-2.4s}
+.age:hover .pics img{animation-duration:1.3s}
+@keyframes bob{50%{translate:0 -7px;rotate:2deg}}
+.age b{font:800 clamp(23px,2.4vw,29px)/1.1 Onest,sans-serif;text-wrap:balance}
+.age em{font-style:normal;font-weight:700;font-size:15.5px;line-height:1.4;min-height:2.8em;text-wrap:balance}
+.age .cnt{font-size:14px;color:var(--ink2);font-weight:600}
+.age .go{align-self:stretch;text-align:center;margin-top:10px;color:#fff;border-radius:999px;padding:11px 14px;font:700 15px Onest,sans-serif}
+.a1 .go{background:var(--s1)}.a2 .go{background:var(--s2)}.a3 .go{background:var(--s3)}
+.age .ok{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 19px Onest,sans-serif;opacity:0;scale:.4;transition:.3s cubic-bezier(.3,1.7,.5,1)}
+.a1 .ok{background:var(--s1)}.a2 .ok{background:var(--s2)}.a3 .ok{background:var(--s3)}
+.a1.on{border-color:var(--s1)}.a2.on{border-color:var(--s2)}.a3.on{border-color:var(--s3)}
+.age.on .ok{opacity:1;scale:1}.age.off{opacity:.5;filter:saturate(.6)}.age.off:hover{opacity:1;filter:none}
+.skh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;justify-content:center;margin:34px 0 14px}
+.skh h2{font-size:clamp(22px,2.6vw,28px)}.skh span{color:var(--ink2);font-size:14.5px}
+.sks{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.sk{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:#fff;border:3px solid transparent;border-radius:24px;padding:12px 6px 11px;cursor:pointer;color:var(--ink);box-shadow:0 8px 22px rgba(25,52,73,.08);transition:transform .25s cubic-bezier(.3,1.6,.5,1),border-color .2s,background .2s}
+.sk:hover:not(:disabled){transform:translateY(-6px)}
+.sk .ic{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:var(--cream)}
+.sk .ic img{width:62px;height:62px;object-fit:contain;transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.sk:hover:not(:disabled) .ic img{transform:scale(1.14) rotate(-6deg)}
+.sk:nth-child(1) .ic{background:#fdf0cd}.sk:nth-child(2) .ic{background:#f9e4d5}.sk:nth-child(3) .ic{background:#ddeefa}.sk:nth-child(4) .ic{background:#e5f1e4}.sk:nth-child(5) .ic{background:#fbe6e6}.sk:nth-child(6) .ic{background:#e9e3f7}.sk:nth-child(7) .ic{background:#dfeee9}
+.sk b{font:700 14px/1.25 Onest,sans-serif;min-height:2.5em;display:grid;align-items:center;text-wrap:balance}
+.sk i{font:600 12px Inter,sans-serif;font-style:normal;color:var(--ink2)}
+.sk.on{border-color:var(--terra);background:var(--pick);transform:translateY(-4px)}
+.sk:disabled{opacity:.4;cursor:default;filter:grayscale(.8)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.find{flex:1;max-width:520px;min-width:240px;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:0 18px}
+.find:focus-within{border-color:var(--terra)}
+.find input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:13px 0;font:500 16px Inter,sans-serif;color:var(--ink)}
+.tools .chip{padding:11px 20px;font-size:15px}
+.info{scroll-margin-top:136px;min-height:20px}
+.sec{scroll-margin-top:136px;margin-top:10px}
+.sh{display:flex;gap:16px;align-items:center;margin:18px 0 16px;padding:14px 20px;border-radius:24px}
+.sec.s1 .sh{background:linear-gradient(90deg,#ffe6b4,rgba(255,243,220,.2))}.sec.s2 .sh{background:linear-gradient(90deg,#c9e8d8,rgba(233,246,238,.2))}.sec.s3 .sh{background:linear-gradient(90deg,#d9ccf6,rgba(242,237,255,.2))}
+.sh img{width:70px;height:70px;object-fit:contain}.sh h2{font-size:clamp(23px,3vw,32px)}.sh p{color:var(--ink2);font-size:15px}
+.mini{position:fixed;left:0;right:0;top:70px;z-index:19;background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(25,52,73,.08);translate:0 -12px;opacity:0;visibility:hidden;transition:.25s}
+.mini.show{translate:0 0;opacity:1;visibility:visible}
+.mini .w{display:flex;gap:8px;justify-content:center;padding-top:8px;padding-bottom:8px;overflow-x:auto}
+.mini button{flex:none;display:flex;align-items:center;gap:7px;min-height:42px;border:2px solid var(--line);background:#fff;border-radius:999px;padding:4px 16px;font:700 14px Onest,sans-serif;color:var(--ink);cursor:pointer}
+.mini button img{width:30px;height:30px;object-fit:contain}
+.mini button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.mini .m1.on{background:var(--s1);border-color:var(--s1)}.mini .m2.on{background:var(--s2);border-color:var(--s2)}.mini .m3.on{background:var(--s3);border-color:var(--s3)}
+@media(min-width:901px) and (max-width:1140px){.sks{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){
+ .ages{grid-template-columns:1fr;gap:12px}
+ .age .pics{height:84px}.age em{min-height:0}
+ .sks{display:flex;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory}
+ .sk{flex:0 0 112px;scroll-snap-align:start}.sk .ic{width:66px;height:66px}.sk .ic img{width:52px;height:52px}
+ .skh{justify-content:flex-start}
+ .find{flex-basis:100%;max-width:none}.tools .chip{flex:1}
+ .mini{top:62px}.mini .w{justify-content:flex-start}
+}
+/* воздух и спокойная раскладка */
+main.w{max-width:1140px}
+.top{padding:40px 0 0}.top h1{font-size:clamp(32px,4vw,46px)}.top p{margin-top:12px;font-size:18px}
+.today{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;margin-top:30px;padding:30px 36px;border-radius:30px;background:var(--mint)}
+.today h2{font-size:clamp(23px,2.6vw,30px);margin-top:12px}
+.today p{margin-top:10px;color:#3d5a63;max-width:34em;line-height:1.6}
+.today .path3{display:flex;align-items:flex-start;gap:30px;position:relative}
+.today .path3::before{content:"";position:absolute;left:40px;right:40px;top:34px;border-top:6px dotted #9fc6bb}
+.today .path3 div{position:relative;display:grid;justify-items:center;gap:9px;width:86px;text-align:center;font:700 13.5px/1.3 Onest,sans-serif;color:var(--teal)}
+.today .path3 i{width:74px;height:74px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 7px 0 #b8d6cd}
+.today .path3 img{width:52px;height:52px;object-fit:contain}
+.pickh{text-align:center;margin:56px 0 24px}.pickh h2{font-size:clamp(25px,3vw,34px)}.pickh p{margin-top:8px;color:var(--ink2)}
+.ages{gap:24px;margin:0}
+.age{padding:20px 22px 22px;gap:6px}
+.age .pics{height:100px;margin-bottom:12px}
+.age b{font-size:clamp(22px,2.2vw,27px)}
+.skh{margin:56px 0 22px}
+.sks{gap:14px}
+.sk{padding:16px 8px 14px;gap:10px}
+.sk .ic{width:70px;height:70px}.sk .ic img{width:54px;height:54px}
+.sk b{font-size:14px}
+.tools{margin-top:32px;gap:14px}
+.nyc{display:block;position:relative;margin-top:48px;padding:0;aspect-ratio:auto;min-height:190px;overflow:hidden;background:#145057;border-radius:30px}
+.nyc img{position:absolute;right:0;top:0;width:auto;height:100%;max-width:none;object-fit:cover}
+.nyc div{position:relative;z-index:1;padding:36px 36px;max-width:48%}
+.nyc b{font-size:clamp(21px,2.4vw,28px);line-height:1.2}
+.nyc span:last-child{display:block;margin-top:6px}
+.info{margin:40px 0 4px}
+.sec{margin-top:30px}.sh{margin:10px 0 24px;padding:20px 26px;gap:20px}
+.grid{gap:26px}
+@media(max-width:900px){
+ .today{grid-template-columns:1fr;gap:26px;padding:24px 20px}
+ .today .path3{justify-content:space-between;gap:8px}
+ .pickh,.skh{margin-top:40px}
+ .ages{gap:16px}.age .pics{height:84px}
+ .sk{flex:0 0 112px}
+ .nyc div{max-width:none;padding:24px 22px 8px}
+ .nyc img{position:static;width:100%;height:170px;object-position:88% center}
+}
+.nyc img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%);mask-image:linear-gradient(90deg,transparent,#000 24%)}
+.info{margin:0;padding-top:26px;min-height:0}.sec{margin-top:0}
+.age em{min-height:0;margin-bottom:2px}
+.age .pics img{max-width:36%}
+@media(max-width:900px){.nyc img{-webkit-mask-image:none;mask-image:none}}
+.nyc .soon{color:var(--ink);font-size:12px}
+.info{padding-top:12px}
+[hidden]{display:none!important}
+footer{padding-bottom:50px}
+@media(max-width:900px){
+ .stabs{grid-template-columns:1fr 1fr}
+ .grid{grid-template-columns:1fr}
+ .ftoggle{display:inline-flex}
+ .skills{display:none}.bar.open .skills{display:flex}
+ .nyc{flex-direction:column;align-items:stretch;padding:0}.nyc div{padding:16px 18px 0}.nyc img{width:100%;max-width:none}
+}
+@media(min-width:901px) and (max-width:1060px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>footer .req2{width:100%;font-size:13px;line-height:1.6;margin:6px 0 0}</style>
+<title>Упражнения для запуска и развития речи у детей онлайн, есть бесплатные</title>
+<meta name="description" content="Онлайн-упражнения для запуска и развития речи у детей, есть бесплатные: звукоподражания, слоговая структура, предлоги, местоимения, множественное число, связный рассказ, понимание речи. Логопедам, дефектологам и родителям. Автор: Александра Карачинцева.">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#f0a62b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Запуск речи"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="ic_apple.png">
+<!--seo-->
 <link rel="canonical" href="https://igrovoylogoped.ru/games/">
 <link rel="alternate" hreflang="ru" href="https://igrovoylogoped.ru/games/">
 <link rel="alternate" hreflang="x-default" href="https://igrovoylogoped.ru/games/">
@@ -194,435 +590,85 @@ footer{margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
 </script>
 <!-- /Yandex.Metrika counter -->
 <!--/seo-->
+<link rel="stylesheet" href="/platform/platform.css">
 </head>
 <body>
 <noscript><div><img src="https://mc.yandex.ru/watch/114300635" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<div class="blobs"><i></i><i></i><i></i></div>
-<main><a class="homebtn" href="../">← На главную</a>
-  <section class="hero">
-    <div class="reveal">
-      <div class="kicker">Занятия для логопедов и родителей</div>
-      <h1>Запуск речи</h1>
-      <p class="sub">Интерактивные занятия для развития речи</p>
-      <p class="lead">Есть бесплатные задания. Занятия от доречевого этапа до связной речи: слуховое внимание, дыхание и голос, звукоподражания, слоги, грамматика, рассказ. У каждого занятия есть описание: что оно развивает и при каких трудностях полезно.</p>
-      <a class="cta" href="#agesTitle">Выбрать занятие ↓</a>
-    </div>
-    <div class="stage reveal" style="--d:.2s">
-      <div class="bubble">Привет! Я Александра. Давайте будем играть и учиться красиво говорить!</div>
-      <img class="nm" src="assets/narrator_wave.png" alt="Александра Карачинцева, глиняная версия">
-      <img class="toy" src="assets/toy_pyramid.png" alt="" style="left:1%;bottom:2%;--w:88px;--d:0s" loading="lazy" decoding="async">
-      <img class="toy" src="assets/toy_drum.png" alt="" style="left:-1%;bottom:calc(2% + 104px);--w:96px;--d:-1.1s" loading="lazy" decoding="async">
-      <img class="toy ball" src="assets/toy_ball.png" alt="" style="right:1%;bottom:2%;--w:92px;--d:-.5s" loading="lazy" decoding="async">
-      <img class="toy" src="assets/toy_xylophone.png" alt="" style="right:-2%;bottom:calc(2% + 104px);--w:116px;--d:-1.8s" loading="lazy" decoding="async">
-      <i class="spark" style="left:8%;top:30%;--d:0s"></i><i class="spark" style="right:6%;top:18%;--d:1.1s"></i><i class="spark" style="right:12%;bottom:30%;--d:2s"></i>
-    </div>
-  </section>
-
-  <div class="agehead reveal"><h2 id="agesTitle">Что нужно ребёнку?</h2><p class="secsub">Выберите этап: нажмите на блок, и страница спустится к нужным упражнениям. Всего в каталоге 31 упражнение.</p></div>
-  <nav class="agenav reveal" id="ages" aria-label="Выбор по этапу речи">
-    <a href="#launch" class="ag1"><div class="agpics"><img src="assets/an_cow.png" alt="Корова" loading="lazy" decoding="async"><img src="assets/sp_boat.png" alt="" loading="lazy" decoding="async"><img src="assets/hr_phone.png" alt="Телефон" loading="lazy" decoding="async"></div><b>Запуск речи</b><em>Ребёнок пока не говорит или говорит мало</em><span class="agcount">9 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
-    <a href="#syllables" class="ag2"><div class="agpics"><img src="assets/an_duck.png" alt="" loading="lazy" decoding="async"><img src="assets/sprite_ball.png" alt="Мячик" loading="lazy" decoding="async"><img src="assets/an_car.png" alt="" loading="lazy" decoding="async"></div><b>Слоги и первые слова</b><em>Ребёнок уже произносит слоги и лепетные слова</em><span class="agcount">9 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
-    <a href="#develop" class="ag3"><div class="agpics"><img src="assets/narrator_book.png" alt="Александра с книгой" loading="lazy" decoding="async"><img src="assets/toy_ball.png" alt="" loading="lazy" decoding="async"><img src="assets/sp_train.png" alt="Паровозик" loading="lazy" decoding="async"></div><b>Развитие речи</b><em>Ребёнок уже говорит словами и фразами</em><span class="agcount">13 упражнений</span><span class="agbtn">Смотреть ↓</span></a>
-  </nav>
-
-  <h2 id="launch">Запуск речи: доречевые навыки</h2>
-  <p class="secsub">Для детей, которые пока не говорят или говорят мало. Развиваем доречевые навыки: слуховое внимание, дыхание, голос, подражание и просьбу. Готовим базу для формирования речи. Начинайте с подражания, паузы и слуха, потом переходите к голосу и просьбе.</p>
-  <div class="cards">
-    <a class="lcard reveal" style="--d:.1s" href="chto-zvuchit/">
-      <div class="cover"><img src="img/cover_hear.jpg" alt="Что звучит?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Что звучит?</h3>
-        <p>Слуховое внимание и различение неречевых звуков: ребёнок узнаёт настоящие бытовые звуки и выбирает картинку.</p>
-        <div class="tags"><span class="tag">слуховое внимание</span><span class="tag">дифференциация звуков</span><span class="tag">словарь</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2 s" href="duem-i-plyvem/">
-      <div class="cover"><img src="img/blow/bg_sea.jpg" alt="Дуем и плывём" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Дуем и плывём</h3>
-        <p>Речевое дыхание и голос: длинный плавный выдох, короткие выдохи, гудение «у-у-у». 5 сцен, работает с микрофоном.</p>
-        <div class="tags"><span class="tag">речевое дыхание</span><span class="tag">голос</span><span class="tag">микрофон</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.3 s" href="golosovoy-zverek/">
-      <div class="cover"><img src="img/cover_voice.jpg" alt="Голосовой зверёк" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Голосовой зверёк</h3>
-        <p>Мотивация к вокализации: любой звук ребёнка оживляет зверька. Первый шаг для неговорящих детей.</p>
-        <div class="tags"><span class="tag">вокализации</span><span class="tag">голос</span><span class="tag">мотивация</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.4 s" href="ferma/">
-      <div class="cover"><img src="img/sounds_cover.jpg" alt="Кто как говорит: ферма" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Кто как говорит: ферма</h3>
-        <p>Звукоподражания и первые слова: настоящие голоса животных и звуки транспорта, 2 набора с игрой на угадывание.</p>
-        <div class="tags"><span class="tag">звукоподражания</span><span class="tag">первые слова</span><span class="tag">слуховое внимание</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.5 s" href="hochu/">
-      <div class="cover"><img src="img/cover_want.jpg" alt="Хочу!" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Хочу!</h3>
-        <p>Функциональная коммуникация: ребёнок учится просить «дай» словом, жестом или картинкой.</p>
-        <div class="tags"><span class="tag">просьба</span><span class="tag">коммуникация</span><span class="tag">первые слова</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="povtori-za-mnoj/">
-      <div class="cover"><img src="img/cover_ng_imit.jpg" alt="Повтори за мной" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Повтори за мной</h3>
-        <p>Подражание: хлопаем, топаем, двигаем пальчиками и губами вслед за Тёмой. 20 движений, 4 уровня.</p>
-        <div class="tags"><span class="tag">подражание</span><span class="tag">моторика</span><span class="tag">мимика</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="raz-dva-tri-pauza/">
-      <div class="cover"><img src="img/cover_ng_pause.jpg" alt="Раз, два, три… пауза!" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Раз, два, три… пауза!</h3>
-        <p>Всё замирает и ждёт сигнала ребёнка: взгляда, жеста или звука. 8 сценок.</p>
-        <div class="tags"><span class="tag">инициатива</span><span class="tag">общение</span><span class="tag">первые звуки</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="sedobnoe-nesedobnoe/">
-      <div class="cover"><img src="img/cover_ng_edible.jpg" alt="Съедобное — несъедобное" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Съедобное — несъедобное</h3>
-        <p>Кормим мишку и отвечаем «это едят?» словом, кивком или жестом.</p>
-        <div class="tags"><span class="tag">понимание речи</span><span class="tag">«да» и «нет»</span><span class="tag">словарь</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="najdi-takoj-zhe/">
-      <div class="cover"><img src="img/cover_ng_same.jpg" alt="Найди такой же" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Найди такой же</h3>
-        <p>Одинаковые картинки, тени и разные предметы с одним названием. 3 уровня.</p>
-        <div class="tags"><span class="tag">внимание</span><span class="tag">сопоставление</span><span class="tag">обобщение</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-  </div>
-
-  <h2 id="syllables">Слоги и первые слова</h2>
-  <p class="secsub">Для детей, которые уже произносят слоги и лепетные слова (ма-ма, ба-ба, ла-ла-ла). Отрабатываем артикуляцию, слоговую структуру слова, внимание и память.</p>
-  <div class="cards">
-    <a class="lcard reveal" style="--d:.1s" href="najdi-paru/">
-      <div class="cover"><img src="img/cover_pairs.jpg" alt="Найди пару" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Найди пару</h3>
-        <p>Внимание и зрительная память с проговариванием слов по слогам. 4 уровня.</p>
-        <div class="tags"><span class="tag">внимание</span><span class="tag">память</span><span class="tag">слова по слогам</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2 s" href="slogovaya-struktura/">
-      <div class="cover"><img src="img/syll_cover.jpg" alt="Слоговая структура слова" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Слоговая структура слова</h3>
-        <p>Слова от «дом» до «крокодил»: слогоделение и воспроизведение слоговой структуры. 24 слова, 4 уровня.</p>
-        <div class="tags"><span class="tag">слоговая структура</span><span class="tag">слогоделение</span><span class="tag">4 уровня</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.3 s" href="zvuki-i-slogi/">
-      <div class="cover"><img src="img/cover_chain.jpg" alt="Звуки и слоги: логопед показывает" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Звуки и слоги: логопед показывает</h3>
-        <p>Гласные, прямые слоги, цепочки ПА-ТА-КА, глухие и звонкие. Ведёт взрослый, ребёнок повторяет.</p>
-        <div class="tags"><span class="tag">артикуляция</span><span class="tag">слоги</span><span class="tag">ПА-ТА-КА</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="pervye-slova/">
-      <div class="cover"><img src="img/cover_ng_word.jpg" alt="Первые слова" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Первые слова</h3>
-        <p>«Дай», «ещё», «помоги», «открой», «всё»: слово или жест меняет картинку.</p>
-        <div class="tags"><span class="tag">первые слова</span><span class="tag">просьба</span><span class="tag">жесты</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="ku-ku-kto-tam/">
-      <div class="cover"><img src="img/cover_ng_peek.jpg" alt="Ку-ку! Кто там?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Ку-ку! Кто там?</h3>
-        <p>Прячутся мама, папа и киса. Учимся говорить «тут», «там», «вот».</p>
-        <div class="tags"><span class="tag">первые слова</span><span class="tag">указательный жест</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="oj-bah-nyam/">
-      <div class="cover"><img src="img/cover_ng_oi.jpg" alt="Ой! Бах! Ням!" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Ой! Бах! Ням!</h3>
-        <p>Живые сценки с короткими словами: бах, ой, ух, ням-ням, буль-буль, кап-кап.</p>
-        <div class="tags"><span class="tag">восклицания</span><span class="tag">подражание голосу</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="barabanchik/">
-      <div class="cover"><img src="img/cover_ng_drum.jpg" alt="Барабанчик" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Барабанчик</h3>
-        <p>Мишка отбивает ритм, ребёнок повторяет: от ударов к словам по слогам.</p>
-        <div class="tags"><span class="tag">ритм</span><span class="tag">слоги</span><span class="tag">слуховое внимание</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="dogovori-slovechko/">
-      <div class="cover"><img src="img/cover_ng_rhyme.jpg" alt="Договори словечко" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Договори словечко</h3>
-        <p>Стишки с живыми героями: ребёнок договаривает звук или слово, и герой радуется.</p>
-        <div class="tags"><span class="tag">договаривание</span><span class="tag">рифма</span><span class="tag">словарь</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2s" href="pervaya-fraza/">
-      <div class="cover"><img src="img/cover_ng_phrase.jpg" alt="Первая фраза" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Первая фраза</h3>
-        <p>«Мама, дай», «ещё сок», «киса спит»: две картинки, и сценка оживает.</p>
-        <div class="tags"><span class="tag">фраза</span><span class="tag">два слова</span><span class="tag">глаголы</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-  </div>
-
-  <h2 id="develop">Развитие речи: слова, фразы, рассказ</h2>
-  <p class="secsub">Для детей, которые уже говорят словами и фразами. Предлоги, падежи, связный рассказ, понимание ситуаций и эмоций.</p>
-  <div class="cards">
-    <a class="lcard reveal" style="--d:.1s" href="gde-myachik/">
-      <div class="cover"><img src="img/ball/b3_sofa.jpg" alt="Где мячик?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Где мячик?</h3>
-        <p>Предлоги «в», «на», «под», «за», «около» и пространственные представления. 7 комнат.</p>
-        <div class="tags"><span class="tag">предлоги</span><span class="tag">пространство</span><span class="tag">фразы</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.2 s" href="rasskazyvaem-po-kartinkam/">
-      <div class="cover"><img src="img/01_olya_morning.jpg" alt="Рассказываем по картинкам" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Рассказываем по картинкам</h3>
-        <p>Связная речь: ответы на вопросы, рассказ по сюжетной картинке, пересказ. 6 картинок.</p>
-        <div class="tags"><span class="tag">связная речь</span><span class="tag">рассказ</span><span class="tag">глаголы</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.3 s" href="tualetnye-dela-tyomy/">
-      <div class="cover"><img src="img/potty/s5.jpg" alt="Туалетные дела Тёмы" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Туалетные дела Тёмы</h3>
-        <p>Последовательность действий и рассказ по серии картинок: туалет, гигиена, мытьё рук. 2 истории: 9 и 6 эпизодов.</p>
-        <div class="tags"><span class="tag">последовательность</span><span class="tag">рассказ</span><span class="tag">бытовой словарь</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.4 s" href="den-v-detskom-sadu/">
-      <div class="cover"><img src="img/gram/g1_s6.jpg" alt="Один день в детском саду" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Один день в детском саду</h3>
-        <p>Предлоги и падежи, ответы на вопросы и связный рассказ. 8 сцен, режимы «Обучение» и «Диагностика».</p>
-        <div class="tags"><span class="tag">предлоги</span><span class="tag">падежи</span><span class="tag">рассказ</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.5 s" href="chya-veshch/">
-      <div class="cover"><img src="img/gram/g2_bg.jpg" alt="Чья вещь? Кому отдадим?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Чья вещь? Кому отдадим?</h3>
-        <p>Род, число и падежи, притяжательные местоимения (чей, чья, чьё, чьи). 4 уровня.</p>
-        <div class="tags"><span class="tag">согласование</span><span class="tag">падежи</span><span class="tag">род и число</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.6 s" href="kto-chto-chuvstvuet/">
-      <div class="cover"><img src="img/gram/g3_s1.jpg" alt="Кто что чувствует?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Кто что чувствует?</h3>
-        <p>Эмоции, их причины и что сказать в трудной ситуации. 8 ситуаций.</p>
-        <div class="tags"><span class="tag">эмоции</span><span class="tag">причины</span><span class="tag">социальные навыки</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.7 s" href="chto-zdes-ne-tak/">
-      <div class="cover"><img src="img/gram/g4_a1.jpg" alt="Что здесь не так?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Что здесь не так?</h3>
-        <p>Нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок.</p>
-        <div class="tags"><span class="tag">логика</span><span class="tag">объяснение</span><span class="tag">грамматика</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:.8s" href="rasskazhi-po-kartinke/">
-      <div class="cover"><img src="img/tell_cover.jpg" alt="Расскажи по картинке" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Расскажи по картинке</h3>
-        <p>Описание предмета по плану: кто это, какой, что есть, где живёт, что делает. 6 карточек, в конце устный рассказ.</p>
-        <div class="tags"><span class="tag">описание</span><span class="tag">рассказ</span><span class="tag">словарь</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:0.9s" href="u-nego-ili-u-neyo/">
-      <div class="cover"><img src="img/hers_cover.jpg" alt="У него или у неё?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>У него или у неё?</h3>
-        <p>Местоимения он и она: у него, у неё. 12 заданий с мальчиками и девочками.</p>
-        <div class="tags"><span class="tag">местоимения</span><span class="tag">род</span><span class="tag">предложения</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:1s" href="odin-mnogo/">
-      <div class="cover"><img src="img/many_cover.jpg" alt="Один — много" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Один — много</h3>
-        <p>Единственное и множественное число существительных. 10 заданий, задание можно прослушать.</p>
-        <div class="tags"><span class="tag">число</span><span class="tag">словоизменение</span><span class="tag">слух</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:1.1s" href="vyberi-pravilnuyu-kartinku/">
-      <div class="cover"><img src="img/pick_cover.jpg" alt="Выбери правильную картинку" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Выбери правильную картинку</h3>
-        <p>Понимание речи, логика и словарь: чем чистят зубы, на чём спят. 10 заданий.</p>
-        <div class="tags"><span class="tag">понимание речи</span><span class="tag">словарь</span><span class="tag">логика</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:1.2s" href="kto-chto-delaet/">
-      <div class="cover"><img src="img/gram/g5_s1.jpg" alt="Кто что делает?" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Кто что делает?</h3>
-        <p>Связная речь: кто на картинке, что делает, что ещё видно. 10 сюжетных картинок, пример ответа по кнопке.</p>
-        <div class="tags"><span class="tag">действия</span><span class="tag">полные предложения</span><span class="tag">рассказ</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <a class="lcard reveal" style="--d:1.3s" href="davaj-poznakomimsya/">
-      <div class="cover"><img src="img/meet_cover.jpg" alt="Давай познакомимся!" loading="lazy" decoding="async"></div>
-      <div class="body">
-        <h3>Давай познакомимся!</h3>
-        <p>Игра для первого занятия: Оля задаёт вопросы о семье, играх, питомцах и погоде, а потом ребёнок сам задаёт вопросы. 14 тем без неправильных ответов.</p>
-        <div class="tags"><span class="tag">знакомство</span><span class="tag">диалог</span><span class="tag">задай вопрос</span></div>
-        <span class="go">Открыть занятие ›</span>
-      </div>
-    </a>
-    <div class="lcard lc-next">
-      <div class="cover"><img src="assets/toy_pyramid.png" alt="" loading="lazy" decoding="async"><span class="lc-badge">Скоро новая игра</span></div>
-      <div class="body">
-        <h3>Что к чему?</h3>
-        <p>Обобщающие слова: раскладываем одежду, посуду и игрушки по группам.</p>
-        <div class="tags"><span class="tag">словарь</span></div>
-      </div>
-    </div>
-  </div>
-
-<h2>Об авторе</h2>
-  <div class="about reveal">
-    <img src="assets/alexandra.jpg" alt="Александра Карачинцева" loading="lazy" decoding="async">
-    <div class="t">
-      <b>Александра Карачинцева</b>
-      <p>Поведенческий аналитик, специалист по запуску речи, психолог. Загляните ко мне: там новые занятия и полезные материалы.</p>
-      <div class="social">
-        <a class="sbtn ig" href="https://www.instagram.com/igrovoy_logoped" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.3 6.1a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1-1 0-1.7.2-2.3.4-.6.2-1.2.6-1.7 1.1-.5.5-.9 1.1-1.1 1.7-.2.6-.4 1.3-.4 2.3C2.5 9.1 2.5 9.4 2.5 12s0 2.9.1 3.9c0 1 .2 1.7.4 2.3.2.6.6 1.2 1.1 1.7.5.5 1.1.9 1.7 1.1.6.2 1.3.4 2.3.4 1 .1 1.3.1 3.9.1s2.9 0 3.9-.1c1 0 1.7-.2 2.3-.4.6-.2 1.2-.6 1.7-1.1.5-.5.9-1.1 1.1-1.7.2-.6.4-1.3.4-2.3.1-1 .1-1.3.1-3.9s0-2.9-.1-3.9c0-1-.2-1.7-.4-2.3a4.6 4.6 0 0 0-1.1-1.7 4.6 4.6 0 0 0-1.7-1.1c-.6-.2-1.3-.4-2.3-.4-1-.1-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1.9 0 1.4.2 1.7.3.4.2.7.4 1 .7.3.3.5.6.7 1 .1.3.3.8.3 1.7.1 1 .1 1.3.1 3.8s0 2.8-.1 3.8c0 .9-.2 1.4-.3 1.7-.2.4-.4.7-.7 1-.3.3-.6.5-1 .7-.3.1-.8.3-1.7.3-1 .1-1.3.1-3.8.1s-2.8 0-3.8-.1c-.9 0-1.4-.2-1.7-.3-.4-.2-.7-.4-1-.7-.3-.3-.5-.6-.7-1-.1-.3-.3-.8-.3-1.7-.1-1-.1-1.3-.1-3.8s0-2.8.1-3.8c0-.9.2-1.4.3-1.7.2-.4.4-.7.7-1 .3-.3.6-.5 1-.7.3-.1.8-.3 1.7-.3 1-.1 1.3-.1 3.8-.1z"/></svg>Instagram</a>
-        <a class="sbtn tg" href="https://t.me/rechi_igra" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.7 4.2 2.9 11c-1.2.5-1.2 1.2-.2 1.5l4.5 1.4 1.7 5.3c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3-14.2c.3-1.2-.5-1.8-1.4-1.6zM9 13.7l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.4-.3 3z"/></svg>Telegram</a>
-        <a class="sbtn vk" href="https://vk.ru/id286171382" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.8 17.3c-6.3 0-9.9-4.3-10.1-11.5h3.2c.1 5.3 2.4 7.5 4.2 8V5.8h3v4.6c1.8-.2 3.7-2.3 4.3-4.6h3c-.5 2.8-2.6 4.9-4.1 5.8 1.5.7 3.9 2.5 4.8 5.7h-3.3c-.7-2.2-2.5-3.9-4.7-4.1v4.1h-.3z"/></svg>ВКонтакте</a>
-        <a class="sbtn yt" href="https://www.youtube.com/@rechi_igra" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>YouTube</a>
-      </div>
-    </div>
-  </div>
-  <footer>© Александра Карачинцева · Запуск речи</footer>
+<header><div class="w">
+  <a class="logo" href="/"><img id="logoImg" src="/platform/img/logo_b.png" alt=""><span>Игровой <em>логопед</em></span></a>
+  <nav><a href="/games/" class="cur">Все игры</a><a href="/games/segodnya/">Занятие на сегодня</a><a href="/#check">Проверка речи</a><a href="/#price">Тарифы</a><a href="/#faq">Вопросы</a><a href="/games/kabinet/">Войти</a></nav>
+  <a class="btn main small" href="/games/?free=1">Попробовать</a>
+</div></header>
+<div class="mini" id="mini"><div class="w"><button type="button" data-v="">Все</button><button type="button" class="m1" data-v="launch"><img src="/platform/img/nav/an_cow.png" alt="">Запуск речи</button><button type="button" class="m2" data-v="syllables"><img src="/platform/img/nav/an_duck.png" alt="">Слоги и первые слова</button><button type="button" class="m3" data-v="develop"><img src="/platform/img/nav/sprite_mt_a_read.png" alt="">Развитие речи</button></div></div>
+<main class="w">
+  <div class="top"><h1>Все игры</h1><p>Подберите игры для своего ребёнка: по этапу речи или по навыку.</p></div>
+  <div class="today" id="today"><div><span class="soon">Пробная версия</span><h2>Не знаете, во что играть сегодня?</h2><p>Один раз укажите, как говорит ребёнок и что хотите развивать. «Занятие на сегодня» само предложит 3 подходящие игры. Не понравилась игра: замените.</p><a class="btn main" href="/games/segodnya/" style="margin-top:18px">Подобрать 3 игры →</a></div>
+    <div class="path3" aria-hidden="true"><div><i><img src="/platform/img/nav/hr_bell.png" alt=""></i>Игра 1</div><div><i><img src="/platform/img/nav/w_dom.png" alt=""></i>Игра 2</div><div><i><img src="/platform/img/nav/sp_train.png" alt=""></i>Игра 3</div></div></div>
+  <div class="pickh" id="agesTitle"><h2>Что нужно ребёнку?</h2><p>Нажмите на картинку, и мы покажем подходящие игры.</p></div>
+  <div class="ages" id="ages" role="group" aria-label="Этап речи"><button type="button" class="age a1" data-v="launch" aria-pressed="false"><span class="ok">✓</span><span class="pics"><img src="/platform/img/nav/an_cow.png" alt=""><img src="/platform/img/nav/sp_boat.png" alt=""><img src="/platform/img/nav/hr_phone.png" alt=""></span><b>Запуск речи</b><em>Не говорит или говорит очень мало</em><span class="cnt">9 игр</span><span class="go">Показать игры ↓</span></button><button type="button" class="age a2" data-v="syllables" aria-pressed="false"><span class="ok">✓</span><span class="pics"><img src="/platform/img/nav/an_duck.png" alt=""><img src="/platform/img/nav/sprite_ball.png" alt=""><img src="/platform/img/nav/an_car.png" alt=""></span><b>Слоги и первые слова</b><em>Есть слоги и первые слова</em><span class="cnt">9 игр</span><span class="go">Показать игры ↓</span></button><button type="button" class="age a3" data-v="develop" aria-pressed="false"><span class="ok">✓</span><span class="pics"><img src="/platform/img/nav/sprite_mt_a_read.png" alt=""><img src="/platform/img/nav/toy_ball.png" alt=""><img src="/platform/img/nav/sp_train.png" alt=""></span><b>Развитие речи</b><em>Говорит словами и фразами</em><span class="cnt">13 игр</span><span class="go">Показать игры ↓</span></button></div>
+  <div class="skh"><h2>Что хотите потренировать?</h2><span>Можно выбрать один навык</span></div>
+  <div class="sks" role="group" aria-label="Навык"><button type="button" class="sk" data-v="hear" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/hr_bell.png" alt=""></span><b>Слух и внимание</b><i></i></button><button type="button" class="sk" data-v="talk" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/clap_hands.png" alt=""></span><b>Подражание и общение</b><i></i></button><button type="button" class="sk" data-v="voice" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/sp_balloon.png" alt=""></span><b>Дыхание и голос</b><i></i></button><button type="button" class="sk" data-v="sound" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/toy_drum.png" alt=""></span><b>Звуки и слоги</b><i></i></button><button type="button" class="sk" data-v="words" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/w_dom.png" alt=""></span><b>Слова</b><i></i></button><button type="button" class="sk" data-v="gram" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/sprite_blocks.png" alt=""></span><b>Грамматика и фразы</b><i></i></button><button type="button" class="sk" data-v="story" aria-pressed="false"><span class="ic"><img src="/platform/img/nav/sprite_mt_a_read.png" alt=""></span><b>Понимание и рассказ</b><i></i></button></div>
+  <div class="tools"><label class="find"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Найти игру: например, предлоги" aria-label="Поиск игры"></label>
+    <button type="button" class="chip" data-g="flag" data-v="free" aria-pressed="false">💚 Бесплатные</button>
+    <button type="button" class="chip" data-g="flag" data-v="new" aria-pressed="false">✨ Новые</button></div>
+  <div class="nyc" id="nyc"><div><span class="soon">Скоро</span><b style="margin-top:8px">Новогодняя подборка</b><span>Готовим новогодние игры.</span></div><img src="/platform/img/ny_santa.jpg" alt=""></div>
+  <div class="info" id="info"><span id="count" aria-live="polite"></span><button type="button" class="reset" id="reset" hidden>Показать все игры</button></div>
+  <div id="grid"><section class="sec s1" data-sec="launch" id="launch"><div class="sh"><img src="/platform/img/nav/an_cow.png" alt=""><div><h2>Запуск речи</h2><p>Слух, дыхание, голос, подражание и просьба.</p></div></div><div class="grid"><article class="gc" data-stage="launch" data-skills="hear words" data-new="0" data-free="1" data-text="что звучит? слуховое внимание и различение неречевых звуков: ребёнок узнаёт настоящие бытовые звуки и выбирает картинку. слуховое внимание дифференциация звуков словарь"><a class="cv" href="/games/chto-zvuchit/" tabindex="-1"><img src="/platform/img/g/chto-zvuchit.jpg" alt="" loading="lazy"><span class="badge">Бесплатно</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Что звучит?</h3><p>Слуховое внимание и различение неречевых звуков: ребёнок узнаёт настоящие бытовые звуки и выбирает картинку.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>слуховое внимание</span><span>дифференциация звуков</span><span>словарь</span></div></div><a class="btn main small" href="/games/chto-zvuchit/">Играть бесплатно</a></div></article><article class="gc" data-stage="launch" data-skills="voice" data-new="0" data-free="0" data-text="дуем и плывём речевое дыхание и голос: длинный плавный выдох, короткие выдохи, гудение «у-у-у». 5 сцен, работает с микрофоном. речевое дыхание голос микрофон"><a class="cv" href="/games/duem-i-plyvem/" tabindex="-1"><img src="/platform/img/g/duem-i-plyvem.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Дуем и плывём</h3><p>Речевое дыхание и голос: длинный плавный выдох, короткие выдохи, гудение «у-у-у». 5 сцен, работает с микрофоном.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>речевое дыхание</span><span>голос</span><span>микрофон</span></div></div><a class="btn line small" href="/games/duem-i-plyvem/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="talk voice" data-new="0" data-free="0" data-text="голосовой зверёк мотивация к вокализации: любой звук ребёнка оживляет зверька. первый шаг для неговорящих детей. вокализации голос мотивация"><a class="cv" href="/games/golosovoy-zverek/" tabindex="-1"><img src="/platform/img/g/golosovoy-zverek.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Голосовой зверёк</h3><p>Мотивация к вокализации: любой звук ребёнка оживляет зверька. Первый шаг для неговорящих детей.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>вокализации</span><span>голос</span><span>мотивация</span></div></div><a class="btn line small" href="/games/golosovoy-zverek/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="hear talk sound words" data-new="0" data-free="0" data-text="кто как говорит: ферма звукоподражания и первые слова: настоящие голоса животных и звуки транспорта, 2 набора с игрой на угадывание. звукоподражания первые слова слуховое внимание"><a class="cv" href="/games/ferma/" tabindex="-1"><img src="/platform/img/g/ferma.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Кто как говорит: ферма</h3><p>Звукоподражания и первые слова: настоящие голоса животных и звуки транспорта, 2 набора с игрой на угадывание.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>звукоподражания</span><span>первые слова</span><span>слуховое внимание</span></div></div><a class="btn line small" href="/games/ferma/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="talk words" data-new="0" data-free="0" data-text="хочу! функциональная коммуникация: ребёнок учится просить «дай» словом, жестом или картинкой. просьба коммуникация первые слова"><a class="cv" href="/games/hochu/" tabindex="-1"><img src="/platform/img/g/hochu.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Хочу!</h3><p>Функциональная коммуникация: ребёнок учится просить «дай» словом, жестом или картинкой.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>просьба</span><span>коммуникация</span><span>первые слова</span></div></div><a class="btn line small" href="/games/hochu/">Открыть игру</a></div></article><aside class="ad"><img src="/platform/img/alexandra.webp" alt="Александра Карачинцева"><div><b>Не знаете, что делать дальше?</b><p>Можно разобрать вашу ситуацию на консультации у Александры.</p><a class="btn light small" href="/aleksandra-karachintseva/contact/">Записаться</a></div></aside><article class="gc" data-stage="launch" data-skills="talk" data-new="1" data-free="0" data-text="повтори за мной подражание: хлопаем, топаем, двигаем пальчиками и губами вслед за тёмой. 20 движений, 4 уровня. подражание моторика мимика"><a class="cv" href="/games/povtori-za-mnoj/" tabindex="-1"><img src="/platform/img/g/povtori-za-mnoj.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Повтори за мной</h3><p>Подражание: хлопаем, топаем, двигаем пальчиками и губами вслед за Тёмой. 20 движений, 4 уровня.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>подражание</span><span>моторика</span><span>мимика</span></div></div><a class="btn line small" href="/games/povtori-za-mnoj/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="talk sound" data-new="1" data-free="0" data-text="раз, два, три… пауза! всё замирает и ждёт сигнала ребёнка: взгляда, жеста или звука. 8 сценок. инициатива общение первые звуки"><a class="cv" href="/games/raz-dva-tri-pauza/" tabindex="-1"><img src="/platform/img/g/raz-dva-tri-pauza.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Раз, два, три… пауза!</h3><p>Всё замирает и ждёт сигнала ребёнка: взгляда, жеста или звука. 8 сценок.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>инициатива</span><span>общение</span><span>первые звуки</span></div></div><a class="btn line small" href="/games/raz-dva-tri-pauza/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="words story" data-new="1" data-free="0" data-text="съедобное — несъедобное кормим мишку и отвечаем «это едят?» словом, кивком или жестом. понимание речи «да» и «нет» словарь"><a class="cv" href="/games/sedobnoe-nesedobnoe/" tabindex="-1"><img src="/platform/img/g/sedobnoe-nesedobnoe.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Съедобное — несъедобное</h3><p>Кормим мишку и отвечаем «это едят?» словом, кивком или жестом.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>понимание речи</span><span>«да» и «нет»</span><span>словарь</span></div></div><a class="btn line small" href="/games/sedobnoe-nesedobnoe/">Открыть игру</a></div></article><article class="gc" data-stage="launch" data-skills="hear talk words" data-new="1" data-free="0" data-text="найди такой же одинаковые картинки, тени и разные предметы с одним названием. 3 уровня. внимание сопоставление обобщение"><a class="cv" href="/games/najdi-takoj-zhe/" tabindex="-1"><img src="/platform/img/g/najdi-takoj-zhe.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s1">Этап 1 · Запуск речи</span><h3>Найди такой же</h3><p>Одинаковые картинки, тени и разные предметы с одним названием. 3 уровня.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>внимание</span><span>сопоставление</span><span>обобщение</span></div></div><a class="btn line small" href="/games/najdi-takoj-zhe/">Открыть игру</a></div></article></div></section><section class="sec s2" data-sec="syllables" id="syllables"><div class="sh"><img src="/platform/img/nav/an_duck.png" alt=""><div><h2>Слоги и первые слова</h2><p>Артикуляция, слоги, первые слова и фразы.</p></div></div><div class="grid"><article class="gc" data-stage="syllables" data-skills="hear sound" data-new="0" data-free="0" data-text="найди пару внимание и зрительная память с проговариванием слов по слогам. 4 уровня. внимание память слова по слогам"><a class="cv" href="/games/najdi-paru/" tabindex="-1"><img src="/platform/img/g/najdi-paru.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Найди пару</h3><p>Внимание и зрительная память с проговариванием слов по слогам. 4 уровня.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>внимание</span><span>память</span><span>слова по слогам</span></div></div><a class="btn line small" href="/games/najdi-paru/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="sound" data-new="0" data-free="0" data-text="слоговая структура слова слова от «дом» до «крокодил»: слогоделение и воспроизведение слоговой структуры. 24 слова, 4 уровня. слоговая структура слогоделение 4 уровня"><a class="cv" href="/games/slogovaya-struktura/" tabindex="-1"><img src="/platform/img/g/slogovaya-struktura.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Слоговая структура слова</h3><p>Слова от «дом» до «крокодил»: слогоделение и воспроизведение слоговой структуры. 24 слова, 4 уровня.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>слоговая структура</span><span>слогоделение</span><span>4 уровня</span></div></div><a class="btn line small" href="/games/slogovaya-struktura/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="sound" data-new="0" data-free="0" data-text="звуки и слоги: логопед показывает гласные, прямые слоги, цепочки па-та-ка, глухие и звонкие. ведёт взрослый, ребёнок повторяет. артикуляция слоги па-та-ка"><a class="cv" href="/games/zvuki-i-slogi/" tabindex="-1"><img src="/platform/img/g/zvuki-i-slogi.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Звуки и слоги: логопед показывает</h3><p>Гласные, прямые слоги, цепочки ПА-ТА-КА, глухие и звонкие. Ведёт взрослый, ребёнок повторяет.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>артикуляция</span><span>слоги</span><span>ПА-ТА-КА</span></div></div><a class="btn line small" href="/games/zvuki-i-slogi/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="talk words" data-new="1" data-free="1" data-text="первые слова «дай», «ещё», «помоги», «открой», «всё»: слово или жест меняет картинку. первые слова просьба жесты"><a class="cv" href="/games/pervye-slova/" tabindex="-1"><img src="/platform/img/g/pervye-slova.jpg" alt="" loading="lazy"><span class="badge">Бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Первые слова</h3><p>«Дай», «ещё», «помоги», «открой», «всё»: слово или жест меняет картинку.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>первые слова</span><span>просьба</span><span>жесты</span></div></div><a class="btn main small" href="/games/pervye-slova/">Играть бесплатно</a></div></article><article class="gc" data-stage="syllables" data-skills="words" data-new="1" data-free="0" data-text="ку-ку! кто там? прячутся мама, папа и киса. учимся говорить «тут», «там», «вот». первые слова указательный жест"><a class="cv" href="/games/ku-ku-kto-tam/" tabindex="-1"><img src="/platform/img/g/ku-ku-kto-tam.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Ку-ку! Кто там?</h3><p>Прячутся мама, папа и киса. Учимся говорить «тут», «там», «вот».</p><div class="tr"><b>Тренируем</b><div class="tags"><span>первые слова</span><span>указательный жест</span></div></div><a class="btn line small" href="/games/ku-ku-kto-tam/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="talk voice sound" data-new="1" data-free="0" data-text="ой! бах! ням! живые сценки с короткими словами: бах, ой, ух, ням-ням, буль-буль, кап-кап. восклицания подражание голосу"><a class="cv" href="/games/oj-bah-nyam/" tabindex="-1"><img src="/platform/img/g/oj-bah-nyam.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Ой! Бах! Ням!</h3><p>Живые сценки с короткими словами: бах, ой, ух, ням-ням, буль-буль, кап-кап.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>восклицания</span><span>подражание голосу</span></div></div><a class="btn line small" href="/games/oj-bah-nyam/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="hear sound" data-new="1" data-free="0" data-text="барабанчик мишка отбивает ритм, ребёнок повторяет: от ударов к словам по слогам. ритм слоги слуховое внимание"><a class="cv" href="/games/barabanchik/" tabindex="-1"><img src="/platform/img/g/barabanchik.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Барабанчик</h3><p>Мишка отбивает ритм, ребёнок повторяет: от ударов к словам по слогам.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>ритм</span><span>слоги</span><span>слуховое внимание</span></div></div><a class="btn line small" href="/games/barabanchik/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="words" data-new="1" data-free="0" data-text="договори словечко стишки с живыми героями: ребёнок договаривает звук или слово, и герой радуется. договаривание рифма словарь"><a class="cv" href="/games/dogovori-slovechko/" tabindex="-1"><img src="/platform/img/g/dogovori-slovechko.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Договори словечко</h3><p>Стишки с живыми героями: ребёнок договаривает звук или слово, и герой радуется.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>договаривание</span><span>рифма</span><span>словарь</span></div></div><a class="btn line small" href="/games/dogovori-slovechko/">Открыть игру</a></div></article><article class="gc" data-stage="syllables" data-skills="gram" data-new="1" data-free="0" data-text="первая фраза «мама, дай», «ещё сок», «киса спит»: две картинки, и сценка оживает. фраза два слова глаголы"><a class="cv" href="/games/pervaya-fraza/" tabindex="-1"><img src="/platform/img/g/pervaya-fraza.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span><span class="newb">Новое</span></a><div class="gb"><span class="st s2">Этап 2 · Слоги и первые слова</span><h3>Первая фраза</h3><p>«Мама, дай», «ещё сок», «киса спит»: две картинки, и сценка оживает.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>фраза</span><span>два слова</span><span>глаголы</span></div></div><a class="btn line small" href="/games/pervaya-fraza/">Открыть игру</a></div></article></div></section><section class="sec s3" data-sec="develop" id="develop"><div class="sh"><img src="/platform/img/nav/sprite_mt_a_read.png" alt=""><div><h2>Развитие речи</h2><p>Слова, предложения, понимание и рассказ.</p></div></div><div class="grid"><article class="gc" data-stage="develop" data-skills="gram" data-new="0" data-free="1" data-text="где мячик? предлоги «в», «на», «под», «за», «около» и пространственные представления. 7 комнат. предлоги пространство фразы"><a class="cv" href="/games/gde-myachik/" tabindex="-1"><img src="/platform/img/g/gde-myachik.jpg" alt="" loading="lazy"><span class="badge">Бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Где мячик?</h3><p>Предлоги «в», «на», «под», «за», «около» и пространственные представления. 7 комнат.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>предлоги</span><span>пространство</span><span>фразы</span></div></div><a class="btn main small" href="/games/gde-myachik/">Играть бесплатно</a></div></article><article class="gc" data-stage="develop" data-skills="story" data-new="0" data-free="0" data-text="рассказываем по картинкам связная речь: ответы на вопросы, рассказ по сюжетной картинке, пересказ. 6 картинок. связная речь рассказ глаголы"><a class="cv" href="/games/rasskazyvaem-po-kartinkam/" tabindex="-1"><img src="/platform/img/g/rasskazyvaem-po-kartinkam.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Рассказываем по картинкам</h3><p>Связная речь: ответы на вопросы, рассказ по сюжетной картинке, пересказ. 6 картинок.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>связная речь</span><span>рассказ</span><span>глаголы</span></div></div><a class="btn line small" href="/games/rasskazyvaem-po-kartinkam/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="words story" data-new="0" data-free="0" data-text="туалетные дела тёмы последовательность действий и рассказ по серии картинок: туалет, гигиена, мытьё рук. 2 истории: 9 и 6 эпизодов. последовательность рассказ бытовой словарь"><a class="cv" href="/games/tualetnye-dela-tyomy/" tabindex="-1"><img src="/platform/img/g/tualetnye-dela-tyomy.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Туалетные дела Тёмы</h3><p>Последовательность действий и рассказ по серии картинок: туалет, гигиена, мытьё рук. 2 истории: 9 и 6 эпизодов.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>последовательность</span><span>рассказ</span><span>бытовой словарь</span></div></div><a class="btn line small" href="/games/tualetnye-dela-tyomy/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="gram story" data-new="0" data-free="0" data-text="один день в детском саду предлоги и падежи, ответы на вопросы и связный рассказ. 8 сцен, режимы «обучение» и «диагностика». предлоги падежи рассказ"><a class="cv" href="/games/den-v-detskom-sadu/" tabindex="-1"><img src="/platform/img/g/den-v-detskom-sadu.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Один день в детском саду</h3><p>Предлоги и падежи, ответы на вопросы и связный рассказ. 8 сцен, режимы «Обучение» и «Диагностика».</p><div class="tr"><b>Тренируем</b><div class="tags"><span>предлоги</span><span>падежи</span><span>рассказ</span></div></div><a class="btn line small" href="/games/den-v-detskom-sadu/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="gram" data-new="0" data-free="0" data-text="чья вещь? кому отдадим? род, число и падежи, притяжательные местоимения (чей, чья, чьё, чьи). 4 уровня. согласование падежи род и число"><a class="cv" href="/games/chya-veshch/" tabindex="-1"><img src="/platform/img/g/chya-veshch.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Чья вещь? Кому отдадим?</h3><p>Род, число и падежи, притяжательные местоимения (чей, чья, чьё, чьи). 4 уровня.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>согласование</span><span>падежи</span><span>род и число</span></div></div><a class="btn line small" href="/games/chya-veshch/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="story" data-new="0" data-free="0" data-text="кто что чувствует? эмоции, их причины и что сказать в трудной ситуации. 8 ситуаций. эмоции причины социальные навыки"><a class="cv" href="/games/kto-chto-chuvstvuet/" tabindex="-1"><img src="/platform/img/g/kto-chto-chuvstvuet.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Кто что чувствует?</h3><p>Эмоции, их причины и что сказать в трудной ситуации. 8 ситуаций.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>эмоции</span><span>причины</span><span>социальные навыки</span></div></div><a class="btn line small" href="/games/kto-chto-chuvstvuet/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="gram story" data-new="0" data-free="0" data-text="что здесь не так? нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок. логика объяснение грамматика"><a class="cv" href="/games/chto-zdes-ne-tak/" tabindex="-1"><img src="/platform/img/g/chto-zdes-ne-tak.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Что здесь не так?</h3><p>Нелепицы: понимание ситуации, объяснение, исправление предложения. 8 картинок.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>логика</span><span>объяснение</span><span>грамматика</span></div></div><a class="btn line small" href="/games/chto-zdes-ne-tak/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="words story" data-new="0" data-free="0" data-text="расскажи по картинке описание предмета по плану: кто это, какой, что есть, где живёт, что делает. 6 карточек, в конце устный рассказ. описание рассказ словарь"><a class="cv" href="/games/rasskazhi-po-kartinke/" tabindex="-1"><img src="/platform/img/g/rasskazhi-po-kartinke.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Расскажи по картинке</h3><p>Описание предмета по плану: кто это, какой, что есть, где живёт, что делает. 6 карточек, в конце устный рассказ.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>описание</span><span>рассказ</span><span>словарь</span></div></div><a class="btn line small" href="/games/rasskazhi-po-kartinke/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="gram" data-new="0" data-free="0" data-text="у него или у неё? местоимения он и она: у него, у неё. 12 заданий с мальчиками и девочками. местоимения род предложения"><a class="cv" href="/games/u-nego-ili-u-neyo/" tabindex="-1"><img src="/platform/img/g/u-nego-ili-u-neyo.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>У него или у неё?</h3><p>Местоимения он и она: у него, у неё. 12 заданий с мальчиками и девочками.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>местоимения</span><span>род</span><span>предложения</span></div></div><a class="btn line small" href="/games/u-nego-ili-u-neyo/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="hear gram" data-new="0" data-free="0" data-text="один — много единственное и множественное число существительных. 10 заданий, задание можно прослушать. число словоизменение слух"><a class="cv" href="/games/odin-mnogo/" tabindex="-1"><img src="/platform/img/g/odin-mnogo.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Один — много</h3><p>Единственное и множественное число существительных. 10 заданий, задание можно прослушать.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>число</span><span>словоизменение</span><span>слух</span></div></div><a class="btn line small" href="/games/odin-mnogo/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="words story" data-new="0" data-free="0" data-text="выбери правильную картинку понимание речи, логика и словарь: чем чистят зубы, на чём спят. 10 заданий. понимание речи словарь логика"><a class="cv" href="/games/vyberi-pravilnuyu-kartinku/" tabindex="-1"><img src="/platform/img/g/vyberi-pravilnuyu-kartinku.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Выбери правильную картинку</h3><p>Понимание речи, логика и словарь: чем чистят зубы, на чём спят. 10 заданий.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>понимание речи</span><span>словарь</span><span>логика</span></div></div><a class="btn line small" href="/games/vyberi-pravilnuyu-kartinku/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="gram story" data-new="0" data-free="0" data-text="кто что делает? связная речь: кто на картинке, что делает, что ещё видно. 10 сюжетных картинок, пример ответа по кнопке. действия полные предложения рассказ"><a class="cv" href="/games/kto-chto-delaet/" tabindex="-1"><img src="/platform/img/g/kto-chto-delaet.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Кто что делает?</h3><p>Связная речь: кто на картинке, что делает, что ещё видно. 10 сюжетных картинок, пример ответа по кнопке.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>действия</span><span>полные предложения</span><span>рассказ</span></div></div><a class="btn line small" href="/games/kto-chto-delaet/">Открыть игру</a></div></article><article class="gc" data-stage="develop" data-skills="talk" data-new="0" data-free="0" data-text="давай познакомимся! игра для первого занятия: оля задаёт вопросы о семье, играх, питомцах и погоде, а потом ребёнок сам задаёт вопросы. 14 тем без неправильных ответов. знакомство диалог задай вопрос"><a class="cv" href="/games/davaj-poznakomimsya/" tabindex="-1"><img src="/platform/img/g/davaj-poznakomimsya.jpg" alt="" loading="lazy"><span class="badge part">Часть заданий бесплатно</span></a><div class="gb"><span class="st s3">Этап 3 · Развитие речи</span><h3>Давай познакомимся!</h3><p>Игра для первого занятия: Оля задаёт вопросы о семье, играх, питомцах и погоде, а потом ребёнок сам задаёт вопросы. 14 тем без неправильных ответов.</p><div class="tr"><b>Тренируем</b><div class="tags"><span>знакомство</span><span>диалог</span><span>задай вопрос</span></div></div><a class="btn line small" href="/games/davaj-poznakomimsya/">Открыть игру</a></div></article></div></section></div>
+  <div class="empty" id="empty" hidden><h3>Ничего не нашлось</h3><p>Попробуйте убрать один из фильтров.</p></div>  <div class="sub"><div><b>Все игры по одной подписке</b><span>Первый месяц 299&nbsp;₽ для новых подписчиков, дальше 399&nbsp;₽ в месяц. Продление автоматическое.</span></div><a class="btn main" href="/#price">Посмотреть тарифы</a></div>
 </main>
+<footer><div class="w"><span>© Игровой логопед</span><a href="/aleksandra-karachintseva/">Александра Карачинцева</a><a href="/aleksandra-karachintseva/contact/">Консультации и услуги</a><a href="/aleksandra-karachintseva/products/">Курс и руководства</a><a href="/articles/">Статьи для родителей</a><a href="/oferta/">Оферта</a><a href="/privacy/">Конфиденциальность</a><a href="/payment/">Оплата и возврат</a><p class="req2">© Александра Карачинцева, самозанятая, ИНН 910317008120. <a href="mailto:igrovoylogoped@gmail.com">igrovoylogoped@gmail.com</a> · <a href="tel:+79268669907">+7 926 866-99-07</a>. Материалы сайта не заменяют консультацию специалиста.</p></div></footer>
 <script>
-/* По 6 занятий на странице, стрелки влево-вправо, точки, свайп и клавиши */
 (function(){
-  var size=parseInt(new URLSearchParams(location.search).get("pp"),10)||6;
-  document.querySelectorAll("[data-pager]").forEach(function(box){
-    var items=Array.prototype.slice.call(box.children);
-    var soon=items.filter(function(e){return e.classList.contains("soon");});
-    var cards=items.filter(function(e){return !e.classList.contains("soon");});
-    var pages=[]; for(var i=0;i<cards.length;i+=size) pages.push(cards.slice(i,i+size));
-    if(pages.length<2) return;
-    var last=pages[pages.length-1]; if(last.length<size) soon.forEach(function(s){last.push(s);});
-    else if(soon.length) pages.push(soon);
-    var cur=0, nav=document.createElement("div"); nav.className="pgnav";
-    nav.innerHTML='<button class="pgbtn" type="button" aria-label="Назад">‹</button><div class="pgdots"></div><span class="pgcount"></span><button class="pgbtn" type="button" aria-label="Вперёд">›</button>';
-    box.parentNode.insertBefore(nav,box.nextSibling);
-    var prev=nav.children[0], next=nav.children[3], dots=nav.children[1], cnt=nav.children[2];
-    pages.forEach(function(_,i){var d=document.createElement("i"); d.onclick=function(){go(i);}; dots.appendChild(d);});
-    function go(n){
-      cur=Math.max(0,Math.min(pages.length-1,n));
-      items.forEach(function(e){e.style.display="none";});
-      pages[cur].forEach(function(e,k){e.style.display=""; e.style.setProperty("--d",(k*0.08)+"s");});
-      Array.prototype.forEach.call(dots.children,function(d,i){d.className=i===cur?"on":"";});
-      cnt.textContent=(cur+1)+" / "+pages.length; prev.disabled=cur===0; next.disabled=cur===pages.length-1;
-    }
-    prev.onclick=function(){go(cur-1);}; next.onclick=function(){go(cur+1);};
-    var x0=null; box.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;},{passive:true});
-    box.addEventListener("touchend",function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>60) go(cur+(dx<0?1:-1)); x0=null; },{passive:true});
-    box.setAttribute("tabindex","0"); box.addEventListener("keydown",function(e){ if(e.key==="ArrowRight") go(cur+1); if(e.key==="ArrowLeft") go(cur-1); });
-    go(0);
+var st='',skill='',flags={},q=document.getElementById('q');
+var cards=[].slice.call(document.querySelectorAll('.gc'));
+var norm=function(s){return s.toLowerCase().replace(/ё/g,'е').replace(/\u00a0/g,' ').trim()};
+function fits(c,s,k){
+  var d=c.dataset,text=norm(q.value);
+  return (!s||d.stage===s)&&(!k||d.skills.split(' ').indexOf(k)>-1)&&(!flags.free||d.free==='1')&&(!flags.new||d.new==='1')&&(!text||norm(d.text).indexOf(text)>-1);
+}
+function word(n){var a=n%10,b=n%100;return a===1&&b!==11?'игра':(a>1&&a<5&&(b<12||b>14)?'игры':'игр')}
+function draw(){
+  var n=0;cards.forEach(function(c){var ok=fits(c,st,skill);c.hidden=!ok;if(ok)n++});
+  var any=st||skill||flags.free||flags.new||q.value;
+  document.getElementById('count').textContent=any?'Найдено: '+n+' '+word(n):'';
+  document.querySelectorAll('.sec').forEach(function(x){x.hidden=!x.querySelector('.gc:not([hidden])')});
+  document.getElementById('reset').hidden=!any;
+  document.getElementById('empty').hidden=n>0;
+  document.getElementById('nyc').hidden=!!any;
+  var ad=document.querySelector('.ad');if(ad)ad.hidden=!!any;
+  document.querySelectorAll('.sk').forEach(function(b){
+    var m=cards.filter(function(c){return fits(c,st,b.dataset.v)}).length;
+    b.querySelector('i').textContent=m+' '+word(m);b.disabled=!m&&skill!==b.dataset.v;
+    b.classList.toggle('on',skill===b.dataset.v);b.setAttribute('aria-pressed',skill===b.dataset.v);
   });
+  document.querySelectorAll('.chip[data-g=flag]').forEach(function(b){var on=!!flags[b.dataset.v];b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
+  document.querySelectorAll('.age').forEach(function(b){b.classList.toggle('on',b.dataset.v===st);b.classList.toggle('off',!!st&&b.dataset.v!==st);b.setAttribute('aria-pressed',b.dataset.v===st);
+    b.querySelector('.go').textContent=b.dataset.v===st?'Выбрано · нажмите, чтобы снять':'Показать игры ↓'});
+  document.querySelectorAll('.mini button').forEach(function(b){b.classList.toggle('on',b.dataset.v===st)});
+}
+function toList(){document.getElementById('info').scrollIntoView({behavior:'smooth',block:'start'})}
+document.querySelectorAll('.age').forEach(function(b){b.addEventListener('click',function(){st=st===b.dataset.v?'':b.dataset.v;draw();if(st)setTimeout(toList,250)})});
+document.querySelectorAll('.mini button').forEach(function(b){b.addEventListener('click',function(){st=b.dataset.v;skill='';draw();toList()})});
+document.querySelectorAll('.sk').forEach(function(b){b.addEventListener('click',function(){skill=skill===b.dataset.v?'':b.dataset.v;draw();if(skill)setTimeout(toList,250)})});
+document.querySelectorAll('.chip[data-g=flag]').forEach(function(b){b.addEventListener('click',function(){flags[b.dataset.v]=!flags[b.dataset.v];draw()})});
+var mn=document.getElementById('mini'),ag=document.getElementById('ages');
+addEventListener('scroll',function(){mn.classList.toggle('show',ag.getBoundingClientRect().bottom<70)},{passive:true});
+q.addEventListener('input',draw);
+document.getElementById('reset').addEventListener('click',function(){st='';skill='';flags={};q.value='';draw()});
+var u=new URLSearchParams(location.search);st=u.get('stage')||'';if(u.get('free'))flags.free=true;
+draw();
 })();
 </script>
-<style>
-.appnote{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;max-width:460px;margin:0 auto;background:#fffaf1;color:#4a3b2e;border-radius:20px;box-shadow:0 14px 40px rgba(80,50,10,.3);padding:14px 16px;display:none;gap:12px;align-items:flex-start;font:600 15px/1.4 Nunito,system-ui,sans-serif}
-.appnote.show{display:flex;animation:appin .4s ease}
-@keyframes appin{from{opacity:0;transform:translateY(20px)}}
-.appnote b{display:block;font-size:16px;margin-bottom:2px}
-.appnote .ax{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:#f5e6cf;font-size:20px;cursor:pointer;color:#4a3b2e}
-.appnote .ai{flex:none;font-size:26px;line-height:1}
-.appnote .ab{display:inline-block;margin-top:8px;border:0;border-radius:999px;background:#f0a62b;color:#fff;font:800 15px Nunito,system-ui,sans-serif;padding:10px 18px;cursor:pointer}
-.homebtn{display:inline-block;margin:0 0 10px;color:var(--ink2);font-weight:800;text-decoration:none;background:var(--card);padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}.homebtn:hover{color:var(--ink)}</style>
-<div class="appnote" id="appnote" role="note"><span class="ai" id="appi"></span><div id="appt" style="flex:1"></div><button class="ax" id="appx" aria-label="Закрыть">×</button></div>
+<script src="/platform/typo.js"></script>
 <script>
 (function(){
-  try{
-    var ua=navigator.userAgent||"", mobile=/Android|iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua));
-    var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
-    if(!mobile||standalone) return;
-    var ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua)), android=/Android/i.test(ua);
-    var inApp=/Instagram|FBAN|FBAV|Telegram|VKClient|VK\/|MAX\/|Line\/|; wv\)|OKApp|TikTok|Snapchat/i.test(ua)||(ios&&!/Safari\//.test(ua));
-    var key="appnote_"+(inApp?"b":"i"), now=Date.now();
-    try{ var t=+localStorage.getItem(key)||0; if(now-t<7*864e5) return; }catch(e){}
-    var box=document.getElementById("appnote"), tx=document.getElementById("appt"), ic=document.getElementById("appi"), deferred=null;
-    function show(i,h){ ic.textContent=i; tx.innerHTML=h; box.classList.add("show"); }
-    var onlyIn=document.body.getAttribute("data-appnote")==="inapp";
-    if(inApp){
-      show("🌐","<b>Откройте в "+(ios?"Safari":"Chrome")+"</b>Нажмите «⋯» или значок браузера и выберите «Открыть в "+(ios?"Safari":"браузере")+"». Так упражнения идут быстрее и звук работает.");
-    } else if(!onlyIn){
-      if(ios) show("⬆️","<b>Как приложение, на весь экран</b>Нажмите «Поделиться» внизу Safari и выберите «На экран Домой». Значок появится рядом с другими приложениями.");
-      else if(android){
-        window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; show("📲","<b>Как приложение, на весь экран</b>Значок на главном экране, без вкладок и адресной строки.<br><button class=\"ab\" id=\"appgo\">Установить</button>"); document.getElementById("appgo").onclick=function(){ deferred.prompt(); box.classList.remove("show"); }; });
-        setTimeout(function(){ if(!box.classList.contains("show")) show("📲","<b>Как приложение, на весь экран</b>Откройте меню Chrome «⋮» и выберите «Установить приложение» (или «Добавить на главный экран»)."); },2500);
-      }
-    }
-    document.getElementById("appx").onclick=function(){ box.classList.remove("show"); try{localStorage.setItem(key,String(Date.now()));}catch(e){} };
-  }catch(e){}
+/* старые ссылки вида /games/#launch */
+function go(){var k=location.hash.slice(1),b=document.querySelector('.age[data-v="'+k+'"]');if(b&&!b.classList.contains('on'))b.click()}
+go();addEventListener('hashchange',go);
+if(Date.now()>Date.parse("2026-12-31T23:59:59+03:00")){var n=document.querySelector('.nyc');if(n)n.remove()}
 })();
 </script>
-<div class="dn" id="dn" role="dialog" aria-modal="true" aria-labelledby="dnh"><div class="dn-in"><div class="dn-ic">💻</div><h2 id="dnh">Упражнения лучше на большом экране</h2><p>Мы рекомендуем заниматься с <b>компьютера или планшета</b>: картинки крупнее, а ребёнку удобнее нажимать и слушать.</p><button type="button" id="dnok">Всё равно продолжить</button><small>Можно вернуться позже с компьютера</small></div></div>
-<script>
-(function(){try{
-  var ua=navigator.userAgent||"";
-  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone|Mobile Safari/i.test(ua)||(Math.min(screen.width,screen.height)<600);
-  if(!phone) return;
-  try{if(sessionStorage.getItem("dn_ok")) return;}catch(e){}
-  var b=document.getElementById("dn"); b.classList.add("show"); document.documentElement.style.overflow="hidden";
-  document.getElementById("dnok").onclick=function(){b.classList.remove("show");document.documentElement.style.overflow="";try{sessionStorage.setItem("dn_ok","1");}catch(e){}};
-}catch(e){}})();
-</script><!--lock--><script src="lock.js"></script><!--/lock-->
-<!--lock--><style>.cab-btn{position:absolute;z-index:75;display:inline-flex;align-items:center;gap:6px;font:800 14px/1 Nunito,system-ui,sans-serif;color:#194F52;background:#fffaf0;border-radius:999px;box-shadow:0 6px 16px rgba(90,60,20,.16);padding:11px 16px;text-decoration:none;white-space:nowrap;right:16px;top:14px}@media (max-width:700px){.cab-btn{right:10px;top:8px;padding:9px 12px;font-size:13px}main{padding-top:52px!important}}</style><a class="cab-btn" href="kabinet/">👤 <span>Мой кабинет</span></a><!--/lock-->
-<script src="ux.js"></script>
+<!--lock--><script src="lock.js"></script><!--/lock-->
+<script src="/platform/platform.js"></script>
 </body>
 </html>

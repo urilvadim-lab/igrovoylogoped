@@ -1,6 +1,6 @@
 /* Меню, подвал, нижняя панель, плавающие мессенджеры, видео-кейс, дипломы. Корень сайта: <body data-root="../"> */
 (function(){
-  var root=document.body.getAttribute("data-root")||"";
+  var root="/", PERSONAL="/aleksandra-karachintseva/", isMine=location.pathname.indexOf(PERSONAL)===0;
   var cur=document.body.getAttribute("data-page")||"";
   var chev='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
   var svc=[["work","Индивидуальная работа","Консультации, сопровождение, группа","work/"],["toilet","Туалетный навык","Курс, руководство и сопровождение","toilet/"],["speech","Запуск речи","От первых звуков до фраз","speech/"],["behavior","Работа с поведением","Истерики, отказы, правила","behavior/"],["abroad","Для семей за границей","Онлайн из любой страны","abroad/"]];
@@ -37,6 +37,10 @@
       '<div class="dock"><a class="v" href="https://vk.ru/id286171382" target="_blank" rel="noopener">VK</a><a class="g" href="'+root+'games/">Упражнения</a><a class="a js-choose" data-topic="Хочу записаться на консультацию" href="'+root+'contact/">Записаться</a></div>'+
       '<div class="fab"><a class="fv" href="https://vk.ru/id286171382" target="_blank" rel="noopener" aria-label="Написать в VK">'+VK+'<span>VK</span></a><a class="ft" href="https://t.me/rechi_igra" target="_blank" rel="noopener" aria-label="Написать в Telegram">'+TG+'<span>Telegram</span></a><a class="fm" href="'+MAXL+'" target="_blank" rel="noopener" aria-label="Написать в MAX">'+MX+'<span>MAX</span></a></div>';
   }
+  var MOVED=/^\/(work|about|team|speech|behavior|toilet|aba|contact|products)\//;
+  [].forEach.call(document.querySelectorAll("#nav a, #foot a"),function(a){var h=a.getAttribute("href")||""; if(MOVED.test(h)) a.setAttribute("href",PERSONAL+h.slice(1));});
+  var lg=document.querySelector("#nav a.logo"); if(lg&&isMine){lg.setAttribute("href",PERSONAL); lg.innerHTML="<b>Александра Карачинцева</b>";}
+  var gm=document.querySelector("#nav a.games"); if(gm){var tf=gm.querySelector(".tagfree"); if(tf) tf.remove(); gm.lastChild.textContent="Игры";}
   var els=document.querySelectorAll(".rv");
   if("IntersectionObserver" in window){ var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });},{threshold:.12}); els.forEach(function(e){io.observe(e);}); }
   else els.forEach(function(e){e.classList.add("in");});
